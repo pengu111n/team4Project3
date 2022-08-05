@@ -20,6 +20,11 @@
 			<id>oracle</id>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>https://maven.atlassian.com/3rdparty/</url>
+		</repository>
 	</repositories>
 	<!-- lab1 end -->
 	

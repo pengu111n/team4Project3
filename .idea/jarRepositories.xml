@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="mesir-repo" />
+      <option name="name" value="mesir-repo" />
+      <option name="url" value="http://mesir.googlecode.com/svn/trunk/mavenrepo" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -20,6 +25,11 @@
       <option name="id" value="oracle" />
       <option name="name" value="oracle" />
       <option name="url" value="http://maven.jahia.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="oracle" />
+      <option name="name" value="ORACLE JDBC Repository" />
+      <option name="url" value="https://maven.atlassian.com/3rdparty/" />
     </remote-repository>
   </component>
 </project>
