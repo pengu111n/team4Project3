@@ -13,7 +13,7 @@
 
 	<select id="read" resultType="domain.BoardVO">
 		select
-			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,image
+			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,image,require
 		from
 			board
 		where boardNo = #{boardNo}

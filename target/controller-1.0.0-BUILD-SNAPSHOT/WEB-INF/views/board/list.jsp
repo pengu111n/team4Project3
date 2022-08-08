@@ -69,8 +69,8 @@
 
 		<tr>
 			<td>${item.boardNo}</td>
-			<td>${item.writer.nickname}</td>
-			<td>${item.part}123</td>
+			<td>${item.nickname}</td>
+			<td>${item.part}</td>
 			<td><a href='/board/read?boardNo=${item.boardNo}'>${item.title}</td>
 			<td>${item.address}</td>
 			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"

@@ -69,7 +69,7 @@
 
 		<tr>
 			<td>${item.boardNo}</td>
-			<td>${item.writer.nickname}</td>
+			<td>${item.nickname}</td>
 			<td>${item.part}</td>
 			<td><a href='/board/read?boardNo=${item.boardNo}'>${item.title}</td>
 			<td>${item.address}</td>

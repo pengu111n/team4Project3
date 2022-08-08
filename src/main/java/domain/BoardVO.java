@@ -4,7 +4,18 @@ import java.util.Date;
 
 public class BoardVO {
 	private Integer boardNo;
-	private Writer writer;
+	private String id;
+
+	private String nickname;
+
+	private int memNo;
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private String title;
 	private Date regDate;
 	private Date modifiedDate;
@@ -22,9 +33,16 @@ public class BoardVO {
 	public Integer getBoardNo() {
 		return boardNo;
 	}
-	public Writer getWriter() {
-		return writer;
+	public String getId() {
+		return id;
 	}
+	public String getNickname() {
+		return nickname;
+	}
+	public int getMemNo() {
+		return memNo;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -69,9 +87,7 @@ public class BoardVO {
 	public void setBoardNo(Integer boardNo) {
 		this.boardNo = boardNo;
 	}
-	public void setWriter(Writer writer) {
-		this.writer = writer;
-	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
