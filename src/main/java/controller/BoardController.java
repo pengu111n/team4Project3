@@ -26,7 +26,25 @@ public class BoardController {
 	@Inject
 	private BoardService boardService;
 
-		@RequestMapping(value = "/list")
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public void registerGET(BoardVO board, Model model) throws Exception {
+		logger.info("writeBoard get ...........");
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registPOST(BoardVO board,  RedirectAttributes rttr) throws Exception {
+
+		logger.info("regist post ...........");
+		logger.info(board.toString());
+
+		boardService.regist(board);
+		rttr.addFlashAttribute("msg","success");
+
+		return "redirect:/board/list";
+	}
+
+	@RequestMapping(value = "/list")
 	public void boardList(Model model) throws Exception {
 		logger.info("// /board/list");
 

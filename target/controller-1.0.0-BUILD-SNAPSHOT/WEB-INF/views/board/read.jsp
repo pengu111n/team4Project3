@@ -172,7 +172,6 @@
         <th class="text-center">요청사항</th>
         <%-- 					<td><c:out value='${boardData.board.require}' /></td> --%>
         <td>${fn:replace(boardVO.require, cn, br)}</td>
-        <td>${boardVO.require}</td>
       </tr>
       </tbody>
     </table>
