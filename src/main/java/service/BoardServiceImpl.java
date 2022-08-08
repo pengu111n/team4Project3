@@ -1,27 +1,42 @@
 package service;
 
-import java.util.List;
-
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import domain.BoardVO;
-import mapper.BoardMapper;
+import org.springframework.stereotype.Service;
+import persistence.BoardDAO;
+
+import javax.inject.Inject;
+import java.util.List;
 
 @Service
 //@Configuration
 //@MapperScan("mapper")
 public class BoardServiceImpl implements BoardService {
-	@Autowired
-	private BoardMapper boardMapper;
+	@Inject
+	private BoardDAO dao;
 
 	@Override
-	@Transactional
-	public List<BoardVO> selectBoardList() throws Exception {
-		return boardMapper.selectBoardList();
+	public void regist(BoardVO board) throws Exception {
+		dao.create(board);
+	}
+
+	@Override
+	public BoardVO read(Integer bno) throws Exception {
+		return dao.read(bno);
+	}
+
+	@Override
+	public void modify(BoardVO board) throws Exception {
+		dao.update(board);
+	}
+
+	@Override
+	public void remove(Integer bno) throws Exception {
+		dao.delete(bno);
+	}
+
+	@Override
+	public List<BoardVO> listAll() throws Exception {
+		return dao.listAll();
 	}
 
 }

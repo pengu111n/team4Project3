@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.BoardMapper">
 
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
-	<select id="selectBoardList" resultType="domain.BoardVO">
-		SELECT NUM
-		, NAME
-		, TITLE
-		, CONTENT
-		, READCOUNT
-		, WRITEDATE
-		FROM BOARD
-		ORDER BY NUM DESC
+	<insert id="create">
+		insert into board (boardNo, title,regDate ,modifiedDate,category, address, area,startDate,endDate,budget,part,require,image)
+		values (board_seq.NEXTVAL,#{title},sysdate,sysdate,#{category},#{address},#{area},#{startDate},#{endDate},#{budget},#{part},#{require},#{image})
+	</insert>
+
+	<select id="read" resultType="domain.BoardVO">
+		select
+			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,image
+		from
+			board
+		where boardNo = #{boardNo}
 	</select>
-	
-	<select id="selectBoardList2" resultType="domain.BoardVO">
-		SELECT NUM
-		, NAME
-		, TITLE
-		, CONTENT
-		, READCOUNT
-		, WRITEDATE
-		FROM BOARD
-		WHERE NUM=2
-		ORDER BY NUM DESC
+
+	<update id="update">
+		update board set title = #{title},
+						 category = #{category},
+						 address = #{address},
+						 area = #{area} ,
+						 startDate = #{startDate},
+						 endDate= #{endDate},
+						 budget= #{budget},
+						 part= #{part},
+						 require= #{require},
+						 image= #{image}
+		where boardNo = #{boardNo}
+	</update>
+
+	<delete id="delete">
+		delete from board where boardNo = #{boardNo}
+	</delete>
+
+
+	<select id="listAll" resultType="domain.BoardVO">
+		select boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+		from board
+		where boardNo > 0
+		order by boardNo desc, regDate desc
 	</select>
 </mapper>

@@ -40,7 +40,10 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/ArticleContentBox.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
-    </head>
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/Board.css">
+
+</head>
 <body>
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
