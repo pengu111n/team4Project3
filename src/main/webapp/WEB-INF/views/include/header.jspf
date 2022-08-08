@@ -42,6 +42,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/Board.css">
+	<script src="${pageContext.request.contextPath}/resources/jQuery/jQuery-2.1.4.min.js"></script>
 
 </head>
 <body>

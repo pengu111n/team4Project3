@@ -30,6 +30,30 @@
     padding: 10px 20px;
     font-weight: 600;
   }
+  .btn-primary {
+    color: #fff;
+    background-color: #fdc600;
+    border-color: #fdc600;
+    border-radius: 1px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+  .btn-danger {
+    color: #fff;
+    background-color: #fdc600;
+    border-color: #fdc600;
+    border-radius: 1px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+  .btn-warning {
+    color: #fff;
+    background-color: #fdc600;
+    border-color: #fdc600;
+    border-radius: 1px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
 </style>
 
 
@@ -48,6 +72,9 @@
 
 <div class="container">
   <div class="row">
+    <form role="form" method="post">
+      <input type='hidden' name='boardNo' value="${boardVO.boardNo}">
+    </form>
     <table class="table table-bordered margin-space"
            style="border: 1px solid #dddddd">
       <thead>
@@ -181,9 +208,42 @@
       <c:set var="pageNo"
              value="${empty param.pageNo ? '1' : param.pageNo}" />
 
-      <a href="list.do?pageNo=${pageNo}" class="btn btn-primary ">목록</a>
-      <a href="modify.do?no=${boardData.board.boardNo}" class="btn btn-primary">수정</a>
-      <a onclick="return confirm('정말로 삭제하시겠습니까?')"	href="delete.do?no=${boardData.board.boardNo}" class="btn btn-primary">삭제</a>
+      <%--<a href="list.do?pageNo=${pageNo}" class="btn btn-primary ">목록</a>
+      <a href="modify.do?no=${boardData.board.boardNo}" class="btn btn-warning">수정</a>
+      <a onclick="return confirm('정말로 삭제하시겠습니까?')"	href="delete.do?no=${boardData.board.boardNo}" class="btn btn-danger">삭제</a>
+      --%>
+      <div class="box-footer">
+        <button type="submit" class="btn btn-warning">Modify</button>
+        <button type="submit" class="btn btn-danger">REMOVE</button>
+        <button type="submit" class="btn btn-primary">LIST ALL</button>
+      </div>
+
+
+      <script>
+        $(document).ready(function() {
+
+          var formObj = $("form[role='form']");
+
+          console.log(formObj);
+
+          $(".btn-warning").on("click", function() {
+            formObj.attr("action", "/board/modify");
+            formObj.attr("method", "get");
+            formObj.submit();
+          });
+
+          $(".btn-danger").on("click", function() {
+            formObj.attr("action", "/board/remove");
+            formObj.submit();
+          });
+
+          $(".btn-primary").on("click", function() {
+            self.location = "/board/list";
+          });
+
+        });
+      </script>
+
     </div>
     <br>
 
