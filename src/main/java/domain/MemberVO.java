@@ -34,11 +34,13 @@ public class MemberVO {
     private String companyNo;
     @Getter
     @Setter
-    private Date birth;
+    private String birth;
     @Getter
     @Setter
     private Integer rank;
-
+    @Getter
+    @Setter
+    private String name;
 
 
 }
