@@ -129,7 +129,7 @@ function changeRank(){
             dataType : "json",
             data : {"id" : id},
             success : function(data){
-                if(data = 1){
+                if(data == 1){
                     $('#dup').text("중복된 아이디 입니다.");
                 }else{
                     $('#dup').text("사용 가능한 아이디 입니다.");
