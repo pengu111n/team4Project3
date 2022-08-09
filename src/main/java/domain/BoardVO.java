@@ -5,20 +5,11 @@ import java.util.Date;
 public class BoardVO {
 	private Integer boardNo;
 	private String id;
-
 	private String nickname;
-
 	private int memNo;
-
-
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	private String title;
-	private Date regDate;
-	private Date modifiedDate;
+	private String regDate;
+	private String modifiedDate;
 	private String category;
 	private String address;
 	private int area;
@@ -46,10 +37,10 @@ public class BoardVO {
 	public String getTitle() {
 		return title;
 	}
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public Date getModifiedDate() {
+	public String getModifiedDate() {
 		return modifiedDate;
 	}
 	public String getCategory() {
@@ -87,14 +78,13 @@ public class BoardVO {
 	public void setBoardNo(Integer boardNo) {
 		this.boardNo = boardNo;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	public void setModifiedDate(Date modifiedDate) {
+	public void setModifiedDate(String modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 	public void setCategory(String category) {
@@ -126,5 +116,9 @@ public class BoardVO {
 	}
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

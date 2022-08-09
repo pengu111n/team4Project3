@@ -8,7 +8,7 @@
 		있습니다. -->
 	<insert id="create">
 		insert into board (boardNo, title,regDate ,modifiedDate,category, address, area,startDate,endDate,budget,part,require,image)
-		values (board_seq.NEXTVAL,#{title},sysdate,sysdate,#{category},#{address},#{area},#{startDate},#{endDate},#{budget},#{part},#{require},#{image})
+		values (boardNo_seq.NEXTVAL,#{title},sysdate,sysdate,#{category},#{address},#{area},#{startDate},#{endDate},#{budget},#{part},#{require},#{image})
 	</insert>
 
 	<select id="read" resultType="domain.BoardVO">
@@ -41,7 +41,43 @@
 	<select id="listAll" resultType="domain.BoardVO">
 		select boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
 		from board
-		where boardNo > 0
 		order by boardNo desc, regDate desc
 	</select>
+
+<select id="listPage" resultType="domain.BoardVO">
+<![CDATA[
+SELECT
+	boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+FROM board
+WHERE boardNo
+BETWEEN ((#{page}-1)*10+1) AND (#{page}*10)
+order by boardNo desc, regDate desc
+]]>
+</select>
+
+	<select id="listCriteria" resultType="domain.BoardVO">
+ <![CDATA[
+		select  boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+		FROM
+			(
+				SELECT boardNo, nickname, part, title, address, regDate, modifiedDate, view_count,
+					   row_number() over(order by boardNo desc) as rNum
+				from board
+			) mb
+		WHERE rNum
+				  BETWEEN ((#{pageStart}-1)*#{perPageNum}+1) AND (#{pageStart}*#{perPageNum})  order by boardNo desc, regDate desc
+		]]>
+ </select>
+
+	<select id="countPaging" resultType="int">
+ <![CDATA[
+		select
+			count(boardNo)
+		from
+			board
+		where
+			boardNo > 0
+		]]>
+ </select>
+
 </mapper>

@@ -1,5 +1,35 @@
 
 d
 4src/main/webapp/resources/assets/css/reportBoard.css,e\4\e42c4cc9c5b71b2086f98efb7b61f88032928275
+U
+%src/main/java/mapper/BoardMapper.java,e\8\e82a0037be74a0990fcb9409e1c8828fd5344ecd
 e
-5src/main/webapp/WEB-INF/views/board/listBoardForm.jsp,b\6\b60a069d11217ef7b5d594d5902316d82f6f4f4e
+5src/main/webapp/resources/bootstrap/css/bootstrap.css,7\1\71956f6d3770b9b58dc3859d45acd60bfd030909
+^
+.src/main/webapp/resources/assets/css/style.css,f\b\fb2d2fda07996dcbd1dca318d7913a38e1959226
+a
+1src/main/webapp/WEB-INF/views/include/header.jspf,c\a\ca1a8b397b55ba43ff3ccd8f558a5ca50a1e8d1c
+`
+0src/main/webapp/WEB-INF/views/board/register.jsp,a\0\a03cb9a6358de18d3dc8abf9d291b88bb752624b
+^
+.src/main/webapp/WEB-INF/views/board/modify.jsp,a\9\a9c6056f4fc9671bc089fd4d58ef098d1d73cdbe
+^
+.src/main/webapp/WEB-INF/views/error_common.jsp,5\3\537a50a129a6ca3669129c1932d157dbb388c237
+c
+3src/main/java/controller/CommonExceptionAdvice.java,2\a\2ad395a5819ca85d8435644b05001dc74a458e26
+m
+=src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml,d\3\d3e54629b9a71e7b6b2949fb63e8fbc3314079cf
+_
+/src/main/webapp/WEB-INF/spring/root-context.xml,5\2\528c08e315052712c6de729d808bc541b1c5b506
+X
+(src/main/java/domain/SearchCriteria.java,5\5\551fb723fc0d762b6fe3d5ababf1dfdfdb0288e3
+S
+#src/main/java/domain/PageMaker.java,3\8\383008eb4d8ff17df6b1c82a5a05e1fe034579e6
+O
+src/test/java/BoardDAOTest.java,c\4\c4707b93043a5888cf34ce7e30bd868df32351f6
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+Q
+!src/main/java/domain/BoardVO.java,7\b\7b1bb0ba7bc14a0805d42d8b288e66cdaecdce66
+R
+"src/main/java/domain/Criteria.java,0\7\07d20ff20b5579ad2bdfac21ccc093ade30e81e8

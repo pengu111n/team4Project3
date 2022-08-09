@@ -1,6 +1,8 @@
 package persistence;
 
 import domain.BoardVO;
+import domain.Criteria;
+import domain.SearchCriteria;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +10,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Repository
-public class BoardDAOImpl implements BoardDAO{
+public class BoardDAOImpl implements BoardDAO {
 
     @Inject
     private SqlSession session;
@@ -38,6 +40,28 @@ public class BoardDAOImpl implements BoardDAO{
     @Override
     public List<BoardVO> listAll() throws Exception {
         return session.selectList(namespace + ".listAll");
+    }
+
+    @Override
+    public List<BoardVO> listPage(int page) throws Exception {
+        if (page <= 0) {
+            page = 1;
+        }
+
+        page = (page - 1);
+        return session.selectList(namespace + ".listPage", page);
+    }
+
+    @Override
+    public List<BoardVO> listCriteria(Criteria cri) throws Exception {
+
+        return session.selectList(namespace + ".listCriteria", cri);
+    }
+
+    @Override
+    public int countPaging(Criteria cri) throws Exception {
+
+        return session.selectOne(namespace + ".countPaging", cri);
     }
 
 }

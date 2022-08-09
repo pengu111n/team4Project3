@@ -73,8 +73,10 @@
 			<td>${item.part}</td>
 			<td><a href='/board/read?boardNo=${item.boardNo}'>${item.title}</td>
 			<td>${item.address}</td>
+			<fmt:parseDate var='regDate' pattern="yyyy-MM-dd"
+						   value="${item.regDate}" scope="page" />
 			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-								value="${item.regDate}" /></td>
+								value="${regDate}" /></td>
 			<td>${item.view_count}</td>
 		</tr>
 		</c:forEach>
