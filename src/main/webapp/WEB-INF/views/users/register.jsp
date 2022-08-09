@@ -118,19 +118,27 @@ function changeRank(){
 			form.submit();
 		}
 	}
-    function checkId(){
+    var idPass;
+    var idRegex = /^[a-zA-Z0-9]{4,12}$/;
+
+    function idCheck(){
+        var id = $('#id').val();
         $.ajax({
-            url: '/users/register',
-            type: 'post',
-            data: {id:id},
-            success: function(){
-                console.log("SUCCESS");
-            },
-            error:function(){
-                alert("ERROR");
+            url : "/users/idCheck",
+            type : "post",
+            dataType : "json",
+            data : {"id" : id},
+            success : function(data){
+                if(data = 1){
+                    $('#dup').text("중복된 아이디 입니다.");
+                }else{
+                    $('#dup').text("사용 가능한 아이디 입니다.");
+                }
             }
-        });
-    };
+        })
+    }
+
+
 
 </script>
 
@@ -156,7 +164,7 @@ function changeRank(){
                         <div class="form-group">
                             <label for="id">아이디</label>
                             <input type="text" class="form-control" id="id" name="id" placeholder="ID">
-
+                            <button class="btn btn-default idCheckBtn" type="button" onclick="idCheck()">중복확인</button><span id="dup"></span>
                         </div>
                         <div class="form-group">
                             <label for="nickname">닉네임</label>

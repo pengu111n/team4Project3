@@ -20,4 +20,14 @@
 	<delete id="delete">
 		delete from member where memno = #{memno}
 	</delete>
+
+	<select id="login">
+		select * from member
+		where id = #{id} and pw = #{pw}
+	</select>
+
+	<select id="idCheck" resultType="int">
+		select count(*) from member
+		where id = #{id}
+	</select>
 </mapper>

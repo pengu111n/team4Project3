@@ -5,9 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service.MemberService;
 
@@ -26,17 +24,18 @@ public class MemberController {
     public void registerGET(MemberVO member, Model model) throws Exception {
         logger.info("register get ...........");
     }
+@RequestMapping(value = "/register", method = RequestMethod.POST)
+public String registerPOST(MemberVO member, RedirectAttributes rttr) throws Exception {
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerPOST(MemberVO member, RedirectAttributes rttr) throws Exception {
+    logger.info("regist post..........");
+    logger.info(member.toString());
 
-        logger.info("regist post..........");
-        logger.info(member.toString());
+    service.regist(member);
+    rttr.addFlashAttribute("msg", "SUCCESS");
+    return "redirect:/" ;
+}
 
-        service.regist(member);
-        rttr.addFlashAttribute("msg", "SUCCESS");
-        return "redirect:/" ;
-    }
+//    }
 
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     public String remove(@RequestParam("memno") Integer memno, RedirectAttributes rttr) throws Exception{
@@ -58,6 +57,13 @@ public class MemberController {
         service.modify(member);
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/";
+    }
+    @RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+    @ResponseBody
+    public int idCheck(@RequestParam("id") String id) throws Exception {
+        int result = service.idCheck(id);
+
+        return result;
     }
 
 }
