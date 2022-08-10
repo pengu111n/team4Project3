@@ -12,7 +12,7 @@ import mapper.BoardMapper;
 @Service
 //@Configuration
 //@MapperScan("mapper")
-public class BoardServiceImpl implements BoardService {
+public class OldOldBoardServiceImpl implements OldBoardService {
 	@Autowired
 	private BoardMapper boardMapper;
 

@@ -4,6 +4,6 @@ import java.util.List;
 
 import domain.OldBoardVO;
 
-public interface BoardService {
+public interface OldBoardService {
 	List<OldBoardVO> selectBoardList() throws Exception;
 }
