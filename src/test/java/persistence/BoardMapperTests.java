@@ -4,13 +4,11 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import mapper.BoardMapper;
+import mapper.OldBoardMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -20,7 +18,7 @@ public class BoardMapperTests {
 
 	//@Setter(onMethod_ = @Autowired)
 	@Inject
-	private BoardMapper boardMapper;
+	private OldBoardMapper boardMapper;
 
 	@Test
 	public void selectBoardList() throws Exception {
