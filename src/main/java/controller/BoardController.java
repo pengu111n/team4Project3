@@ -107,7 +107,6 @@ public class BoardController {
 		model.addAttribute("list", boardService.listCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		// pageMaker.setTotalCount(131);
 
 		pageMaker.setTotalCount(boardService.listCountCriteria(cri));
 
@@ -116,13 +115,13 @@ public class BoardController {
 
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 
-		model.addAttribute(boardService.read(bno));
+		model.addAttribute(boardService.read(boardNo));
 	}
 
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("boardNo") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
 
 		boardService.remove(bno);
 
@@ -134,10 +133,22 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model)
+	public void modifyPagingGET(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model)
 			throws Exception {
 
-		model.addAttribute(boardService.read(bno));
+		model.addAttribute(boardService.read(boardNo));
+	}
+
+	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+	public String modifyPagingPOST(BoardVO board, Criteria cri, RedirectAttributes rttr) throws Exception {
+
+		boardService.modify(board);
+
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/board/listPage";
 	}
 
 }

@@ -9,10 +9,6 @@ e
 .src/main/webapp/resources/assets/css/style.css,f\b\fb2d2fda07996dcbd1dca318d7913a38e1959226
 a
 1src/main/webapp/WEB-INF/views/include/header.jspf,c\a\ca1a8b397b55ba43ff3ccd8f558a5ca50a1e8d1c
-`
-0src/main/webapp/WEB-INF/views/board/register.jsp,a\0\a03cb9a6358de18d3dc8abf9d291b88bb752624b
-^
-.src/main/webapp/WEB-INF/views/board/modify.jsp,a\9\a9c6056f4fc9671bc089fd4d58ef098d1d73cdbe
 ^
 .src/main/webapp/WEB-INF/views/error_common.jsp,5\3\537a50a129a6ca3669129c1932d157dbb388c237
 c
@@ -24,12 +20,10 @@ _
 X
 (src/main/java/domain/SearchCriteria.java,5\5\551fb723fc0d762b6fe3d5ababf1dfdfdb0288e3
 S
-#src/main/java/domain/PageMaker.java,3\8\383008eb4d8ff17df6b1c82a5a05e1fe034579e6
-O
-src/test/java/BoardDAOTest.java,c\4\c4707b93043a5888cf34ce7e30bd868df32351f6
-S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Q
 !src/main/java/domain/BoardVO.java,7\b\7b1bb0ba7bc14a0805d42d8b288e66cdaecdce66
-R
-"src/main/java/domain/Criteria.java,0\7\07d20ff20b5579ad2bdfac21ccc093ade30e81e8
+W
+'src/main/java/service/BoardService.java,e\6\e681dc8dfbb9e2c7daed84e666b0aa6e6ead6044
+W
+'src/main/java/persistence/BoardDAO.java,b\e\be2cc9d6d16e044b278723c3b5e21e75941332d8

@@ -360,8 +360,12 @@
                 </form>
                         <div class="col-md-offset-2"
                              style="margin-left: 0px; margin-top: 50px;">
-                            <button type="submit" class="btn btn-primary">수정</button>
-                            <button type="submit" class="btn btn-warning">취소</button>
+
+                            <input type="button" class="cancel_btn" name="cancel" value="취소"
+                                   onClick="location.href='/khproject/board/list.do'"
+                                   style="display: inline-block;">
+                            <input type="submit" class="submit_btn" name="submit"
+                                   value="등록" style="display: inline-block;">
                         </div>
                         <script>
                             $(document).ready(function() {

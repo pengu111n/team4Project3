@@ -83,5 +83,53 @@ public class BoardDAOTest {
 
 	}
 
+	@Test
+	public void testListPage() throws Exception {
+
+		int page = 4;
+
+		List<BoardVO> list = dao.listPage(page);
+
+		for (BoardVO boardVO : list) {
+			logger.info(boardVO.getBoardNo() + ":" + boardVO.getTitle());
+		}
+	}
+
+	@Test
+	public void testListCriteria() throws Exception {
+
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(20);
+
+		List<BoardVO> list = dao.listCriteria(cri);
+
+		for (BoardVO boardVO : list) {
+			logger.info(boardVO.getBoardNo() + ":" + boardVO.getTitle());
+		}
+	}
+
+	@Test
+	public void testURI() throws Exception {
+
+		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/board/read").queryParam("boardNo", 12)
+				.queryParam("perPageNum", 20).build();
+
+		logger.info("/board/read?boardNo=12&perPageNum=20");
+		logger.info(uriComponents.toString());
+
+	}
+
+	@Test
+	public void testURI2() throws Exception {
+
+		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/{module}/{page}").queryParam("boardNo", 12)
+				.queryParam("perPageNum", 20).build().expand("board", "read").encode();
+
+		logger.info("/board/read?boardNo=12&perPageNum=20");
+		logger.info(uriComponents.toString());
+	}
+
+
 
 }

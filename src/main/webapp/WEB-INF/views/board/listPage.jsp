@@ -64,7 +64,7 @@
 							<td>${item.boardNo}</td>
 							<td>${item.nickname}</td>
 							<td>${item.part}</td>
-							<td><a href='/board/read?boardNo=${item.boardNo}'>${item.title}</td>
+							<td><a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.boardNo}'>${item.title}</td>
 							<td>${item.address}</td>
 							<fmt:parseDate var='regDate' pattern="yyyy-MM-dd"
 										   value="${item.regDate}" scope="page" />
@@ -79,7 +79,6 @@
 				<!-- /.box-body -->
 
 
-			<div class="box-footer">
 				<div class="text-center">
 					<ul class="pagination">
 
@@ -88,20 +87,20 @@
 						</c:if>
 
 						<c:forEach begin="${pageMaker.startPage }"
-							end="${pageMaker.endPage }" var="idx">
+								   end="${pageMaker.endPage }" var="idx">
 							<li
-								<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 								<a href="${idx}">${idx}</a>
 							</li>
 						</c:forEach>
 
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-							<li><a href="${pageMaker.endPage +1}">&raquo;</a></li>
+							<li><a
+									href="${pageMaker.endPage +1}">&raquo;</a></li>
 						</c:if>
 
 					</ul>
 				</div>
-			</div>
 			<!-- /.box-footer-->
 		</div>
 
