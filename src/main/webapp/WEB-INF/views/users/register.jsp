@@ -41,83 +41,9 @@ function changeRank(){
 		  return false;
 	}
 
-	
 
-	function fn_reg(){
-		var form = document.insForm;
-		if(rank == 2){
-		var companyno = form.companyno.value;
-		}
-		var id = form.id.value;
-		var nickname = form.nickname.value;
-		var pw = form.pw.value;
-		var confirmPw = form.confirmPw.value;
-		//var memimg = form.memimg.value;
-		var name = form.name.value;
-		var birth = form.birth.value;
-		var address = form.address.value;
-		var phonenum = form.phonenum.value;
-		var email = form.email.value;
-		var phonenum = form.phonenum.value;
-		var selectOption = document.getElementById("rank");
-		var rank = selectOption.options[selectOption.selectedIndex].value;
 		
-		if(rank == ""){
-			alert("회원분류를 선택하십시오.");
-			$("#rank").focus();
-			return false;
-		}else if(companyno == ""){
-			alert("사업자번호를 입력하세요");
-			$("#companyno").focus();
-			return false;
-		}else if(id == ""){
-			alert("아이디를 입력하세요");
-			$("#id").focus();
-			return false;
-		}else if(nickname == ""){
-			alert("닉네임을 입력하세요");
-			$("#nickname").focus();
-			return false;
-		}else if(pw == ""){
-			alert("비밀번호를 입력하세요");
-			$("#pw").focus();
-			return false;
-		}else if(memimg == ""){
-			alert("회원이미지를 입력하세요");
-			$("#memimg").focus();
-			return false;
-		}else if(name == ""){
-			alert("이름을 입력하세요");
-			$("#name").focus();
-			return false;
-		}else if(birth == ""){
-			alert("생년월일 입력하세요");
-			$("#birth").focus();
-			return false;
-		}else if(address == ""){
-			alert("주소를 입력하세요");
-			$("#address").focus();
-			return false;
-		}else if(phonenum == ""){
-			alert("전화번호를 입력하세요");
-			$("#phonenum").focus();
-			return false;
-		}else if(email == ""){
-			alert("이메일을 입력하십시오.");
-			$("#email").focus();
-			return false;
-		}else if(confirmPw == ""){
-			alert("비밀번호확인란을 입력하십시오.");
-			$("#confirmPw").focus();
-			return false;
-		}else if(confirmPw != pw){
-			alert("비밀번호 입력값과 비밀번호 확인값이 서로 상이합니다.");
-			$("#confirmPw").focus();
-			return false;
-		}else{
-			form.submit();
-		}
-	}
+
     var idPass;
     var idRegex = /^[a-zA-Z0-9]{4,12}$/;
 
@@ -131,13 +57,103 @@ function changeRank(){
             success : function(data){
                 if(data == 1){
                     $('#dup').text("중복된 아이디 입니다.");
+                    $("#idCheck_YN").val("N");
                 }else{
                     $('#dup').text("사용 가능한 아이디 입니다.");
+                    $("#idCheck_YN").val("Y");
                 }
             }
         })
     }
 
+    function fnSubmit() {
+        if ($("#id").val() == null || $("#id").val() == "") {
+            alert("아이디를 입력해주세요.");
+            $("#id").focus();
+            return false;
+        }
+
+        if ($("#idCheck_YN").val() != 'Y') {
+            alert("아이디 중복체크를 눌러주세요.");
+            $("#memberId_yn").focus();
+
+            return false;
+            }
+
+
+
+        	if ($("#nickname").val() == null || $("#nickname").val() == "") {
+                alert("닉네임을 입력해주세요.");
+                   	$("#nickname").focus();
+                   	return false;
+                   	}
+
+        	if ($("#pw").val() == null || $("#pw").val() == "") {
+                alert("비밀번호를 입력해주세요.");
+                $("#pw").focus();
+
+                return false;
+                                }
+
+            if ($("#confirmPw").val() == null || $("#confirmPw").val() == "") {
+                alert("비밀번호 확인을 입력해주세요.");
+                 $("#confirmPw").focus();
+
+                 return false;
+                 }
+
+            if ($("#pw").val() != $("#confirmPw").val()) {
+                alert("비밀번호가 일치하지 않습니다.");
+                $("#memberPw2").focus();
+
+                return false;
+                }
+
+            if ($("#name").val() == null || $("#name").val() == "") {
+                alert("이름을 입력해주세요.");
+                $("#name").focus();
+                return false;
+                }
+
+            if ($("#birth").val() == null || $("#birth").val() == "") {
+                alert("생년월일을 입력해주세요.");
+                 $("#birth").focus();
+
+                  return false;
+                  }
+            if ($("#address").val() == null || $("#address").val() == "") {
+                 alert("주소을 입력해주세요.");
+                 $("#address").focus();
+
+                 return false;
+                 }
+            if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
+                alert("전화번호을 입력해주세요.");
+                $("#phonenum").focus();
+
+                 return false;
+                 }
+            if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
+                 alert("전화번호을 입력해주세요.");
+                 $("#phonenum").focus();
+
+                 return false;
+                 }
+        	if ($("#email").val() == null || $("#email").val() == "") {
+        	    alert("이메일을 입력해주세요.");
+        	    $("#email").focus();
+
+        	    return false;
+        	    }
+
+        	if (confirm("회원가입하시겠습니까?")) {
+
+        	$("#join").submit();
+
+        	return false;
+        	}
+
+    }
 
 
 </script>
@@ -149,7 +165,7 @@ function changeRank(){
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 register-blocks">
                     <h2>새 계정 :</h2>
-                    <form name="insForm" action="register" method="post" onsubmit="fn_reg();">
+                    <form name="insForm" action="register" method="post" onsubmit="return fnSubmit()">
                         <div class="form-group">
                         	<label for="rank">회원분류</label> 
                         		<select id="rank" name ="rank" class="selectpicker show-tick form-control" onchange="changeRank()">
@@ -165,6 +181,7 @@ function changeRank(){
                             <label for="id">아이디</label>
                             <input type="text" class="form-control" id="id" name="id" placeholder="ID">
                             <button class="btn btn-default idCheckBtn" type="button" onclick="idCheck()">중복확인</button><span id="dup"></span>
+                            <input type="hidden" id="idCheck_YN" name="idCheck_YN" value="N" />
                         </div>
                         <div class="form-group">
                             <label for="nickname">닉네임</label>
@@ -201,7 +218,7 @@ function changeRank(){
                             <input type="text" class="form-control" id="email" name="email" placeholder="이메일">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-default" onclick="fn_reg();">회원가입</button>
+                            <button type="submit" class="btn btn-default">회원가입</button>
                         </div>
                     </form>
                 </div>

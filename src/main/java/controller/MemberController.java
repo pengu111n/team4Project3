@@ -30,9 +30,14 @@ public String registerPOST(MemberVO member, RedirectAttributes rttr) throws Exce
     logger.info("regist post..........");
     logger.info(member.toString());
 
-    service.regist(member);
-    rttr.addFlashAttribute("msg", "SUCCESS");
-    return "redirect:/" ;
+    try {
+        service.regist(member);
+        rttr.addFlashAttribute("msg", "SUCCESS");
+        return "redirect:/";
+    } catch (Exception e){
+        rttr.addFlashAttribute("msg", "FAIL");
+        return "redirect:/users/register";
+    }
 }
 
 //    }
@@ -65,5 +70,7 @@ public String registerPOST(MemberVO member, RedirectAttributes rttr) throws Exce
 
         return result;
     }
+
+
 
 }
