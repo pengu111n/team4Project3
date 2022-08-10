@@ -2,8 +2,8 @@ package service;
 
 import java.util.List;
 
-import domain.BoardVO;
+import domain.OldBoardVO;
 
 public interface BoardService {
-	List<BoardVO> selectBoardList() throws Exception;
+	List<OldBoardVO> selectBoardList() throws Exception;
 }

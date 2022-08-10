@@ -2,8 +2,8 @@ package mapper;
 
 import java.util.List;
 
-import domain.BoardVO;
+import domain.OldBoardVO;
 
 public interface BoardMapper {
-	List<BoardVO> selectBoardList() throws Exception;
+	List<OldBoardVO> selectBoardList() throws Exception;
 }

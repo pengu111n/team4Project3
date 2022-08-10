@@ -2,13 +2,11 @@ package service;
 
 import java.util.List;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.BoardVO;
+import domain.OldBoardVO;
 import mapper.BoardMapper;
 
 @Service
@@ -20,7 +18,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional
-	public List<BoardVO> selectBoardList() throws Exception {
+	public List<OldBoardVO> selectBoardList() throws Exception {
 		return boardMapper.selectBoardList();
 	}
 

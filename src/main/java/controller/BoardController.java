@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import domain.BoardVO;
+import domain.OldBoardVO;
 import service.BoardService;
 
 /**
@@ -29,7 +29,7 @@ public class BoardController {
 	public void boardList(Model model) throws Exception {
 		logger.info("// /board/list");
 
-		List<BoardVO> list = boardService.selectBoardList();
+		List<OldBoardVO> list = boardService.selectBoardList();
 
 		logger.info("// list.toString()=" + list.toString());
 
