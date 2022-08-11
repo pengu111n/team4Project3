@@ -27,6 +27,15 @@ function changeRank(){
     }
 }
 
+function selectEmail(){
+    var email = document.getElementById("email2");
+    var innerE = email.options[email.selectedIndex].value;
+
+    if(innerE == "other"){
+        document.getElementById("otherEmail").innerHTML = '<input type="text">'
+    }
+}
+
 	function enterkey() {
 		if (window.event.keyCode == 13) {
 			fn_reg();    	
@@ -58,6 +67,7 @@ function changeRank(){
                 if(data == 1){
                     $('#dup').text("중복된 아이디 입니다.");
                     $("#idCheck_YN").val("N");
+                    return false;
                 }else{
                     $('#dup').text("사용 가능한 아이디 입니다.");
                     $("#idCheck_YN").val("Y");
@@ -213,9 +223,18 @@ function changeRank(){
                             <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
                             <input type="text" class="form-control" id="phonenum" name="phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="전화번호">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group email-form">
                             <label for="email">이메일</label>
                             <input type="text" class="form-control" id="email" name="email" placeholder="이메일">
+                            <select class="form-control" name="email2" id="email2">
+                                <option value = "" selected>이메일</option>
+                                <option value = "@naver.com">@naver.com</option>
+                                <option value = "@daum.net">@daum.net</option>
+                                <option value = "@gmail.com">@gmail.com</option>
+                                <option value = "@hanmail.com">@hanmail.com</option>
+                                <option value = "other">기타</option>
+                            </select>
+                            <span id = "otherEmail"><span>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-default">회원가입</button>

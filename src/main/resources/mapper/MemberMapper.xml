@@ -9,7 +9,7 @@
 	<insert id="create">
 		INSERT INTO MEMBER(memno, nickname, id, pw , phonenum, email,
 		address, companyNo, birth, rank, name) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
-		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name})
+		#{email}#{email2}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name})
 	</insert>
 
 	<update id="update">
