@@ -17,7 +17,7 @@ import javax.inject.Inject;
 @RequestMapping(value = "/mypage/member")
 public class MyPageMemberController {
 
-    private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyPageMemberController.class);
 
     @Inject
     private MyPageMemberService service;
