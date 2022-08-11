@@ -89,7 +89,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.do"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="300" alt=""></a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.do"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="253" alt=""></a>
                 </div>
 
 
