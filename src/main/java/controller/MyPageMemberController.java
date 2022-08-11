@@ -27,7 +27,7 @@ public class MyPageMemberController {
 
         logger.info("/get");
 
-        model.addAttribute(service.get(memno));
+        model.addAttribute("memberVO", service.get(memno));
 
     }
 
