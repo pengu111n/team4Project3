@@ -109,8 +109,8 @@ pageContext.setAttribute("cn", "\n");
 								<li><span class="col-xs-6 col-sm-2 col-md-2 add-d-title">공간</span>
 									<span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">${cboard.space}</span>
 								</li>
-								<li><span class="col-xs-6 col-sm-2 col-md-2 add-d-title">면적(평수)</span>
-									<span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">${cboard.area}</span>
+								<li><span class="col-xs-6 col-sm-2 col-md-2 add-d-title">평수</span>
+									<span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">${cboard.area}평</span>
 								</li>
 
 								<li><span class="col-xs-6 col-sm-2 col-md-2 add-d-title">기간</span>

@@ -58,7 +58,7 @@
                                             <div class="col-sm-12">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label>면적(평수) :</label>
+                                                        <label>평수 (숫자만 입력가능합니다) :</label>
                                                         <textarea id="area" name="area" class="form-control" ></textarea>
                                                     </div>
                                                 </div>
@@ -152,7 +152,7 @@
                                                     <p>사용함으로써 귀하는 법적 적절한 방식으로 귀하의 개인 정보를 수집, 사용 및 공개하는 데 동의하는 것입니다.</p>
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" /> <strong>동의합니다.</strong>
+                                                            <input type="checkbox" name="agree"/> <strong>동의합니다.</strong>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -192,47 +192,36 @@
 								function() {
 									if ($("#title").val() == "") {
 										alert("제목을 간략히 작성해주세요");
-										location.reload();
-										$("#title").focus();
 										return false;
 									}
-									/* if (!$.isNumeric($(
-											'input[type=number][name=area]')
-											.val())) {
+									if (!$.isNumeric($("#area").val())) {
 										alert("면적을 입력해주세요(면적은 숫자만 입력 가능합니다)");
-										$("#area").focus();
-										return false;
-									} */
-									if ($("#area").val() == "") {
-										alert("면적을 입력해주세요");
-										$("#area").focus();
 										return false;
 									}
 									if ($("#cost").val() == "") {
 										alert("시공 비용을 입력해주세요");
-										$("#cost").focus();
 										return false;
 									}
 									if ($("#period").val() == "") {
 										alert("시공 기간을 입력해주세요");
-										$("#period").focus();
 										return false;
 									}
 									if ($("#space").val() == null) {
 										alert("시공 공간을 선택해주세요");
-										$("#space").focus();
 										return false;
 									}
 									if ($("#cnstType").val() == null) {
 										alert("시공 분야를 선택해주세요");
-										$("#cnstType").focus();
 										return false;
 									}
 									if ($("#content").val() == "") {
 										alert("내용을 입력해주세요");
-										$("#content").focus();
 										return false;
 									}
+									if (!$("input:checked[Name='agree']").is(":checked")){
+                                        alert("이용약관에 동의해주세요");
+                                        return false;
+                                    }
 								}); // submit() end
 			}); // ready() end
 </script>
