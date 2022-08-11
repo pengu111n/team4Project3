@@ -3,6 +3,7 @@ package controller;
 import domain.MemberVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +25,10 @@ public class MemberController {
     public void registerGET(MemberVO member, Model model) throws Exception {
         logger.info("register get ...........");
     }
-@RequestMapping(value = "/register", method = RequestMethod.POST)
-public String registerPOST(MemberVO member, RedirectAttributes rttr) throws Exception {
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String registerPOST(MemberVO member, @RequestParam("email2")String email2, @RequestParam(value = "email3",defaultValue = "" ,required = false)String email3 ,RedirectAttributes rttr) throws Exception {
 
+        member.setEmail(member.getEmail()+"@"+email2+email3);
     logger.info("regist post..........");
     logger.info(member.toString());
 

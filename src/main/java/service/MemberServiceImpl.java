@@ -6,41 +6,38 @@ import mapper.MemberMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import persistence.MemberDAO;
 
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Service
 //@Configuration
 //@MapperScan("mapper")
 public class MemberServiceImpl implements MemberService {
-	@Inject
-	private MemberDAO dao;
+	@Autowired
+	private MemberMapper mapper;
 
 
 	@Override
 	public void regist(MemberVO vo) throws Exception {
-		dao.create(vo);
+		mapper.create(vo);
 	}
 
 	@Override
 	public void modify(MemberVO vo) throws Exception {
-		dao.update(vo);
+		mapper.update(vo);
 	}
 
 	@Override
 	public void remove(Integer memno) throws Exception {
-		dao.delete(memno);
+		mapper.delete(memno);
 	}
 
 	@Override
 	public String login(MemberVO vo, HttpSession session) throws Exception {
-		dao.login(vo);
-		if(dao != null){
-			session.setAttribute("authUser", dao);
+		mapper.login(vo);
+		if(mapper != null){
+			session.setAttribute("authUser", mapper);
 		}
 	return null;
 	}
@@ -52,7 +49,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int idCheck(String id) throws Exception {
-		int cnt = dao.idCheck(id);
+		int cnt = mapper.idCheck(id);
 		return cnt;
 	}
 }

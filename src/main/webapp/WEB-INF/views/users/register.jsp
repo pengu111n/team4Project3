@@ -32,7 +32,14 @@ function selectEmail(){
     var innerE = email.options[email.selectedIndex].value;
 
     if(innerE == "other"){
-        document.getElementById("otherEmail").innerHTML = '<input type="text">'
+        document.getElementById("otherEmail").removeAttribute("disabled");
+        email.options[email.selectedIndex].value = ""
+    }else{
+        document.getElementById("otherEmail").setAttribute("disabled", "true");
+        document.getElementById("otherEmail").value = "";
+        if(email.options[5]){
+            email.options[5].value = "other"
+        }
     }
 }
 
@@ -159,7 +166,7 @@ function selectEmail(){
         	if (confirm("회원가입하시겠습니까?")) {
 
         	$("#join").submit();
-
+            }else{
         	return false;
         	}
 
@@ -225,16 +232,19 @@ function selectEmail(){
                         </div>
                         <div class="form-group email-form">
                             <label for="email">이메일</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="이메일">
-                            <select class="form-control" name="email2" id="email2">
-                                <option value = "" selected>이메일</option>
-                                <option value = "@naver.com">@naver.com</option>
-                                <option value = "@daum.net">@daum.net</option>
-                                <option value = "@gmail.com">@gmail.com</option>
-                                <option value = "@hanmail.com">@hanmail.com</option>
+                            <span>
+                            <input type="text" class="form-control form-control_half" id="email" name="email" placeholder="이메일">
+                            <span>@</span>
+                            <select class="form-control" name="email2" id="email2" onchange="selectEmail()">
+                                <option value = "" selected>선택</option>
+                                <option value = "naver.com">naver.com</option>
+                                <option value = "daum.net">daum.net</option>
+                                <option value = "gmail.com">gmail.com</option>
+                                <option value = "hanmail.com">hanmail.com</option>
                                 <option value = "other">기타</option>
                             </select>
-                            <span id = "otherEmail"><span>
+                            </span>
+                            <input class="form-control" id="otherEmail" disabled type="text" name="email3">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-default">회원가입</button>
