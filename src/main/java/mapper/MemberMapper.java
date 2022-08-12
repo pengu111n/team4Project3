@@ -13,4 +13,7 @@ public interface MemberMapper {
 	public void login(MemberVO vo) throws  Exception;
 
 	public int idCheck(String id) throws Exception;
+
+	public void createAuth(String memberEmail, String authKey) throws Exception;
+	public void memberAuth(String memberEmail) throws Exception;
 }

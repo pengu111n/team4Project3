@@ -1,6 +1,7 @@
 package controller;
 
 import domain.MemberVO;
+import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
@@ -27,7 +28,8 @@ public class MemberController {
     }
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerPOST(MemberVO member, @RequestParam("email2")String email2, @RequestParam(value = "email3",defaultValue = "" ,required = false)String email3 ,RedirectAttributes rttr) throws Exception {
-
+        String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
+        member.setPw(cryptPW);
         member.setEmail(member.getEmail()+"@"+email2+email3);
     logger.info("regist post..........");
     logger.info(member.toString());

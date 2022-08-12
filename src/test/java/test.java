@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.inject.Inject;
 
 import mapper.MemberMapper;
@@ -58,4 +59,25 @@ public class test {
         vo.setAddress("bbb");
         mapper.update(vo);
     }
+
+    public static void main(String[] args) {
+
+
+            Random random = new Random();
+            StringBuffer sb = new StringBuffer();
+            int num = 0;
+            do {
+                num = random.nextInt(75)+48;
+                if ((num >= 48 && num <= 57) || (num >= 65 && num <= 90) || (num >= 97 && num <= 122)) {
+
+                    sb.append((char) num);
+                } else {
+                    continue;
+                }
+            } while (sb.length() <= 30);
+            System.out.println(sb.toString());
+
+    }
+
 }
+

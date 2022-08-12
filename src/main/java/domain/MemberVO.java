@@ -25,6 +25,7 @@ public class MemberVO {
     private String birth;
     private Integer rank;
     private String name;
+    private Integer auth;
 
 
 }
