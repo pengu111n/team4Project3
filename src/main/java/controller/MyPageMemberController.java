@@ -41,8 +41,15 @@ public class MyPageMemberController {
         return "redirect:/mypage/member/get";
     }
 
+    @RequestMapping(value = "/modify", method = RequestMethod.GET)
+    public void modifyGET(Long memno, Model model) throws Exception {
+
+        model.addAttribute(service.remove(memno));
+
+    }
+
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public String modify(MemberVO member, RedirectAttributes rttr) throws Exception {
+    public String modifyPOST(MemberVO member, RedirectAttributes rttr) throws Exception {
 
         logger.info("modify: " + member);
 

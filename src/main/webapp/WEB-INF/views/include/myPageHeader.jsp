@@ -20,13 +20,15 @@
                 <a href="./myPageMember.jsp">회원정보 관리</a></li>
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
-                <a  href="./mypageRequest.jsp">의뢰 정보</a></li>
+                <a  href="./mypageRequest.jsp">작성글 관리</a></li>
+            <%--
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
                 <a href="">나의 문의</a></li>
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
                 <a href="">찜한 기업</a></li>
+            --%>
         </ul>
     </div>
 </nav>

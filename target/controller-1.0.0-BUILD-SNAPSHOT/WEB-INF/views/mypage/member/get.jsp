@@ -78,9 +78,6 @@
                     <div class="text-center">
                         <button type="submit" class="btn btn-warning" style="float: left;">회원정보 수정</button>
                         <button type="submit" class="btn btn-danger" style="float: right;">회원 탈퇴</button>
-<%--                        <a onclick="return confirm('정말로 탈퇴 하시겠습니까?')"--%>
-<%--                           href="${pageContext.request.contextPath}/member/delete.do?no=${authUser.id}"--%>
-<%--                           class="btn btn-default" style="float: right;">회원탈퇴</a>--%>
                     </div>
                 </div>
             </div>
