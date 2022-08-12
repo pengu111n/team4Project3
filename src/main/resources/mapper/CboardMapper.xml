@@ -35,6 +35,7 @@
 		, COST
 		, PERIOD
 		, CONTENT
+		, REGDATE
 		FROM CBOARD
 		WHERE CBNO = #{cbno}
 	</select>

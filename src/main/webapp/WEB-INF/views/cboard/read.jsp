@@ -221,6 +221,7 @@ pageContext.setAttribute("cn", "\n");
 									src="/resources/assets/img/social_big/linkedin_grey.png"></a></li>
 						</ul>
 					</div>
+					<h5 style="text-align: right">등록일 : <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${cboard.regDate}" /></h5>
 				</div>
 			</div>
 		</div>
