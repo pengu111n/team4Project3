@@ -41,10 +41,10 @@ public class BoardController {
 		logger.info("regist post ...........");
 		logger.info(board.toString());
 
-		boardService.regist(board);
+		boardService.create(board);
 		rttr.addFlashAttribute("msg","success");
 
-		return "redirect:/board/list";
+		return "redirect:/board/listPage";
 	}
 
 	@RequestMapping(value = "/list")
@@ -64,14 +64,14 @@ public class BoardController {
 	}
 
 
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String remove(@RequestParam("boardNo") int boardNo, RedirectAttributes rttr) throws Exception {
 
-		boardService.remove(boardNo);
+		boardService.delete(boardNo);
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/board/list";
+		return "redirect:/board/listPage";
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
@@ -85,10 +85,10 @@ public class BoardController {
 
 		logger.info("mod post............");
 
-		boardService.modify(board);
+		boardService.update(board);
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/board/list";
+		return "redirect:/board/listPage";
 	}
 
 	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
@@ -120,10 +120,10 @@ public class BoardController {
 		model.addAttribute(boardService.read(boardNo));
 	}
 
-	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
+	@RequestMapping(value = "/deletePage", method = RequestMethod.POST)
 	public String remove(@RequestParam("boardNo") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
 
-		boardService.remove(bno);
+		boardService.delete(bno);
 
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
@@ -142,7 +142,7 @@ public class BoardController {
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(BoardVO board, Criteria cri, RedirectAttributes rttr) throws Exception {
 
-		boardService.modify(board);
+		boardService.update(board);
 
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());

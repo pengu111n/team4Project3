@@ -7,20 +7,39 @@
 <%@include file="../include/header.jspf"%>
 
 
+
+<style>
+	.margin-space {
+		margin-top: 40px;
+		margin-left: 15px;
+		margin-bottom: 40px;
+	}
+
+	.text-center {
+		text-align: center;
+	}
+
+	.btn-primary {
+		color: #fff;
+		background-color: #fdc600;
+		border-color: #fdc600;
+		border-radius: 1px;
+		padding: 10px 20px;
+		font-weight: 600;
+	}
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<h1>
-			Blank page <small>it all starts here</small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li><a href="#">Examples</a></li>
-			<li class="active">Blank page</li>
-		</ol>
-	</section>
-
+	<div class="page-head">
+		<div class="container">
+			<div class="row">
+				<div class="page-head-content">
+					<h1 class="page-title">인테리어 견적 신청 목록</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- Main content -->
@@ -50,8 +69,8 @@
 							<option value="A8">도어</option>
 						</select></th>
 						<th class="text-center">제목</th>
-						<th width="140" class="text-center">지역</th>
-						<th width="140" class="text-center">등록일</th>
+						<th width="170" class="text-center">지역</th>
+						<th width="230" class="text-center">등록일</th>
 						<!-- <th width="140" class="text-center">수정일</th> -->
 						<th width="60" class="text-center">조회수</th>
 					</tr>
@@ -66,10 +85,13 @@
 							<td>${item.part}</td>
 							<td><a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.boardNo}'>${item.title}</td>
 							<td>${item.address}</td>
-							<fmt:parseDate var='regDate' pattern="yyyy-MM-dd"
+							<fmt:parseDate var='regDate' pattern="yyyy-MM-dd HH:mm"
 										   value="${item.regDate}" scope="page" />
-							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+
+
+							<td><fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm"
 												value="${regDate}" /></td>
+
 							<td>${item.view_count}</td>
 						</tr>
 					</c:forEach>

@@ -1,0 +1,10 @@
+
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ž–û‚ùÿÿÿÿ
+N
+java:S1128
+"1Remove this unused import 'java.text.DateFormat'.(÷Œá¼8¨Ò±’©0
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8©Ò±’©0
+G
+java:S1068"*Remove this unused "logger" private field.(´•½’8ªÒ±’©0

@@ -367,7 +367,7 @@
 				<div class="col-md-offset-2"
 					 style="margin-left: 0px; margin-top: 50px;">
 					<input type="button" class="cancel_btn" name="cancel" value="취소"
-						   onClick="location.href='/khproject/board/list.do'"
+						   onClick="location.href='/board/listPage'"
 						   style="display: inline-block;">
 					<input type="submit" class="submit_btn" name="submit"
 						   value="등록" style="display: inline-block;">

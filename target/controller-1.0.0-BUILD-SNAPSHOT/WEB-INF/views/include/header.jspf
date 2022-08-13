@@ -128,8 +128,8 @@
 							<b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu navbar-nav">
-							<li><a href="${pageContext.request.contextPath}/board/write.do">견적신청</a></li>
-							<li><a href="${pageContext.request.contextPath}/board/list.do">신청목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/register">견적신청</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/listPage">신청목록</a></li>
 						</ul></li>
                     
                                                 <li class="dropdown ymm-sw " data-wow-delay="0.1s">

@@ -63,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="page-head-content">
-                <h1 class="page-title">인테리어 견적 신청</h1>
+                <h1 class="page-title">인테리어 견적</h1>
             </div>
         </div>
     </div>
@@ -235,7 +235,7 @@ $(document).ready(function(){
 	});
 	
 	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/board/removePage");
+		formObj.attr("action", "/board/deletePage");
 		formObj.submit();
 	});
 	

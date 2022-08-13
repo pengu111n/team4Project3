@@ -1,14 +1,10 @@
 
 d
 4src/main/webapp/resources/assets/css/reportBoard.css,e\4\e42c4cc9c5b71b2086f98efb7b61f88032928275
-U
-%src/main/java/mapper/BoardMapper.java,e\8\e82a0037be74a0990fcb9409e1c8828fd5344ecd
 e
 5src/main/webapp/resources/bootstrap/css/bootstrap.css,7\1\71956f6d3770b9b58dc3859d45acd60bfd030909
 ^
 .src/main/webapp/resources/assets/css/style.css,f\b\fb2d2fda07996dcbd1dca318d7913a38e1959226
-a
-1src/main/webapp/WEB-INF/views/include/header.jspf,c\a\ca1a8b397b55ba43ff3ccd8f558a5ca50a1e8d1c
 ^
 .src/main/webapp/WEB-INF/views/error_common.jsp,5\3\537a50a129a6ca3669129c1932d157dbb388c237
 c
@@ -23,7 +19,17 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Q
 !src/main/java/domain/BoardVO.java,7\b\7b1bb0ba7bc14a0805d42d8b288e66cdaecdce66
-W
-'src/main/java/service/BoardService.java,e\6\e681dc8dfbb9e2c7daed84e666b0aa6e6ead6044
-W
-'src/main/java/persistence/BoardDAO.java,b\e\be2cc9d6d16e044b278723c3b5e21e75941332d8
+S
+#src/main/java/domain/PageMaker.java,3\8\383008eb4d8ff17df6b1c82a5a05e1fe034579e6
+\
+,src/main/java/controller/HomeController.java,5\4\545e013a4d3637680bc23083ec631ffa9e721efb
+b
+2src/main/webapp/WEB-INF/views/board/modifyPage.jsp,3\d\3de8f44be5dce6be14cdd77309124da20deac5ae
+o
+?src/main/webapp/resources/assets/js/bootstrap-hover-dropdown.js,8\2\8245495f03cc27419f556cf80728a05225a3aa7b
+`
+0src/main/webapp/resources/Board/css/register.css,f\5\f52e1b6914cc13057117a86c6a5e8f3e31faca11
+`
+0src/main/webapp/resources/assets/css/animate.css,2\5\254d4eee5e292c77810078057d200c4261670fc4
+a
+1src/main/webapp/WEB-INF/views/include/header.jspf,c\a\ca1a8b397b55ba43ff3ccd8f558a5ca50a1e8d1c
