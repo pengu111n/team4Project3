@@ -7,7 +7,6 @@ import mapper.BoardMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import persistence.BoardDAO;
 
 import javax.inject.Inject;
 import java.util.List;

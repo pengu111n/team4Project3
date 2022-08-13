@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.UriComponents;
@@ -14,14 +15,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 import domain.BoardVO;
 import domain.Criteria;
 import domain.SearchCriteria;
-import persistence.BoardDAO;
+import mapper.BoardMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 public class BoardDAOTest {
 
-	@Inject
-	private BoardDAO dao;
+	@Autowired
+	private BoardMapper BoardMapper;
 
 	private static Logger logger = LoggerFactory.getLogger(BoardDAOTest.class);
 
@@ -42,13 +43,13 @@ public class BoardDAOTest {
 		board.setPart("테스트코드 파트");
 		board.setRequire("테스트코드 요구사항");
 		board.setImage("테스트코드 이미지");
-		dao.create(board);
+		BoardMapper.create(board);
 	}
 
 	@Test
 	public void testRead() throws Exception {
 
-		logger.info(dao.read(29).toString());
+		logger.info(BoardMapper.read(29).toString());
 	}
 
 	@Test
@@ -67,19 +68,19 @@ public class BoardDAOTest {
 		board.setPart("테스트코드 수정 파트");
 		board.setRequire("테스트코드 수정 요구사항");
 		board.setImage("테스트코드 수정 이미지");
-		dao.update(board);
+		BoardMapper.update(board);
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 
-		dao.delete(28);
+		BoardMapper.delete(28);
 	}
 
 	@Test
 	public void testListAll() throws Exception {
 
-		logger.info(dao.listAll().toString());
+		logger.info(BoardMapper.listAll().toString());
 
 	}
 
@@ -88,7 +89,7 @@ public class BoardDAOTest {
 
 		int page = 4;
 
-		List<BoardVO> list = dao.listPage(page);
+		List<BoardVO> list = BoardMapper.listPage(page);
 
 		for (BoardVO boardVO : list) {
 			logger.info(boardVO.getBoardNo() + ":" + boardVO.getTitle());
@@ -102,7 +103,7 @@ public class BoardDAOTest {
 		cri.setPage(2);
 		cri.setPerPageNum(20);
 
-		List<BoardVO> list = dao.listCriteria(cri);
+		List<BoardVO> list = BoardMapper.listCriteria(cri);
 
 		for (BoardVO boardVO : list) {
 			logger.info(boardVO.getBoardNo() + ":" + boardVO.getTitle());

@@ -55,10 +55,6 @@
     }
 </style>
 
-
-<!-- Content Wrapper. Contains page content -->
-<!-- Content Header (Page header) -->
-
 <div class="page-head">
     <div class="container">
         <div class="row">
