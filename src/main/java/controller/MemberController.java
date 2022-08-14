@@ -1,11 +1,13 @@
 package controller;
 
 import domain.MemberVO;
+import org.apache.ibatis.annotations.Param;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -31,6 +33,7 @@ public class MemberController {
         String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         member.setPw(cryptPW);
         member.setEmail(member.getEmail()+"@"+email2+email3);
+
     logger.info("regist post..........");
     logger.info(member.toString());
 
@@ -39,6 +42,7 @@ public class MemberController {
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/";
     } catch (Exception e){
+        e.printStackTrace();
         rttr.addFlashAttribute("msg", "FAIL");
         return "redirect:/users/register";
     }
@@ -75,6 +79,13 @@ public class MemberController {
         return result;
     }
 
+    @RequestMapping(value="confirmEmail", method = RequestMethod.GET)
+    public String emailConfirm(@Param("email") String email, Model model) throws Exception{
+        service.memberAuth(email);
+        model.addAttribute("memberEmail", email);
+
+        return "redirect:/";
+    }
 
 
 }

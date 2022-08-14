@@ -87,7 +87,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.do"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="300" alt=""></a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="300" alt=""></a>
                 </div>
 
 
@@ -96,10 +96,10 @@
 				<div class="button navbar-right">
 					<c:if test="${authUser == null}">
 					<button class="navbar-btn nav-button wow fadeInRight"
-						onclick=" window.open('users/register', '_self')"
+						onclick=" window.open('${pageContext.request.contextPath}/users/register', '_self')"
 						data-wow-delay="0.48s">회원가입</button>
 					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" window.open('users/login', '_self')"
+						onclick=" window.open('${pageContext.request.contextPath}/users/login', '_self')"
 						data-wow-delay="0.45s">로그인</button>
 					</c:if>
 					<c:if test="${authUser != null}">

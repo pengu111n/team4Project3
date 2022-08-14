@@ -29,6 +29,14 @@
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
 	</bean>
+
+	<!-- 트랜젝션 매니저 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- @Transactional 애노테이션을 sacn하기 위한 설정 -->
+	<tx:annotation-driven/>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -43,7 +51,29 @@
 	<!-- 인터페이스만 생성하고 mapper와 연결(구현클래스를 안만들어도된다) -->
 	<mybatis-spring:scan base-package="mapper"/>
 
-	<context:component-scan base-package="persistence"></context:component-scan>
-	<context:component-scan base-package="service"></context:component-scan>
+
+	<context:component-scan base-package="service.*"></context:component-scan>
+
+	<context:property-placeholder location="classpath:email.properties" />
+	<!-- 회원가입 메일 인증 -->
+	<bean id="mailSender"	class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="465" /><!-- 587 or 465 or 25 -->
+		<property name="username" value="${google.id}" />
+		<property name="password" value="${google.pw}" />
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
+
 
 </beans>

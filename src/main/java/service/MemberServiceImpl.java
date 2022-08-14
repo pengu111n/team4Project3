@@ -3,14 +3,15 @@ package service;
 
 import domain.MemberVO;
 import mapper.MemberMapper;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import util.MailUtils;
 import util.TempKey;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 @Service
@@ -19,13 +20,15 @@ import javax.servlet.http.HttpSession;
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper mapper;
+
 	@Autowired
 	private JavaMailSender mailSender;
 
+
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void regist(MemberVO vo) throws Exception {
 		mapper.create(vo);
-
 		String key = new TempKey().getKey(20);
 		mapper.createAuth(vo.getEmail(), key);
 		MailUtils mailUtils = new MailUtils(mailSender);
@@ -35,10 +38,18 @@ public class MemberServiceImpl implements MemberService {
 				"<br/>"+vo.getNickname()+"님 "+
 				"<br/>ICEWATER에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
-				"<a href='http://localhost:8080/member/registerEmail?email=" + vo.getEmail() +
+				"<a href='http://localhost:8080/users/confirmEmail?email=" + vo.getEmail() +
 				"&key=" + key +
 				"' target='_blank'>이메일 인증 확인</a>");
+		mailUtils.setFrom("xogus8206@gmail.com", "인프");
+		mailUtils.setTo(vo.getEmail());
+		mailUtils.send();
+
+
+
 	}
+
+
 
 	@Override
 	public void modify(MemberVO vo) throws Exception {
@@ -70,13 +81,9 @@ public class MemberServiceImpl implements MemberService {
 		return cnt;
 	}
 
-	@Override
-	public void createAuth(String memberEmail, String authKey) throws Exception {
-
-	}
 
 	@Override
-	public void memberAuth(String memberEmail) throws Exception {
-
+	public void memberAuth(String email) throws Exception {
+		mapper.memberAuth(email);
 	}
 }

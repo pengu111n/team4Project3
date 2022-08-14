@@ -32,7 +32,7 @@
 	</select>
 
 	<insert id="createAuth">
-		insert into authEmail values(#{email}, #{authKey})
+		insert into authEmail(email, authKey) values(#{0}, #{1})
 	</insert>
 
 	<update id="memberAuth">

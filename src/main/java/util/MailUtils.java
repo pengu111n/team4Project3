@@ -1,5 +1,6 @@
 package util;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
@@ -42,5 +43,7 @@ public class MailUtils {
     public void send() {
         mailSender.send(message);
     }
+
+
 
 }

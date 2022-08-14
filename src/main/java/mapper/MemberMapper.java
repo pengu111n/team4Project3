@@ -1,6 +1,7 @@
 package mapper;
 
 import domain.MemberVO;
+import org.apache.ibatis.annotations.Param;
 
 
 public interface MemberMapper {
@@ -14,6 +15,7 @@ public interface MemberMapper {
 
 	public int idCheck(String id) throws Exception;
 
-	public void createAuth(String memberEmail, String authKey) throws Exception;
-	public void memberAuth(String memberEmail) throws Exception;
+	public void createAuth(String email, String authKey) throws Exception;
+
+	public void memberAuth(String email) throws Exception;
 }
