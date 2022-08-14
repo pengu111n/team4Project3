@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class MemberVO {
 
-    private Long memno;
+    private Integer memno;
     private String nickname;
     private String id;
     private String phonenum;
@@ -17,11 +17,11 @@ public class MemberVO {
     private Integer birth;
     private Integer rank;
 
-    public Long getMemno() {
+    public Integer getMemno() {
         return memno;
     }
 
-    public void setMemno(Long memno) {
+    public void setMemno(Integer memno) {
         this.memno = memno;
     }
 

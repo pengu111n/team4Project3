@@ -15,7 +15,7 @@ public class MyPageMemberServiceImpl implements MyPageMemberService {
     private MyPageMemberMapper mapper;
 
     @Override
-    public MemberVO get(Long memno) {
+    public MemberVO get(int memno) {
 
         log.info("get......" + memno);
 
@@ -33,7 +33,7 @@ public class MyPageMemberServiceImpl implements MyPageMemberService {
     }
 
     @Override
-    public boolean remove(Long memno) {
+    public boolean remove(int memno) {
 
         log.info("remove......" + memno);
 

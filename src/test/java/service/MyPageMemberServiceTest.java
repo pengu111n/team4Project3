@@ -29,14 +29,14 @@ public class MyPageMemberServiceTest extends TestCase {
     @Test
     public void testGet() {
 
-        log.info(service.get(1L));
+        log.info(service.get(1));
 
     }
 
     @Test
     public void testModify() {
 
-        MemberVO member = service.get(1L);
+        MemberVO member = service.get(1);
 
         if (member == null) {
             return;
@@ -50,7 +50,7 @@ public class MyPageMemberServiceTest extends TestCase {
     @Test
     public void testRemove() {
 
-        log.info("remove result: " + service.remove(2L));
+        log.info("remove result: " + service.remove(2));
 
     }
 }

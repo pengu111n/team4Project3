@@ -23,28 +23,28 @@ public class MyPageMemberController {
     private MyPageMemberService service;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public void get(@RequestParam("memno") Long memno, Model model) throws Exception {
+    public void get(@RequestParam("memno") int memno, Model model) throws Exception {
 
         logger.info("/get");
 
-        model.addAttribute("memberVO", service.get(memno));
+        model.addAttribute(service.get(memno));
 
     }
 
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
-    public String remove(@RequestParam("boardNo") Long memno, RedirectAttributes rttr) throws Exception {
+    public String remove(@RequestParam("memno") int memno, RedirectAttributes rttr) throws Exception {
 
         service.remove(memno);
 
         rttr.addFlashAttribute("result", "success");
 
-        return "redirect:/mypage/member/get";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
-    public void modifyGET(Long memno, Model model) throws Exception {
+    public void modifyGET(int memno, Model model) throws Exception {
 
-        model.addAttribute(service.remove(memno));
+        model.addAttribute(service.get(memno));
 
     }
 
@@ -56,7 +56,7 @@ public class MyPageMemberController {
         service.modify(member);
         rttr.addFlashAttribute("result", "success");
 
-        return "redirect:/mypage/member/get";
+        return "redirect:/mypage/member/get?memno="+Integer.toString(member.getMemno());
     }
 
 }

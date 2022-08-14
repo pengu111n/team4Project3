@@ -4,10 +4,10 @@ import domain.MemberVO;
 
 public interface MyPageMemberService {
 
-    public MemberVO get(Long memno);
+    public MemberVO get(int memno);
 
     public boolean modify(MemberVO member);
 
-    public boolean remove(Long memno);
+    public boolean remove(int memno);
 
 }

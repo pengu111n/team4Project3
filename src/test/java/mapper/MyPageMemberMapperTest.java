@@ -21,7 +21,7 @@ public class MyPageMemberMapperTest extends TestCase {
     @Test
     public void testRead() {
 
-        MemberVO member = mapper.read(2L);
+        MemberVO member = mapper.read(2);
 
         log.info(member);
 
@@ -30,7 +30,7 @@ public class MyPageMemberMapperTest extends TestCase {
     @Test
     public void testDelete() {
 
-        log.info("delete count: " + mapper.delete(3L));
+        log.info("delete count: " + mapper.delete(3));
 
     }
 
@@ -39,7 +39,7 @@ public class MyPageMemberMapperTest extends TestCase {
 
         MemberVO member = new MemberVO();
 
-        member.setMemno(1L);  //회원번호가 1인 회원의 회원정보 수정 시도
+        member.setMemno(1);  //회원번호가 1인 회원의 회원정보 수정 시도
         member.setNickname("수정");
         member.setPhonenum("수정");
         member.setEmail("수정");
