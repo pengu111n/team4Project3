@@ -80,8 +80,9 @@ public class MemberController {
     }
 
     @RequestMapping(value="confirmEmail", method = RequestMethod.GET)
-    public String emailConfirm(@Param("email") String email, Model model) throws Exception{
-        service.memberAuth(email);
+    public String emailConfirm(@Param("email") String email, @Param("authKey")String authKey, Model model) throws Exception{
+
+        service.memberAuth(email,authKey);
         model.addAttribute("memberEmail", email);
 
         return "redirect:/";

@@ -21,5 +21,5 @@ public interface MemberService {
 	public int idCheck(String id) throws Exception;
 
 
-	public void memberAuth(String memberEmail) throws Exception;
+	public void memberAuth(String email, String authKey) throws Exception;
 }

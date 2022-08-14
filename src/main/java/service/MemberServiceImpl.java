@@ -3,6 +3,7 @@ package service;
 
 import domain.MemberVO;
 import mapper.MemberMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
 				"<br/>ICEWATER에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
 				"<a href='http://localhost:8080/users/confirmEmail?email=" + vo.getEmail() +
-				"&key=" + key +
+				"&authKey=" + key +
 				"' target='_blank'>이메일 인증 확인</a>");
 		mailUtils.setFrom("xogus8206@gmail.com", "인프");
 		mailUtils.setTo(vo.getEmail());
@@ -83,7 +84,7 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public void memberAuth(String email) throws Exception {
-		mapper.memberAuth(email);
+	public void memberAuth(String email, String authKey) throws Exception {
+		mapper.memberAuth(email, authKey);
 	}
 }

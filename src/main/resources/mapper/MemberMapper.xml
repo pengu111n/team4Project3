@@ -36,6 +36,6 @@
 	</insert>
 
 	<update id="memberAuth">
-		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{Email}) > 0]]>
+		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{0} and authKey = #{1}) > 0]]>
 	</update>
 </mapper>

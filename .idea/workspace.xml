@@ -5,27 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/MailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/MailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/email.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/email.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/MailUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/MailUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/TempKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/TempKey.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
