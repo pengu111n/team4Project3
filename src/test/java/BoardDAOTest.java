@@ -25,10 +25,10 @@ public class BoardDAOTest {
 	private BoardMapper BoardMapper;
 
 	private static Logger logger = LoggerFactory.getLogger(BoardDAOTest.class);
+	String[] name=new String[3];
 
 	@Test
 	public void testCreate() throws Exception {
-
 		BoardVO board = new BoardVO();
 		board.setBoardNo(1);
 		board.setTitle("테스트코드 타이틀");
@@ -42,7 +42,7 @@ public class BoardDAOTest {
 		board.setBudget("테스트코드 예산");
 		board.setPart("테스트코드 파트");
 		board.setRequire("테스트코드 요구사항");
-		board.setImage("테스트코드 이미지");
+		board.setImage(name);
 		BoardMapper.create(board);
 	}
 
@@ -67,7 +67,7 @@ public class BoardDAOTest {
 		board.setBudget("테스트코드 수정 예산");
 		board.setPart("테스트코드 수정 파트");
 		board.setRequire("테스트코드 수정 요구사항");
-		board.setImage("테스트코드 수정 이미지");
+		board.setImage(name);
 		BoardMapper.update(board);
 	}
 

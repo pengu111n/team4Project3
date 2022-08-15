@@ -1,6 +1,7 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import domain.BoardVO;
 import domain.Criteria;
@@ -19,5 +20,11 @@ public interface BoardMapper {
 
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception;
 	public int countPaging(Criteria cri) throws Exception;
+	public void addAttach(String fullName)throws Exception;
+	public List<String> getAttach(Integer bno)throws Exception;
+
+	public void deleteAttach(Integer bno)throws Exception;
+
+	public void replaceAttach(String fullName, Integer bno)throws Exception;
 
 }

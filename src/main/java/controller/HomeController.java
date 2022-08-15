@@ -28,5 +28,10 @@ public class HomeController {
 		
 		return "main/index";
 	}
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public void ajaxTest() {
+
+	}
 	
 }

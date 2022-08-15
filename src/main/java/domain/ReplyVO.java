@@ -3,14 +3,16 @@ package domain;
 import java.util.Date;
 
 public class ReplyVO {
-
   private Integer replyNo;
   private Integer boardNo;
-  private String replyConetent;
-  private Date regDate;
-  private Date updateDate;
+  private String replyContent;
+  private String regDate;
+  private String updateDate;
+  private String nickname;
 
-  public Integer replyNo() {
+
+
+  public Integer getReplyNo() {
     return replyNo;
   }
 
@@ -19,7 +21,7 @@ public class ReplyVO {
     return this;
   }
 
-  public Integer boardNo() {
+  public Integer getBoardNo() {
     return boardNo;
   }
 
@@ -28,30 +30,40 @@ public class ReplyVO {
     return this;
   }
 
-  public String replyConetent() {
-    return replyConetent;
+  public String getReplyContent() {
+    return replyContent;
   }
 
-  public ReplyVO setReplyConetent(String replyConetent) {
-    this.replyConetent = replyConetent;
+  public ReplyVO setReplyContent(String replyContent) {
+    this.replyContent = replyContent;
     return this;
   }
 
-  public Date regDate() {
+  public String getRegDate() {
     return regDate;
   }
 
-  public ReplyVO setRegDate(Date regDate) {
+  public ReplyVO setRegDate(String regDate) {
     this.regDate = regDate;
     return this;
   }
 
-  public Date updateDate() {
+  public String getUpdateDate() {
     return updateDate;
   }
 
-  public ReplyVO setUpdateDate(Date updateDate) {
+  public ReplyVO setUpdateDate(String updateDate) {
     this.updateDate = updateDate;
+    return this;
+  }
+
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public ReplyVO setNickname(String nickname) {
+    this.nickname = nickname;
     return this;
   }
 }

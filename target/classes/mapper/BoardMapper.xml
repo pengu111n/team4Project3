@@ -7,13 +7,13 @@
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
 	<insert id="create">
-		insert into board (boardNo, title,regDate ,modifiedDate,category, address, area,startDate,endDate,budget,part,require,image)
-		values (boardNo_seq.NEXTVAL,#{title},sysdate,sysdate,#{category},#{address},#{area},#{startDate},#{endDate},#{budget},#{part},#{require},#{image})
+		insert into board (boardNo, title,regDate ,modifiedDate,category, address, area,startDate,endDate,budget,part,require)
+		values (boardNo_seq.NEXTVAL,#{title},sysdate,sysdate,#{category},#{address},#{area},#{startDate},#{endDate},#{budget},#{part},#{require})
 	</insert>
 
 	<select id="read" resultType="domain.BoardVO">
 		select
-			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,image,require
+			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,require
 		from
 			board
 		where boardNo = #{boardNo}
@@ -28,8 +28,7 @@
 						 endDate= #{endDate},
 						 budget= #{budget},
 						 part= #{part},
-						 require= #{require},
-						 image= #{image}
+						 require= #{require}
 		where boardNo = #{boardNo}
 	</update>
 
@@ -79,5 +78,21 @@ order by boardNo desc, regDate desc
 			boardNo > 0
 		]]>
  </select>
+
+<insert id="addAttach">
+	insert into board_attach(fullname, boardNo, regdate) values (#{fullName}, boardNo_seq.currval,sysdate)
+</insert>
+
+<select id="getAttach" resultType="string">
+	select fullname from board_attach where boardNo = #{boardNo} order by regdate
+</select>
+
+<delete id="deleteAttach">
+	delete from board_attach where boardNo = #{boardNo}
+</delete>
+
+<insert id="replaceAttach">
+	insert into board_attach(fullname, boardNo) values (#{fullName}, #{boardNo})
+</insert>
 
 </mapper>

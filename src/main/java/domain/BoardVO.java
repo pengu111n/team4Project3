@@ -18,7 +18,7 @@ public class BoardVO {
 	private String budget;
 	private String part;
 	private String require;
-	private String image;
+	private String[] image;
 	private int view_count;
 
 	public Integer getBoardNo() {
@@ -67,7 +67,7 @@ public class BoardVO {
 	public String getRequire() {
 		return require;
 	}
-	public String getImage() {
+	public String[] getImage() {
 		return image;
 	}
 	public int getView_count() {
@@ -111,7 +111,7 @@ public class BoardVO {
 	public void setRequire(String require) {
 		this.require = require;
 	}
-	public void setImage(String image) {
+	public void setImage(String[] image) {
 		this.image = image;
 	}
 	public void setView_count(int view_count) {
