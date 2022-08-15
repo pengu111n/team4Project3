@@ -1,10 +1,20 @@
 package mapper;
 
-import domain.BoardVO;
 import domain.MemberVO;
+import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
 
 public interface MemberMapper {
-	List<MemberVO> selectBoardList() throws Exception;
+	public void create(MemberVO vo) throws Exception;
+
+	public void update(MemberVO vo) throws Exception;
+
+	public void delete(Integer memno) throws Exception;
+
+	public void login(MemberVO vo) throws  Exception;
+
+	public int idCheck(String id) throws Exception;
+
+	public void createAuth(String email, String authKey) throws Exception;
+	public void memberAuth(String email, String authKey) throws Exception;
 }

@@ -8,8 +8,8 @@
 		있습니다. -->
 	<insert id="create">
 		INSERT INTO MEMBER(memno, nickname, id, pw , phonenum, email,
-		address, companyNo, birth, rank, name) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
-		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name})
+		address, companyNo, birth, rank, name, auth) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
+		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name}, 0)
 	</insert>
 
 	<update id="update">
@@ -30,4 +30,12 @@
 		select count(*) from member
 		where id = #{id}
 	</select>
+
+	<insert id="createAuth">
+		insert into authEmail(email, authKey) values(#{0}, #{1})
+	</insert>
+
+	<update id="memberAuth">
+		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{0} and authKey = #{1}) > 0]]>
+	</update>
 </mapper>

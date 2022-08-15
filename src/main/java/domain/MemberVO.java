@@ -4,43 +4,28 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
 
 @ToString
+@Getter
+@Setter
 public class MemberVO {
-    @Getter
-    @Setter
     private Integer memno;
-    @Getter
-    @Setter
+    @NotNull(message = "닉네임를 입력해주세요.")
     private String nickname;
-    @Getter
-    @Setter
+
+    @NotNull(message = "아이디를 입력해주세요.")
     private String id;
-    @Getter
-    @Setter
+    @NotNull(message = "비밀번호를 입력해주세요.")
     private String pw;
-    @Getter
-    @Setter
     private String phonenum;
-    @Getter
-    @Setter
     private String email;
-    @Getter
-    @Setter
     private String address;
-    @Getter
-    @Setter
     private String companyNo;
-    @Getter
-    @Setter
     private String birth;
-    @Getter
-    @Setter
     private Integer rank;
-    @Getter
-    @Setter
     private String name;
+    private Integer auth;
 
 
 }

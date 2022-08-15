@@ -3839,3 +3839,17 @@ ul.footer-blog li {
 }
 .olmessaget {color: blue; font-style: Italic;
 }
+
+.email-form{
+    display : flex;
+    flex-direction : column;
+}
+
+.email-form span{
+    display : flex;
+}
+
+.email-form span span{
+    margin : 0px 10px;
+    align-items : center;
+}

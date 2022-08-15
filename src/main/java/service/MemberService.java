@@ -19,4 +19,7 @@ public interface MemberService {
 	public void logout(HttpSession session) throws Exception;
 
 	public int idCheck(String id) throws Exception;
+
+
+	public void memberAuth(String email, String authKey) throws Exception;
 }

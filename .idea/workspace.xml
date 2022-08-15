@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +45,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2Cwcy6cWUWs1ThoUDWE8j8ct2C2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,7 +58,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/project/team4Project3/src/main/webapp/WEB-INF/views/users&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/team4Project3&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -61,43 +74,73 @@
     </key>
   </component>
   <component name="RunManager" selected="Smart Tomcat.tomcat">
-    <configuration name="test.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="team4Project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="team4Project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="team4Project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="team4Project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.MakeRandomKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="team4Project3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testCreate" />
+      <option name="METHOD_NAME" value="MakeRandomKey" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team4Project3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testDelete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="team4Project3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testUpdate" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/team4Project3" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.41" />
+          <option name="number" value="0" />
+          <option name="path" value="C:\dev\apache-tomcat-9.0.41" />
+          <option name="version" value="9.0.41.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="tomcat" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
-      <option name="adminPort" value="8006" />
+      <option name="adminPort" value="8005" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
+      <option name="envOptions">
+        <map />
+      </option>
       <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8081" />
+      <option name="port" value="8080" />
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/9.0.41" />
@@ -112,16 +155,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.test.testCreate" />
-      <item itemvalue="JUnit.test.testDelete" />
-      <item itemvalue="JUnit.test.testUpdate" />
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.test (1)" />
+      <item itemvalue="Application.test (2)" />
+      <item itemvalue="Application.test (3)" />
+      <item itemvalue="JUnit.test.MakeRandomKey" />
       <item itemvalue="Smart Tomcat.tomcat" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test.testUpdate" />
-        <item itemvalue="JUnit.test.testDelete" />
-        <item itemvalue="JUnit.test.testCreate" />
+        <item itemvalue="Application.test (3)" />
+        <item itemvalue="Application.test (2)" />
+        <item itemvalue="Application.test (1)" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="JUnit.test.MakeRandomKey" />
       </list>
     </recent_temporary>
   </component>
@@ -146,5 +193,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
