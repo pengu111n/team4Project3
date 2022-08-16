@@ -7,8 +7,8 @@
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어
 		있습니다. -->
 	<select id="listCboard" parameterType="domain.CbCriteria" resultType="domain.CboardVO">
-		SELECT  CBNO,memNo,id, nickname, companyName, title, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate
-		FROM (SELECT CBNO,memNo,id, nickname, companyName, title, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate,
+		SELECT  CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate
+		FROM (SELECT CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate,
 		ROW_NUMBER() OVER(ORDER BY CBNO DESC) AS RNUM FROM CBOARD)
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY CBNO DESC
@@ -21,14 +21,14 @@
 	</select>
 
 	<insert id="writeCboard" >
-		INSERT INTO CBOARD (CBNO, title, space, cnstType, area, cost, period, content)
-		VALUES(cbno_seq.nextval, #{title}, #{space}, #{cnstType}, #{area}, #{cost}, #{period}, #{content})
+		INSERT INTO CBOARD (CBNO, ctitle, space, cnstType, area, cost, period, content)
+		VALUES(cbno_seq.nextval, #{ctitle}, #{space}, #{cnstType}, #{area}, #{cost}, #{period}, #{content})
 	</insert>
 
 
 	<select id="readCboard" parameterType="int" resultType="domain.CboardVO">
 		SELECT CBNO
-		, TITLE
+		, CTITLE
 		, CNSTTYPE
 		, SPACE
 		, AREA
@@ -42,7 +42,7 @@
 
 	<update id="modifyCboard" parameterType="domain.CboardVO" >
 		UPDATE CBOARD
-		SET TITLE = #{title},
+		SET CTITLE = #{ctitle},
 		SPACE  = #{space},
 		CNSTTYPE  = #{cnstType},
 		AREA  = #{area},
@@ -68,6 +68,23 @@
 		    ]]>
 	</select>
 
+	<insert id="addAttach" >
+		INSERT INTO cb_attach (fullname, cbno) VALUES (#{fullName}, cbno_seq.currval)
+	</insert>
+
+
+	<select id="getAttach" resultType="string" >
+		select fullname from cb_attach where cbno = #{cbno} order by regdate
+	</select>
+
+
+	<delete id="deleteAttach">
+		delete from cb_attach where cbno = #{cbno}
+	</delete>
+
+	<insert id="replaceAttach" >
+		INSERT INTO cb_attach(fullname, cbno) VALUES (#{fullName}, #{cbno})
+	</insert>
 
 
 </mapper>

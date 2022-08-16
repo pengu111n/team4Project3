@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class CboardVO {
@@ -7,7 +8,7 @@ public class CboardVO {
     private Integer memNo;
     private String nickname;
     private String companyName;
-    private String title;
+    private String ctitle;
     private String content;
     private String space;
     private String cnstType;
@@ -17,6 +18,7 @@ public class CboardVO {
     private Integer thumbsUp;
     private Date regDate;
     private Date modDate;
+    private String[] files;
     public Integer getCbno() {
         return cbno;
     }
@@ -41,11 +43,11 @@ public class CboardVO {
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
-    public String getTitle() {
-        return title;
+    public String getCtitle() {
+        return ctitle;
     }
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCtitle(String ctitle) {
+        this.ctitle = ctitle;
     }
     public String getContent() {
         return content;
@@ -101,12 +103,14 @@ public class CboardVO {
     public void setModDate(Date modDate) {
         this.modDate = modDate;
     }
+    public String[] getFiles() { return files; }
+    public void setFiles(String[] files) { this.files = files; }
     @Override
     public String toString() {
         return "CboardVO [cbno=" + cbno + ", memNo=" + memNo + ", nickname=" + nickname + ", companyName=" + companyName
-                + ", title=" + title + ", content=" + content + ", space=" + space + ", cnstType=" + cnstType
+                + ", ctitle=" + ctitle + ", content=" + content + ", space=" + space + ", cnstType=" + cnstType
                 + ", area=" + area + ", cost=" + cost + ", period=" + period + ", thumbsUp=" + thumbsUp + ", regDate="
-                + regDate + ", modDate=" + modDate + "]";
+                + regDate + ", modDate=" + modDate + ", files=" + Arrays.toString(files) + "]";
     }
 
 

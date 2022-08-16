@@ -14,6 +14,60 @@
 	padding: 10px 20px;
 	font-weight: 600;
 }
+.fileDrop {
+  width: 80%;
+  height: 150px;
+  border: 1px dotted gray;
+  background-color: lightgrey;
+  margin: auto;
+
+}
+.small {
+	margin-left: 3px;
+	font-weight: bold;
+	color: gray;
+}
+.mailbox-attachments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mailbox-attachment-icon.has-img>img {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+.mailbox-attachment-info {
+    padding: 10px;
+    background: #f4f4f4;
+}
+.mailbox-attachment-icon, .mailbox-attachment-info, .mailbox-attachment-size {
+    display: block;
+}
+.fa-remove:before, .fa-close:before, .fa-times:before {
+    content: "\f00d";
+}
+.mailbox-attachment-name {
+    font-weight: bold;
+    color: #666;
+}
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 </style>
 
 
@@ -51,15 +105,15 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>제목 :</label>
-                                                        <textarea class="form-control" id="title" name="title"></textarea>
+                                                        <textarea class="form-control" id="ctitle" name="ctitle"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label>평수 (숫자만 입력가능합니다) :</label>
-                                                        <textarea id="area" name="area" class="form-control" ></textarea>
+                                                        <label>평수 :</label>
+                                                        <textarea id="area" name="area" class="form-control" placeholder="평수는 숫자만 입력 가능합니다."></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,8 +139,7 @@
                                                     <div class="form-group">
                                                         <label>시공 공간  :</label>
                                                         <select id="space" name="space" class="selectpicker show-tick form-control">
-                                                            <option> -Status- </option>
-   														<option value="" disabled selected> -Status- </option>
+   														<option value="" disabled selected> - 선택 - </option>
 														<option value="아파트">아파트</option>
 														<option value="빌라">빌라</option>
 														<option value="카페/식당">카페/식당</option>
@@ -102,7 +155,7 @@
                                                     <div class="form-group">
                                                         <label>시공 분야  :</label>
                                                         <select id="cnstType" name="cnstType" class="selectpicker show-tick form-control">
-															<option value="" disabled selected> -Status- </option>
+															<option value="" disabled selected> - 선택 - </option>
 															<option value="종합">종합</option>
 															<option value="도배">도배</option>
 															<option value="마루">마루</option>
@@ -116,26 +169,33 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        	<div class="col-sm-12">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="property-video">내용 :</label>
+                                                    	<textarea class="form-control" name="content"
+														id="content" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <br>
                                         </div>
                                     </div>
                                     <!-- End step 1 -->
 
                                     <div class="tab-pane" id="step2">
-                                        <h4 class="info-text">시공사진을 첨부하고 내용을 입력하세요. </h4>
+                                        <h4 class="info-text">시공사진 이미지 등록 </h4>
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="property-images">이미지 첨부 :</label>
-                                                    <input class="form-control" type="file" id="property-images">
-                                                    <p class="help-block">Select multipel images for your property .</p>
-                                                </div>
+                                            <div class="col-sm-6" align="center">
+												<label for="property-images">이미지를 드래그 하세요</label>
+												<div class="fileDrop"></div>
                                             </div>
+	                                        <hr>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="property-video">내용 :</label>
-                                                    <textarea class="form-control" name="content"
-													id="content" rows="12"></textarea>
+												<ul class="mailbox-attachments clearfix uploadedList">
+												</ul>
                                             	</div>
                                         	</div>
                                     	</div>
@@ -184,18 +244,17 @@
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-
  $(document).ready(
 			function() {
 				$("form")
 						.submit(
 								function() {
-									if ($("#title").val() == "") {
+									if ($("#ctitle").val() == "") {
 										alert("제목을 간략히 작성해주세요");
 										return false;
 									}
 									if (!$.isNumeric($("#area").val())) {
-										alert("면적을 입력해주세요(면적은 숫자만 입력 가능합니다)");
+										alert("평수를 입력해주세요(숫자만 입력 가능합니다)");
 										return false;
 									}
 									if ($("#cost").val() == "") {
@@ -219,11 +278,100 @@
 										return false;
 									}
 									if (!$("input:checked[Name='agree']").is(":checked")){
-                                        alert("이용약관에 동의해주세요");
-                                        return false;
-                                    }
+										alert("이용약관에 동의해주세요");
+										return false;
+									}
+
+									event.preventDefault();
+
+									var that = $(this);
+
+									var str ="";
+									$(".uploadedList .delbtn").each(function(index){
+										 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+									});
+
+									that.append(str);
+
+									that.get(0).submit();
 								}); // submit() end
 			}); // ready() end
+</script>
+
+
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<script id="template" type="text/x-handlebars-template">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}"
+     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>
+</script>
+
+<script>
+
+var template = Handlebars.compile($("#template").html());
+
+$(".fileDrop").on("dragenter dragover", function(event){
+	event.preventDefault();
+});
+
+
+$(".fileDrop").on("drop", function(event){
+	event.preventDefault();
+
+	var files = event.originalEvent.dataTransfer.files;
+
+	var file = files[0];
+
+	var formData = new FormData();
+
+	formData.append("file", file);
+
+
+	$.ajax({
+		  url: '/uploadAjax',
+		  data: formData,
+		  dataType:'text',
+		  processData: false,
+		  contentType: false,
+		  type: 'POST',
+		  success: function(data){
+
+			  var fileInfo = getFileInfo(data);
+
+			  var html = template(fileInfo);
+
+			  $(".uploadedList").append(html);
+		  }
+		});
+});
+
+
+// 파일 삭제
+$(".uploadedList").on("click", ".delbtn", function (event) {
+    event.preventDefault();
+    var that = $(this);
+    $.ajax({
+        url: "/deleteFile",
+        type: "post",
+        data: {fileName:$(this).attr("href")},
+        dataType: "text",
+        success: function (result) {
+            if (result == "deleted") {
+                alert("삭제되었습니다.");
+                that.parents("li").remove();
+            }
+        }
+    });
+});
+
 </script>
 
 
