@@ -43,11 +43,5 @@
 		insert memberImg (filename, memno) values(#{filename}, #{memno})
 	</insert>
 
-	<insert id="replaceImg">
-		insert memberImg (filename, memno) values(#{filename}, #{memno})
-	</insert>
 
-	<delete id="deleteImg">
-		delete from memberImg where filename = #{filename}
-	</delete>
 </mapper>
