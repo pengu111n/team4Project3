@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.Param;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ public class MemberController {
 
     @Inject
     private MemberService service;
+
+    @Autowired
+    private String uploadPath;
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public void registerGET(MemberVO member, Model model) throws Exception {

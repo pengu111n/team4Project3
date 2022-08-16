@@ -45,9 +45,6 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setFrom("xogus8206@gmail.com", "인프");
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
-
-
-
 	}
 
 
