@@ -23,5 +23,5 @@ public interface MemberService {
 
 	public void memberAuth(String email, String authKey) throws Exception;
 
-
+	public void attachImg(String fileName)throws Exception;
 }

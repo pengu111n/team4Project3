@@ -47,10 +47,7 @@ $(document).ready(function(){
                     processData: false,
                     contentType: false,
                     success: function(data){
-                        var str = "";
-                        if(checkImageType(data)){
-                            str = <div>
-                        }
+                       alert("완료")
                     }
                 });
             });

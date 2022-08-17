@@ -45,7 +45,7 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setText("" +
 				"<h1>메일인증</h1>" +
 				"<br/>"+vo.getNickname()+"님 "+
-				"<br/>ICEWATER에 회원가입해주셔서 감사합니다."+
+				"<br/>인테리어 프렌드 인프에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
 				"<a href='http://localhost:8080/users/confirmEmail?email=" + vo.getEmail() +
 				"&authKey=" + key +
@@ -91,6 +91,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void memberAuth(String email, String authKey) throws Exception {
 		mapper.memberAuth(email, authKey);
+	}
+
+	@Override
+	public void attachImg(String fileName) throws Exception {
+		mapper.attachImg(fileName);
 	}
 
 

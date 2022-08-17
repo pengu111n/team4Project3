@@ -40,7 +40,7 @@
 	</update>
 
 	<insert id="attachImg">
-		insert memberImg (filename, memno) values(#{filename}, #{memno})
+		insert memberImg (filename, memno) values(#{filename}, memNo_seq.currval)
 	</insert>
 
 
