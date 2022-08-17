@@ -3834,3 +3834,8 @@ ul.footer-blog li {
 .WriteBoard__main__icon{
 	color: inherit;
 }
+
+.olmessagef {color: red; font-style: Italic;
+}
+.olmessaget {color: blue; font-style: Italic;
+}
