@@ -18,7 +18,7 @@ import java.util.List;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value = "/board")
+@RequestMapping(value = "/board/*")
 public class BoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -118,9 +118,9 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/deletePage", method = RequestMethod.POST)
-	public String remove(@RequestParam("boardNo") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("boardNo") int boardNo, Criteria cri, RedirectAttributes rttr) throws Exception {
 
-		boardService.delete(bno);
+		boardService.delete(boardNo);
 
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
@@ -150,9 +150,9 @@ public class BoardController {
 
 	@RequestMapping("/getAttach/{boardNo}")
 	@ResponseBody
-	public List<String> getAttach(@PathVariable("boardNo")Integer bno)throws Exception{
+	public List<String> getAttach(@PathVariable("boardNo")Integer boardNo)throws Exception{
 
-		return boardService.getAttach(bno);
+		return boardService.getAttach(boardNo);
 	}
 
 }

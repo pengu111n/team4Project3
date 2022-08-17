@@ -102,8 +102,7 @@
                         <input type="checkbox" id="undefined_start" name="undefined_start"
                                style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
                         <label>시공 종료일 미정</label>
-                        <input type="checkbox" id="undefined_end"
-                               name="undefined_end"
+                        <input type="checkbox" id="undefined_end"   name="undefined_end"
                                style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
 
 
@@ -150,12 +149,7 @@
                                       id="exampleFormControlTextarea1" rows="7"></textarea>
                         </div>
 
-                        <!--
-                        <div class="form-group">
-                            이미지
-                            <input type="text" class="form-control"
-                                   name="image" id="image">
-                        </div>-->
+
                         <div class="form-group">
                             <label>File DROP Here</label>
                             <div class="fileDrop" name="image" id="image"></div>
@@ -172,11 +166,11 @@
                         <div class="col-md-offset-2"
                              style="margin-left: 0px; margin-top: 50px;">
                             <input type="button" class="cancel_btn" name="cancel" value="취소"
-                                   onClick="location.href='/main/index'"
+                                   onClick="location.href='/'"
                                    style="display: inline-block;">
                          <%--   <input type="submit" class="submit_btn" name="submit"
                                    value="등록" style="display: inline-block;">--%>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="submit_btn">Submit</button>
                         </div>
                     </div>
 
@@ -227,7 +221,7 @@
         $.ajax({
             url: '/uploadAjax',
             data: formData,
-            dataType:'text',
+            // dataType:'text',
             processData: false,
             contentType: false,
             type: 'POST',
@@ -255,7 +249,31 @@
 
         that.append(str);
 
-        that.get(0).submit();
+        budget_check();
+        startDate_check();
+        endDate_check();
+
+        if(input_check()){
+            that.get(0).submit();
+        }
+
+    });
+
+    $(".uploadedList").on("click", "small", function(event){
+
+        var that = $(this);
+
+        $.ajax({
+            url:"deleteFile",
+            type:"post",
+            data: {fileName:$(this).attr("data-src")},
+            //dataType:"text",
+            success:function(result){
+                if(result == 'deleted'){
+                    that.parent("div").remove();
+                }
+            }
+        });
     });
 
 

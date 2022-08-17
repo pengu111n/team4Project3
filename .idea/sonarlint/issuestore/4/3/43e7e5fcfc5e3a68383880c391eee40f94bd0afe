@@ -1,0 +1,28 @@
+
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(äşÁğúÿÿÿÿ
+o
+java:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰­¯¿
+t
+java:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(äşÁğúÿÿÿÿ
+o
+java:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰­¯¿
+t
+java:S2293K"YReplace the type specification in this constructor call with the diamond operator ("<>").(äşÁğúÿÿÿÿ
+t
+java:S2293a"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
+t
+java:S2293o"YReplace the type specification in this constructor call with the diamond operator ("<>").(±ìÏÉşÿÿÿÿ
+t
+java:S2293s"YReplace the type specification in this constructor call with the diamond operator ("<>").(Éî´ùÿÿÿÿ
+c
+java:S1192"HDefine a constant instead of duplicating this literal "SUCCESS" 3 times.(äşÁğúÿÿÿÿ
+e
+java:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Õ¡¤ùÿÿÿÿ
+c
+java:S4488&"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ó•Ùÿÿÿÿÿ
+i
+java:S4488E"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(Áıõäùÿÿÿÿ
+c
+java:S4488S"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(³«Ç®üÿÿÿÿ
+N	java:S106c"9Replace this use of System.out or System.err by a logger.(õ©Á 

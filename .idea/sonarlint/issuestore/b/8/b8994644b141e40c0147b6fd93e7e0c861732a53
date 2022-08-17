@@ -1,0 +1,40 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(…úåúÿÿÿÿ8ãÒÈ©0
+c
+java:S1192E"HDefine a constant instead of duplicating this literal "SUCCESS" 4 times.(•Šúÿÿÿÿ
+v
+java:S1192,"YDefine a constant instead of duplicating this literal "redirect:/board/listPage" 5 times.(”€ıò8Á‡È’©0
+F
+java:S2629'"$Invoke method(s) only conditionally.(Œ‹¬¥ÿÿÿÿÿ8÷ÒÈ©0
+y
+java:S26295"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ğ–à¶8ıÒÈ©0
+A
+java:S2629f"$Invoke method(s) only conditionally.(ËÂ™ø8‰§º¨0
+
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(…úåúÿÿÿÿ8æÔÈ©0
+c
+java:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÓĞ¹Äÿÿÿÿÿ
+`
+java:S4488#"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÚŞ•
+^
+java:S34575"AFormat specifiers should be used instead of string concatenation.(ğ–à¶8ƒÕÈ©0
+c
+java:S44889"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ê¸õşÿÿÿÿ
+_
+java:S4488@"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(…½‹6
+^
+java:S4488J"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ü³’ô
+`
+java:S4488P"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(œË¿‘
+c
+java:S4488["HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(°Øşÿÿÿÿ
+^
+java:S4488c"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(…€˜¾
+^
+java:S4488r"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ÌŸôœ
+l
+java:S4488x"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(¥çÇ¥ùÿÿÿÿ8’Š§º¨0
+e
+java:S4488„"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ë‘â18¸ÕÈ©0
+h
+java:S4488‹"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(£¹à€8½ÕÈ©0

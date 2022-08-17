@@ -7,6 +7,7 @@ import mapper.BoardMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
@@ -34,6 +35,7 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 
+	@Transactional(isolation= Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		return boardMapper.read(bno);

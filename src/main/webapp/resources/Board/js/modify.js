@@ -47,111 +47,110 @@ $('document').ready(function() {
         if(address_1 != "" && address_2 != "") {
             $("#address").val(address_1+" "+address_2);
         }
-    };
+    }
 
 
 });
 
-
 $(document).ready(
-    $(function(){
+    function(){
         $("form").submit(
-            function () {
-        if ($("input:checked[Name='undefined_start']").is(":checked")){
-            $("#startDate").val("0001-01-01");
-        }
-    })})
-);
-
-$(document).ready(
-    $(function(){
-        $("form").submit(
-            function () {
-                if ($("input:checked[Name='undefined_end']").is(":checked")){
-                    $("#endDate").val("0001-01-01");
-                }
-            })})
-)
-
-$(document).ready(
-    $(function(){
-        $("form").submit(
-            function () {
-                const budget = $("#budget_defined").val();
+            budget_check = function () {
+                const budget = $('input[type=number][name=budget_defined]').val();
                 if ($("input:checked[Name='budget_undefined']").is(":checked")){
                     $("#budget").val(-1);
+                    alert("예산 미정 박스 클릭" + budget);
                 }else{
                     $("#budget").val(budget);
+                    alert("예산 미정 박스 미클릭"+budget);
                 }
-            })})
-)
+            })}
+);
+
 
 $(document).ready(
     function () {
-        $("form")
-            .submit(
-                function () {
-                    if ($("#title").val() == "") {
-                        alert("시공내용을 간략히 입력해주세요");
-                        $("#title").focus();
-                        return false;
-                    }
-                    if ($("#category").val() == null) {
-                        alert("주거유형을 선택해주세요");
-                        $("#category").focus();
-                        return false;
-                    }
-                    if ($("#sido1").val() == "") {
-                        alert("주소를 선택해주세요");
-                        $("#title").focus();
-                        return false;
-                    }
-                    if ($("#gugun1").val() == "") {
-                        alert("주소를 선택해주세요");
-                        $("#gugun1").focus();
-                        return false;
-                    }
-                    if (!$.isNumeric($(
-                        'input[type=number][name=area]')
-                        .val())) {
-                        alert("면적을 입력해주세요(면적은 숫자만 입력 가능합니다)");
-                        $("#area").focus();
-                        return false;
-                    }
-                    if ($("#startDate").val() == ""
-                        && $("#undefined_start").is(
-                            ":checked") == false) {
-                        alert("시공 시작일을 입력해주세요");
-                        $("#startDate").focus();
-                        return false;
-                    }
-                    if ($("#endDate").val() == ""
-                        && $("#undefined_end").is(
-                            ":checked") == false) {
-                        alert("시공 종료일을 입력해주세요");
-                        $("#endDate").focus();
-                        return false;
-                    }
-                    if (!$.isNumeric($(
-                            'input[type=number][name=budget]')
-                            .val())
-                        && $("#budget_undefined").is(
-                            ":checked") == false) {
-                        alert("예산을 입력해주세요");
-                        $("#budget").focus();
-                        return false;
-                    }
-                    if ($("#part").val() == null) {
-                        alert("인테리어 분야를 선택해주세요");
-                        $("#part").focus();
-                        return false;
-                    }
-                    if ($("#require").val() == "undefined") {
-                        alert("상세 요청사항을 입력해주세요");
-                        $("#require").focus();
-                        return false;
-                    }
-                }); // submit() end
+        $("form").submit(endDate_check = function () {
+            if ($("input:checked[Name='undefined_end']").is(":checked"))
+                $("#endDate").val("0001-01-01");
+
+        });
+    });
+
+$(document).ready(
+    function () {
+        $("form").submit(startDate_check = function () {
+            if ($("input:checked[Name='undefined_start']").is(":checked"))
+                $("#startDate").val("0001-01-01");
+
+        });
+    });
+
+
+$(document).ready(
+    function () {
+        $("form").submit(input_check = function () {
+            var rv = true;
+            if ($("#title").val() == "") {
+                alert("시공내용을 간략히 입력해주세요");
+                $("#title").focus();
+                return rv = false;
+            }
+            else if ($("#category").val() == null) {
+                alert("주거유형을 선택해주세요");
+                $("#category").focus();
+                return rv = false;
+            }
+            else if ($("#sido1").val() == "") {
+                alert("주소를 선택해주세요");
+                $("#title").focus();
+                return rv =false;
+            }
+            else if ($("#gugun1").val() == "") {
+                alert("주소를 선택해주세요");
+                $("#gugun1").focus();
+                return rv =false;
+            }
+            else if (!$.isNumeric($(
+                'input[type=number][name=area]')
+                .val())) {
+                alert("면적을 입력해주세요(면적은 숫자만 입력 가능합니다)");
+                $("#area").focus();
+                return rv =false;
+            }
+            else if ($("#startDate").val() == ""
+                && $("#undefined_start").is(
+                    ":checked") == false) {
+                alert("시공 시작일을 입력해주세요");
+                $("#startDate").focus();
+                return rv =false;
+            }
+            else if ($("#endDate").val() == ""
+                && $("#undefined_end").is(
+                    ":checked") == false) {
+                alert("시공 종료일을 입력해주세요");
+                $("#endDate").focus();
+                return rv =false;
+            }
+            else if (!$.isNumeric($(
+                    'input[type=number][name=budget_defined]').val())
+                && $("#budget_undefined").is(
+                    ":checked") == false) {
+                alert("예산을 입력해주세요");
+                $("#budget").focus();
+                return rv =false;
+            }
+            else if ($("#part").val() == null) {
+                alert("인테리어 분야를 선택해주세요");
+                $("#part").focus();
+                return rv =false;
+            }
+            else if ($("#require").val() == "undefined") {
+                alert("상세 요청사항을 입력해주세요");
+                $("#require").focus();
+                return rv =false;
+            }else{
+                return true;
+            }
+        }); // submit() end
     }); // ready() end
-
-

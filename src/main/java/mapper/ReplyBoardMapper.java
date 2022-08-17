@@ -4,6 +4,7 @@ import domain.Criteria;
 import domain.ReplyVO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ReplyBoardMapper {
 
@@ -15,8 +16,7 @@ public interface ReplyBoardMapper {
 
     public void delete(Integer replyNo) throws Exception;
 
-    public List<ReplyVO> listPage(
-            Integer boardNo, Criteria cri) throws Exception;
+    public List<ReplyVO> listPage(Map<String, Object> paramMap) throws Exception;
 
     public int count(Integer boardNo) throws Exception;
 }

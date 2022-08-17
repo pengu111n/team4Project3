@@ -95,11 +95,15 @@ public class ReplyController {
       pageMaker.setCri(cri);
 
       Map<String, Object> map = new HashMap<String, Object>();
+
+      System.out.println("/* boardNo="+boardNo);
+
       List<ReplyVO> list = service.listReplyPage(boardNo, cri);
 
       map.put("list", list);
 
       int replyCount = service.count(boardNo);
+
       pageMaker.setTotalCount(replyCount);
 
       map.put("pageMaker", pageMaker);
