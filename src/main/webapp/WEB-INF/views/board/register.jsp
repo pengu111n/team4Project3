@@ -255,7 +255,31 @@
 
         that.append(str);
 
-        that.get(0).submit();
+        budget_check();
+        startDate_check();
+        endDate_check();
+
+        if(input_check()){
+            that.get(0).submit();
+        }
+
+    });
+
+    $(".uploadedList").on("click", "small", function(event){
+
+        var that = $(this);
+
+        $.ajax({
+            url:"deleteFile",
+            type:"post",
+            data: {fileName:$(this).attr("data-src")},
+            //dataType:"text",
+            success:function(result){
+                if(result == 'deleted'){
+                    that.parent("div").remove();
+                }
+            }
+        });
     });
 
 
