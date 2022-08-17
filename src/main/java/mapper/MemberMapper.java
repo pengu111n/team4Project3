@@ -17,4 +17,7 @@ public interface MemberMapper {
 
 	public void createAuth(String email, String authKey) throws Exception;
 	public void memberAuth(String email, String authKey) throws Exception;
+
+	public void attachImg(String fileName, Integer memNo)throws Exception;
+
 }

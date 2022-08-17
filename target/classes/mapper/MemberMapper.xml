@@ -38,4 +38,10 @@
 	<update id="memberAuth">
 		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{0} and authKey = #{1}) > 0]]>
 	</update>
+
+	<insert id="attachImg">
+		insert memberImg (filename, memno) values(#{filename}, #{memno})
+	</insert>
+
+
 </mapper>

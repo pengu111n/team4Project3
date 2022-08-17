@@ -14,8 +14,48 @@
 	</div>
 </div>
 <!-- End page header -->
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
+$(document).ready(function(){
+            $(".fileDrop").on("dragenter dragover", function(event){
+                event.preventDefault(); // 기본효과를 막음
+            });
+            // event : jQuery의 이벤트
+            // originalEvent : javascript의 이벤트
+            $(".fileDrop").on("drop", function(event){
+                event.preventDefault(); // 기본효과를 막음
+                // 드래그된 파일의 정보
+                var files = event.originalEvent.dataTransfer.files;
+                // 첫번째 파일
+                var file = files[0];
+                // 콘솔에서 파일정보 확인
+                console.log(file);
+
+                // ajax로 전달할 폼 객체
+                var formData = new FormData();
+                // 폼 객체에 파일추가, append("변수명", 값)
+                formData.append("file", file);
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/users/register/uploadAjax",
+                    data: formData,
+                    processData: false,
+                    dataType: "text",
+                    processData: false,
+                    contentType: false,
+                    success: function(data){
+                        var str = "";
+                        if(checkImageType(data)){
+                            str = <div>
+                        }
+                    }
+                });
+            });
+        });
+
 function changeRank(){
     var r = document.getElementById("rank");
     var innerR = r.options[r.selectedIndex].value;
@@ -169,11 +209,12 @@ function selectEmail(){
             }else{
         	return false;
         	}
+     }
 
-    }
 
 
 </script>
+
 
 <!-- register-area -->
 <div class="register-area" style="background-color: rgb(249, 249, 249);">
@@ -246,6 +287,17 @@ function selectEmail(){
                             </span>
                             <input class="form-control" id="otherEmail" disabled type="text" name="email3">
                         </div>
+                        <%--첨부파일 영역 추가--%>
+                        <div class="form-group">
+                          <div class="fileDrop">
+                            <input type="file">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
+                          </div>
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-default">회원가입</button>
                         </div>
@@ -256,4 +308,11 @@ function selectEmail(){
     </div>
 </div>
 
+<style>
+    .fileDrop {
+        width: 100%;
+        height: 200px;
+        border: 2px dotted #0b58a2;
+    }
+</style>
 <%@ include file="../include/footer.jspf"%>

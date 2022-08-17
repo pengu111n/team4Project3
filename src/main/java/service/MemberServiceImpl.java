@@ -3,17 +3,24 @@ package service;
 
 import domain.MemberVO;
 import mapper.MemberMapper;
+import org.apache.commons.io.FileUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import util.MailUtils;
 import util.TempKey;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import util.UploadFileUtils;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 //@Configuration
@@ -24,6 +31,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private JavaMailSender mailSender;
+
 
 
 	@Transactional(rollbackFor = Exception.class)
@@ -45,9 +53,6 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setFrom("xogus8206@gmail.com", "인프");
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
-
-
-
 	}
 
 
@@ -87,4 +92,6 @@ public class MemberServiceImpl implements MemberService {
 	public void memberAuth(String email, String authKey) throws Exception {
 		mapper.memberAuth(email, authKey);
 	}
+
+
 }

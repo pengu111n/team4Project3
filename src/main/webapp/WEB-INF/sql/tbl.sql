@@ -23,3 +23,11 @@ create table authEmail(
     constraint fk_email foreign key (email) references member(email)
     on delete cascade
 );
+
+create table member_img(
+    fileName varchar2(200),
+    memno Number,
+    fileCnt number DEFAULT 0,
+    constraint fk_fileName foreign key(memno) references member(memno)
+    on delete cascade
+)

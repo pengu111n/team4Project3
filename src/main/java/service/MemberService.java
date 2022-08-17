@@ -22,4 +22,6 @@ public interface MemberService {
 
 
 	public void memberAuth(String email, String authKey) throws Exception;
+
+
 }
