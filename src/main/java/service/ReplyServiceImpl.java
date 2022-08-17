@@ -1,15 +1,15 @@
 package service;
 
-import domain.Criteria;
-import domain.ReplyVO;
-import mapper.ReplyBoardMapper;
+import java.util.List;
+
+import javax.inject.Inject;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import domain.Criteria;
+import domain.ReplyVO;
+import mapper.ReplyBoardMapper;
 
 @Service
 @MapperScan("mapper")
@@ -42,14 +42,10 @@ public class ReplyServiceImpl implements ReplyService {
   }
 
   @Override
-  public List<ReplyVO> listReplyPage(Integer boardNo, Criteria cri)
+  public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) 
       throws Exception {
 
-    Map<String, Object> paramMap = new HashMap<String, Object>();
-    paramMap.put("boardNo", boardNo);
-    paramMap.put("cri", cri);
-
-    return replyBoardMapper.listPage(paramMap);
+    return replyBoardMapper.listPage(bno, cri);
   }
 
   @Override

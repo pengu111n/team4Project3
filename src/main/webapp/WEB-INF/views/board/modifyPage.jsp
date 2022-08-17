@@ -7,18 +7,7 @@
 <%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/Board/css/modify.css">
 <script src="${pageContext.request.contextPath}/resources/Board/js/modify.js"></script>
-<script src="${pageContext.request.contextPath}/resources/Board/js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<style>
-	.fileDrop {
-		width: 80%;
-		height: 100px;
-		border: 1px dotted gray;
-		background-color: lightslategrey;
-		margin: auto;
 
-	}
-</style>
 <div class="page-head">
 	<div class="container">
 		<div class="row">
@@ -40,7 +29,7 @@
 			</div>
 			<div class="box-body">
 
-				<form id='modifyForm' role="form" method="post">
+				<form role="form" method="post">
 
 					<div class="form-row">
 
@@ -148,30 +137,19 @@
 						</div>
 
 						<div class="form-group">
-							<label>File DROP Here</label>
-							<div class="fileDrop" name="image" id="image"></div>
+							이미지
+							<input type="text" class="form-control"
+								   name="image" id="image">
 						</div>
-
-						<div>
-							<hr>
-						</div>
-
-						<ul class="mailbox-attachments clearfix uploadedList">
-						</ul>
-
 
 						<div class="col-md-offset-2"
 							 style="margin-left: 0px; margin-top: 50px;">
 							<input type="button" class="cancel_btn" name="cancel" value="취소"
-								   onClick="location.href='/'"
+								   onClick="location.href='/main/index'"
 								   style="display: inline-block;">
-							<%--   <input type="submit" class="submit_btn" name="submit"
-                                      value="등록" style="display: inline-block;">--%>
-							<button type="submit" class="submit_btn">Submit</button>
-
+							<input type="submit" class="submit_btn" name="submit"
+								   value="등록" style="display: inline-block;">
 						</div>
-
-					</div>
 
 				</form>
 
@@ -182,84 +160,6 @@
 		<!-- /.box-body -->
 	</div>
 </div>
-
-<script id="template" type="text/x-handlebars-template">
-	<li>
-		<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-		<div class="mailbox-attachment-info">
-			<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-			<a href="{{fullName}}"
-			   class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-			</span>
-		</div>
-	</li>
-</script>
-
-<script>
-
-	var template = Handlebars.compile($("#template").html());
-
-	$(".fileDrop").on("dragenter dragover", function(event){
-		event.preventDefault();
-	});
-
-
-	$(".fileDrop").on("drop", function(event){
-		event.preventDefault();
-
-		var image = event.originalEvent.dataTransfer.files;
-
-		var file = image[0];
-
-		var formData = new FormData();
-
-		formData.append("file", file);
-
-
-		$.ajax({
-			url: '/uploadAjax',
-			data: formData,
-			// dataType:'text',
-			processData: false,
-			contentType: false,
-			type: 'POST',
-			success: function(data){
-
-				var fileInfo = getFileInfo(data);
-
-				var html = template(fileInfo);
-
-				$(".uploadedList").append(html);
-			}
-		});
-	});
-
-
-	$("#modifyForm").submit(function(event){
-		event.preventDefault();
-
-		var that = $(this);
-
-		var str ="";
-		$(".uploadedList .delbtn").each(function(index){
-			str += "<input type='hidden' name='image["+index+"]' value='"+$(this).attr("href") +"'> ";
-		});
-
-		that.append(str);
-
-		budget_check();
-		startDate_check();
-		endDate_check();
-
-		if(input_check()){
-			that.get(0).submit();
-		}
-
-	});
-
-
-
-</script>
 
 
 <%@ include file="../include/footer.jspf" %>

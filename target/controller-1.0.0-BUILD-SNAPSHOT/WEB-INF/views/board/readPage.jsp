@@ -6,8 +6,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%@include file="../include/header.jspf" %>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="${pageContext.request.contextPath}/resources/Board/js/readPage.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script src="${pageContext.request.contextPath}/resources/Board/js/upload.js"></script>
@@ -192,7 +190,7 @@
             
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="button" id="replyAddBtn">ADD REPLY</button>
+                <button type="button" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
             </div>
         </div>
 
@@ -276,7 +274,9 @@
         $.getJSON(pageInfo, function(data) {
             printData(data.list, $("#repliesDiv"), $('#template'));
             printPaging(data.pageMaker, $(".pagination"));
+
             $("#modifyModal").modal('hide');
+
         });
     }
 
@@ -323,8 +323,9 @@
     });
 
     $("#replyAddBtn").on("click",function(){
+
         var replyerObj = $("#newReplyWriter");
-        var replytextObj = $("#newreplyContent");
+        var replytextObj = $("#newReplyText");
         var nickname = replyerObj.val();
         var replyContent = replytextObj.val();
 
@@ -335,12 +336,11 @@
                 "Content-Type": "application/json",
                 "X-HTTP-Method-Override": "POST" },
             dataType:'text',
-            async:false,
             data: JSON.stringify({boardNo:boardNo, nickname:nickname, replyContent:replyContent}),
             success:function(result){
                 console.log("result: " + result);
                 if(result == 'SUCCESS'){
-                    alert("댓글이 등록 되었습니다....");
+                    alert("등록 되었습니다.");
                     replyPage = 1;
                     getPage("/replies/"+boardNo+"/"+replyPage );
                     replyerObj.val("");
@@ -348,7 +348,6 @@
                 }
             }
         });
-
     });
 </script>
 
@@ -375,7 +374,7 @@
 
         $("#goListBtn ").on("click", function(){
             formObj.attr("method", "get");
-            formObj.attr("action", "/board/listPage");
+            formObj.attr("action", "/board/list");
             formObj.submit();
         });
 
@@ -427,7 +426,7 @@
 
         $("#goListBtn ").on("click", function(){
             formObj.attr("method", "get");
-            formObj.attr("action", "/board/listPage");
+            formObj.attr("action", "/board/list");
             formObj.submit();
         });
 
