@@ -10,5 +10,5 @@ import lombok.ToString;
 public class MemberImgVO {
     private String fileName;
     private Integer memNo;
-    private Integer filecnt;
+
 }
