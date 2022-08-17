@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CboardMapper">
+
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어
+		있습니다. -->
+	<select id="listCboard" parameterType="domain.CbCriteria" resultType="domain.CboardVO">
+		SELECT  CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate
+		FROM (SELECT CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate,
+		ROW_NUMBER() OVER(ORDER BY CBNO DESC) AS RNUM FROM CBOARD)
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY CBNO DESC
+	</select>
+
+	<select id="listCount" resultType="int">
+		<![CDATA[
+    select count(cbno) from cboard where cbno>0
+    ]]>
+	</select>
+
+	<insert id="writeCboard" >
+		INSERT INTO CBOARD (CBNO, ctitle, space, cnstType, area, cost, period, content)
+		VALUES(cbno_seq.nextval, #{ctitle}, #{space}, #{cnstType}, #{area}, #{cost}, #{period}, #{content})
+	</insert>
+
+
+	<select id="readCboard" parameterType="int" resultType="domain.CboardVO">
+		SELECT CBNO
+		, CTITLE
+		, CNSTTYPE
+		, SPACE
+		, AREA
+		, COST
+		, PERIOD
+		, CONTENT
+		, REGDATE
+		FROM CBOARD
+		WHERE CBNO = #{cbno}
+	</select>
+
+	<update id="modifyCboard" parameterType="domain.CboardVO" >
+		UPDATE CBOARD
+		SET CTITLE = #{ctitle},
+		SPACE  = #{space},
+		CNSTTYPE  = #{cnstType},
+		AREA  = #{area},
+		COST  = #{cost},
+		PERIOD  = #{period},
+		CONTENT  = #{content}
+		WHERE CBNO = #{cbno}
+	</update>
+
+	<delete id="deleteCboard" parameterType="int">
+		DELETE FROM CBOARD
+		WHERE CBNO = #{cbno}
+	</delete>
+
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+		 select
+		   count(CBNO)
+		 from
+		   CBOARD
+		 where
+		   CBNO > 0
+		    ]]>
+	</select>
+
+	<insert id="addAttach" >
+		INSERT INTO cb_attach (fullname, cbno) VALUES (#{fullName}, cbno_seq.currval)
+	</insert>
+
+
+	<select id="getAttach" resultType="string" >
+		select fullname from cb_attach where cbno = #{cbno} order by regdate
+	</select>
+
+
+	<delete id="deleteAttach">
+		delete from cb_attach where cbno = #{cbno}
+	</delete>
+
+	<insert id="replaceAttach" >
+		INSERT INTO cb_attach(fullname, cbno) VALUES (#{fullName}, #{cbno})
+	</insert>
+
+
+</mapper>
