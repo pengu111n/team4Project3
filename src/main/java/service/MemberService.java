@@ -1,6 +1,7 @@
 package service;
 
 import domain.MemberVO;
+import org.apache.ibatis.annotations.Param;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -23,5 +24,10 @@ public interface MemberService {
 
 	public void memberAuth(String email, String authKey) throws Exception;
 
-	public void attachImg(String fileName)throws Exception;
+	public void attachImg(String fullName)throws Exception;
+	public List<String> getAttachImg(Integer memno)throws Exception;
+
+	public void deleteImg(Integer memno)throws Exception;
+
+	public void replaceImg(String fullName, Integer memno)throws Exception;
 }

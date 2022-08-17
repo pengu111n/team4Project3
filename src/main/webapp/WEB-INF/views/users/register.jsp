@@ -13,9 +13,131 @@
 		</div>
 	</div>
 </div>
+
+<!-- register-area -->
+<div class="register-area" style="background-color: rgb(249, 249, 249);">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="box-for overflow">
+                <div class="col-md-12 col-xs-12 register-blocks">
+                    <h2>새 계정 :</h2>
+                    <form name="insForm" action="register" method="post" onsubmit="return fnSubmit()">
+                        <div class="form-group">
+                        	<label for="rank">회원분류</label> 
+                        		<select id="rank" name ="rank" class="selectpicker show-tick form-control" onchange="changeRank()">
+       								<option value="1">1:일반회원</option> 
+       								<option value="2">2:기업회원</option> 
+       								<option value="3">3:관리자</option> 
+       							</select>
+                        </div>
+                        <div class="form-group" id="compInput">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="id">아이디</label>
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ID">
+                            <button class="btn btn-default idCheckBtn" type="button" onclick="idCheck()">중복확인</button><span id="dup"></span>
+                            <input type="hidden" id="idCheck_YN" name="idCheck_YN" value="N" />
+                        </div>
+                        <div class="form-group">
+                            <label for="nickname">닉네임</label>
+                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw">비밀번호</label>
+                            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw">비밀번호 확인</label>
+                            <input type="password" class="form-control" id="confirmPw" name="confirmPw" placeholder="비밀번호 확인">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                        </div>
+                        <div class="form-group">
+                            <label for="birth">생년월일</label>
+                            <!-- <input type="text" class="form-control" id="birth" name="birth" onkeydown="return checkNumber(event);" placeholder="생년월일"> -->
+                            <input type="text" class="form-control" id="birth" name="birth" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="생년월일">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">주소</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="주소">
+                        </div>
+                        <div class="form-group">
+                            <label for="phonenum">전화번호</label>
+                            <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
+                            <input type="text" class="form-control" id="phonenum" name="phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="전화번호">
+                        </div>
+                        <div class="form-group email-form">
+                            <label for="email">이메일</label>
+                            <span>
+                            <input type="text" class="form-control form-control_half" id="email" name="email" placeholder="이메일">
+                            <span>@</span>
+                            <select class="form-control" name="email2" id="email2" onchange="selectEmail()">
+                                <option value = "" selected>선택</option>
+                                <option value = "naver.com">naver.com</option>
+                                <option value = "daum.net">daum.net</option>
+                                <option value = "gmail.com">gmail.com</option>
+                                <option value = "hanmail.com">hanmail.com</option>
+                                <option value = "other">기타</option>
+                            </select>
+                            </span>
+                            <input class="form-control" id="otherEmail" disabled type="text" name="email3">
+                        </div>
+                        <%--첨부파일 영역 추가--%>
+                        <div class="form-group">
+                          <div class="fileDrop">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
+                          </div>
+                          <ul class="mailbox-attachments clearfix uploadedList">
+                          </ul>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-default">회원가입</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fileDrop {
+        width: 100%;
+        height: 200px;
+        border: 2px dotted #0b58a2;
+    }
+</style>
+
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<script id="template" type="text/x-handlebars-template">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}"
+     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>
+</script>
+
+
 <!-- End page header -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+
+var template = Handlebars.compile($("#template").html());
+
+
 
 $(document).ready(function(){
             $(".fileDrop").on("dragenter dragover", function(event){
@@ -44,12 +166,32 @@ $(document).ready(function(){
                     data: formData,
                     processData: false,
                     dataType: "text",
-                    processData: false,
                     contentType: false,
                     success: function(data){
-                       alert("완료")
+                        var fileInfo = getFileInfo(data);
+
+                        var html = template(fileInfo);
+
+                        $(".uploadedList").append(html);
                     }
                 });
+            });
+        });
+
+        $(".uploadedList").on("click", ".delbtn", function (event) {
+            event.preventDefault();
+            var that = $(this);
+            $.ajax({
+                url: "/users/register/deleteFile",
+                type: "post",
+                data: {fileName:$(this).attr("href")},
+                dataType: "text",
+                success: function (result) {
+                    if (result == "deleted") {
+                        alert("삭제되었습니다.");
+                        that.parents("li").remove();
+                    }
+                }
             });
         });
 
@@ -82,20 +224,20 @@ function selectEmail(){
 
 	function enterkey() {
 		if (window.event.keyCode == 13) {
-			fn_reg();    	
+			fn_reg();
 	    }
 	}
-	
+
 	function checkNumber(event) {
 		  if(event.key >= 0 && event.key <= 9) {
 		    return true;
 		  }
-		  
+
 		  return false;
 	}
 
 
-		
+
 
     var idPass;
     var idRegex = /^[a-zA-Z0-9]{4,12}$/;
@@ -213,103 +355,4 @@ function selectEmail(){
 </script>
 
 
-<!-- register-area -->
-<div class="register-area" style="background-color: rgb(249, 249, 249);">
-    <div class="container">
-        <div class="col-md-6">
-            <div class="box-for overflow">
-                <div class="col-md-12 col-xs-12 register-blocks">
-                    <h2>새 계정 :</h2>
-                    <form name="insForm" action="register" method="post" onsubmit="return fnSubmit()">
-                        <div class="form-group">
-                        	<label for="rank">회원분류</label> 
-                        		<select id="rank" name ="rank" class="selectpicker show-tick form-control" onchange="changeRank()">
-       								<option value="1">1:일반회원</option> 
-       								<option value="2">2:기업회원</option> 
-       								<option value="3">3:관리자</option> 
-       							</select>
-                        </div>
-                        <div class="form-group" id="compInput">
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="id">아이디</label>
-                            <input type="text" class="form-control" id="id" name="id" placeholder="ID">
-                            <button class="btn btn-default idCheckBtn" type="button" onclick="idCheck()">중복확인</button><span id="dup"></span>
-                            <input type="hidden" id="idCheck_YN" name="idCheck_YN" value="N" />
-                        </div>
-                        <div class="form-group">
-                            <label for="nickname">닉네임</label>
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임">
-                        </div>
-                        <div class="form-group">
-                            <label for="pw">비밀번호</label>
-                            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호">
-                        </div>
-                        <div class="form-group">
-                            <label for="pw">비밀번호 확인</label>
-                            <input type="password" class="form-control" id="confirmPw" name="confirmPw" placeholder="비밀번호 확인">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="이름">
-                        </div>
-                        <div class="form-group">
-                            <label for="birth">생년월일</label>
-                            <!-- <input type="text" class="form-control" id="birth" name="birth" onkeydown="return checkNumber(event);" placeholder="생년월일"> -->
-                            <input type="text" class="form-control" id="birth" name="birth" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="생년월일">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">주소</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="주소">
-                        </div>
-                        <div class="form-group">
-                            <label for="phonenum">전화번호</label>
-                            <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
-                            <input type="text" class="form-control" id="phonenum" name="phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="전화번호">
-                        </div>
-                        <div class="form-group email-form">
-                            <label for="email">이메일</label>
-                            <span>
-                            <input type="text" class="form-control form-control_half" id="email" name="email" placeholder="이메일">
-                            <span>@</span>
-                            <select class="form-control" name="email2" id="email2" onchange="selectEmail()">
-                                <option value = "" selected>선택</option>
-                                <option value = "naver.com">naver.com</option>
-                                <option value = "daum.net">daum.net</option>
-                                <option value = "gmail.com">gmail.com</option>
-                                <option value = "hanmail.com">hanmail.com</option>
-                                <option value = "other">기타</option>
-                            </select>
-                            </span>
-                            <input class="form-control" id="otherEmail" disabled type="text" name="email3">
-                        </div>
-                        <%--첨부파일 영역 추가--%>
-                        <div class="form-group">
-                          <div class="fileDrop">
-                            <input type="file">
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
-                          </div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-default">회원가입</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .fileDrop {
-        width: 100%;
-        height: 200px;
-        border: 2px dotted #0b58a2;
-    }
-</style>
 <%@ include file="../include/footer.jspf"%>

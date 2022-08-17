@@ -20,6 +20,7 @@ import util.UploadFileUtils;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -94,8 +95,28 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void attachImg(String fileName) throws Exception {
-		mapper.attachImg(fileName);
+	public void attachImg(String fullName) throws Exception {
+		mapper.attachImg(fullName);
+	}
+
+	@Override
+	public List<String> getAttachImg(Integer memno) throws Exception {
+		return mapper.getAttachImg(memno);
+	}
+
+	@Override
+	public void deleteImg(Integer memno) throws Exception {
+		mapper.deleteImg(memno);
+	}
+
+	@Override
+	public void replaceImg(String fullName, Integer memno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+
+		paramMap.put("fullName", fullName);
+		paramMap.put("memno", memno);
+
+		mapper.replaceImg(paramMap);
 	}
 
 

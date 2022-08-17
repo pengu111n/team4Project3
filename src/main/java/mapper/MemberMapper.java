@@ -3,6 +3,9 @@ package mapper;
 import domain.MemberVO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+import java.util.Map;
+
 
 public interface MemberMapper {
 	public void create(MemberVO vo) throws Exception;
@@ -20,4 +23,11 @@ public interface MemberMapper {
 
 	public void attachImg(String fileName)throws Exception;
 
+	public List<String> getAttachImg(Integer memno)throws Exception;
+
+	public void deleteImg(Integer memno)throws Exception;
+
+	public void replaceImg(@Param("fullName")String fullName, @Param("memno")Integer memno)throws Exception;
+
+	public void replaceImg(Map<String, Object> paramMap);
 }
