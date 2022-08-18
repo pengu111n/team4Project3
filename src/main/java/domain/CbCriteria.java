@@ -12,7 +12,7 @@ public class CbCriteria {
 
     public CbCriteria(){
         this.page = 1;
-        this.perPageNum = 8;
+        this.perPageNum = 6;
     }
 
     public void setPage(int page){
@@ -28,7 +28,7 @@ public class CbCriteria {
     public void setPerPageNum(int perPageNum){
 
         if(perPageNum <= 0 || perPageNum > 100){
-            this.perPageNum = 8;
+            this.perPageNum = 6;
             return;
         }
 

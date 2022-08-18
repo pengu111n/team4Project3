@@ -112,15 +112,17 @@ img {
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>제목 :</label>
-                                                        <textarea class="form-control" id="ctitle" name="ctitle">${cboard.ctitle} </textarea>
+                                                        <textarea class="form-control" name="ctitle" onkeypress="TextCount(this,'ctitle');"
+                                                        placeholder="제목을 간략하게 작성해주세요 (20자이내)">${cboard.ctitle} </textarea>
+                                                        <span id="ctitle"></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label>면적(평수) :</label>
-                                                        <textarea id="area" name="area" class="form-control" >${cboard.area} </textarea>
+                                                        <label>평수 :</label>
+                                                        <textarea id="area" name="area" class="form-control" placeholder="평수는 숫자만 입력 가능합니다.">${cboard.area} </textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,8 +148,7 @@ img {
                                                     <div class="form-group">
                                                         <label>시공 공간  :</label>
                                                         <select id="space" name="space" class="selectpicker show-tick form-control">
-                                                            <option> -Status- </option>
-   														<option value="" disabled selected> -Status- </option>
+   														<option value="" disabled selected> - 선택 - </option>
 														<option value="아파트">아파트</option>
 														<option value="빌라">빌라</option>
 														<option value="카페/식당">카페/식당</option>
@@ -163,7 +164,7 @@ img {
                                                     <div class="form-group">
                                                         <label>시공 분야  :</label>
                                                         <select id="cnstType" name="cnstType" class="selectpicker show-tick form-control">
-															<option value="" disabled selected> -Status- </option>
+															<option value="" disabled selected> - 선택 - </option>
 															<option value="종합">종합</option>
 															<option value="도배">도배</option>
 															<option value="마루">마루</option>
@@ -192,7 +193,10 @@ img {
                                     <!-- End step 1 -->
 
                                     <div class="tab-pane" id="step2">
-                                        <h4 class="info-text">시공사진 이미지 등록 </h4>
+                                        <div style="margin-bottom: 20px;">>
+                                            <p align="center"><span class="info-text" style="font-size: 20px;">시공사진 이미지 등록</span>
+                                            <span style="font-size: 16px;">(글 수정시 이미지를 다시 등록해주세요)</span></p>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-6" align="center">
 												<label for="property-images">이미지를 드래그 하세요</label>
@@ -257,10 +261,10 @@ img {
 				$("form")
 						.submit(
 								function() {
-									if ($("#ctitle").val() == "") {
-										alert("제목을 간략히 작성해주세요");
-										return false;
-									}
+									if ($("textarea[Name='ctitle']").val() == "") {
+                                        alert("제목을 간략히 작성해주세요");
+                                        return false;
+                                    }
 									if (!$.isNumeric($("#area").val())) {
 										alert("평수를 입력해주세요(숫자만 입력 가능합니다)");
 										return false;
@@ -361,7 +365,7 @@ $(".fileDrop").on("drop", function(event){
 });
 
 
-// 파일 삭제
+// 첨부파일 삭제
 $(".uploadedList").on("click", ".delbtn", function (event) {
     event.preventDefault();
     var that = $(this);
@@ -378,6 +382,19 @@ $(".uploadedList").on("click", ".delbtn", function (event) {
         }
     });
 });
+
+//제목 글자수 제한
+function TextCount(obj,id){
+	var strValue = obj.value;
+	var strLen = strValue.length+1;
+	var str = "";
+	str += '[' + strLen + '자 / 21]';
+	if(strLen > 20){
+		alert("제목을 간략하게 작성해주세요 (20자이내)");
+		$(obj).val(strValue.substring(0, 19));
+	}
+	$("#"+id).html(str);
+}
 
 
 </script>

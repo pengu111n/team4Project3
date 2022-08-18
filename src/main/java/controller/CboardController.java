@@ -30,7 +30,8 @@ public class CboardController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listCboard(CbCriteria cri, Model model) throws Exception {
 
-        model.addAttribute("list", cboardService.listCboard(cri));
+        List<CboardVO> list = cboardService.listCboard(cri);
+        model.addAttribute("list", list);
 
         CbPageMaker pageMaker = new CbPageMaker();
         pageMaker.setCri(cri);

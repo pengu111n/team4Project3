@@ -24,7 +24,15 @@ public class CboardServiceImpl implements CboardService {
     @Override
     @Transactional
     public List<CboardVO> listCboard(CbCriteria cri) throws Exception {
-        return cboardMapper.listCboard(cri);
+        List<CboardVO> list = cboardMapper.listCboard(cri);
+        for(CboardVO vo : list) {
+            Integer cbno = vo.getCbno();
+            List<String> filesList = cboardMapper.getAttach(cbno);
+            String[] files = new String[filesList.size()];
+            filesList.toArray(files);
+            vo.setFiles(files);
+        }
+        return list;
     }
 
     @Override

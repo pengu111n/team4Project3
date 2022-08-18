@@ -24,9 +24,9 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.UUID;
 @Controller
-public class CbUploadController {
+public class UploadController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CbUploadController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 
     @Resource(name = "uploadPath")
     private String uploadPath;  //value="C:\\zzz\\upload" 주입시킴

@@ -33,10 +33,6 @@ pageContext.setAttribute("cn", "\n");
   margin: 0;
   padding: 0;
 }
-/* .mailbox-attachment-icon.has-img>img {
-    max-width: 100%;
-    height: auto;
-} */
 .mailbox-attachment-icon.has-img>img {
    position:relative;
    width: 800px;
@@ -67,7 +63,7 @@ img {
 <!-- Content Header (Page header) -->
 
 
-<!-- <div class="page-head">
+ <div class="page-head">
     <div class="container">
         <div class="row">
             <div class="page-head-content">
@@ -75,7 +71,7 @@ img {
             </div>
         </div>
     </div>
-</div>  -->
+</div>
 <!-- End page header -->
 
         <!-- property area -->
@@ -96,7 +92,7 @@ img {
 										<i class="fa fa-print"></i>
 									</a>
 								</div>
-								<ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+							<!--<ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 									<li data-thumb="/resources/assets/img/property-1/property1.jpg">
 										<img src="/resources/assets/img/property-1/property1.jpg" />
 									</li>
@@ -109,21 +105,26 @@ img {
 									<li data-thumb="/resources/assets/img/property-1/property4.jpg">
 										<img src="/resources/assets/img/property-1/property4.jpg" />
 									</li>
-								</ul>
+								</ul>   -->
 
 							</div>
 						</div>
 					</div>
 					<div class="single-property-wrapper">
 
-						<div class="section">
-							<h2 class="t-property-title">${cboard.ctitle}</h2>
-							&nbsp;
-							<%-- <h2 class="property-title"> ${cboard.ctitle} </h2> --%>
-							<div class="s-property-content">
-								<p>${fn:replace(cboard.content, cn, br)}</p>
-							</div>
-						</div>
+						<div class="section property-share">
+                            <h4 class="s-property-title"></h4>
+                            <ul class="mailbox-attachments clearfix uploadedList"></ul>
+                        </div>
+                        <div class="section">
+                            <h2 class="property-title">${cboard.ctitle}</h2>
+                            &nbsp;
+                        </div>
+                        <div class="section">
+                            <div class="s-property-content">
+                                <p>${fn:replace(cboard.content, cn, br)}</p>
+                            </div>
+                        </div>
 						<!-- End description area  -->
 
 						<div class="section additional-details">
@@ -228,13 +229,7 @@ img {
 						</ul>
 					</div>
 				</div>
-
-				<div class="section property-share">
-					<h4 class="s-property-title">시공 사진</h4>
-					<ul class="mailbox-attachments clearfix uploadedList"></ul>
-					<h5 style="text-align: right">등록일 : <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${cboard.regDate}" /></h5>
-				</div>
-
+				<h5 style="text-align: right">등록일 : <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${cboard.regDate}" /></h5>
 			</div>
 		</div>
 		<div class="margin-space" style="text-align: right">

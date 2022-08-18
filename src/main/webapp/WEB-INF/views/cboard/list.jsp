@@ -49,17 +49,20 @@
                     <div class="col-md-12 clear ">
                         <div id="list-type" class="proerty-th">
                         	<c:forEach var="cboard" items="${list}">
-                            <div class="col-sm-6 col-md-3 p0">
+                            <div class="col-sm-6 col-md-4 p0">
                                 <div class="box-two proerty-item">
                                     <div class="item-thumb">
-                                        <a href="read?cbno=${cboard.cbno}"><img src="/resources/assets/img/demo/property-3.jpg"></a>
+                                        <a href="read?cbno=${cboard.cbno}">
+                                        <c:set var="data" value="${cboard.files[0]}" />
+                                        <img style="height: 240px;" src="/displayFile?fileName=${fn:substring(data, 0, 12)}${fn:substring(data, 14, 100)}"
+                                        onerror="this.src='/resources/assets/img/demo/default.jpg'"/></a>
                                     </div>
 
                                     <div class="item-entry overflow">
-                                        <h5><a href="read?cbno=${cboard.cbno}"> ${cboard.ctitle} </a></h5>
+                                        <h5 style="font-size: 14px;"><a href="read?cbno=${cboard.cbno}"> ${cboard.ctitle} </a></h5>
                                         <div class="dot-hr"></div>
                                         <span class="pull-left"><b> (주)디자인 </b></span>
-                                        <span class="proerty-price pull-right"> $ ${cboard.cost} </span>
+                                        <span class="proerty-price pull-right"> ￦ ${cboard.cost} </span>
                                         <p style="display: none;">${fn:replace(cboard.content, cn, br)}</p>
                                         <div class="property-icon">
                                             ${cboard.cnstType} |
