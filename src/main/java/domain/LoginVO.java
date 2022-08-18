@@ -3,7 +3,7 @@ package domain;
 import lombok.Data;
 
 @Data
-public class MemberVO {
+public class LoginVO {
 
     private Integer memno;
     private String nickname;
@@ -16,6 +16,7 @@ public class MemberVO {
     private String companyno;
     private Integer birth;
     private Integer rank;
+    private boolean useCookie;
 
     public Integer getMemno() {
         return memno;
@@ -105,9 +106,17 @@ public class MemberVO {
         this.rank = rank;
     }
 
+    public boolean isUseCookie() {
+        return useCookie;
+    }
+
+    public void setUseCookie(boolean useCookie) {
+        this.useCookie = useCookie;
+    }
+
     @Override
     public String toString() {
-        return "MemberVO{" +
+        return "LoginVO{" +
                 "memno=" + memno +
                 ", nickname='" + nickname + '\'' +
                 ", id='" + id + '\'' +
@@ -119,6 +128,7 @@ public class MemberVO {
                 ", companyno='" + companyno + '\'' +
                 ", birth=" + birth +
                 ", rank=" + rank +
+                ", useCookie=" + useCookie +
                 '}';
     }
 }
