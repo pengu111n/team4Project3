@@ -8,6 +8,5 @@
     <package name="org.zerock.domain"/>    
   </typeAliases>
 
-
 </configuration>
 
