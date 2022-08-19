@@ -1,6 +1,8 @@
 package controller;
 
 import domain.MemberVO;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.io.IOUtils;
 import org.apache.ibatis.annotations.Param;
 import org.mindrot.jbcrypt.BCrypt;
@@ -39,8 +41,13 @@ public class MemberController {
     @Resource(name = "uploadPath")
     private String uploadPath;
 
-    @Autowired
+
     private UploadFileUtils uploadFileUtils;
+
+    @Setter
+    @Getter
+    private String fullname ;
+
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public void registerGET(MemberVO member, Model model) throws Exception {
@@ -51,7 +58,7 @@ public class MemberController {
         String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         member.setPw(cryptPW);
         member.setEmail(member.getEmail()+"@"+email2+email3);
-
+        member.setFilename(getFullname());
     logger.info("regist post..........");
     logger.info(member.toString());
 
@@ -112,13 +119,21 @@ public class MemberController {
         logger.info("originalName : "+file.getOriginalFilename());
         logger.info("size : "+file.getSize());
         logger.info("contentType : "+file.getContentType());
-        return new ResponseEntity<String>(uploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.OK);
-    }
 
+        String uploadFile = uploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+        setFullname(uploadFile);
+        if(uploadFile != null) {
+            ResponseEntity<String> result = new ResponseEntity<String>(uploadFile, HttpStatus.OK);
+            return result;
+        }else{
+            ResponseEntity<String> result = new ResponseEntity<String>(uploadFile, HttpStatus.BAD_REQUEST);
+            return result;
+        }
+    }
 
     @ResponseBody
     @RequestMapping("/register/displayFile")
-    public ResponseEntity<byte[]>  displayFile(String fileName)throws Exception{
+    public ResponseEntity<byte[]>  displayFile(String fileName, MemberVO vo)throws Exception{
 
         InputStream in = null;
         ResponseEntity<byte[]> entity = null;

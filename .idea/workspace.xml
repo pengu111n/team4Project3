@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="" />
+    <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/MemberImgVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/MemberImgVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/MemberVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/MemberVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/MediaUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/MediaUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/UploadFileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UploadFileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/memberUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/MemberImgVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/MemberImgVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/MediaUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/MediaUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/UploadFileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/UploadFileUtils.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +69,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/team4Project3/src/main/webapp/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/82108/Desktop/team4Project3&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -122,17 +145,17 @@
       </method>
     </configuration>
     <configuration name="tomcat" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
-      <option name="adminPort" value="8006" />
+      <option name="adminPort" value="8005" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8081" />
+      <option name="port" value="8080" />
       <option name="tomcatInfo">
         <TomcatInfo>
           <option name="name" value="Apache Tomcat/9.0.41" />
           <option name="number" value="0" />
-          <option name="path" value="C:\dev\apache-tomcat-9.0.41" />
+          <option name="path" value="D:\dev\apache-tomcat-9.0.41" />
           <option name="version" value="9.0.41.0" />
         </TomcatInfo>
       </option>

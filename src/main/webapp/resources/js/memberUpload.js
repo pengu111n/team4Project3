@@ -22,9 +22,8 @@ function getFileInfo(fullName){
 		getLink = "/users/register/displayFile?fileName="+front + end;
 		
 	}else{
-		imgsrc ="/resources/dist/img/file.png";
-		fileLink = fullName.substr(12);
-		getLink = "/users/register/displayFile?fileName="+fullName;
+		alert("이미지 파일만 넣어주세요")
+		return false;
 	}
 	fileName = fileLink.substr(fileLink.indexOf("_")+1);
 	

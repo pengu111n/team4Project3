@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 
 
 
-	@Transactional(rollbackFor = Exception.class)
+	@Transactional
 	@Override
 	public void regist(MemberVO vo) throws Exception {
 		mapper.create(vo);
@@ -54,6 +54,14 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setFrom("xogus8206@gmail.com", "인프");
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
+
+		String file = vo.getFilename();
+
+		if(file == null) { return; }
+
+
+		mapper.attachImg(file);
+
 	}
 
 

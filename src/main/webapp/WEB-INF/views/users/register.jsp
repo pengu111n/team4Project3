@@ -62,7 +62,14 @@
                         </div>
                         <div class="form-group">
                             <label for="address">주소</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="주소">
+                            <input type="hidden" class="form-control" id="address" name="address" placeholder="주소">
+                            <input type="text" id="sample4_postcode" class="form-control address_40%" placeholder="우편번호" readonly>
+                            <input type="button" onclick="sample4_execDaumPostcode()" class="form-control address_40%" value="우편번호 찾기"><br/>
+                            <input type="text" id="sample4_roadAddress" class="form-control address_40%" placeholder="도로명주소" readonly>
+                            <input type="text" id="sample4_jibunAddress" class="form-control address_40%" placeholder="지번주소" readonly>
+                            <span id="guide" style="color:#999;display:none"></span>
+                            <input type="text" id="sample4_detailAddress" placeholder="상세주소" class="form-control address_40%" oninput="SUMaddress()">
+                            <input type="text" id="sample4_extraAddress" class="form-control address_40%" placeholder="참고항목" readonly>
                         </div>
                         <div class="form-group">
                             <label for="phonenum">전화번호</label>
@@ -115,7 +122,10 @@
     }
 </style>
 
-<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/resources/js/address.js"></script>
+
+<script type="text/javascript" src="/resources/js/memberUpload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
@@ -133,18 +143,17 @@
 
 <!-- End page header -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script type="text/javascript">
 
 var template = Handlebars.compile($("#template").html());
 
 
 
-$(document).ready(function(){
+
             $(".fileDrop").on("dragenter dragover", function(event){
                 event.preventDefault(); // 기본효과를 막음
             });
-            // event : jQuery의 이벤트
-            // originalEvent : javascript의 이벤트
             $(".fileDrop").on("drop", function(event){
                 event.preventDefault(); // 기본효과를 막음
                 // 드래그된 파일의 정보
@@ -154,9 +163,8 @@ $(document).ready(function(){
                 // 콘솔에서 파일정보 확인
                 console.log(file);
 
-                // ajax로 전달할 폼 객체
+
                 var formData = new FormData();
-                // 폼 객체에 파일추가, append("변수명", 값)
                 formData.append("file", file);
 
 
@@ -168,15 +176,22 @@ $(document).ready(function(){
                     dataType: "text",
                     contentType: false,
                     success: function(data){
+                        console.log(data);
                         var fileInfo = getFileInfo(data);
 
                         var html = template(fileInfo);
 
                         $(".uploadedList").append(html);
+                    },
+                    error : function(result){
+                        alert("이미지 파일이 아닙니다");
+                        return false;
                     }
                 });
             });
-        });
+
+
+
 
         $(".uploadedList").on("click", ".delbtn", function (event) {
             event.preventDefault();
@@ -194,7 +209,7 @@ $(document).ready(function(){
                 }
             });
         });
-
+        
 function changeRank(){
     var r = document.getElementById("rank");
     var innerR = r.options[r.selectedIndex].value;
@@ -341,6 +356,7 @@ function selectEmail(){
 
         	    return false;
         	    }
+     
 
         	if (confirm("회원가입하시겠습니까?")) {
 
@@ -350,6 +366,12 @@ function selectEmail(){
         	}
      }
 
+function SUMaddress(){
+    var realAddress = document.getElementById("address");
+    var fakeAddress = $("#sample4_roadAddress").val() + " " + $("#sample4_detailAddress").val();
+    realAddress.setAttribute("value", fakeAddress);
+                               
+}
 
 
 </script>
