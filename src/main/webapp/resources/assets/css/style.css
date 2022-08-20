@@ -3853,3 +3853,11 @@ ul.footer-blog li {
     margin : 0px 10px;
     align-items : center;
 }
+
+.half{
+    display : flex;
+}
+
+.half input:first-child{
+    margin-right : 10px;
+}

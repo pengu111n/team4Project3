@@ -63,8 +63,10 @@
                         <div class="form-group">
                             <label for="address">주소</label>
                             <input type="hidden" class="form-control" id="address" name="address" placeholder="주소">
+                            <span class="half">
                             <input type="text" id="sample4_postcode" class="form-control address_40%" placeholder="우편번호" readonly>
-                            <input type="button" onclick="sample4_execDaumPostcode()" class="form-control address_40%" value="우편번호 찾기"><br/>
+                            <input type="button" onclick="sample4_execDaumPostcode()" class="form-control address_40%" value="우편번호 찾기">
+                            </span>
                             <input type="text" id="sample4_roadAddress" class="form-control address_40%" placeholder="도로명주소" readonly>
                             <input type="text" id="sample4_jibunAddress" class="form-control address_40%" placeholder="지번주소" readonly>
                             <span id="guide" style="color:#999;display:none"></span>
