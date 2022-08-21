@@ -6,19 +6,32 @@
 
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어
 		있습니다. -->
-	<select id="listCboard" parameterType="domain.CbCriteria" resultType="domain.CboardVO">
+	<select id="listCboard" parameterType="domain.CbSearchCriteria" resultType="domain.CboardVO">
 		SELECT  CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate
 		FROM (SELECT CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate,
-		ROW_NUMBER() OVER(ORDER BY CBNO DESC) AS RNUM FROM CBOARD)
+			ROW_NUMBER() OVER(ORDER BY CBNO DESC) AS RNUM FROM CBOARD
+			WHERE 1=1
+				<include refid="search"></include>
+					) MP
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY CBNO DESC
 	</select>
 
-	<select id="listCount" resultType="int">
-		<![CDATA[
-    select count(cbno) from cboard where cbno>0
-    ]]>
+	<select id="listCount" parameterType="domain.CbSearchCriteria" resultType="int">
+		SELECT COUNT(CBNO) FROM CBOARD
+		WHERE 1=1
+			<include refid="search"></include>
+		AND CBNO > 0
 	</select>
+
+	<sql id="search"> <!-- 동적쿼리 -->
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND CTITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<!-- <if test="searchType == 'w'.toString()">AND WRITER LIKE '%' || #{keyword} || '%'</if> -->
+			<!-- <if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if> -->
+		</if>
+	</sql>
 
 	<insert id="writeCboard" >
 		INSERT INTO CBOARD (CBNO, ctitle, space, cnstType, area, cost, period, content)

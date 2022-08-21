@@ -1,17 +1,16 @@
 package service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import domain.CbSearchCriteria;
+import domain.CboardVO;
+import mapper.CboardMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import domain.CboardVO;
-import domain.CbCriteria;
-import mapper.CboardMapper;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 //@Configuration
@@ -23,8 +22,8 @@ public class CboardServiceImpl implements CboardService {
 
     @Override
     @Transactional
-    public List<CboardVO> listCboard(CbCriteria cri) throws Exception {
-        List<CboardVO> list = cboardMapper.listCboard(cri);
+    public List<CboardVO> listCboard(CbSearchCriteria scri) throws Exception {
+        List<CboardVO> list = cboardMapper.listCboard(scri);
         for(CboardVO vo : list) {
             Integer cbno = vo.getCbno();
             List<String> filesList = cboardMapper.getAttach(cbno);
@@ -36,8 +35,8 @@ public class CboardServiceImpl implements CboardService {
     }
 
     @Override
-    public int listCount() throws Exception {
-        return cboardMapper.listCount();
+    public int listCount(CbSearchCriteria scri) throws Exception {
+        return cboardMapper.listCount(scri);
     }
 
     @Transactional

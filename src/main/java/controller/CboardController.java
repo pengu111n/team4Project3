@@ -2,6 +2,7 @@ package controller;
 
 import domain.CbCriteria;
 import domain.CbPageMaker;
+import domain.CbSearchCriteria;
 import domain.CboardVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,14 +29,14 @@ public class CboardController {
 
     //게시물 목록
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listCboard(CbCriteria cri, Model model) throws Exception {
+    public String listCboard(CbSearchCriteria scri, Model model) throws Exception {
 
-        List<CboardVO> list = cboardService.listCboard(cri);
+        List<CboardVO> list = cboardService.listCboard(scri);
         model.addAttribute("list", list);
 
         CbPageMaker pageMaker = new CbPageMaker();
-        pageMaker.setCri(cri);
-        pageMaker.setTotalCount(cboardService.listCount());
+        pageMaker.setCri(scri);
+        pageMaker.setTotalCount(cboardService.listCount(scri));
 
         model.addAttribute("pageMaker", pageMaker);
 
