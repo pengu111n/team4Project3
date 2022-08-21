@@ -96,6 +96,11 @@ public class MemberServiceImpl implements MemberService {
 		return cnt;
 	}
 
+	@Override
+	public int nicknameCheck(String nickname) throws Exception{
+		int cnt = mapper.nicknameCheck(nickname);
+		return cnt;
+	}
 
 	@Override
 	public void memberAuth(String email, String authKey) throws Exception {

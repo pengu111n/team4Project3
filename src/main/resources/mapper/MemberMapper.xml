@@ -31,6 +31,11 @@
 		where id = #{id}
 	</select>
 
+	<select id="nicknameCheck" resultType="int">
+		select count(*) from member
+		where nickname = #{nickname}
+	</select>
+
 	<insert id="createAuth">
 		insert into authEmail(email, authKey) values(#{0}, #{1})
 	</insert>

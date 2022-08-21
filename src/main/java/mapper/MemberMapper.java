@@ -18,6 +18,8 @@ public interface MemberMapper {
 
 	public int idCheck(String id) throws Exception;
 
+	public int nicknameCheck(String nickname) throws Exception;
+
 	public void createAuth(String email, String authKey) throws Exception;
 	public void memberAuth(String email, String authKey) throws Exception;
 

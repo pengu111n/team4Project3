@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header.jspf"%>
 
+<link rel="stylesheet" href="/resources/css/member.css">
+
+
 
 <div class="page-head">
 	<div class="container">
@@ -35,30 +38,45 @@
                         </div>
                         <div class="form-group">
                             <label for="id">아이디</label>
-                            <input type="text" class="form-control" id="id" name="id" placeholder="ID">
-                            <button class="btn btn-default idCheckBtn" type="button" onclick="idCheck()">중복확인</button><span id="dup"></span>
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ID" onblur="idCheck()" maxlength="20">
+                            <span id="dupId">중복된 아이디 입니다.</span>
+                            <span class="regexId">6-20자의 영문 소문자와 숫자만 사용가능합니다.</span>
+                            <span class="successId">멋진 아이디군요!</span>
+                            <span class="empty emptyID">필수 정보입니다.</span>
                             <input type="hidden" id="idCheck_YN" name="idCheck_YN" value="N" />
                         </div>
                         <div class="form-group">
                             <label for="nickname">닉네임</label>
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임">
+                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" onblur="nicknameCheck()">
+                            <span class="nicknameCK">중복된 닉네임 입니다.</span>
+                            <span class="empty emptyNickname">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="pw">비밀번호</label>
-                            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호">
+                            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호" onblur="regexPW()">
+                            <span class= regexPW>8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
+                            <span class="empty emptyPW">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="pw">비밀번호 확인</label>
-                            <input type="password" class="form-control" id="confirmPw" name="confirmPw" placeholder="비밀번호 확인">
+                            <input type="password" class="form-control" id="confirmPw" name="confirmPw" placeholder="비밀번호 확인" onblur="confirmPW()">
+                            <span class="samePW">비밀번호가 일치하지 않습니다.</span>
+                            <span class="empty emptyPW1">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="이름" onblur="emptyName()">
+                            <span class="empty emptyName">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="birth">생년월일</label>
                             <!-- <input type="text" class="form-control" id="birth" name="birth" onkeydown="return checkNumber(event);" placeholder="생년월일"> -->
-                            <input type="text" class="form-control" id="birth" name="birth" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="생년월일">
+                            <span id="birth">
+                            <input type="text" class="form-control" name="yy" id="yy" placeholder="생년월일" onblur="emptyBirth()">
+                            <select name="mm" id="mm" class="month form-control"></select>
+                            <input type="text" name="dd" id="dd" class="form-control">
+                            </span>
+                            <span class="empty emptyBirth">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="address">주소</label>
@@ -76,12 +94,13 @@
                         <div class="form-group">
                             <label for="phonenum">전화번호</label>
                             <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
-                            <input type="text" class="form-control" id="phonenum" name="phonenum" onKeyup="this.value=this.value.replace(/[^0-9]/g,''); placeholder="전화번호">
+                            <input type="text" class="form-control" id="phonenum" name="phonenum" placeholder="전화번호" onblur="emptyPhone()">
+                            <span class="empty emptyPhone">필수 정보입니다.</span>
                         </div>
                         <div class="form-group email-form">
                             <label for="email">이메일</label>
                             <span>
-                            <input type="text" class="form-control form-control_half" id="email" name="email" placeholder="이메일">
+                            <input type="text" class="form-control form-control_half" id="email" name="email" placeholder="이메일" onblur="emptyMail()">                            
                             <span>@</span>
                             <select class="form-control" name="email2" id="email2" onchange="selectEmail()">
                                 <option value = "" selected>선택</option>
@@ -92,6 +111,7 @@
                                 <option value = "other">기타</option>
                             </select>
                             </span>
+                            <b class="empty emptyMail">필수 정보입니다.</b>
                             <input class="form-control" id="otherEmail" disabled type="text" name="email3">
                         </div>
                         <%--첨부파일 영역 추가--%>
@@ -146,237 +166,7 @@
 <!-- End page header -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script type="text/javascript">
-
-var template = Handlebars.compile($("#template").html());
-
-
-
-
-            $(".fileDrop").on("dragenter dragover", function(event){
-                event.preventDefault(); // 기본효과를 막음
-            });
-            $(".fileDrop").on("drop", function(event){
-                event.preventDefault(); // 기본효과를 막음
-                // 드래그된 파일의 정보
-                var files = event.originalEvent.dataTransfer.files;
-                // 첫번째 파일
-                var file = files[0];
-                // 콘솔에서 파일정보 확인
-                console.log(file);
-
-
-                var formData = new FormData();
-                formData.append("file", file);
-
-
-                $.ajax({
-                    type: "post",
-                    url: "/users/register/uploadAjax",
-                    data: formData,
-                    processData: false,
-                    dataType: "text",
-                    contentType: false,
-                    success: function(data){
-                        console.log(data);
-                        var fileInfo = getFileInfo(data);
-
-                        var html = template(fileInfo);
-
-                        $(".uploadedList").append(html);
-                    },
-                    error : function(result){
-                        alert("이미지 파일이 아닙니다");
-                        return false;
-                    }
-                });
-            });
-
-
-
-
-        $(".uploadedList").on("click", ".delbtn", function (event) {
-            event.preventDefault();
-            var that = $(this);
-            $.ajax({
-                url: "/users/register/deleteFile",
-                type: "post",
-                data: {fileName:$(this).attr("href")},
-                dataType: "text",
-                success: function (result) {
-                    if (result == "deleted") {
-                        alert("삭제되었습니다.");
-                        that.parents("li").remove();
-                    }
-                }
-            });
-        });
-        
-function changeRank(){
-    var r = document.getElementById("rank");
-    var innerR = r.options[r.selectedIndex].value;
-
-    if(innerR == 2){
-    document.getElementById("compInput").innerHTML = '<label for="companyno">사업자번호</label><input type="text" class="form-control" id="companyno" name="companyno" placeholder="사업자번호">';
-    }else{
-        document.getElementById("compInput").innerHTML="";
-    }
-}
-
-function selectEmail(){
-    var email = document.getElementById("email2");
-    var innerE = email.options[email.selectedIndex].value;
-
-    if(innerE == "other"){
-        document.getElementById("otherEmail").removeAttribute("disabled");
-        email.options[email.selectedIndex].value = ""
-    }else{
-        document.getElementById("otherEmail").setAttribute("disabled", "true");
-        document.getElementById("otherEmail").value = "";
-        if(email.options[5]){
-            email.options[5].value = "other"
-        }
-    }
-}
-
-	function enterkey() {
-		if (window.event.keyCode == 13) {
-			fn_reg();
-	    }
-	}
-
-	function checkNumber(event) {
-		  if(event.key >= 0 && event.key <= 9) {
-		    return true;
-		  }
-
-		  return false;
-	}
-
-
-
-
-    var idPass;
-    var idRegex = /^[a-zA-Z0-9]{4,12}$/;
-
-    function idCheck(){
-        var id = $('#id').val();
-        $.ajax({
-            url : "/users/idCheck",
-            type : "post",
-            dataType : "json",
-            data : {"id" : id},
-            success : function(data){
-                if(data == 1){
-                    $('#dup').text("중복된 아이디 입니다.");
-                    $("#idCheck_YN").val("N");
-                    return false;
-                }else{
-                    $('#dup').text("사용 가능한 아이디 입니다.");
-                    $("#idCheck_YN").val("Y");
-                }
-            }
-        })
-    }
-
-    function fnSubmit() {
-        if ($("#id").val() == null || $("#id").val() == "") {
-            alert("아이디를 입력해주세요.");
-            $("#id").focus();
-            return false;
-        }
-
-        if ($("#idCheck_YN").val() != 'Y') {
-            alert("아이디 중복체크를 눌러주세요.");
-            $("#memberId_yn").focus();
-
-            return false;
-            }
-
-
-
-        	if ($("#nickname").val() == null || $("#nickname").val() == "") {
-                alert("닉네임을 입력해주세요.");
-                   	$("#nickname").focus();
-                   	return false;
-                   	}
-
-        	if ($("#pw").val() == null || $("#pw").val() == "") {
-                alert("비밀번호를 입력해주세요.");
-                $("#pw").focus();
-
-                return false;
-                                }
-
-            if ($("#confirmPw").val() == null || $("#confirmPw").val() == "") {
-                alert("비밀번호 확인을 입력해주세요.");
-                 $("#confirmPw").focus();
-
-                 return false;
-                 }
-
-            if ($("#pw").val() != $("#confirmPw").val()) {
-                alert("비밀번호가 일치하지 않습니다.");
-                $("#memberPw2").focus();
-
-                return false;
-                }
-
-            if ($("#name").val() == null || $("#name").val() == "") {
-                alert("이름을 입력해주세요.");
-                $("#name").focus();
-                return false;
-                }
-
-            if ($("#birth").val() == null || $("#birth").val() == "") {
-                alert("생년월일을 입력해주세요.");
-                 $("#birth").focus();
-
-                  return false;
-                  }
-            if ($("#address").val() == null || $("#address").val() == "") {
-                 alert("주소을 입력해주세요.");
-                 $("#address").focus();
-
-                 return false;
-                 }
-            if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
-                alert("전화번호을 입력해주세요.");
-                $("#phonenum").focus();
-
-                 return false;
-                 }
-            if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
-                 alert("전화번호을 입력해주세요.");
-                 $("#phonenum").focus();
-
-                 return false;
-                 }
-        	if ($("#email").val() == null || $("#email").val() == "") {
-        	    alert("이메일을 입력해주세요.");
-        	    $("#email").focus();
-
-        	    return false;
-        	    }
-     
-
-        	if (confirm("회원가입하시겠습니까?")) {
-
-        	$("#join").submit();
-            }else{
-        	return false;
-        	}
-     }
-
-function SUMaddress(){
-    var realAddress = document.getElementById("address");
-    var fakeAddress = $("#sample4_roadAddress").val() + " " + $("#sample4_detailAddress").val();
-    realAddress.setAttribute("value", fakeAddress);
-                               
-}
-
-
-</script>
+<script src="/resources/js/member.js"></script>
 
 
 <%@ include file="../include/footer.jspf"%>

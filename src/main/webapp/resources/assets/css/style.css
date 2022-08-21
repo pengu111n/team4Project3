@@ -3845,9 +3845,6 @@ ul.footer-blog li {
     flex-direction : column;
 }
 
-.email-form span{
-    display : flex;
-}
 
 .email-form span span{
     margin : 0px 10px;

@@ -54,11 +54,13 @@ public class MemberController {
         logger.info("register get ...........");
     }
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerPOST(MemberVO member, @RequestParam("email2")String email2, @RequestParam(value = "email3",defaultValue = "" ,required = false)String email3 ,RedirectAttributes rttr) throws Exception {
+    public String registerPOST(MemberVO member, @RequestParam("email2")String email2, @RequestParam(value = "email3",defaultValue = "" ,required = false)String email3
+            ,RedirectAttributes rttr, @RequestParam("yy")String yy, @RequestParam("mm")String mm, @RequestParam("dd")String dd) throws Exception {
         String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         member.setPw(cryptPW);
         member.setEmail(member.getEmail()+"@"+email2+email3);
         member.setFilename(getFullname());
+        member.setBirth(yy+"."+mm+"."+dd);
     logger.info("regist post..........");
     logger.info(member.toString());
 
@@ -100,6 +102,14 @@ public class MemberController {
     @ResponseBody
     public int idCheck(@RequestParam("id") String id) throws Exception {
         int result = service.idCheck(id);
+
+        return result;
+    }
+
+    @RequestMapping(value = "/nicknameCheck", method = RequestMethod.POST)
+    @ResponseBody
+    public int nicknameCheck(@RequestParam("nickname") String nickname) throws Exception {
+        int result = service.nicknameCheck(nickname);
 
         return result;
     }
