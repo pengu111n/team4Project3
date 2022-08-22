@@ -25,8 +25,6 @@ c
 3src/main/webapp/WEB-INF/views/board/property-1.html,a\5\a579b8c02216605af2dd2280e5bd7ab77728390a
 h
 8src/main/webapp/WEB-INF/views/board/submit-property.html,8\2\829c2cb9b3b419947d6488da47f66d2d67edc708
-^
-.src/main/webapp/resources/Board/js/readPage.js,7\2\7275010b6aa844b0038f46fffc37d84c0ca66f52
 b
 2src/main/webapp/resources/Board/js/register.js.rej,a\0\a0ab46119fdb397f95542f2679c1f363ee1e7f4b
 Q

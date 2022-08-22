@@ -174,8 +174,6 @@
                             <input type="button" class="cancel_btn" name="cancel" value="취소"
                                    onClick="location.href='/main/index'"
                                    style="display: inline-block;">
-                            <%-- <input type="submit" class="btn btn-primary submit_btn" name="submit"
-                                   value="등록" style="display: inline-block;">--%>
                             <button type="submit" class="btn btn-primary" style="width: 150px;
                                     height: 60px;">신청</button>
                         </div>
@@ -194,8 +192,8 @@
 
 <script id="template" type="text/x-handlebars-template">
     <li>
-        <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
         <div class="mailbox-attachment-info">
+            <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
             <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
             <a href="{{fullName}}"
                class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
@@ -266,14 +264,13 @@
 
     });
 
-    $(".uploadedList").on("click", "small", function (event) {
-        event.preventDefault();
-
+    $(".uploadedList").on("click", ".delbtn", function (event) {
         var that = $(this);
+
         $.ajax({
             url: "/deleteFile",
             type: "post",
-            data: {fileName: $(this).attr("data-src")},
+            data: {fileName: $(this).attr("href") },
             dataType:"text",
             success: function (result) {
                 if (result == 'deleted') {
@@ -281,6 +278,7 @@
                 }
             }
         });
+        return false;
     });
 
 
