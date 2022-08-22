@@ -1,10 +1,10 @@
 package mapper;
 
 import domain.MemberVO;
-import domain.LoginVO;
+import domain.LoginDTO;
 
 public interface MemberMapper {
 
-    public MemberVO login(LoginVO vo) throws Exception;
+    public MemberVO login(LoginDTO vo);
 
 }

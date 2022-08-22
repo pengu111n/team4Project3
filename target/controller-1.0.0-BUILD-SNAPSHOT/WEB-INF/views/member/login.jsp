@@ -65,12 +65,21 @@
                             <label for="pw">비밀번호</label>
                             <input type="password" class="form-control" id="pw" name="pw">
                         </div>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="checkbox icheck">
+                                    <label>
+                                        <input type="checkbox" name="useCookie"> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-default">로그인</button>
                         </div>
                     </form>
                     <br>
-
+<%--
                     <h2>Social login :</h2>
 
                     <p>
@@ -78,6 +87,7 @@
                         <a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a>
                         <a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
                     </p>
+--%>
                 </div>
 
             </div>

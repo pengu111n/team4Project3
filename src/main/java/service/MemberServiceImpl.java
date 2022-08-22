@@ -1,11 +1,14 @@
 package service;
 
 import domain.MemberVO;
-import domain.LoginVO;
+import domain.LoginDTO;
 import lombok.Setter;
 import mapper.MemberMapper;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -14,10 +17,8 @@ public class MemberServiceImpl implements MemberService {
     private MemberMapper mapper;
 
     @Override
-    public MemberVO login(LoginVO vo) throws Exception {
-
-        return mapper.login(vo);
-
+    public MemberVO login(LoginDTO dto) throws Exception {
+        return mapper.login(dto);
     }
 
 }

@@ -5,7 +5,7 @@
 <mapper namespace="mapper.MyPageBoardMapper">
 
     <select id="getList" resultType="domain.BoardVO">
-        select * from board where boardNo > 0 and memNo = #{memNo}
+        select * from board where memNo = #{memNo} order by boardNo desc, regDate desc
     </select>
 
 </mapper>

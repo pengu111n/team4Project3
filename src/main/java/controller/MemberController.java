@@ -1,6 +1,6 @@
 package controller;
 
-import domain.LoginVO;
+import domain.LoginDTO;
 import domain.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,20 +20,20 @@ public class MemberController {
     private MemberService service;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public void loginGET(@ModelAttribute("vo") LoginVO vo) {
+    public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
 
     }
 
     @RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-    public void loginPOST(LoginVO vo, HttpSession session, Model model) throws Exception {
+    public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception {
 
-        MemberVO member = service.login(vo);
+        MemberVO vo = service.login(dto);
 
         if (vo == null) {
             return;
         }
 
-        model.addAttribute("member", member);
+        model.addAttribute("member", vo);
 
     }
 
