@@ -72,8 +72,15 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-
-		return boardMapper.listCriteria(cri);
+		List<BoardVO> list = boardMapper.listCriteria(cri);
+		for(BoardVO vo : list) {
+			Integer bno = vo.getBoardNo();
+			List<String> filesList = boardMapper.getAttach(bno);
+			String[] files = new String[filesList.size()];
+			filesList.toArray(files);
+			vo.setImage(files);
+		}
+		return list;
 	}
 
 	@Override

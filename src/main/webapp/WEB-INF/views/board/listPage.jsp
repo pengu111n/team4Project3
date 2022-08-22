@@ -350,8 +350,7 @@
                                         <div class="box-two proerty-item">
                                             <div class="item-thumb">
                                                 <a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.boardNo}'>
-                                                        <c:set value="${attach}" var="data" />
-                                                        <a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.boardNo}'>
+                                                        <c:set var="data" value="${item.image[0]}" />                                                        <a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.boardNo}'>
                                                         <img src="/displayFile?fileName=${data}" onerror="this.onerror=null; this.src='../../../resources/assets/img/logo-2.png';"/>
                                                 </a>
                                             </div>
