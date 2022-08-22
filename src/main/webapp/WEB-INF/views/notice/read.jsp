@@ -22,9 +22,12 @@
 
                 <span><h2><c:out value="${noticeVO.noticeTitle}"/></h2></span>
             </div>
-            <div class="header__nickname">
+<%--
+            공지사항은 닉네임 필요 없는듯 ?
+   <div class="header__nickname">
                 <span>${noticeVO.nickname}</span>
             </div>
+            --%>
             <div class="header__date">
                 <%--	<span><h6><fmt:formatDate pattern = "yyyy-MM-dd hh:mm" value="${noticeVO.regdate}"/></h6></span>--%>
                 <span>

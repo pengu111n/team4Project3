@@ -14,17 +14,10 @@ public class NoticeVO {
     private Integer noticeNo;
     @Getter
     @Setter
-    private Integer memno;
-    @Getter
-    @Setter
-    private String nickname;
-    @Getter
-    @Setter
     private String noticeTitle;
     @Getter
     @Setter
     private String noticeContent;
-
     @Getter
     @Setter
     private Date regDate;

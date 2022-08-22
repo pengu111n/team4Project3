@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jspf" %>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -83,6 +83,7 @@
 
             </tbody>
 
+
         </table>
     </div>
 </div>
@@ -95,20 +96,19 @@
         <ul>
 
             <c:if test="${pageMaker.prev}">
-                <li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
+                <li><a href="list${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
             </c:if>
 
             <c:forEach begin="${pageMaker.startPage }"
                        end="${pageMaker.endPage }" var="idx">
                 <li
                         <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-                    <a href="${idx}">${idx}</a>
+                    <a href="list${pageMaker.makeQuery(idx)}">${idx}</a>
                 </li>
             </c:forEach>
 
             <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                <li><a
-                        href="${pageMaker.endPage +1}">&raquo;</a></li>
+                <li><a href="list${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
             </c:if>
 
         </ul>
@@ -116,31 +116,13 @@
 
 </div>
 
-
-<form id="jobForm">
-    <input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
-    <input type='hidden' name="perPageNum" value=${pageMaker.cri.perPageNum}>
-</form>
-
-
 <script>
     var result = '${msg}';
 
     if (result == 'SUCCESS') {
-        alert("처리가 완료되었습니다.");
+        alert("완료되었습니다.");
+        location.replace(self.location);
     }
-
-    $(".pagination li a").on("click", function (event) {
-
-        event.preventDefault();
-
-        var targetPage = $(this).attr("href");
-
-        var jobForm = $("#jobForm");
-        jobForm.find("[name='page']").val(targetPage);
-        jobForm.attr("action", "/notice/listPage").attr("method", "get");
-        jobForm.submit();
-    });
 </script>
 
 

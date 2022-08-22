@@ -6,6 +6,7 @@ import mapper.NoticeMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -49,9 +50,22 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeMapper.listCriteria(cri);
     }
 
+/*
     @Override
     public int listCountCriteria(Criteria cri) throws Exception {
         return noticeMapper.countPaging(cri);
+    }
+*/
+
+    @Override
+    @Transactional
+    public List<NoticeVO> listNotice(Criteria cri) throws Exception {
+        return noticeMapper.listNotice(cri);
+    }
+
+    @Override
+    public int listCount() throws Exception {
+        return noticeMapper.listCount();
     }
 
 //    @Override
