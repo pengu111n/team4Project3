@@ -100,7 +100,7 @@ public class BoardServiceImpl implements BoardService {
 		paramMap.put("bno", bno);
 		paramMap.put("fullName", fullName);
 
-		boardMapper.replaceAttach(fullName,bno);
+		boardMapper.replaceAttach(paramMap);
 
 	}
 }

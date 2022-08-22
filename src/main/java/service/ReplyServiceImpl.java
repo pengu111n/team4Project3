@@ -1,6 +1,8 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -42,10 +44,12 @@ public class ReplyServiceImpl implements ReplyService {
   }
 
   @Override
-  public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) 
+  public List<ReplyVO> listReplyPage(Integer boardNo, Criteria cri)
       throws Exception {
-
-    return replyBoardMapper.listPage(bno, cri);
+    Map<String, Object> paramMap = new HashMap<String, Object>();
+    paramMap.put("boardNo", boardNo);
+    paramMap.put("cri", cri);
+    return replyBoardMapper.listPage(paramMap);
   }
 
   @Override

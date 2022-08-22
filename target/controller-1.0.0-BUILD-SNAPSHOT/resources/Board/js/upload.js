@@ -18,16 +18,15 @@ function getFileInfo(fullName){
 		
 		var front = fullName.substr(0,12); // /2015/07/01/ 
 		var end = fullName.substr(14);
-		
+
 		getLink = "/displayFile?fileName="+front + end;
 		
 	}else{
 		imgsrc ="/resources/dist/img/file.png";
-		fileLink = fullName.substr(12);
+		fileLink = fullName.substr(11);
 		getLink = "/displayFile?fileName="+fullName;
 	}
 	fileName = fileLink.substr(fileLink.indexOf("_")+1);
-	
 	return  {fileName:fileName, imgsrc:imgsrc, getLink:getLink, fullName:fullName};
 	
 }

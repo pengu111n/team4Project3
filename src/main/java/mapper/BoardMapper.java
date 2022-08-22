@@ -5,6 +5,7 @@ import java.util.Map;
 
 import domain.BoardVO;
 import domain.Criteria;
+import org.apache.ibatis.annotations.Param;
 
 public interface BoardMapper {
 	public void create(BoardVO vo) throws Exception;
@@ -25,6 +26,7 @@ public interface BoardMapper {
 
 	public void deleteAttach(Integer bno)throws Exception;
 
-	public void replaceAttach(String fullName, Integer bno)throws Exception;
+	public void replaceAttach(Map<String, Object> paramMap)throws Exception;
+	public void replaceAttach(@Param("fullName")String fullName, @Param("boardNo")Integer boardNo)throws Exception;
 
 }

@@ -1,5 +1,6 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import domain.Criteria;
@@ -15,8 +16,8 @@ public interface ReplyService {
 
   public void deleteReply(Integer rno) throws Exception;
 
-  public List<ReplyVO> listReplyPage(Integer bno, Criteria cri) 
-      throws Exception;
+  public List<ReplyVO> listReplyPage(Integer bno, Criteria cri)
+          throws Exception;
 
   public int count(Integer bno) throws Exception;
 }

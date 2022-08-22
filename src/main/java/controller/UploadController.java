@@ -131,6 +131,7 @@ public class UploadController {
   public ResponseEntity<String> deleteFile(String fileName){
     
     logger.info("delete file: "+ fileName);
+    System.out.println("delete file: "+ fileName);
     
     String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
     

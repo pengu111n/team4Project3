@@ -16,7 +16,7 @@
         width: 80%;
         height: 100px;
         border: 1px dotted gray;
-        background-color: lightslategrey;
+        background-color: #a2a098;
         margin: auto;
 
     }
@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
@@ -69,7 +70,7 @@
 
                         <div class="form-group" style="width: 400px;">
                             <label>주소</label> <br> <select
-                                class="form-control" name="address_1"  id="address_1"
+                                class="form-control" name="address_1" id="address_1"
                                 style="width: 160px; display: inline-block;"></select> <select
                                 class="form-control" name="address_2" id="address_2"
                                 style="width: 160px; display: inline-block;"></select>
@@ -135,7 +136,6 @@
                                 <option value="도배">도배</option>
                                 <option value="마루">마루</option>
                                 <option value="욕실">욕실</option>
-                                <option value="필름">필름</option>
                                 <option value="타일">타일</option>
                                 <option value="도어">도어</option>
                                 <option value="주방">주방</option>
@@ -159,24 +159,25 @@
                         <div class="form-group">
                             <label>File DROP Here</label>
                             <div class="fileDrop" name="image" id="image"></div>
-                        </div>
+
 
                         <div>
                             <hr>
                         </div>
 
-                        <ul class="mailbox-attachments clearfix uploadedList">
+                        <ul class="mailbox-attachments clearfix uploadedList" style=" list-style: none; padding-left: 0px;">
                         </ul>
-
+                        </div>
 
                         <div class="col-md-offset-2"
                              style="margin-left: 0px; margin-top: 50px;">
                             <input type="button" class="cancel_btn" name="cancel" value="취소"
                                    onClick="location.href='/main/index'"
                                    style="display: inline-block;">
-                         <%--   <input type="submit" class="submit_btn" name="submit"
+                            <%-- <input type="submit" class="btn btn-primary submit_btn" name="submit"
                                    value="등록" style="display: inline-block;">--%>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" style="width: 150px;
+                                    height: 60px;">신청</button>
                         </div>
                     </div>
 
@@ -207,12 +208,12 @@
 
     var template = Handlebars.compile($("#template").html());
 
-    $(".fileDrop").on("dragenter dragover", function(event){
+    $(".fileDrop").on("dragenter dragover", function (event) {
         event.preventDefault();
     });
 
 
-    $(".fileDrop").on("drop", function(event){
+    $(".fileDrop").on("drop", function (event) {
         event.preventDefault();
 
         var image = event.originalEvent.dataTransfer.files;
@@ -227,11 +228,11 @@
         $.ajax({
             url: '/uploadAjax',
             data: formData,
-            dataType:'text',
+            dataType: 'text',
             processData: false,
             contentType: false,
             type: 'POST',
-            success: function(data){
+            success: function (data) {
 
                 var fileInfo = getFileInfo(data);
 
@@ -243,14 +244,14 @@
     });
 
 
-    $("#registerForm").submit(function(event){
+    $("#registerForm").submit(function (event) {
         event.preventDefault();
 
         var that = $(this);
 
-        var str ="";
-        $(".uploadedList .delbtn").each(function(index){
-            str += "<input type='hidden' name='image["+index+"]' value='"+$(this).attr("href") +"'> ";
+        var str = "";
+        $(".uploadedList .delbtn").each(function (index) {
+            str += "<input type='hidden' name='image[" + index + "]' value='" + $(this).attr("href") + "'> ";
         });
 
         that.append(str);
@@ -259,29 +260,28 @@
         startDate_check();
         endDate_check();
 
-        if(input_check()){
+        if (input_check()) {
             that.get(0).submit();
         }
 
     });
 
-    $(".uploadedList").on("click", "small", function(event){
+    $(".uploadedList").on("click", "small", function (event) {
+        event.preventDefault();
 
         var that = $(this);
-
         $.ajax({
-            url:"deleteFile",
-            type:"post",
-            data: {fileName:$(this).attr("data-src")},
-            //dataType:"text",
-            success:function(result){
-                if(result == 'deleted'){
+            url: "/deleteFile",
+            type: "post",
+            data: {fileName: $(this).attr("data-src")},
+            dataType:"text",
+            success: function (result) {
+                if (result == 'deleted') {
                     that.parent("div").remove();
                 }
             }
         });
     });
-
 
 
 </script>

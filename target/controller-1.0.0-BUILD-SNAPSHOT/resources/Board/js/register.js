@@ -53,42 +53,36 @@ $('document').ready(function() {
 });
 
 $(document).ready(
-        function(){
         $("form").submit(
            budget_check = function () {
                 const budget = $('input[type=number][name=budget_defined]').val();
                 if ($("input:checked[Name='budget_undefined']").is(":checked")){
                     $("#budget").val(-1);
-                    alert("예산 미정 박스 클릭" + budget);
                 }else{
                     $("#budget").val(budget);
-                    alert("예산 미정 박스 미클릭"+budget);
                 }
-            })}
+            })
 );
 
 
     $(document).ready(
-        function () {
             $("form").submit(endDate_check = function () {
                 if ($("input:checked[Name='undefined_end']").is(":checked"))
                     $("#endDate").val("0001-01-01");
 
-            });
-        });
+            })
+        );
 
 $(document).ready(
-    function () {
         $("form").submit(startDate_check = function () {
             if ($("input:checked[Name='undefined_start']").is(":checked"))
                 $("#startDate").val("0001-01-01");
 
-        });
-    });
+        })
+    );
 
 
 $(document).ready(
-    function () {
         $("form").submit(input_check = function () {
             var rv = true;
                     if ($("#title").val() == "") {
@@ -152,8 +146,8 @@ $(document).ready(
                     }else{
                         return true;
                     }
-                }); // submit() end
-    }); // ready() end
+                }) // submit() end
+    ); // ready() end
 /*
 $(document).ready(
     budget_check = $(function(){

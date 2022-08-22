@@ -86,7 +86,7 @@ public class ReplyController {
       @PathVariable("page") Integer page) {
 
     ResponseEntity<Map<String, Object>> entity = null;
-    
+
     try {
       Criteria cri = new Criteria();
       cri.setPage(page);
@@ -95,11 +95,14 @@ public class ReplyController {
       pageMaker.setCri(cri);
 
       Map<String, Object> map = new HashMap<String, Object>();
+
+
       List<ReplyVO> list = service.listReplyPage(boardNo, cri);
 
       map.put("list", list);
 
       int replyCount = service.count(boardNo);
+
       pageMaker.setTotalCount(replyCount);
 
       map.put("pageMaker", pageMaker);

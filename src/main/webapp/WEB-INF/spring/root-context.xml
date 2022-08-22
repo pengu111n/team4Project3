@@ -46,7 +46,7 @@
 	<tx:annotation-driven />
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	<!-- 인터페이스만 생성하고 mapper와 연결(구현클래스를 안만들어도된다) -->
 	<mybatis-spring:scan base-package="mapper" />

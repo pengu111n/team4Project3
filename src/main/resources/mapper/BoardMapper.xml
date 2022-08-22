@@ -38,7 +38,7 @@
 
 
 	<select id="listAll" resultType="domain.BoardVO">
-		select boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+		select boardNo, nickname, part, title, budget,category, address, area, regDate, modifiedDate, view_count,require,image
 		from board
 		order by boardNo desc, regDate desc
 	</select>
@@ -46,20 +46,20 @@
 <select id="listPage" resultType="domain.BoardVO">
 <![CDATA[
 SELECT
-	boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+	boardNo, nickname, part, title, address, area,budget,category, regDate, modifiedDate, view_count,require,image
 FROM board
 WHERE boardNo
-BETWEEN ((#{page}-1)*10+1) AND (#{page}*10)
+BETWEEN ((#{page}-1)*12+1) AND (#{page}*12)
 order by boardNo desc, regDate desc
 ]]>
 </select>
 
 	<select id="listCriteria" resultType="domain.BoardVO">
  <![CDATA[
-		select  boardNo, nickname, part, title, address, regDate, modifiedDate, view_count
+		select  boardNo, nickname, part, title, area, address,budget,category, regDate, modifiedDate, view_count,require,image
 		FROM
 			(
-				SELECT boardNo, nickname, part, title, address, regDate, modifiedDate, view_count,
+				SELECT boardNo, nickname, part, title, area, address,budget,category, regDate, modifiedDate, view_count,require,image,
 					   row_number() over(order by boardNo desc) as rNum
 				from board
 			) mb

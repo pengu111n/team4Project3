@@ -102,6 +102,8 @@ public class BoardController {
 		logger.info(cri.toString());
 
 		model.addAttribute("list", boardService.listCriteria(cri));
+
+
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 

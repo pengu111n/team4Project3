@@ -4081,3 +4081,22 @@ ul.footer-blog li {
 .WriteBoard__main__icon{
 	color: inherit;
 }
+
+.olmessagef {color: red; font-style: Italic;
+}
+.olmessaget {color: blue; font-style: Italic;
+}
+
+.email-form{
+    display : flex;
+    flex-direction : column;
+}
+
+.email-form span{
+    display : flex;
+}
+
+.email-form span span{
+    margin : 0px 10px;
+    align-items : center;
+}

@@ -16,13 +16,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create">
-		insert into board_reply (boardNo, replyContent, nickname,regDate,updateDate)
-		values (#{boardNo},#{replyContent},#{nickname},sysdate,sysdate)
+		insert into board_reply (boardNo, replyNo,replyContent, nickname,regDate,updateDate)
+		values (#{boardNo},replyNo_seq.nextval,#{replyContent},#{nickname},sysdate,sysdate)
 	</insert>
 
 	<update id="update">
 		update board_reply set replyContent = #{replyContent},
-		updatedate = sysdate
+							   updatedate = sysdate
 		where replyNo = #{replyNo}
 	</update>
 
@@ -30,24 +30,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from board_reply where replyNo = #{replyNo}
 	</delete>
 
-
 	<select id="listPage" resultType="domain.ReplyVO">
 		<![CDATA[
-
-		select
-		*
+		select *
 		from
-			board_reply
-		where replyNo
-			BETWEEN ((#{page}-1)*10+1) AND (#{page}*10)
-		order by replyNo desc
+				(select * from board_reply order by replyNo asc)
+		where boardNo = #{boardNo}
 		]]>
 	</select>
 
 	<select id="count" resultType="int">
-		select count(boardNo) from board_reply where boardNo = #{vo.boardNo}
+		select count(boardNo) from board_reply where boardNo = #{boardNo}
 	</select>
-
 
 </mapper>
 
