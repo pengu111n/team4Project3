@@ -97,19 +97,19 @@ public class QNAController {
 
     @RequestMapping(value = "/answer", method = RequestMethod.GET)
     public void answerGET(QNAVO qna, Model model) throws Exception {
-        logger.info("answer get ...........");
+
+        model.addAttribute(service);
     }
 
     @RequestMapping(value = "/answer", method = RequestMethod.POST)
     public String answerPOST(QNAVO qna, RedirectAttributes rttr) throws Exception {
-
         logger.info("answer post..........");
-        logger.info(qna.toString());
 
         service.answer(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/qna/list";
     }
+
 
 
 }

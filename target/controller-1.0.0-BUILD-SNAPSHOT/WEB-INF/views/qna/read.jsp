@@ -67,7 +67,6 @@
                                             <hr>
                                             <div class="answerContent">
                                                 <span class="answerContent__title">답변</span>
-                                                #${QNAVO.answerTitle}
                                                 <span class="answerContent__Content"><br><pre>${QNAVO.answerContent}</pre></span>
                                             </div>
                                         </c:if>

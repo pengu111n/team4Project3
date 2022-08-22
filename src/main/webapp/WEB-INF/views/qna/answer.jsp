@@ -41,7 +41,7 @@
         <div class="content">
           <hr>
           <%--  <span>#${ansQNAReq.category}</span>  --%>
-          <textarea class="answer__Textarea" name="answerContent">안녕하세요 ${ansQNAReq.nickname}님 당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프! 입니다.</textarea>
+          <textarea class="answer__Textarea" name="answerContent">안녕하세요 ${qnaVO.nickname}님 당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프! 입니다.</textarea>
         </div>
         	<div class="center">
         <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s" type="submit">

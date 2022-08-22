@@ -87,7 +87,10 @@
                         <%--  <c:if test="${qna.status == 0}">  --%>
                     <td class="wating td-100">
                             <%--     <c:if test="${authUser.rank == 3}">     --%>
-                        <a href="answer?qnaNo=${qna.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
+                        <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
+
+                                <!-- 링크에 qnaNo=까지만 나오고 숫자가 안들어가네 ? -->
+
                             <%--  </c:if>   --%>
 
                         <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
