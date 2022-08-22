@@ -33,7 +33,8 @@
                qnaContent,
                nickname,
                category,
-               qnaDate
+               qnaDate,
+               answerContent
         from qna
         where qnaNo = #{qnaNo}
     </select>
@@ -73,9 +74,10 @@
         ORDER BY qnaNo DESC
     </select>
 
-    <insert id="answer">
-        INSERT INTO qna(qnaNo, answerContent)
-        values (qna_ID.currval, #{answerContent})
-    </insert>
+    <update id="answer">
+        update qna
+        set answerContent = #{answerContent}
+            where qnaNo = #{qnaNo}
+    </update>
 
 </mapper>
