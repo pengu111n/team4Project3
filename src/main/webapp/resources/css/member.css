@@ -51,4 +51,22 @@
 }
 
 #birth .emptyBirth {
+    display: none;
+    color: red;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.lengthCK{
+    display: none;
+    color: red;
+}
+
+.regPhone{
+    display: none;
+    color: red;
 }

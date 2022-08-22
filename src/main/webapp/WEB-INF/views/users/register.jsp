@@ -24,7 +24,7 @@
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 register-blocks">
                     <h2>새 계정 :</h2>
-                    <form name="insForm" action="register" method="post" onsubmit="return fnSubmit()">
+                    <form name="insForm" action="register" method="post" onsubmit="fnSubmit(); SUMaddress();">
                         <div class="form-group">
                         	<label for="rank">회원분류</label> 
                         		<select id="rank" name ="rank" class="selectpicker show-tick form-control" onchange="changeRank()">
@@ -72,11 +72,12 @@
                             <label for="birth">생년월일</label>
                             <!-- <input type="text" class="form-control" id="birth" name="birth" onkeydown="return checkNumber(event);" placeholder="생년월일"> -->
                             <span id="birth">
-                            <input type="text" class="form-control" name="yy" id="yy" placeholder="생년월일" onblur="emptyBirth()">
+                            <input type="number" class="form-control" name="yy" id="yy" placeholder="생년월일" onblur="emptyBirth()" maxlength="4">
                             <select name="mm" id="mm" class="month form-control"></select>
-                            <input type="text" name="dd" id="dd" class="form-control">
+                            <input type="number" name="dd" id="dd" class="form-control" maxlength="2" onblur="emptyDay()">
                             </span>
                             <span class="empty emptyBirth">필수 정보입니다.</span>
+                            <span class="lengthCK">태어난 년도 4자리를 정확하게 입력하세요.</span>
                         </div>
                         <div class="form-group">
                             <label for="address">주소</label>
@@ -88,13 +89,14 @@
                             <input type="text" id="sample4_roadAddress" class="form-control address_40%" placeholder="도로명주소" readonly>
                             <input type="text" id="sample4_jibunAddress" class="form-control address_40%" placeholder="지번주소" readonly>
                             <span id="guide" style="color:#999;display:none"></span>
-                            <input type="text" id="sample4_detailAddress" placeholder="상세주소" class="form-control address_40%" oninput="SUMaddress()">
+                            <input type="text" id="sample4_detailAddress" placeholder="상세주소" class="form-control address_40%" onchange="SUMaddress()">
                             <input type="text" id="sample4_extraAddress" class="form-control address_40%" placeholder="참고항목" readonly>
                         </div>
                         <div class="form-group">
                             <label for="phonenum">전화번호</label>
                             <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
-                            <input type="text" class="form-control" id="phonenum" name="phonenum" placeholder="전화번호" onblur="emptyPhone()">
+                            <input type="text" class="form-control" id="phonenum" name="phonenum" placeholder="전화번호" onblur="regexPhone()" maxlength="11">
+                            <span class="regPhone">형식에 맞지 않는 번호입니다</span>
                             <span class="empty emptyPhone">필수 정보입니다.</span>
                         </div>
                         <div class="form-group email-form">

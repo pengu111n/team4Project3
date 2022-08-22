@@ -60,7 +60,9 @@ public class MemberController {
         member.setPw(cryptPW);
         member.setEmail(member.getEmail()+"@"+email2+email3);
         member.setFilename(getFullname());
-        member.setBirth(yy+"."+mm+"."+dd);
+        int ddd = Integer.parseInt(dd);
+        String dddd = String.format("%02d", ddd);;
+        member.setBirth(yy+"."+mm+"."+dddd);
     logger.info("regist post..........");
     logger.info(member.toString());
 

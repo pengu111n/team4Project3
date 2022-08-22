@@ -231,7 +231,7 @@ function SUMaddress() {
 
 function regexPW() {
   var regExp =
-    /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?=[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{10,}$/;
+    /^(?!((?:[A-Za-z]+)|(?:[~!@#$%^&*()_+=]+)|(?=[0-9]+))$)[A-Za-z\d~!@#$%^&*()_+=]{8,}$/;
   var pw = $("#pw").val();
 
   if (pw == "") {
@@ -244,6 +244,26 @@ function regexPW() {
     $(".emptyPW").hide();
     $(".regexPW").hide();
   }
+}
+
+function regexPhone(){
+    var regExp = /^[0-9]{2,3}[0-9]{3,4}[0-9]{4}/;
+    var phonenum = $("#phonenum").val();
+
+
+      if (phonenum == "") {
+        $(".emptyPhone").show();
+        $(".regPhone").hide();
+      }else if(!regExp.test(phonenum)){
+        $(".emptyPhone").hide();
+        $(".regPhone").show();
+      } else {
+        $(".emptyPhone").hide();
+        $(".regPhone").hide();
+      }
+
+
+
 }
 
 function confirmPW() {
@@ -272,23 +292,28 @@ function emptyName() {
   }
 }
 function emptyBirth() {
-  let birth = $("#birth").val();
+  let birth = $("#yy").val();
 
   if (birth == "") {
-    $(".emptyBirth").css("display", "block");
+    $(".lengthCK").css("display", "block");
+  }else if(birth.length != 4){
+    $(".lengthCK").css("display", "block");
   } else {
-    $(".emptyBirth").hide();
+    $(".lengthCK").hide();
   }
-}
-function emptyPhone() {
-  let phonenum = $("#phonenum").val();
 
-  if (phonenum == "") {
-    $(".emptyPhone").show();
-  } else {
-    $(".emptyPhone").hide();
-  }
 }
+
+function emptyDay(){
+    let dd = $("#dd").val();
+
+    if(dd == ""){
+        $(".emptyBirth").css("display", "block");
+    }else{
+        $(".emptyBirth").hide();
+    }
+}
+
 function emptyMail() {
   let email = $("#email").val();
 
@@ -303,3 +328,4 @@ for (var i = 1; i <= 12; i++) {
   var mm = i > 9 ? i : "0" + i;
   $(".month").append('<option value="' + mm + '">' + mm + "월</option>");
 }
+
