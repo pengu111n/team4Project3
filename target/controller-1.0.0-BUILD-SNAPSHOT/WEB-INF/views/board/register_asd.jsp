@@ -327,4 +327,3 @@
 
 
 <%@ include file="../include/footer.jspf" %>
-<%--<%@ include file="../include/footer1.jspf" %>--%>
