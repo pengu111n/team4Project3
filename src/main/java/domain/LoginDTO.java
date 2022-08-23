@@ -4,6 +4,8 @@ public class LoginDTO {
 	
 	private String id;
 	private String pw;
+
+	private static final int AUTH = 1;
 	private boolean useCookie;
 	public String getId() {
 		return id;

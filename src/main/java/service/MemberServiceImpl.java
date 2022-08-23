@@ -50,12 +50,12 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
 
-		String file = vo.getFilename();
+		String file = vo.getFullname();
 
 		if(file == null) { return; }
 
 
-		mapper.attachImg(file);
+//		mapper.attachImg(file);
 
 	}
   

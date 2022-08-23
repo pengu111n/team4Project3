@@ -7,20 +7,17 @@
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/LoginDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/MemberMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/LoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/MemberVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/MemberVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interceptor/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interceptor/LoginInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MemberServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/tbl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/loginForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/users/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/memberUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/memberUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/loginForm.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/domain/LoginDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/LoginDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/domain/MemberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/interceptor/LoginInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/interceptor/LoginInterceptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/MemberService.class" afterDir="false" />

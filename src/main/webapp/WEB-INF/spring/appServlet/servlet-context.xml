@@ -9,8 +9,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
+
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -27,21 +28,47 @@
 	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="service" />
 
-	
+
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760"></beans:property>
 	</beans:bean>
-	
+
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="c:\\zzz\\upload">
 		</beans:constructor-arg>
 	</beans:bean>
 
 	<context:component-scan base-package="util"></context:component-scan>
-	
+
+	<beans:bean id="sampleInterceptor" class="interceptor.SampleInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="interceptor.AuthInterceptor"></beans:bean>
+	<beans:bean id="loginInterceptor" class="interceptor.LoginInterceptor"></beans:bean>
+
+
+	<interceptors>
+
+		<interceptor>
+			<mapping path="/member/login" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+
+
+		<!--AuthInterceptor는 특정 경로에 접근하는 경우 현재 사용자가 로그인한 상태의
+  사용자인지를 체크하는 역할을 처리하기 위해서 작성한다 -->
+		<interceptor>
+			<mapping path="/board/list" />
+			<beans:ref bean="authInterceptor" />
+		</interceptor>
+
+	</interceptors>
+
+
+
+
+
 	<!--<beans:bean id="sampleInterceptor" class="interceptor.SampleInterceptor"></beans:bean>
-	
+
 	<interceptors>
 		<interceptor>
 			<mapping path="/user/loginPost" />
@@ -51,16 +78,16 @@
 			<mapping path="/board/list" />
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
-		AuthInterceptor는 특정 경로에 접근하는 경우 현재 사용자가 로그인한 상태의 
+		AuthInterceptor는 특정 경로에 접근하는 경우 현재 사용자가 로그인한 상태의
 		사용자인지를 체크하는 역할을 처리하기 위해서 작성한다
-	
+
 		<interceptor>
 			<mapping path="/doA" />
 			<mapping path="/doB" />
 			<beans:ref bean="sampleInterceptor" />
 		</interceptor>
 	</interceptors> -->
-	
-	
-	
+
+
+
 </beans:beans>
