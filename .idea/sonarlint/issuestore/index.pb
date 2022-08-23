@@ -1,6 +1,4 @@
 
-]
--src/main/java/controller/BoardController.java,b\8\b8994644b141e40c0147b6fd93e7e0c861732a53
 W
 'src/main/java/service/BoardService.java,e\6\e681dc8dfbb9e2c7daed84e666b0aa6e6ead6044
 [

@@ -1,23 +1,18 @@
 package domain;
 
-
-
 public class Criteria {
 
 	private int page;
 	private int perPageNum;
-	private int rowStart;
-	private int rowEnd;
 
-
-	public Criteria(){
+	public Criteria() {
 		this.page = 1;
-		this.perPageNum = 8;
+		this.perPageNum = 12;
 	}
 
-	public void setPage(int page){
+	public void setPage(int page) {
 
-		if(page <= 0){
+		if (page <= 0) {
 			this.page = 1;
 			return;
 		}
@@ -25,10 +20,10 @@ public class Criteria {
 		this.page = page;
 	}
 
-	public void setPerPageNum(int perPageNum){
+	public void setPerPageNum(int perPageNum) {
 
-		if(perPageNum <= 0 || perPageNum > 100){
-			this.perPageNum = 8;
+		if (perPageNum <= 0 || perPageNum > 100) {
+			this.perPageNum = 12;
 			return;
 		}
 
@@ -39,78 +34,21 @@ public class Criteria {
 		return page;
 	}
 
-	//method for MyBatis SQL Mapper
-	public int getPerPageNum(){
+	// method for MyBatis SQL Mapper -
+	public int getPageStart() {
+
+		return this.page;
+	}
+
+	// method for MyBatis SQL Mapper
+	public int getPerPageNum() {
+
 		return this.perPageNum;
-	}
-
-	public int getRowStart() {
-		rowStart = ((page - 1) * perPageNum) + 1;
-		return rowStart;
-	}
-
-	public int getRowEnd() {
-		rowEnd = rowStart + perPageNum - 1;
-		return rowEnd;
 	}
 
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", rowStart=" + rowStart + ", rowEnd=" + rowEnd
-				+ "]";
+		return "Criteria [page=" + page + ", "
+				+ "perPageNum=" + perPageNum + "]";
 	}
-}
-
-
-public class Criteria {
-
-  private int page;
-  private int perPageNum;
-
-  public Criteria() {
-    this.page = 1;
-    this.perPageNum = 12;
-  }
-
-  public void setPage(int page) {
-
-    if (page <= 0) {
-      this.page = 1;
-      return;
-    }
-
-    this.page = page;
-  }
-
-  public void setPerPageNum(int perPageNum) {
-
-    if (perPageNum <= 0 || perPageNum > 100) {
-      this.perPageNum = 12;
-      return;
-    }
-
-    this.perPageNum = perPageNum;
-  }
-
-  public int getPage() {
-    return page;
-  }
-
-  // method for MyBatis SQL Mapper -
-  public int getPageStart() {
-
-    return this.page;
-  }
-
-  // method for MyBatis SQL Mapper
-  public int getPerPageNum() {
-
-    return this.perPageNum;
-  }
-
-  @Override
-  public String toString() {
-    return "Criteria [page=" + page + ", "
-        + "perPageNum=" + perPageNum + "]";
-  }
 }

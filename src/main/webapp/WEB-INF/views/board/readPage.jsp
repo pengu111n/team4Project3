@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%@include file="../include/header.jspf" %>
+<%@include file="../include/header_1.jspf" %>
 
 <link rel="stylesheet" href="../../../resources/Board/css/readPage.css">
 <script src="../../../resources/Board/js/readPage.js"></script>
@@ -115,35 +115,35 @@
         <div class="clearfix padding-top-40">
 
             <div class="col-md-8 single-property-content prp-style-1 ">
-                <div class="row">
-                    <div class="light-slide-item">
-                        <div class="clearfix">
-                            <div class="favorite-and-print">
-                                <a class="add-to-fav" href="#login-modal" data-toggle="modal">
-                                    <i class="fa fa-star-o"></i>
-                                </a>
-                                <a class="printer-icon " href="javascript:window.print()">
-                                    <i class="fa fa-print"></i>
-                                </a>
-                            </div>
+<%--                <div class="row">--%>
+<%--                    <div class="light-slide-item">--%>
+<%--                        <div class="clearfix">--%>
+<%--                            <div class="favorite-and-print">--%>
+<%--                                <a class="add-to-fav" href="#login-modal" data-toggle="modal">--%>
+<%--                                    <i class="fa fa-star-o"></i>--%>
+<%--                                </a>--%>
+<%--                                <a class="printer-icon " href="javascript:window.print()">--%>
+<%--                                    <i class="fa fa-print"></i>--%>
+<%--                                </a>--%>
+<%--                            </div>--%>
 
-                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                <li data-thumb="../../../resources/assets/img/property-1/property1.jpg">
-                                    <img src="../../../resources/assets/img/property-1/property1.jpg" alt="property1"/>
-                                </li>
-                                <li data-thumb="../../../resources/assets/img/property-1/property2.jpg">
-                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property2"/>
-                                </li>
-                                <li data-thumb="../../../resources/assets/img/property-1/property3.jpg">
-                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property1"/>
-                                </li>
-                                <li data-thumb="../../../resources/assets/img/property-1/property4.jpg">
-                                    <img src="../../../resources/assets/img/property-1/property4.jpg"/>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<%--                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">--%>
+<%--                                <li data-thumb="../../../resources/assets/img/property-1/property1.jpg">--%>
+<%--                                    <img src="../../../resources/assets/img/property-1/property1.jpg" alt="property1"/>--%>
+<%--                                </li>--%>
+<%--                                <li data-thumb="../../../resources/assets/img/property-1/property2.jpg">--%>
+<%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property2"/>--%>
+<%--                                </li>--%>
+<%--                                <li data-thumb="../../../resources/assets/img/property-1/property3.jpg">--%>
+<%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property1"/>--%>
+<%--                                </li>--%>
+<%--                                <li data-thumb="../../../resources/assets/img/property-1/property4.jpg">--%>
+<%--                                    <img src="../../../resources/assets/img/property-1/property4.jpg"/>--%>
+<%--                                </li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
 
                 <div class="single-property-wrapper">
                     <div class="single-property-header">
@@ -334,7 +334,7 @@
                             <div class='popup back' style="display:none; width: 600px; height: 480px;"></div>
                             <%--                                <div id="popup_front" class='popup front' style="display:none;">--%>
                             <div id="popup_front" class='popup front' >
-                                <img id="popup_img">
+                                <img id="popup_img">ㅁㄴㅇㄹ
                             </div>
                         </div>
                     </div>
