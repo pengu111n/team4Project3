@@ -4,6 +4,7 @@ package controller;
 
 
 import domain.MemberVO;
+import domain.LoginDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.io.IOUtils;
@@ -11,7 +12,6 @@ import org.apache.ibatis.annotations.Param;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,40 +22,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.WebUtils;
 import service.MemberService;
 import util.MediaUtils;
 import util.UploadFileUtils;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
-@Controller
-@RequestMapping(value = "/users/*")
-public class MemberController {
-
-    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
-    @Inject
-    private MemberService service;
-
-    @Resource(name = "uploadPath")
-    private String uploadPath;
+import java.util.Date;
 
 
-    private UploadFileUtils uploadFileUtils;
 
-    @Setter
-    @Getter
-    private String fullname ;
+
 
     @Controller
 @RequestMapping("/member")
 public class MemberController {
-	@Inject
-	private MemberService service;
+
+        private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+
+        @Inject
+        private MemberService service;
+
+        @Resource(name = "uploadPath")
+        private String uploadPath;
+
+
+        private UploadFileUtils uploadFileUtils;
+
+        @Setter
+        @Getter
+        private String fullname ;
+
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
@@ -65,7 +70,10 @@ public class MemberController {
 	// 로그인 처리하는 부분
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public void loginPOST(LoginDTO dto, HttpServletRequest request, HttpSession session, Model model) throws Exception {
+	public void loginPOST(LoginDTO dto, HttpServletRequest request, HttpSession session, Model model, @RequestParam("pw")String pw, @RequestParam("id") String id) throws Exception {
+        String savedPW = service.findById(id);
+        boolean match = BCrypt.checkpw(pw, savedPW);
+
 		MemberVO vo = service.login(dto);
 
 		if (vo == null) {
@@ -87,7 +95,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request,
-						 HttpServletResponse response, HttpSession session) throws Exception {
+                         HttpServletResponse response, HttpSession session) throws Exception {
 
 		//login 처리를 담당하는 사용자 정보를 담고있는 객체를 가져옴
 		Object obj = session.getAttribute("login");
@@ -113,7 +121,7 @@ public class MemberController {
 		return "main/index";
 	}
 
-}
+
     
     
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -140,7 +148,7 @@ public class MemberController {
     } catch (Exception e){
         e.printStackTrace();
         rttr.addFlashAttribute("msg", "FAIL");
-        return "redirect:/users/register";
+        return "redirect:/member/register";
     }
 }
 

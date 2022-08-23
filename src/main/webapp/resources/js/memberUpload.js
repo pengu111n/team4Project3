@@ -13,13 +13,13 @@ function getFileInfo(fullName){
 	var fileLink;
 	
 	if(checkImageType(fullName)){
-		imgsrc = "/users/register/displayFile?fileName="+fullName;
+		imgsrc = "/member/register/displayFile?fileName="+fullName;
 		fileLink = fullName.substr(14);
 		
 		var front = fullName.substr(0,12); // /2015/07/01/ 
 		var end = fullName.substr(14);
 		
-		getLink = "/users/register/displayFile?fileName="+front + end;
+		getLink = "/member/register/displayFile?fileName="+front + end;
 		
 	}else{
 		alert("이미지 파일만 넣어주세요")

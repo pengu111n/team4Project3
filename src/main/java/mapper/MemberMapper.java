@@ -1,8 +1,10 @@
 package mapper;
 
+import domain.LoginDTO;
 import domain.MemberVO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +16,6 @@ public interface MemberMapper {
 
 	public void delete(Integer memno) throws Exception;
 
-	public void login(MemberVO vo) throws  Exception;
 
 	public int idCheck(String id) throws Exception;
 
@@ -44,5 +45,6 @@ public interface MemberMapper {
 
 	public MemberVO checkMemberWithSessionKey(String value);
 
+	public String findById(String id) throws Exception;
 }
 

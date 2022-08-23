@@ -2,11 +2,11 @@
 create table member(
     memno Number,
     nickname varchar2(20),
-    id varchar2(20),
+    id varchar2(100),
     phoneNum varchar2(50),
     email varchar2(100) unique,
     pw varchar2(100),
-    name varchar2(10),
+    name varchar2(100),
     address varchar2(100),
     companyno varchar2(50),
     birth varchar2(100),

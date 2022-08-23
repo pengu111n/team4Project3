@@ -1,10 +1,12 @@
 package service;
 
 
+import domain.LoginDTO;
 import domain.MemberVO;
 import org.apache.ibatis.annotations.Param;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 public interface MemberService {
@@ -37,5 +39,7 @@ public interface MemberService {
 	public MemberVO checkLoginBefore(String value);
 
 	public MemberVO checkMemberWithSessionKey(String value);
+
+	public String findById(String id) throws Exception;
 }
 
