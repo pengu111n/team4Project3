@@ -106,8 +106,8 @@
 					<c:if test="${login != null}">
 					<!--<li class="nav-item">
                     	<a href="/blog/user?cmd=profileUpload">
-                    	    <img style = "border-radius:50%;" onerror="this.src ='/blog/image/userProfile.png'"
-                   		    src="${sessionScope.principal.userProfile}"  width="40px" height="40px" />
+                    	    <img style = "border-radius:50%;" alt=""
+                   		    src="${login.fullname}"  width="40px" height="40px" />
                			</a>
                     </li>-->
 						<button class="navbar-btn nav-button wow fadeInRight"

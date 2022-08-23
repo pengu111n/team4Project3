@@ -134,7 +134,6 @@ public class MemberController {
         member.setFullname(getFullname());
         int ddd = Integer.parseInt(dd);
         String dddd = String.format("%02d", ddd);
-        ;
         member.setBirth(yy + "." + mm + "." + dddd);
         logger.info("regist post..........");
         logger.info(member.toString());
