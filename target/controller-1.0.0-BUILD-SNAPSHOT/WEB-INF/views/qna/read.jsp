@@ -28,10 +28,10 @@
 
                 <td>${QNAVO.qnaNo}</td>
                 <span>처리상태
-            <c:if test="${qnaData.qna.status == 0}">
+            <c:if test="${qnaVO.status == 0}">
                 <span>답변 대기</span>
             </c:if>
-            <c:if test="${qnaData.qna.status == 1}">
+            <c:if test="${qnaVO.status == 1}">
                 <span class="status"><strong>답변 완료</strong></span>
             </c:if>
             

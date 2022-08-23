@@ -22,17 +22,11 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-<<<<<<< HEAD
-		
+
 		return "main/index";
 	}
 
-	@RequestMapping(value = "/main/introduce", method = RequestMethod.GET)
-	public void introduce() throws Exception {
-=======
-		return "home";
->>>>>>> 5461f14fb675a1493f4e4544ae771aa40fcc02c2
-	}
+
 
 
 	@RequestMapping(value = "/notice/faq", method = RequestMethod.GET)
