@@ -25,7 +25,7 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-    public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception {
+    public void loginPOST(LoginDTO dto, Model model) throws Exception {
 
         MemberVO vo = service.login(dto);
 
