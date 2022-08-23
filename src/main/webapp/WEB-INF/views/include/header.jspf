@@ -104,12 +104,12 @@
 						data-wow-delay="0.45s">로그인</button>
 					</c:if>
 					<c:if test="${login != null}">
-					<!--<li class="nav-item">
+					<li class="nav-item">
                     	<a href="/blog/user?cmd=profileUpload">
                     	    <img style = "border-radius:50%;" alt=""
-                   		    src="${login.fullname}"  width="40px" height="40px" />
+                   		    src="/member/register/displayFile?fileName=${login.fullname}"  width="40px" height="40px" />
                			</a>
-                    </li>-->
+                    </li>
 						<button class="navbar-btn nav-button wow fadeInRight"
 						onclick=" window.open('#', '_self')"
 						data-wow-delay="0.48s">${login.nickname}</button>
