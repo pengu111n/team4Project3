@@ -20,12 +20,25 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="GARO is a real-estate template">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/normalize.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/fontello.css">
-    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css"
+          rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/helper.css"
+          rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/assets/css/animate.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css">
@@ -36,12 +49,28 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.transitions.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/responsive.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/wizard.css">
+
+
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/ArticleContentBox.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
-    <link rel="stylesheet" href="/resources/assets/css/lightslider.min.css">
-    <link rel="stylesheet" href="/resources/assets/css/wizard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/Board.css">
+    <script src="${pageContext.request.contextPath}/resources/jQuery/jQuery-2.1.4.min.js"></script>
+
+    <%-- <script src="../../../resources/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+     <script src="../../../resources/assets/js/jquery-1.10.2.min.js"></script>
+     <script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+     <script src="../../../resources/assets/js/bootstrap-select.min.js"></script>
+     <script src="../../../resources/assets/js/bootstrap-hover-dropdown.js"></script>
+     <script src="../../../resources/assets/js/easypiechart.min.js"></script>
+     <script src="../../../resources/assets/js/jquery.easypiechart.min.js"></script>
+     <script src="../../../resources/assets/js/owl.carousel.min.js"></script>
+     <script src="../../../resources/assets/js/wow.js"></script>
+     <script src="../../../resources/assets/js/icheck.min.js"></script>
+     <script src="../../../resources/assets/js/price-range.js"></script>
+     <script type="text/javascript" src="../../../resources/assets/js/lightslider.min.js"></script>
+     <script src="../../../resources/assets/js/main.js"></script>--%>
+
 </head>
 <body>
 <div id="preloader">
@@ -163,7 +192,8 @@
                     </ul>
                 </li>
                 <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                    <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 <b class="caret"></b></a>
+                    <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-delay="200">마이페이지 <b class="caret"></b></a>
                     <ul class="dropdown-menu navbar-nav">
                         <li>
                             <a href="${pageContext.request.contextPath}/changePwd.do">내 정보</a>

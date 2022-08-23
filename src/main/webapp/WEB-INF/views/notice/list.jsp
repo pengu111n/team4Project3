@@ -5,6 +5,11 @@
 <%@ include file="../include/header.jspf" %>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
+
+
 <div class="page-head">
     <div class="container">
         <div class="row">

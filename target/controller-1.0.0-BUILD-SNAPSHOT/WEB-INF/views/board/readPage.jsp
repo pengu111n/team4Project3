@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%@include file="../include/header_1.jspf" %>
+<%@include file="../include/header.jspf" %>
 
 <link rel="stylesheet" href="../../../resources/Board/css/readPage.css">
 <script src="../../../resources/Board/js/readPage.js"></script>

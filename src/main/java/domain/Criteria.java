@@ -4,7 +4,8 @@ public class Criteria {
 
 	private int page;
 	private int perPageNum;
-
+	private int rowStart;
+	private int rowEnd;
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 12;
@@ -46,6 +47,15 @@ public class Criteria {
 		return this.perPageNum;
 	}
 
+	public int getRowStart() {
+		rowStart = ((page - 1) * perPageNum) + 1;
+		return rowStart;
+	}
+
+	public int getRowEnd() {
+		rowEnd = rowStart + perPageNum - 1;
+		return rowEnd;
+	}
 	@Override
 	public String toString() {
 		return "Criteria [page=" + page + ", "

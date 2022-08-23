@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jspf" %>
- 
-         <div class="page-head"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
+<div class="page-head">
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
