@@ -17,6 +17,12 @@ f
 6src/main/webapp/resources/assets/js/lightslider.min.js,8\4\842c23e3cb343248345e938f5580e79e614e8691
 h
 8src/main/webapp/resources/assets/css/lightslider.min.css,b\8\b8cb9c480393fa0cbb7630ff4b6c689133275e17
+c
+3src/main/webapp/WEB-INF/views/board/property-1.html,a\5\a579b8c02216605af2dd2280e5bd7ab77728390a
+h
+8src/main/webapp/WEB-INF/views/board/submit-property.html,8\2\829c2cb9b3b419947d6488da47f66d2d67edc708
+^
+.src/main/webapp/resources/Board/js/readPage.js,7\2\7275010b6aa844b0038f46fffc37d84c0ca66f52
 b
 2src/main/webapp/resources/Board/js/register.js.rej,a\0\a0ab46119fdb397f95542f2679c1f363ee1e7f4b
 Q
