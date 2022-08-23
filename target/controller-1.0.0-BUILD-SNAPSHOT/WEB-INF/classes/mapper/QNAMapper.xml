@@ -8,9 +8,9 @@
         있습니다. -->
     <insert id="create">
         INSERT INTO qna(qnaNo, qnaTitle, qnaContent,
-                        nickname, category, qnaDate)
+                        nickname, category, qnaDate, status)
         values (qna_ID.nextval, #{qnaTitle}, #{qnaContent}, #{nickname},
-                #{category}, sysdate)
+                #{category}, sysdate, 0)
     </insert>
 
     <update id="update">
@@ -34,7 +34,8 @@
                nickname,
                category,
                qnaDate,
-               answerContent
+               answerContent,
+               status
         from qna
         where qnaNo = #{qnaNo}
     </select>
@@ -62,12 +63,14 @@
                category,
                qnaTitle,
                nickname,
-               qnaDate
+               qnaDate,
+               status
         FROM (SELECT qnaNo,
                      category,
                      qnaTitle,
                      nickname,
                      qnaDate,
+                     status,
                      ROW_NUMBER() OVER(ORDER BY qnaNo DESC) AS RNUM
               FROM qna)
         WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
@@ -76,7 +79,8 @@
 
     <update id="answer">
         update qna
-        set answerContent = #{answerContent}
+        set answerContent = #{answerContent},
+            status = 1
             where qnaNo = #{qnaNo}
     </update>
 

@@ -32,7 +32,7 @@ public class QNAVO {
     private Date qnaDate;
     @Getter
     @Setter
-    private String status;
+    private Integer status;
     @Getter
     @Setter
     private String answerContent;

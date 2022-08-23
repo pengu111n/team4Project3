@@ -2,6 +2,7 @@ package controller;
 
 import domain.Criteria;
 import domain.NoticeVO;
+/*import domain.MemberVO;*/
 import domain.PageMaker;
 
 import org.slf4j.Logger;
@@ -28,9 +29,10 @@ public class NoticeController {
     public void registerGET(NoticeVO notice, Model model) throws Exception {
         logger.info("register get ...........");
 
-         /*  if(memberVO.rank != 3){
+         /*  if(memberVO.rank != 3) {
 
-        }*/
+        }
+        */
 
     }
 

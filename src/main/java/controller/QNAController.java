@@ -3,6 +3,7 @@ package controller;
 import domain.Criteria;
 import domain.QNAVO;
 import domain.PageMaker;
+/*import domain.MemberVO;*/
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class QNAController {
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public void registerGET(QNAVO qna, Model model) throws Exception {
         logger.info("register get ...........");
+        qna.setStatus(0);
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -37,7 +39,7 @@ public class QNAController {
 
         service.create(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
-        /*qna.setStatus();*/
+        qna.setStatus(0);
         return "redirect:/qna/list";
     }
 
@@ -67,6 +69,7 @@ public class QNAController {
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
     public void read(@RequestParam("qnaNo") int qnaNo, Model model) throws Exception {
+
         model.addAttribute(service.read(qnaNo));
     }
 
@@ -95,10 +98,9 @@ public class QNAController {
     }
 
 
-
     @RequestMapping(value = "/answer", method = RequestMethod.GET)
     public void answerGET(QNAVO qna, Model model) throws Exception {
-
+        qna.setStatus(1);
         model.addAttribute(service);
     }
 
@@ -108,9 +110,9 @@ public class QNAController {
 
         service.answer(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
+        qna.setStatus(1);
         return "redirect:/qna/list";
     }
-
 
 
 }
