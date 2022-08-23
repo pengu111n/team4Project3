@@ -31,5 +31,10 @@
       <option name="name" value="ORACLE JDBC Repository" />
       <option name="url" value="https://maven.atlassian.com/3rdparty/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="oracle" />
+      <option name="name" value="ORACLE JDBC Repository" />
+      <option name="url" value="https://mvnrepository.com/artifact/org.apache.commons/commons-io" />
+    </remote-repository>
   </component>
 </project>

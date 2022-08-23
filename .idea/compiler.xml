@@ -16,7 +16,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="team4Project3" options="-Xlint:all" />
+      <module name="team4Project3" options="-Xlint:all --add-modules java.desktop" />
     </option>
   </component>
 </project>
