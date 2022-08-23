@@ -26,6 +26,6 @@ public class MemberVO {
     private Integer rank;
     private String name;
     private Integer auth;
-
+    private String filename;
 
 }

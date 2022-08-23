@@ -20,6 +20,7 @@ import util.UploadFileUtils;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -34,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 
 
 
-	@Transactional(rollbackFor = Exception.class)
+	@Transactional
 	@Override
 	public void regist(MemberVO vo) throws Exception {
 		mapper.create(vo);
@@ -45,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setText("" +
 				"<h1>메일인증</h1>" +
 				"<br/>"+vo.getNickname()+"님 "+
-				"<br/>ICEWATER에 회원가입해주셔서 감사합니다."+
+				"<br/>인테리어 프렌드 인프에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
 				"<a href='http://localhost:8080/users/confirmEmail?email=" + vo.getEmail() +
 				"&authKey=" + key +
@@ -53,6 +54,14 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setFrom("xogus8206@gmail.com", "인프");
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
+
+		String file = vo.getFilename();
+
+		if(file == null) { return; }
+
+
+		mapper.attachImg(file);
+
 	}
 
 
@@ -87,10 +96,40 @@ public class MemberServiceImpl implements MemberService {
 		return cnt;
 	}
 
+	@Override
+	public int nicknameCheck(String nickname) throws Exception{
+		int cnt = mapper.nicknameCheck(nickname);
+		return cnt;
+	}
 
 	@Override
 	public void memberAuth(String email, String authKey) throws Exception {
 		mapper.memberAuth(email, authKey);
+	}
+
+	@Override
+	public void attachImg(String fullName) throws Exception {
+		mapper.attachImg(fullName);
+	}
+
+	@Override
+	public List<String> getAttachImg(Integer memno) throws Exception {
+		return mapper.getAttachImg(memno);
+	}
+
+	@Override
+	public void deleteImg(Integer memno) throws Exception {
+		mapper.deleteImg(memno);
+	}
+
+	@Override
+	public void replaceImg(String fullName, Integer memno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+
+		paramMap.put("fullName", fullName);
+		paramMap.put("memno", memno);
+
+		mapper.replaceImg(paramMap);
 	}
 
 

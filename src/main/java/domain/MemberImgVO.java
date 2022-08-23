@@ -8,7 +8,8 @@ import lombok.ToString;
 @Getter
 @Setter
 public class MemberImgVO {
-    private String fileName;
+    private String fullName;
     private Integer memNo;
-    private Integer filecnt;
+
 }
+
