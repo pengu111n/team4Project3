@@ -40,6 +40,8 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/ArticleContentBox.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
+        <link rel="stylesheet" href="/resources/assets/css/lightslider.min.css">
+        <link rel="stylesheet" href="/resources/assets/css/wizard.css">
     </head>
 <body>
 	<div id="preloader">
@@ -87,7 +89,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.do"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="300" alt=""></a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/assets/img/logo-.png"  width="253" alt=""></a>
                 </div>
 
 
@@ -113,7 +115,7 @@
 				</div>
 				<ul class="main-nav nav navbar-nav navbar-right">		
 						 <li class="wow fadeInDown" data-wow-delay="0.5s">
-						 <a href="${pageContext.request.contextPath}/info/introduce.do">회사 소개</a></li>
+						 <a href="${pageContext.request.contextPath}/main/introduce">회사 소개</a></li>
 						
 
 						
@@ -127,6 +129,16 @@
 							<li><a href="${pageContext.request.contextPath}/board/write.do">견적신청</a></li>
 							<li><a href="${pageContext.request.contextPath}/board/list.do">신청목록</a></li>
 						</ul></li>
+
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s"><a
+                            href="index.jsp" class="dropdown-toggle"
+                            data-toggle="dropdown" data-hover="dropdown" data-delay="200">인테리어
+                                <b class="caret"></b>
+                        </a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li><a href="${pageContext.request.contextPath}/cboard/write">시공사례 등록</a></li>
+                                <li><a href="${pageContext.request.contextPath}/cboard/list">시공사례 목록</a></li>
+                            </ul></li>
                     
                                                 <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">고객센터 <b class="caret"></b></a>
