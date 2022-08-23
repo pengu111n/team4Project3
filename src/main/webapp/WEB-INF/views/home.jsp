@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="include/header.jspf" %>
 
-    
+
 
         <div class="slider-area">
             <div class="slider">
@@ -18,11 +18,11 @@
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
                         <h2>인프</h2>
                         <p>당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프!</p>
-                       
+
                         <!-- <div class="search-form wow pulse" data-wow-delay="0.8s">
                             원래 안에 메인페이지 서치박스 있었음.
                         </div> -->
-                    
+
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                                         <!-- /.feature title -->
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                             </div>
                                             </a>
                                             <h3>견적신청</h3>
-                                            
+
                                         </div>
                                     </div>
 
@@ -106,63 +106,3 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-
-                        <h2>Our Customers Said  </h2> 
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="row testimonial">
-                        <div class="col-md-12">
-                            <div id="testimonial-slider">
-                                <div class="item">
-                                    <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                    </div>
-                                    <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
-                                        <img src="assets/img/client-face1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                    </div>
-                                    <div class="client-face">
-                                        <img src="assets/img/client-face2.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                    </div>
-                                    <div class="client-face">
-                                        <img src="assets/img/client-face1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                                    </div>
-                                    <div class="client-face">
-                                        <img src="assets/img/client-face2.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Count area -->
-
-
-        <!-- boy-sale area -->
-
-
-<%@ include file="include/footer.jspf" %>

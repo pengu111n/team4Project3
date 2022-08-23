@@ -43,6 +43,49 @@
         <link rel="stylesheet" href="/resources/assets/css/lightslider.min.css">
         <link rel="stylesheet" href="/resources/assets/css/wizard.css">
     </head>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/normalize.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/fontello.css">
+    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css"
+          rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/assets/fonts/icon-7-stroke/css/helper.css"
+          rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/assets/css/animate.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/icheck.min_all.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/price-range.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.theme.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/responsive.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/wizard.css">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/ArticleContentBox.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/Board.css">
+    <script src="${pageContext.request.contextPath}/resources/jQuery/jQuery-2.1.4.min.js"></script>
+
+   <%-- <script src="../../../resources/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../../../resources/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../resources/assets/js/bootstrap-select.min.js"></script>
+    <script src="../../../resources/assets/js/bootstrap-hover-dropdown.js"></script>
+    <script src="../../../resources/assets/js/easypiechart.min.js"></script>
+    <script src="../../../resources/assets/js/jquery.easypiechart.min.js"></script>
+    <script src="../../../resources/assets/js/owl.carousel.min.js"></script>
+    <script src="../../../resources/assets/js/wow.js"></script>
+    <script src="../../../resources/assets/js/icheck.min.js"></script>
+    <script src="../../../resources/assets/js/price-range.js"></script>
+    <script type="text/javascript" src="../../../resources/assets/js/lightslider.min.js"></script>
+    <script src="../../../resources/assets/js/main.js"></script>--%>
+
+</head>
 <body>
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
@@ -113,7 +156,7 @@
 						data-wow-delay="0.45s">로그아웃</button>
 					</c:if>
 				</div>
-				<ul class="main-nav nav navbar-nav navbar-right">		
+				<ul class="main-nav nav navbar-nav navbar-right">
 						 <li class="wow fadeInDown" data-wow-delay="0.5s">
 						 <a href="${pageContext.request.contextPath}/main/introduce">회사 소개</a></li>
 						
@@ -126,8 +169,8 @@
 							<b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu navbar-nav">
-							<li><a href="${pageContext.request.contextPath}/board/write.do">견적신청</a></li>
-							<li><a href="${pageContext.request.contextPath}/board/list.do">신청목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/register">견적신청</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/listPage">신청목록</a></li>
 						</ul></li>
 
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s"><a
@@ -139,7 +182,7 @@
                                 <li><a href="${pageContext.request.contextPath}/cboard/write">시공사례 등록</a></li>
                                 <li><a href="${pageContext.request.contextPath}/cboard/list">시공사례 목록</a></li>
                             </ul></li>
-                    
+
                                                 <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">고객센터 <b class="caret"></b></a>
                             <ul class="dropdown-menu navbar-nav">

@@ -7,9 +7,9 @@
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
 
-                    <div class="item"><img src="/resources/assets/img/slide1/slider-image-1.jpg" alt="interior-1"></div>
-                    <div class="item"><img src="/resources/assets/img/slide1/slider-image-3.jpg" alt="interior-3"></div>
-                    <div class="item"><img src="/resources/assets/img/slide1/slider-image-2.jpg" alt="interior-2"></div>
+                    <div class="item"><img src="../../../resources/assets/img/slide1/slider-image-1.jpg" alt="interior-1"></div>
+                    <div class="item"><img src="../../../resources/assets/img/slide1/slider-image-3.jpg" alt="interior-3"></div>
+                    <div class="item"><img src="../../../resources/assets/img/slide1/slider-image-2.jpg" alt="interior-2"></div>
 
                 </div>
             </div>

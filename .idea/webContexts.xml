@@ -5,6 +5,12 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/listAll.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/listPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/listPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modifyPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/readPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/register.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/submit-property.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board" />
       </map>
     </option>
   </component>
