@@ -98,10 +98,10 @@
 				<div class="button navbar-right">
 					<c:if test="${authUser == null}">
 					<button class="navbar-btn nav-button wow fadeInRight"
-						onclick=" window.open('${pageContext.request.contextPath}/join.do', '_self')"
+						onclick=" window.open('users/register', '_self')"
 						data-wow-delay="0.48s">회원가입</button>
 					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" window.open('${pageContext.request.contextPath}/login.do', '_self')"
+						onclick=" window.open('users/login', '_self')"
 						data-wow-delay="0.45s">로그인</button>
 					</c:if>
 					<c:if test="${authUser != null}">
@@ -144,13 +144,13 @@
                             <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">고객센터 <b class="caret"></b></a>
                             <ul class="dropdown-menu navbar-nav">
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/info/notice.do">공지사항</a>
+                                    <a href="/notice/list">공지사항</a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/info/FAQ.do">FAQ</a>
+                                    <a href="/notice/faq">FAQ</a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/info/QNA.do">1:1 문의</a>
+                                    <a href="/qna/list">1:1 문의</a>
                                 </li>
                              <c:if test="${authUser.rank == 3}">
                                 <li>
