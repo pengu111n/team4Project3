@@ -95,7 +95,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
-					<c:if test="${authUser == null}">
+					<c:if test="${login == null}">
 					<button class="navbar-btn nav-button wow fadeInRight"
 						onclick=" window.open('${pageContext.request.contextPath}/member/register', '_self')"
 						data-wow-delay="0.48s">회원가입</button>
@@ -103,18 +103,18 @@
 						onclick=" window.open('${pageContext.request.contextPath}/member/login', '_self')"
 						data-wow-delay="0.45s">로그인</button>
 					</c:if>
-					<c:if test="${authUser != null}">
-					<li class="nav-item">
+					<c:if test="${login != null}">
+					<!--<li class="nav-item">
                     	<a href="/blog/user?cmd=profileUpload">
                     	    <img style = "border-radius:50%;" onerror="this.src ='/blog/image/userProfile.png'"
                    		    src="${sessionScope.principal.userProfile}"  width="40px" height="40px" />
                			</a>
-                    </li>
+                    </li>-->
 						<button class="navbar-btn nav-button wow fadeInRight"
 						onclick=" window.open('#', '_self')"
-						data-wow-delay="0.48s">${authUser.nickname}</button>
+						data-wow-delay="0.48s">${login.nickname}</button>
 					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" window.open('${pageContext.request.contextPath}/logout.do', '_self')"
+						onclick=" window.open('${pageContext.request.contextPath}/member/logout', '_self')"
 						data-wow-delay="0.45s">로그아웃</button>
 					</c:if>
 				</div>

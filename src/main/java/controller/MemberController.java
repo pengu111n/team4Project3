@@ -116,7 +116,7 @@ public class MemberController {
             }
         }
 
-        return "main/index";
+        return "/home";
     }
 
 
