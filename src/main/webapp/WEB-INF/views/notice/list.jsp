@@ -116,14 +116,5 @@
 
 </div>
 
-<script>
-    var result = '${msg}';
-
-    if (result == 'SUCCESS') {
-        alert("완료되었습니다.");
-        location.replace(self.location);
-    }
-</script>
-
 
 <%@ include file="../include/footer.jspf" %>

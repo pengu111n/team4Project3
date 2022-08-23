@@ -84,19 +84,22 @@
 
                     <!-- 스테이터스가 문의글이 등록 될 때 0으로 등록되고, 답변 후에 1로 변경되어야 함. -->
 
-                        <%--  <c:if test="${qna.status == 0}">  --%>
+                        <%-- <c:if test="${qnaVO.status == 0}"> --%>
+
                     <td class="wating td-100">
-                            <%--     <c:if test="${authUser.rank == 3}">     --%>
+                            <%--     <c:if test="${memberVO.rank == 3}">     --%>
                         <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
 
                                 <!-- 링크에 qnaNo=까지만 나오고 숫자가 안들어가네 ? -->
 
-                            <%--  </c:if>   --%>
+                           <%-- </c:if> --%>
 
                         <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
-                        <c:if test="${authUser.rank != 3}">
+                        <c:if test="${memberVO.rank != 3}">
                             답변대기
+
                         </c:if>
+
                     </td>
                         <%--  </c:if>  --%>
                     <c:if test="${qna.status == 1}">
@@ -138,14 +141,7 @@
 </div>
 
 
-<script>
-    var result = '${msg}';
 
-    if (result == 'SUCCESS') {
-        alert("완료되었습니다.");
-        location.replace(self.location);
-    }
-</script>
 
 
 <%@ include file="../include/footer.jspf" %>

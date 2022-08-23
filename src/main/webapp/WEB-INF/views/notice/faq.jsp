@@ -136,7 +136,7 @@
             </div>
             <div id="collapseNine" class="panel-collapse collapse">
                 <div class="panel-body">
-                 로그인 후 신고게시판을 통해 신고내용을 등록하시면 관리자 검토 후에 차단되어집니다.
+                 로그인 후 문의 게시판을 통해 신고내용을 등록하시면 관리자 검토 후에 차단되어집니다.
                 </div>
             </div>
         </div>

@@ -37,6 +37,7 @@ public class QNAController {
 
         service.create(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
+        /*qna.setStatus();*/
         return "redirect:/qna/list";
     }
 
