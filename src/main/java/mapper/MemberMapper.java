@@ -1,71 +1,48 @@
 package mapper;
 
-import java.util.Date;
+import domain.MemberVO;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 import java.util.Map;
 
-import domain.MemberVO;
-import dto.LoginDTO;
 
 public interface MemberMapper {
-	/* public List<UserVO> login() throws Exception; */
+	public void create(MemberVO vo) throws Exception;
 
-	public MemberVO login(LoginDTO dto) throws Exception;
+	public void update(MemberVO vo) throws Exception;
+
+	public void delete(Integer memno) throws Exception;
+
+	public void login(MemberVO vo) throws  Exception;
+
+	public int idCheck(String id) throws Exception;
+
+	public int nicknameCheck(String nickname) throws Exception;
+
+	public void createAuth(String email, String authKey) throws Exception;
+	public void memberAuth(String email, String authKey) throws Exception;
+
+	public void attachImg(String fullName)throws Exception;
+
+	public List<String> getAttachImg(Integer memno)throws Exception;
+
+	public void deleteImg(Integer memno)throws Exception;
+
+	public void replaceImg(@Param("fullName")String fullName, @Param("memno")Integer memno)throws Exception;
+
+	public void replaceImg(Map<String, Object> paramMap);
+  
+  public MemberVO login(LoginDTO dto) throws Exception;
 
 
 	public void keepLogin(String id, String sessionId, Date next) ;
 
 	public void keepLogin(Map<String, Object> paramMap);
 
-	//static MemberVO selectSession(String sessionId) {
-	// TODO Auto-generated method stub
-	//return null;
-	//}
-
-
-	//public void keepLogin(String sessionId, Date limitTime, String account);
-	// TODO Auto-generated method stub
-
 	public MemberVO checkLoginBefore(String value);
 
 	public MemberVO checkMemberWithSessionKey(String value);
 
-
-
-	//public void update(String string, Map<String, Object> paramMap);
-
-
-
-
-
-
-
-
-
-
-	/*
-	 * public static void update(String string, Map<String, Object> paramMap) { //
-	 * TODO Auto-generated method stub
-	 *
-	 * }
-	 *
-	 *
-	 * public static MemberVO selectOne(String string, String value) { // TODO
-	 * Auto-generated method stub return null; }
-	 */
-
-
-
-	/* public void insertUser(UserVO user) throws Exception; */
-
-
-	/* public void keepLogin(String sessionId, Date limitDate, String account); */
-	/*
-	 * public void keepLogin(String id, String sessionId, Date next );
-	 *
-	 * public MemberVO checkMemberWithSessionKey(String value);
-	 */
-
 }
-
-
 
