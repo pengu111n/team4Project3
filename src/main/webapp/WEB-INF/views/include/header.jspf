@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/owl.transitions.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/responsive.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/wizard.css">
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/ArticleContentBox.css">

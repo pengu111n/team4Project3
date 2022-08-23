@@ -115,7 +115,6 @@ public class BoardController {
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-
 		model.addAttribute(boardService.read(boardNo));
 	}
 
@@ -136,6 +135,7 @@ public class BoardController {
 			throws Exception {
 
 		model.addAttribute(boardService.read(boardNo));
+
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)

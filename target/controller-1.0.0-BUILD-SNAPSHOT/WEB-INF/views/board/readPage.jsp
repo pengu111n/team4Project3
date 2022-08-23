@@ -153,7 +153,7 @@
                                 <span class="property-price pull-right">업체 협의</span>
                             </c:when>
                             <c:otherwise>
-                                <span class="property-price pull-right">${boardVO.budget}</span>
+                                <span class="property-price pull-right">${boardVO.budget} 만원</span>
                             </c:otherwise>
                         </c:choose>
                     </div>

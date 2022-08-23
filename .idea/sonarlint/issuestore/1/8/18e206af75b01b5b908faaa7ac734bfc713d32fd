@@ -1,104 +1,0 @@
-
-T	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(Œ¶¥
-HWeb:BoldAndItalicTagsCheck4"Replace this <i> tag by <em>.(ñ®Îàÿÿÿÿÿ
-CWeb:BoldAndItalicTagsCheck5"Replace this <i> tag by <em>.(öóø×
-HWeb:BoldAndItalicTagsCheck<"Replace this <i> tag by <em>.(ÚÈÔŸüÿÿÿÿ
-HWeb:BoldAndItalicTagsCheck="Replace this <i> tag by <em>.(”¦Ğ®şÿÿÿÿ
-HWeb:BoldAndItalicTagsCheck>"Replace this <i> tag by <em>.(³²¤”ÿÿÿÿÿ
-HWeb:BoldAndItalicTagsCheck?"Replace this <i> tag by <em>.(ïß¡Æşÿÿÿÿ
-CWeb:BoldAndItalicTagsCheck@"Replace this <i> tag by <em>.(íõ…Ş
-CWeb:BoldAndItalicTagsCheckA"Replace this <i> tag by <em>.(Ó‹å
-LWeb:BoldAndItalicTagsCheck_"!Replace this <b> tag by <strong>.(µıµˆşÿÿÿÿ
-GWeb:BoldAndItalicTagsCheckt"!Replace this <b> tag by <strong>.(˜ŠÅÎ
-OWeb:FieldsetWithoutLegendCheckà"$Add a <legend> tag to this fieldset.(¨Ïçñ
-OWeb:FieldsetWithoutLegendCheckè"$Add a <legend> tag to this fieldset.(¨Ïçñ
-HWeb:BoldAndItalicTagsCheckŠ"!Replace this <b> tag by <strong>.(¹²¸–
-MWeb:BoldAndItalicTagsCheck‹"!Replace this <b> tag by <strong>.(¢ï¬”úÿÿÿÿ
-MWeb:BoldAndItalicTagsCheck’"!Replace this <b> tag by <strong>.(Ûß¬ûşÿÿÿÿ
-MWeb:BoldAndItalicTagsCheck“"!Replace this <b> tag by <strong>.(»ßßÑùÿÿÿÿ
-MWeb:FieldsetWithoutLegendCheckƒ"$Add a <legend> tag to this fieldset.(ü„6
-HWeb:BoldAndItalicTagsCheckŸ"!Replace this <b> tag by <strong>.(¿ª«ø
-HWeb:BoldAndItalicTagsCheck "!Replace this <b> tag by <strong>.(ü›çì
-HWeb:BoldAndItalicTagsCheck¨"!Replace this <b> tag by <strong>.(¿ª«ø
-HWeb:BoldAndItalicTagsCheck©"!Replace this <b> tag by <strong>.(ü›çì
-MWeb:FieldsetWithoutLegendCheck˜"$Add a <legend> tag to this fieldset.(ü„6
-MWeb:FieldsetWithoutLegendCheck¯"$Add a <legend> tag to this fieldset.(ü„6
-MWeb:FieldsetWithoutLegendCheck¿"$Add a <legend> tag to this fieldset.(ü„6
-MWeb:FieldsetWithoutLegendCheckÎ"$Add a <legend> tag to this fieldset.(ü„6
-MWeb:FieldsetWithoutLegendCheckİ"$Add a <legend> tag to this fieldset.(ü„6
-MWeb:FieldsetWithoutLegendCheckì"$Add a <legend> tag to this fieldset.(ü„6
-OWeb:FieldsetWithoutLegendCheckö"$Add a <legend> tag to this fieldset.(¨Ïçñ
-MWeb:ImgWithoutAltCheck‰"%Add an "alt" attribute to this image.(ù§¬öÿÿÿÿÿ
-HWeb:BoldAndItalicTagsCheck‹"!Replace this <b> tag by <strong>.(öÅóß
-GWeb:BoldAndItalicTagsCheckŒ"!Replace this <b> tag by <strong>.(ÙÇÑT
-HWeb:ImgWithoutAltCheck–"%Add an "alt" attribute to this image.(öæı¾
-HWeb:BoldAndItalicTagsCheck˜"!Replace this <b> tag by <strong>.(öÅóß
-GWeb:BoldAndItalicTagsCheck™"!Replace this <b> tag by <strong>.(ÙÇÑT
-HWeb:ImgWithoutAltCheck£"%Add an "alt" attribute to this image.(ĞÜº­
-HWeb:BoldAndItalicTagsCheck¥"!Replace this <b> tag by <strong>.(öÅóß
-GWeb:BoldAndItalicTagsCheck¦"!Replace this <b> tag by <strong>.(ÙÇÑT
-MWeb:ImgWithoutAltCheck±"%Add an "alt" attribute to this image.(ù§¬öÿÿÿÿÿ
-HWeb:BoldAndItalicTagsCheck³"!Replace this <b> tag by <strong>.(öÅóß
-GWeb:BoldAndItalicTagsCheck´"!Replace this <b> tag by <strong>.(ÙÇÑT
-DWeb:BoldAndItalicTagsCheckÉ"Replace this <i> tag by <em>.(³½Ù 
-CWeb:BoldAndItalicTagsCheckÎ"Replace this <i> tag by <em>.(÷
-MWeb:BoldAndItalicTagsCheckÔ"!Replace this <b> tag by <strong>.(çöà£úÿÿÿÿ
-DWeb:BoldAndItalicTagsCheckå"Replace this <i> tag by <em>.(¥ŸÏ†
-DWeb:BoldAndItalicTagsCheckæ"Replace this <i> tag by <em>.(’Ñº±
-MWeb:ImgWithoutAltCheckï"%Add an "alt" attribute to this image.(½­¨Ÿøÿÿÿÿ
-MWeb:BoldAndItalicTagsCheckõ"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheckù"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheckú"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheckû"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-HWeb:ImgWithoutAltCheck†"%Add an "alt" attribute to this image.(Ø£‹Û
-MWeb:BoldAndItalicTagsCheckŒ"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheck"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheck‘"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheck’"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-GWeb:ImgWithoutAltCheck›"%Add an "alt" attribute to this image.(…Á¢h
-MWeb:BoldAndItalicTagsCheck¡"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheck¥"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheck¦"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheck§"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-MWeb:ImgWithoutAltCheck°"%Add an "alt" attribute to this image.(½­¨Ÿøÿÿÿÿ
-MWeb:BoldAndItalicTagsCheck¶"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheckº"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheck»"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheck¼"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-GWeb:ImgWithoutAltCheckÅ"%Add an "alt" attribute to this image.(…Á¢h
-MWeb:BoldAndItalicTagsCheckË"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheckÏ"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheckĞ"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheckÑ"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-HWeb:ImgWithoutAltCheckÛ"%Add an "alt" attribute to this image.(Ø£‹Û
-MWeb:BoldAndItalicTagsChecká"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheckå"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheckæ"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheckç"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-MWeb:ImgWithoutAltCheckğ"%Add an "alt" attribute to this image.(½­¨Ÿøÿÿÿÿ
-MWeb:BoldAndItalicTagsCheckö"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheckú"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheckû"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheckü"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-HWeb:ImgWithoutAltCheck…"%Add an "alt" attribute to this image.(Ø£‹Û
-MWeb:BoldAndItalicTagsCheck‹"!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheck"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheck"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheck‘"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-GWeb:ImgWithoutAltCheckš"%Add an "alt" attribute to this image.(…Á¢h
-MWeb:BoldAndItalicTagsCheck "!Replace this <b> tag by <strong>.(²•”çüÿÿÿÿ
-HWeb:ImgWithoutAltCheck¤"%Add an "alt" attribute to this image.(ãÓŒ
-MWeb:ImgWithoutAltCheck¥"%Add an "alt" attribute to this image.(Œ²Ì‡ıÿÿÿÿ
-MWeb:ImgWithoutAltCheck¦"%Add an "alt" attribute to this image.(€ÀŞıÿÿÿÿ
-DWeb:BoldAndItalicTagsCheckĞ"Replace this <i> tag by <em>.(ùóê÷
-IWeb:BoldAndItalicTagsCheckÑ"Replace this <i> tag by <em>.(½ª±Ğøÿÿÿÿ
-DWeb:BoldAndItalicTagsCheckÒ"Replace this <i> tag by <em>.(ìŸüµ
-HWeb:ImgWithoutAltCheckì"%Add an "alt" attribute to this image.(ø§á
-HWeb:ImgWithoutAltCheckú"%Add an "alt" attribute to this image.(ø§á
-HWeb:ImgWithoutAltCheckˆ"%Add an "alt" attribute to this image.(ø§á
-DWeb:BoldAndItalicTagsCheck¡"Replace this <i> tag by <em>.(„Ö˜½
-DWeb:BoldAndItalicTagsCheck©"Replace this <i> tag by <em>.(´ªé‚
-DWeb:BoldAndItalicTagsCheckª"Replace this <i> tag by <em>.(—óö°
-IWeb:BoldAndItalicTagsCheck«"Replace this <i> tag by <em>.(ûíûÂşÿÿÿÿ
-CWeb:BoldAndItalicTagsCheck¬"Replace this <i> tag by <em>.(‰£Š4
-IWeb:BoldAndItalicTagsCheck­"Replace this <i> tag by <em>.(¦§Ğ¤øÿÿÿÿ

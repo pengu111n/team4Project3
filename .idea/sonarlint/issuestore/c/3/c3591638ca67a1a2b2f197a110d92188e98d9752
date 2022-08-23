@@ -1,0 +1,72 @@
+
+`	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(Ûü’şÿÿÿÿ
+[	java:S112Z"FDefine and throw a dedicated exception instead of using a generic one.(›—Õ”
+t
+java:S2293u"YReplace the type specification in this constructor call with the diamond operator ("<>").(›çÏóúÿÿÿÿ
+o
+java:S2293z"YReplace the type specification in this constructor call with the diamond operator ("<>").(Éô„¬
+p
+java:S2293–"YReplace the type specification in this constructor call with the diamond operator ("<>").(«×şÛ
+p
+java:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(«×şÛ
+p
+java:S2293²"YReplace the type specification in this constructor call with the diamond operator ("<>").(«×şÛ
+_
+java:S1192–"HDefine a constant instead of duplicating this literal "deleted" 3 times.(«×şÛ
+M
+java:S2629_"7Use the built-in formatting to construct this argument.(ŸÕˆ
+N
+java:S2629…"7Use the built-in formatting to construct this argument.(øÏŸ“
+N
+java:S2629"7Use the built-in formatting to construct this argument.(É²˜ı
+[
+java:S2259|"@A "NullPointerException" could be thrown; "in" is nullable here.(€¶º‡ıÿÿÿÿ
+œ
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(é«Ñ¤ÿÿÿÿÿ
+—
+java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ò¹˜á
+c
+java:S4488%"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(ñ’²ÿÿÿÿÿ
+`
+java:S4488)"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ĞøòØ
+W
+java:S3457,"AFormat specifiers should be used instead of string concatenation.(ïªô§
+\
+java:S3457-"AFormat specifiers should be used instead of string concatenation.(ôŸ·ÿÿÿÿÿ
+W
+java:S3457."AFormat specifiers should be used instead of string concatenation.(Ôø„
+c
+java:S44887"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(¥¡ì„øÿÿÿÿ
+e
+java:S4488H"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(İê Ìúÿÿÿÿ
+W
+java:S3457L"AFormat specifiers should be used instead of string concatenation.(ïªô§
+W
+java:S3457_"AFormat specifiers should be used instead of string concatenation.(ŸÕˆ
+Y
+java:S4719r">Replace charset name argument with StandardCharsets.ISO_8859_1(î­Ÿÿÿÿÿÿ
+T
+java:S4719r"9Replace charset name argument with StandardCharsets.UTF_8(î­Ÿÿÿÿÿÿ
+E
+java:S2093a"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+f
+java:S4488‚"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ëû•€úÿÿÿÿ
+X
+java:S3457…"AFormat specifiers should be used instead of string concatenation.(øÏŸ“
+T	java:S106†"9Replace this use of System.out or System.err by a logger.(¿×øßúÿÿÿÿ
+V	java:S899";Do something with the "boolean" value returned by "delete".(ìªÇ³ûÿÿÿÿ
+j
+java:S4042"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ìªÇ³ûÿÿÿÿ
+V	java:S899“";Do something with the "boolean" value returned by "delete".(â˜Œ÷øÿÿÿÿ
+j
+java:S4042“"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(â˜Œ÷øÿÿÿÿ
+f
+java:S4488š"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(üÀ±‹ıÿÿÿÿ
+X
+java:S3457"AFormat specifiers should be used instead of string concatenation.(É²˜ı
+V	java:S899¬";Do something with the "boolean" value returned by "delete".(ìªÇ³ûÿÿÿÿ
+j
+java:S4042¬"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ìªÇ³ûÿÿÿÿ
+V	java:S899¯";Do something with the "boolean" value returned by "delete".(â˜Œ÷øÿÿÿÿ
+j
+java:S4042¯"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(â˜Œ÷øÿÿÿÿ
