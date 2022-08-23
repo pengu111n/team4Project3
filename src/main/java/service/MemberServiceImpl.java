@@ -1,6 +1,5 @@
 package service;
 
-
 import domain.MemberVO;
 import mapper.MemberMapper;
 import org.apache.commons.io.FileUtils;
@@ -63,6 +62,35 @@ public class MemberServiceImpl implements MemberService {
 		mapper.attachImg(file);
 
 	}
+  
+  @Override
+	public MemberVO login(LoginDTO dto) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.login(dto);
+	}
+	@Override
+	public void keepLogin(String id, String sessionId, Date next) {
+
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		paramMap.put("sessionId", sessionId);
+		paramMap.put("next", next);
+
+
+		mapper.keepLogin(paramMap);
+
+	}
+
+	@Override
+	public MemberVO checkLoginBefore(String value) {
+
+		return mapper.checkMemberWithSessionKey(value);
+	}
+	@Override
+	public MemberVO checkMemberWithSessionKey(String value) {
+		return mapper.checkMemberWithSessionKey(value);
+	}
+}
 
 
 
@@ -76,19 +104,8 @@ public class MemberServiceImpl implements MemberService {
 		mapper.delete(memno);
 	}
 
-	@Override
-	public String login(MemberVO vo, HttpSession session) throws Exception {
-		mapper.login(vo);
-		if(mapper != null){
-			session.setAttribute("authUser", mapper);
-		}
-	return null;
-	}
+	
 
-	@Override
-	public void logout(HttpSession session) {
-
-	}
 
 	@Override
 	public int idCheck(String id) throws Exception {
@@ -134,3 +151,4 @@ public class MemberServiceImpl implements MemberService {
 
 
 }
+

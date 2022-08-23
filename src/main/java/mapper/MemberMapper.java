@@ -32,4 +32,17 @@ public interface MemberMapper {
 	public void replaceImg(@Param("fullName")String fullName, @Param("memno")Integer memno)throws Exception;
 
 	public void replaceImg(Map<String, Object> paramMap);
+  
+  public MemberVO login(LoginDTO dto) throws Exception;
+
+
+	public void keepLogin(String id, String sessionId, Date next) ;
+
+	public void keepLogin(Map<String, Object> paramMap);
+
+	public MemberVO checkLoginBefore(String value);
+
+	public MemberVO checkMemberWithSessionKey(String value);
+
 }
+
