@@ -28,6 +28,9 @@ public class QNAController {
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public void registerGET(QNAVO qna, Model model) throws Exception {
         logger.info("register get ...........");
+        // if(memberVO.login여부 == on){
+        //
+        // }
         qna.setStatus(0);
     }
 
@@ -36,6 +39,16 @@ public class QNAController {
 
         logger.info("regist post..........");
         logger.info(qna.toString());
+
+        // if(memberVO.login여부 == on){
+        //       service.create(qna);
+        //        rttr.addFlashAttribute("msg", "SUCCESS");
+        //        qna.setStatus(0);
+        //        return "redirect:/qna/list";
+        // } else {
+        //   return "redirect:/users/errorNotLogin
+        // }
+
 
         service.create(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
@@ -69,13 +82,27 @@ public class QNAController {
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
     public void read(@RequestParam("qnaNo") int qnaNo, Model model) throws Exception {
+        // if(memberVO.rank == 3 || memberVO.nickname == qnaVO.nickname){
+        //    model.addAttribute(service.read(qnaNo));
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
 
+        // void라 리턴이 안들어갈건데 어떻게 바꿔야될라나 ?
         model.addAttribute(service.read(qnaNo));
     }
 
 
     @RequestMapping(value = "/remove", method = RequestMethod.GET)
     public String remove(@RequestParam("qnaNo") Integer qnaNo, RedirectAttributes rttr) throws Exception {
+
+        // if(memberVO.rank == 3 || memberVO.nickname == qnaVO.nickname){
+        //    service.delete(qnaNo);
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
+
+
         service.delete(qnaNo);
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/qna/list";
@@ -85,12 +112,27 @@ public class QNAController {
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public void modifyGET(QNAVO qna, Model model) throws Exception {
 
+        // if(memberVO.rank == 3 || memberVO.nickname == qnaVO.nickname){
+        //        model.addAttribute(service);
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
+
         model.addAttribute(service);
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String modifyPOST(QNAVO qna, RedirectAttributes rttr) throws Exception {
         logger.info("mod post..........");
+
+        // if(memberVO.rank == 3 || memberVO.nickname == qnaVO.nickname){
+        //        service.update(qna);
+        //        rttr.addFlashAttribute("msg", "SUCCESS");
+        //        return "redirect:/qna/list";
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
+
 
         service.update(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");
@@ -100,6 +142,15 @@ public class QNAController {
 
     @RequestMapping(value = "/answer", method = RequestMethod.GET)
     public void answerGET(QNAVO qna, Model model) throws Exception {
+
+
+        // if(memberVO.rank == 3){
+        //      qna.setStatus(1);
+        //      model.addAttribute(service);
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
+
         qna.setStatus(1);
         model.addAttribute(service);
     }
@@ -107,6 +158,16 @@ public class QNAController {
     @RequestMapping(value = "/answer", method = RequestMethod.POST)
     public String answerPOST(QNAVO qna, RedirectAttributes rttr) throws Exception {
         logger.info("answer post..........");
+
+        // if(memberVO.rank == 3){
+        //        service.answer(qna);
+        //        rttr.addFlashAttribute("msg", "SUCCESS");
+        //        qna.setStatus(1);
+        //        return "redirect:/qna/list";
+        // } else {
+        //      return "redirect:/users/errorNotAdmin
+        // }
+
 
         service.answer(qna);
         rttr.addFlashAttribute("msg", "SUCCESS");

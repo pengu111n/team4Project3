@@ -29,8 +29,8 @@ public class NoticeController {
     public void registerGET(NoticeVO notice, Model model) throws Exception {
         logger.info("register get ...........");
 
-         /*  if(memberVO.rank != 3) {
-
+         /*  if(memberVO.rank == 3) {
+            return "redirect:/users/errorNotAdmin";
         }
         */
 
@@ -46,34 +46,21 @@ public class NoticeController {
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/notice/list";
 
-      /*  if(memberVO.rank != 3){
+      /*  if(memberVO.rank == 3){
+             logger.info("regist post..........");
+              logger.info(notice.toString());
 
-        }*/
+             service.create(notice);
+             rttr.addFlashAttribute("msg", "SUCCESS");
+             return "redirect:/notice/list";
+        } else {
+            return "redirect:/users/errorNotAdmin";
+        }
+        */
 
     }
 
-//    }
 
-  /*  @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-    public void listAll(Model model) throws Exception {
-        logger.info("show all list......................");
-        model.addAttribute("list", service.listAll());
-    }*/
-
-/*	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public String listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-
-		logger.info(cri.toString());
-
-		model.addAttribute("list", service.listCriteria(cri));  // 게시판의 글 리스트
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listCountCriteria(cri));
-
-		model.addAttribute("pageMaker", pageMaker);  // 게시판 하단의 페이징 관련, 이전페이지, 페이지 링크 , 다음 페이지
-
-		return "/notice/listPage";
-	}*/
 
     @RequestMapping(value = "/listCri", method = RequestMethod.GET)
     public void listAll(Criteria cri, Model model) throws Exception {
@@ -81,19 +68,7 @@ public class NoticeController {
         model.addAttribute("list", service.listCriteria(cri));
     }
 
-  /*  @RequestMapping(value = "/listPage", method = RequestMethod.GET)
-    public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-        logger.info(cri.toString());
 
-        model.addAttribute("list", service.listCriteria(cri));
-
-        PageMaker pageMaker = new PageMaker();
-        pageMaker.setCri(cri);
-
-        pageMaker.setTotalCount(service.listCountCriteria(cri));
-
-        model.addAttribute("pageMaker", pageMaker);
-    }*/
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Criteria cri, Model model) throws Exception {
@@ -116,16 +91,21 @@ public class NoticeController {
     }
 
 
-    // POST > GET로 바꿔도 안돌아가네 ?
+
     @RequestMapping(value = "/remove", method = RequestMethod.GET)
     public String remove(@RequestParam("noticeNo") Integer noticeNo, RedirectAttributes rttr) throws Exception {
         service.delete(noticeNo);
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/notice/list";
 
-         /*  if(memberVO.rank != 3){
-
-        }*/
+       /*  if(memberVO.rank == 3){
+             service.delete(noticeNo);
+              rttr.addFlashAttribute("msg", "SUCCESS");
+             return "redirect:/notice/list";
+        } else {
+            return "redirect:/users/errorNotAdmin";
+        }
+        */
 
     }
 
@@ -135,9 +115,12 @@ public class NoticeController {
 
         model.addAttribute(service);
 
-         /*  if(memberVO.rank != 3){
-
-        }*/
+         /*  if(memberVO.rank == 3){
+              model.addAttribute(service);
+        } else {
+            return "redirect:/users/errorNotAdmin";
+        }
+        */
 
     }
 
@@ -149,45 +132,18 @@ public class NoticeController {
         rttr.addFlashAttribute("msg", "SUCCESS");
         return "redirect:/notice/list";
 
-         /*  if(memberVO.rank != 3){
+          /*  if(memberVO.rank == 3){
+             logger.info("mod post..........");
 
-        }*/
-
-    }
-
-
-/*    @RequestMapping(value = "/readPage", method = RequestMethod.GET)
-    public void read(@RequestParam("noticeNo") int noticeNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-        model.addAttribute(service.read(noticeNo));
-    }
-
-
-    @RequestMapping(value = "/removePage", method = RequestMethod.POST)
-    public String remove(@RequestParam("noticeNo") int noticeNo, Criteria cri, RedirectAttributes rttr) throws Exception {
-        service.delete(noticeNo);
-        rttr.addAttribute("page", cri.getPage());
-        rttr.addAttribute("perPageNum", cri.getPerPageNum());
+        service.update(notice);
         rttr.addFlashAttribute("msg", "SUCCESS");
-        return "redirect:/notice/listPage";*/
-    /* }
-     */
-/*    @RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-    public void modifyPagingGET(@RequestParam("noticeNo") int noticeNo, @ModelAttribute("cri") Criteria cri, Model model)
-            throws Exception {
-        model.addAttribute(service.read(noticeNo));
-    }*/
+        return "redirect:/notice/list";
+        } else {
+            return "redirect:/users/errorNotAdmin";
+        }
+        */
 
+    }
 
-
-	
-/*
-	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
-	@ResponseBody
-	public int idCheck(@RequestParam("id") String id) throws Exception {
-		int result = service.idCheck(id);
-
-		return result;
-	}
-*/
 
 }
