@@ -16,21 +16,21 @@ public interface MemberService {
 
 	public void modify(MemberVO vo) throws  Exception;
 
-	public void remove(Integer memno) throws  Exception;
+	public void remove(Integer memNo) throws  Exception;
   
 	public int idCheck(String id) throws Exception;
 
-	public int nicknameCheck(String nickname) throws Exception;
+	public int nicknameCheck(String nickName) throws Exception;
 
 
 	public void memberAuth(String email, String authKey) throws Exception;
 
 	public void attachImg(String fullName)throws Exception;
-	public List<String> getAttachImg(Integer memno)throws Exception;
+	public List<String> getAttachImg(Integer memNo)throws Exception;
 
-	public void deleteImg(Integer memno)throws Exception;
+	public void deleteImg(Integer memNo)throws Exception;
 
-	public void replaceImg(String fullName, Integer memno)throws Exception;
+	public void replaceImg(String fullName, Integer memNo)throws Exception;
   
   public MemberVO login(LoginDTO dto) throws Exception;
 

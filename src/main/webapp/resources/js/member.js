@@ -134,23 +134,23 @@ function idCheck() {
 }
 
 function nicknameCheck() {
-  var nickname = $("#nickname").val();
+  var nickName = $("#nickName").val();
   $.ajax({
-    url: "/member/nicknameCheck",
+    url: "/member/nickNameCheck",
     type: "post",
     dataType: "json",
-    data: { nickname: nickname },
+    data: { nickName: nickName },
     success: function (data) {
       if (data == 1) {
-        $(".nicknameCK").show();
-        $(".emptyNickname").hide();
+        $(".nickNameCK").show();
+        $(".emptyNickName").hide();
         return false;
-      } else if (nickname == "") {
-        $(".emptyNickname").show();
-        $(".nicknameCK").hide();
+      } else if (nickName == "") {
+        $(".emptyNickName").show();
+        $(".nickNameCK").hide();
       } else {
-        $(".nicknameCK").hide();
-        $(".emptyNickname").hide();
+        $(".nickNameCK").hide();
+        $(".emptyNickName").hide();
       }
     },
   });
@@ -163,9 +163,9 @@ function fnSubmit() {
     return false;
   }
 
-  if ($("#nickname").val() == null || $("#nickname").val() == "") {
+  if ($("#nickName").val() == null || $("#nickName").val() == "") {
     alert("닉네임을 입력해주세요.");
-    $("#nickname").focus();
+    $("#nickName").focus();
     return false;
   }
 
@@ -196,15 +196,15 @@ function fnSubmit() {
     return false;
   }
 
-  if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
+  if ($("#phoneNum").val() == null || $("#phoneNum").val() == "") {
     alert("전화번호을 입력해주세요.");
-    $("#phonenum").focus();
+    $("#phoneNum").focus();
 
     return false;
   }
-  if ($("#phonenum").val() == null || $("#phonenum").val() == "") {
+  if ($("#phoneNum").val() == null || $("#phoneNum").val() == "") {
     alert("전화번호을 입력해주세요.");
-    $("#phonenum").focus();
+    $("#phoneNum").focus();
 
     return false;
   }
@@ -248,13 +248,13 @@ function regexPW() {
 
 function regexPhone(){
     var regExp = /^[0-9]{2,3}[0-9]{3,4}[0-9]{4}/;
-    var phonenum = $("#phonenum").val();
+    var phoneNum = $("#phoneNum").val();
 
 
-      if (phonenum == "") {
+      if (phoneNum == "") {
         $(".emptyPhone").show();
         $(".regPhone").hide();
-      }else if(!regExp.test(phonenum)){
+      }else if(!regExp.test(phoneNum)){
         $(".emptyPhone").hide();
         $(".regPhone").show();
       } else {

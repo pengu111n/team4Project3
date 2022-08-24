@@ -179,10 +179,10 @@ public class MemberController {
         return result;
     }
 
-    @RequestMapping(value = "/nicknameCheck", method = RequestMethod.POST)
+    @RequestMapping(value = "/nickNameCheck", method = RequestMethod.POST)
     @ResponseBody
-    public int nicknameCheck(@RequestParam("nickname") String nickname) throws Exception {
-        int result = service.nicknameCheck(nickname);
+    public int nicknameCheck(@RequestParam("nickName") String nickName) throws Exception {
+        int result = service.nicknameCheck(nickName);
 
         return result;
     }
