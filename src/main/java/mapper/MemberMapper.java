@@ -14,23 +14,23 @@ public interface MemberMapper {
 
 	public void update(MemberVO vo) throws Exception;
 
-	public void delete(Integer memno) throws Exception;
+	public void delete(Integer memNo) throws Exception;
 
 
 	public int idCheck(String id) throws Exception;
 
-	public int nicknameCheck(String nickname) throws Exception;
+	public int nicknameCheck(String nickName) throws Exception;
 
 	public void createAuth(String email, String authKey) throws Exception;
 	public void memberAuth(String email, String authKey) throws Exception;
 
 	public void attachImg(String fullName)throws Exception;
 
-	public List<String> getAttachImg(Integer memno)throws Exception;
+	public List<String> getAttachImg(Integer memNo)throws Exception;
 
-	public void deleteImg(Integer memno)throws Exception;
+	public void deleteImg(Integer memNo)throws Exception;
 
-	public void replaceImg(@Param("fullName")String fullName, @Param("memno")Integer memno)throws Exception;
+	public void replaceImg(@Param("fullName")String fullName, @Param("memNo")Integer memno)throws Exception;
 
 	public void replaceImg(Map<String, Object> paramMap);
   
