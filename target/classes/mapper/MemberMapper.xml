@@ -8,8 +8,8 @@
 		있습니다. -->
 	<insert id="create">
 		INSERT INTO MEMBER(memno, nickname, id, pw , phonenum, email,
-		address, companyNo, birth, rank, name, auth) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
-		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name}, 0)
+		address, companyNo, birth, rank, name, auth, fullname) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
+		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name}, 0, #{fullname})
 	</insert>
 
 	<update id="update">
@@ -21,10 +21,23 @@
 		delete from member where memno = #{memno}
 	</delete>
 
-	<select id="login">
-		select * from member
-		where id = #{id} and pw = #{pw}
+	<select id ="login" resultType="domain.MemberVO">
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{id}
+		AND PW = #{pw}
+		AND AUTH = 1
 	</select>
+
+	<!-- <update id="keepLogin"> -->
+	<update id ="keepLogin" >
+		UPDATE MEMBER SET SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next}
+		WHERE ID = #{id}
+	</update>
+
+	<select id ="checkMemberWithSessionKey" resultType="domain.MemberVO">
+		SELECT* FROM MEMBER
+		WHERE SESSIONKEY = #{value} AND SESSIONLIMIT > SYSDATE</select>
 
 	<select id="idCheck" resultType="int">
 		select count(*) from member
@@ -60,5 +73,9 @@
 	<insert id="replaceImg" >
 		INSERT INTO member_Img(fullName, memno) VALUES (#{fullName}, #{memno})
 	</insert>
+
+	<select id="findById">
+		select pw from member where id = #{id}
+	</select>
 
 </mapper>

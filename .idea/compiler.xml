@@ -11,11 +11,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="controller" target="11" />
       <module name="team4Project3" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="controller" options="-Xlint:all" />
       <module name="team4Project3" options="-Xlint:all" />
     </option>
   </component>

@@ -17,7 +17,7 @@ $(".fileDrop").on("drop", function (event) {
 
   $.ajax({
     type: "post",
-    url: "/users/register/uploadAjax",
+    url: "/member/register/uploadAjax",
     data: formData,
     processData: false,
     dataType: "text",
@@ -41,7 +41,7 @@ $(".uploadedList").on("click", ".delbtn", function (event) {
   event.preventDefault();
   var that = $(this);
   $.ajax({
-    url: "/users/register/deleteFile",
+    url: "/member/register/deleteFile",
     type: "post",
     data: { fileName: $(this).attr("href") },
     dataType: "text",
@@ -102,7 +102,7 @@ var idRegex = /^[a-z]+[a-z0-9]{5,19}$/;
 function idCheck() {
   var id = $("#id").val();
   $.ajax({
-    url: "/users/idCheck",
+    url: "/member/idCheck",
     type: "post",
     dataType: "json",
     data: { id: id },
@@ -136,7 +136,7 @@ function idCheck() {
 function nicknameCheck() {
   var nickname = $("#nickname").val();
   $.ajax({
-    url: "/users/nicknameCheck",
+    url: "/member/nicknameCheck",
     type: "post",
     dataType: "json",
     data: { nickname: nickname },
