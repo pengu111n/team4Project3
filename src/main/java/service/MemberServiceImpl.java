@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setSubject("[당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프! 인증 이메일 입니다.]");
 		mailUtils.setText("" +
 				"<h1>메일인증</h1>" +
-				"<br/>"+vo.getNickname()+"님 "+
+				"<br/>"+vo.getNickName()+"님 "+
 				"<br/>인테리어 프렌드 인프에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
 				"<a href='http://localhost:8080/member/confirmEmail?email=" + vo.getEmail() +
@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
 
-		String file = vo.getFullname();
+		String file = vo.getFullName();
 
 		if(file == null) { return; }
 

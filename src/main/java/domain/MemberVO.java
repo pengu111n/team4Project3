@@ -10,15 +10,11 @@ import lombok.ToString;
 @Getter
 @Setter
 public class MemberVO {
-    private Integer memno;
-    
-    private String nickname;
-
-    
+    private Integer memNo;
+    private String nickName;
     private String id;
-    
     private String pw;
-    private String phonenum;
+    private String phoneNum;
     private String email;
     private String address;
     private String companyNo;
@@ -26,7 +22,7 @@ public class MemberVO {
     private Integer rank;
     private String name;
     private Integer auth;
-    private String fullname;
+    private String fullName;
 
 }
 

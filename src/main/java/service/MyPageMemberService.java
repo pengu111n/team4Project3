@@ -10,4 +10,5 @@ public interface MyPageMemberService {
 
     public boolean remove(int memno);
 
+
 }

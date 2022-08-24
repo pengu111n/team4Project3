@@ -25,11 +25,11 @@ public class MyPageMemberController {
     private MyPageMemberService service;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public void get(@RequestParam("memno") int memno, Model model) throws Exception {
+    public void get(@RequestParam("memNo") int memNo, Model model) throws Exception {
 
         logger.info("/get");
 
-        model.addAttribute(service.get(memno));
+        model.addAttribute(service.get(memNo));
 
     }
 
@@ -44,21 +44,24 @@ public class MyPageMemberController {
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
-    public void modifyGET(int memno, Model model) throws Exception {
+    public void modifyGET(int memNo, Model model) throws Exception {
 
-        model.addAttribute(service.get(memno));
+        model.addAttribute(service.get(memNo));
 
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public String modifyPOST(MemberVO member, RedirectAttributes rttr) throws Exception {
+    public String modifyPOST(MemberVO member, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
 
         logger.info("modify: " + member);
 
         service.modify(member);
-        rttr.addFlashAttribute("result", "success");
+        MemberVO vo = service.get(member.getMemNo());
 
-        return "redirect:/mypage/member/get?memno="+Integer.toString(member.getMemno());
+        rttr.addFlashAttribute("result", "success");
+        HttpSession session = request.getSession();
+        session.setAttribute("login", vo);
+        return "redirect:/mypage/member/get?memNo="+Integer.toString(member.getMemNo());
     }
 
 }

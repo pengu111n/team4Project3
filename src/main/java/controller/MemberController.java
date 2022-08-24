@@ -131,7 +131,7 @@ public class MemberController {
         // String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         // member.setPw(cryptPW);
         member.setEmail(member.getEmail() + "@" + email2 + email3);
-        member.setFullname(getFullname());
+        member.setFullName(getFullname());
         int ddd = Integer.parseInt(dd);
         String dddd = String.format("%02d", ddd);
         member.setBirth(yy + "." + mm + "." + dddd);

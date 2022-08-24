@@ -39,13 +39,13 @@ public class MyPageMemberMapperTest extends TestCase {
 
         MemberVO member = new MemberVO();
 
-        member.setMemno(1);  //회원번호가 1인 회원의 회원정보 수정 시도
-        member.setNickname("수정");
-        member.setPhonenum("수정");
+        member.setMemNo(1);  //회원번호가 1인 회원의 회원정보 수정 시도
+        member.setNickName("수정");
+        member.setPhoneNum("수정");
         member.setEmail("수정");
         member.setPw("수정");
         member.setAddress("수정");
-        member.setCompanyno("수정");
+        member.setCompanyNo("수정");
 
         int count = mapper.update(member);
         log.info("update count: " + count);  //수정에 실패하면 '0' 출력

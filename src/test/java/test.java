@@ -30,7 +30,7 @@ public class test {
         Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
 
-        vo.setNickname("aaa");
+        vo.setNickName("aaa");
         vo.setName("aaa");
         vo.setId("aaa");
         vo.setPw("aaa");
@@ -38,7 +38,7 @@ public class test {
         vo.setEmail("aaa");
         vo.setRank(1);
         vo.setAddress("aaa");
-        vo.setPhonenum("1111111");
+        vo.setPhoneNum("1111111");
         vo.setCompanyNo("12312313");
         mapper.create(vo);
     }
@@ -51,10 +51,10 @@ public class test {
     @Test
     public void testUpdate() throws Exception{
         MemberVO vo = new MemberVO();
-        vo.setMemno(2);
-        vo.setNickname("bbb");
+        vo.setMemNo(2);
+        vo.setNickName("bbb");
         vo.setPw("bbb");
-        vo.setPhonenum("222222");
+        vo.setPhoneNum("222222");
         vo.setEmail("bbb");
         vo.setAddress("bbb");
         mapper.update(vo);

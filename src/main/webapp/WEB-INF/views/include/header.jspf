@@ -136,12 +136,12 @@
                 <c:if test="${login != null}">
                 <li class="nav-item">
                     <a href="/blog/user?cmd=profileUpload">
-                    <img style = "border-radius:50%;" alt="" src="/displayFile?fileName=${login.fullname}"  width="40px" height="40px" />
+                    <img style = "border-radius:50%;" alt="" src="/displayFile?fileName=${login.fullName}"  width="40px" height="40px" />
                     </a>
                     </li>
                     <button class="navbar-btn nav-button wow fadeInRight"
                             onclick=" window.open('#', '_self')"
-                            data-wow-delay="0.48s">${login.nickname}</button>
+                            data-wow-delay="0.48s">${login.nickName}</button>
                     <button class="navbar-btn nav-button wow bounceInRight login"
                             onclick=" window.open('${pageContext.request.contextPath}/logout', '_self')"
                             data-wow-delay="0.45s">로그아웃</button>
@@ -201,7 +201,7 @@
                        data-delay="200">마이페이지 <b class="caret"></b></a>
                     <ul class="dropdown-menu navbar-nav">
                         <li>
-                            <a href="${pageContext.request.contextPath}/changePwd.do">내 정보</a>
+                            <a href="${pageContext.request.contextPath}/mypage/member/get?memNo=${login.memNo}">내 정보</a>
                         </li>
 
                     </ul>

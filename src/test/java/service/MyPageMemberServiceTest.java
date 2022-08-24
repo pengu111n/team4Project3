@@ -42,7 +42,7 @@ public class MyPageMemberServiceTest extends TestCase {
             return;
         }
 
-        member.setNickname("닉네임 수정");
+        member.setNickName("닉네임 수정");
         log.info("modify result: " + service.modify(member));
 
     }
