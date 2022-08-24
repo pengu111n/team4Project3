@@ -41,6 +41,7 @@
 		-->
 		<interceptor>
 			<mapping path="/board/list" />
+			<mapping path="/cboard/write" />
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>

@@ -97,6 +97,10 @@ public class UploadController {
 
         logger.info("FILE NAME: " + fileName);
 
+        if(fileName.isEmpty()) {
+            return entity;
+        }
+
         try{
 
             String formatName = fileName.substring(fileName.lastIndexOf(".")+1);

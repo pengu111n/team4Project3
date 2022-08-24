@@ -237,8 +237,10 @@ img {
 				value="${empty param.pageNo ? '1' : param.pageNo}" />
 
 			<a href="list?pageNo=${pageNo}" class="btn btn-primary ">목록</a>
+			<c:if test="${login.memNo == cboard.memNo}">
 			<a href="modify?cbno=${cboard.cbno}" class="btn btn-primary">수정</a>
 			<a onclick="return confirm('정말로 삭제하시겠습니까?')"	href="delete?cbno=${cboard.cbno}" class="btn btn-primary">삭제</a>
+			</c:if>
 		</div>
 	</div>
 </div>
