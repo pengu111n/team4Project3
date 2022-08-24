@@ -40,7 +40,10 @@ public class HomeController {
 		return "main/index";
 	}
 
+	@RequestMapping(value = "/main/introduce", method = RequestMethod.GET)
+	public void introduce() throws Exception {
 
+	}
 
 
 	@RequestMapping(value = "/notice/faq", method = RequestMethod.GET)
