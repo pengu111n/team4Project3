@@ -1,81 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-
 	<!-- HikariCP configuration -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
-			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property> -->
-		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="jdbcUrl"
-			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"></property>
-		<property name="username" value="infuser"></property>
-		<property name="password" value="infpw"></property>
+		<!--
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		-->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy">
+		</property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe">
+		</property>
+		<property name="username" value="infuser">
+		</property>
+		<property name="password" value="infpw">
+		</property>
 	</bean>
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-		destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
 	</bean>
-
 	<!-- 트랜젝션 매니저 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource">
+		</property>
 	</bean>
-
 	<!-- @Transactional 애노테이션을 sacn하기 위한 설정 -->
-	<tx:annotation-driven/>
-	
+	<annotation-driven />
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
-		<property name="mapperLocations" value="classpath:mapper/**/*Mapper.xml"></property>
+		<property name="configLocation" value="classpath:/mybatis-config.xml">
+		</property>
+		<property name="mapperLocations" value="classpath:mapper/**/*Mapper.xml">
+		</property>
 	</bean>
-
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory">
+		</constructor-arg>
 	</bean>
-
-
-	
 	<!-- 인터페이스만 생성하고 mapper와 연결(구현클래스를 안만들어도된다) -->
-	<mybatis-spring:scan base-package="mapper"/>
-
-
-	<context:component-scan base-package="service.*"></context:component-scan>
-
-	<context:property-placeholder location="classpath:email.properties" />
+	<scan base-package="mapper" />
+	<component-scan base-package="service.*">
+	</component-scan>
+	<property-placeholder location="classpath:email.properties" />
 	<!-- 회원가입 메일 인증 -->
-	<bean id="mailSender"	class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="465" /><!-- 587 or 465 or 25 -->
+		<property name="port" value="465" />
+		<!-- 587 or 465 or 25 -->
 		<property name="username" value="${google.id}" />
 		<property name="password" value="${google.pw}" />
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="javaMailProperties">
 			<props>
-				<prop key="mail.transport.protocol">smtp</prop>
-				<prop key="mail.smtp.auth">true</prop>
-				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.debug">true</prop>
-                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
-				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+				<prop key="mail.transport.protocol">
+					smtp
+				</prop>
+				<prop key="mail.smtp.auth">
+					true
+				</prop>
+				<prop key="mail.smtp.socketFactory.class">
+					javax.net.ssl.SSLSocketFactory
+				</prop>
+				<prop key="mail.smtp.starttls.enable">
+					true
+				</prop>
+				<prop key="mail.debug">
+					true
+				</prop>
+				<prop key="mail.smtp.ssl.trust">
+					smtp.gmail.com
+				</prop>
+				<prop key="mail.smtp.ssl.protocols">
+					TLSv1.2
+				</prop>
 			</props>
 		</property>
 	</bean>
-
-
+	<component-scan base-package="persistence">
+	</component-scan>
+	<component-scan base-package="service">
+	</component-scan>
 </beans>
