@@ -90,7 +90,7 @@ img {
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
                             <form action="write" method="post" >
-                            <input type="text" id="memNo" name="memNo" value="${login.memNo }">
+                            <input type="hidden" id="memNo" name="memNo" value="${login.memNo }">
                                 <ul>
                                     <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
                                     <li><a href="#step2" data-toggle="tab">Step 2 </a></li>
