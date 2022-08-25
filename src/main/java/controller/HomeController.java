@@ -18,39 +18,51 @@ import java.util.Locale;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
 
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-		return "main/index";
-	}
+    /**
+     * Simply selects the home view to render by returning its name.
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(Locale locale, Model model) {
 
-	@RequestMapping(value = "/main/introduce", method = RequestMethod.GET)
-	public void introduce() throws Exception {
+        logger.info("Welcome home! The client locale is {}.", locale);
 
-	}
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+        String formattedDate = dateFormat.format(date);
+
+        model.addAttribute("serverTime", formattedDate);
 
 
-	@RequestMapping(value = "/notice/faq", method = RequestMethod.GET)
-	public String faq(Locale locale, Model model) {
-		return "/notice/faq";
+        return "main/index";
+    }
 
-	}
+    @RequestMapping(value = "/main/introduce", method = RequestMethod.GET)
+    public void introduce() throws Exception {
 
+    }
+
+
+    @RequestMapping(value = "/notice/faq", method = RequestMethod.GET)
+    public String faq(Locale locale, Model model) {
+        return "/notice/faq";
+
+    }
+
+    @RequestMapping(value = "/users/notAdmin", method = RequestMethod.GET)
+    public String notAdmin(Locale locale, Model model) {
+        return "/users/notAdmin";
+
+    }
+
+
+    @RequestMapping(value = "/users/notLogin", method = RequestMethod.GET)
+    public String notLogin(Locale locale, Model model) {
+        return "/users/notLogin";
+
+    }
 
 }
