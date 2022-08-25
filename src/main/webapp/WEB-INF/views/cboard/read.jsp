@@ -165,7 +165,7 @@ img {
 							</div>
 							<div class="col-xs-8 col-sm-8 ">
 								<h3 class="dealer-name">
-									<a href="">(주)디자인</a><!-- <span>(주)디자인</span> -->
+									<a href="">${cboard.companyName}</a>
 								</h3>
 								<div class="dealer-social-media">
 									<a class="twitter" target="_blank" href=""> <i
@@ -188,9 +188,9 @@ img {
 						<div class="section property-features">
                              <!-- <h4 class="s-property-title">Features</h4>    -->
 							 <ul class="dealer-contacts">
-								<li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-								<li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-								<li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+								<li><i class="pe-7s-map-marker strong"> </i> ${cboard.address}</li>
+								<li><i class="pe-7s-mail strong"> </i> ${cboard.email} </li>
+								<li><i class="pe-7s-call strong"> </i> ${cboard.phoneNum} </li>
 							 </ul>
                              <ul>
                                  <li><a>제공 서비스</a></li>

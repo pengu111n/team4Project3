@@ -8,6 +8,10 @@ public class CboardVO {
     private Integer memNo;
     private String nickname;
     private String companyName;
+    private String address;
+
+    private String phoneNum;
+    private String email;
     private String ctitle;
     private String content;
     private String space;
@@ -43,6 +47,15 @@ public class CboardVO {
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+    public String getPhoneNum() { return phoneNum; }
+
+    public void setPhoneNum(String phoneNum) { this.phoneNum = phoneNum; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
     public String getCtitle() {
         return ctitle;
     }
@@ -105,13 +118,28 @@ public class CboardVO {
     }
     public String[] getFiles() { return files; }
     public void setFiles(String[] files) { this.files = files; }
+
     @Override
     public String toString() {
-        return "CboardVO [cbno=" + cbno + ", memNo=" + memNo + ", nickname=" + nickname + ", companyName=" + companyName
-                + ", ctitle=" + ctitle + ", content=" + content + ", space=" + space + ", cnstType=" + cnstType
-                + ", area=" + area + ", cost=" + cost + ", period=" + period + ", thumbsUp=" + thumbsUp + ", regDate="
-                + regDate + ", modDate=" + modDate + ", files=" + Arrays.toString(files) + "]";
+        return "CboardVO{" +
+                "cbno=" + cbno +
+                ", memNo=" + memNo +
+                ", nickname='" + nickname + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", email='" + email + '\'' +
+                ", ctitle='" + ctitle + '\'' +
+                ", content='" + content + '\'' +
+                ", space='" + space + '\'' +
+                ", cnstType='" + cnstType + '\'' +
+                ", area=" + area +
+                ", cost='" + cost + '\'' +
+                ", period='" + period + '\'' +
+                ", thumbsUp=" + thumbsUp +
+                ", regDate=" + regDate +
+                ", modDate=" + modDate +
+                ", files=" + Arrays.toString(files) +
+                '}';
     }
-
-
 }
