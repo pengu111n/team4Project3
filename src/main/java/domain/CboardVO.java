@@ -6,10 +6,8 @@ import java.util.Date;
 public class CboardVO {
     private Integer cbno;
     private Integer memNo;
-    private String nickname;
     private String companyName;
     private String address;
-
     private String phoneNum;
     private String email;
     private String ctitle;
@@ -19,7 +17,6 @@ public class CboardVO {
     private Integer area;
     private String cost;
     private String period;
-    private Integer thumbsUp;
     private Date regDate;
     private Date modDate;
     private String[] files;
@@ -34,12 +31,6 @@ public class CboardVO {
     }
     public void setMemNo(Integer memNo) {
         this.memNo = memNo;
-    }
-    public String getNickname() {
-        return nickname;
-    }
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
     public String getCompanyName() {
         return companyName;
@@ -98,12 +89,6 @@ public class CboardVO {
     public void setPeriod(String period) {
         this.period = period;
     }
-    public Integer getThumbsUp() {
-        return thumbsUp;
-    }
-    public void setThumbsUp(Integer thumbsUp) {
-        this.thumbsUp = thumbsUp;
-    }
     public Date getRegDate() {
         return regDate;
     }
@@ -124,7 +109,6 @@ public class CboardVO {
         return "CboardVO{" +
                 "cbno=" + cbno +
                 ", memNo=" + memNo +
-                ", nickname='" + nickname + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
@@ -136,7 +120,6 @@ public class CboardVO {
                 ", area=" + area +
                 ", cost='" + cost + '\'' +
                 ", period='" + period + '\'' +
-                ", thumbsUp=" + thumbsUp +
                 ", regDate=" + regDate +
                 ", modDate=" + modDate +
                 ", files=" + Arrays.toString(files) +

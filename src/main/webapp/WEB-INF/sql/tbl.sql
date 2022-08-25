@@ -70,8 +70,6 @@ CREATE SEQUENCE qna_ID INCREMENT BY 1;
 create table cboard (
      cbno NUMBER,
      memNo NUMBER,
-     id VARCHAR2(50),
-     nickname VARCHAR2(50),
      companyName VARCHAR(50),
      ctitle VARCHAR(100),
      content VARCHAR2(2000),
@@ -80,7 +78,6 @@ create table cboard (
      area NUMBER, --시공면적
      cost VARCHAR2(50), --시공금액
      period VARCHAR(200), --시공기간
-     thumbsUp NUMBER,
      regDate DATE DEFAULT SYSDATE,
      modDate DATE DEFAULT SYSDATE,
      phoneNum VARCHAR(100),
