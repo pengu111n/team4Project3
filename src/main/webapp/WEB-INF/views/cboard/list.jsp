@@ -105,7 +105,7 @@
                                             <div class="item-entry overflow">
                                                 <h5 style="font-size: 14px;"><a href="read?cbno=${cboard.cbno}"> ${cboard.ctitle} </a></h5>
                                                 <div class="dot-hr"></div>
-                                                <span class="pull-left"><b> (주)디자인 </b></span>
+                                                <span class="pull-left"><b> ${cboard.companyName} </b></span>
                                                 <span class="proerty-price pull-right"> ￦ ${cboard.cost} </span>
                                                 <p style="display: none;">${fn:replace(cboard.content, cn, br)}</p>
                                                 <div class="property-icon">
