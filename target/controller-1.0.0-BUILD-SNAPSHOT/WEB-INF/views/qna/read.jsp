@@ -30,23 +30,27 @@
 
                 <td>${QNAVO.qnaNo}</td>
                 <span>처리상태
-            <c:if test="${qnaVO.status == 0}">
+            <c:if test="${QNAVO.status == 0}">
                 <span>답변 대기</span>
             </c:if>
-            <c:if test="${qnaVO.status == 1}">
+            <c:if test="${QNAVO.status == 1}">
                 <span class="status"><strong>답변 완료</strong></span>
             </c:if>
             
             </span>
             </div>
             <div class="header__nickname">
-                <span>${QNAVO.nickname}</span>
+                <span>${QNAVO.nickName}</span>
             </div>
             <div class="header__date">
                 <span><h6><fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${QNAVO.qnaDate}"/></h6></span>
                 <span>
-          	<a href="/qna/remove?qnaNo=${QNAVO.qnaNo}" onclick="confirm('삭제하시겠습니까?')">삭제</a>
-          	<a href="/qna/modify?qnaNo=${QNAVO.qnaNo}">수정</a>
+
+                <c:if test="${login.rank == 3}">
+                    <a href="/qna/remove?qnaNo=${QNAVO.qnaNo}" onclick="confirm('삭제하시겠습니까?')">삭제</a>
+                    <a href="/qna/modify?qnaNo=${QNAVO.qnaNo}">수정</a>
+                </c:if>
+
           	<input id="minus" type="button" value="-">
           	<input id="plus" type="button" value="+">          	
           	</span>
@@ -62,61 +66,57 @@
             <!-- 답변 등록되는 곳-->
 
 
-
-
-
-                                        <c:if test="${QNAVO.answerContent != null}">
-                                            <hr>
-                                            <div class="answerContent">
-                                                <span class="answerContent__title">답변</span>
-                                                <span class="answerContent__Content"><br><pre>${QNAVO.answerContent}</pre></span>
-                                            </div>
-                                        </c:if>
-
-
-<%--
-        효선이 댓글 부분 가져온건데 동작을 안하네
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="box box-success">
-                        <div class="box-header">
-                            <h3 class="box-title">답변</h3>
-                        </div>
-
-                        <div class="box-body">
-                            <label>Writer</label>
-                            <input class="form-control" type="text" placeholder="USER ID"
-                                   id="newReplyWriter">
-                            <label>Reply Text</label>
-                            <input class="form-control" type="text"
-                                   placeholder="REPLY TEXT" id="newreplyContent">
-                        </div>
-
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="button" class="btn btn-primary" id="replyAddBtn">답변 추가</button>
-                        </div>
-                    </div>
-
-                    <!-- The time line -->
-                    <ul class="timeline">
-                        <!-- timeline time label -->
-                        <li class="time-label" id="repliesDiv">
-                            <span class="bg-green">	Replies List </span>
-                        </li>
-                    </ul>
-
-                    <div class='text-center'>
-                        <ul id="pagination" class="pagination pagination-sm no-margin ">
-                        </ul>
-                    </div>
-
+            <c:if test="${QNAVO.answerContent != null}">
+                <hr>
+                <div class="answerContent">
+                    <span class="answerContent__title">답변</span>
+                    <span class="answerContent__Content"><br><pre>${QNAVO.answerContent}</pre></span>
                 </div>
-                <!-- /.col -->
-            </div>
-            --%>
+            </c:if>
 
+
+            <%--
+                    효선이 댓글 부분 가져온건데 동작을 안하네
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="box box-success">
+                                    <div class="box-header">
+                                        <h3 class="box-title">답변</h3>
+                                    </div>
+
+                                    <div class="box-body">
+                                        <label>Writer</label>
+                                        <input class="form-control" type="text" placeholder="USER ID"
+                                               id="newReplyWriter">
+                                        <label>Reply Text</label>
+                                        <input class="form-control" type="text"
+                                               placeholder="REPLY TEXT" id="newreplyContent">
+                                    </div>
+
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <button type="button" class="btn btn-primary" id="replyAddBtn">답변 추가</button>
+                                    </div>
+                                </div>
+
+                                <!-- The time line -->
+                                <ul class="timeline">
+                                    <!-- timeline time label -->
+                                    <li class="time-label" id="repliesDiv">
+                                        <span class="bg-green">	Replies List </span>
+                                    </li>
+                                </ul>
+
+                                <div class='text-center'>
+                                    <ul id="pagination" class="pagination pagination-sm no-margin ">
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        --%>
 
 
         </div>
@@ -161,7 +161,7 @@
     function deleteConfirm() {
         var confirmDelete = confirm("삭제하시겠습니까?");
         if (confirmDelete) {
-            location.href = "${pageContext.request.contextPath}/info/deleteQNA.do?no=${qnaData.qna.qnaNo}";
+            location.href = "/qna/remove?qnaNo=${QNAVO.qnaNo}";
         } else {
             return false;
         }
@@ -169,7 +169,7 @@
 
     function modifyConfirm() {
 
-        location.href = "${pageContext.request.contextPath}/info/modifyQNA.do?no=${qnaData.qna.qnaNo}";
+        location.href = "/qna/modify?qnaNo=${QNAVO.qnaNo}";
 
     }
 
@@ -178,8 +178,6 @@
 
 
 <!-- -->
-
-
 
 
 <%@ include file="../include/footer.jspf" %>

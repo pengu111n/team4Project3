@@ -53,15 +53,15 @@
 
 
                 <!-- 관지자 아니면 공지 작성 버튼 안뜨게 해야하는데 memberVO.rank == 3으로 하면 되려나? -->
-                <%--	<c:if test="${authUser.rank == 3}">	--%>
-                <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        <a href="/notice/register"
-                           class="navbar-btn nav-button wow fadeInRight"
-                           data-wow-delay="0.48s">공지사항 작성</a>
+                <c:if test="${login.rank == 3}">
+                    <div class="collapse navbar-collapse yamm" id="navigation">
+                        <div class="button navbar-right">
+                            <a href="/notice/register"
+                               class="navbar-btn nav-button wow fadeInRight"
+                               data-wow-delay="0.48s">공지사항 작성</a>
+                        </div>
                     </div>
-                </div>
-                <%--	</c:if>	--%>
+                </c:if>
 
 
             </tr>

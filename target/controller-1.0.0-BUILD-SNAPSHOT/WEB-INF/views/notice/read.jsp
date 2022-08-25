@@ -24,12 +24,12 @@
 
                 <span><h2><c:out value="${noticeVO.noticeTitle}"/></h2></span>
             </div>
-<%--
-            공지사항은 닉네임 필요 없는듯 ?
-   <div class="header__nickname">
-                <span>${noticeVO.nickname}</span>
-            </div>
-            --%>
+            <%--
+                        공지사항은 닉네임 필요 없는듯 ?
+               <div class="header__nickname">
+                            <span>${noticeVO.nickname}</span>
+                        </div>
+                        --%>
             <div class="header__date">
                 <%--	<span><h6><fmt:formatDate pattern = "yyyy-MM-dd hh:mm" value="${noticeVO.regdate}"/></h6></span>--%>
                 <span>
@@ -37,25 +37,22 @@
 
 
                     <!-- 관지자 아니면 공지 수정 삭제 버튼 안뜨게 해야하는데 memberVO.rank == 3으로 하면 되려나? -->
-					<%--	<c:if test="${authUser.rank == 3}">	--%>
-
-                    <!-- /remove는 해당 페이지에서 바로 처리하니까 별도로 필요 없지?   -->
 
 
- <!--
-  http://localhost:8081/notice/read?noticeNo=5
-  http://localhost:8081/remove?noticeNo=5
+<c:if test="${login.rank == 3}">
+    <!--
+    http://localhost:8081/notice/read?noticeNo=5
+    http://localhost:8081/remove?noticeNo=5
 
-  -->
+    -->
 
-          		<a href="/notice/remove?noticeNo=${noticeVO.noticeNo}"
-                   onclick="confirm('삭제하시겠습니까?')">삭제</a>
+    <a href="/notice/remove?noticeNo=${noticeVO.noticeNo}"
+       onclick="confirm('삭제하시겠습니까?')">삭제</a>
 
 
+    <a href="/notice/modify?noticeNo=${noticeVO.noticeNo}">수정</a>
 
-          	    <a href="/notice/modify?noticeNo=${noticeVO.noticeNo}">수정</a>
-          <%--	    </c:if>     --%>
-
+</c:if>
 
 
 
@@ -95,8 +92,6 @@
 
     minus.addEventListener("click", onMinusClick);
     plus.addEventListener("click", onPlusClick);
-
-
 
 
 </script>
