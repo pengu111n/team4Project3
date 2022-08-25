@@ -143,54 +143,14 @@ $(document).ready(
                         alert("상세 요청사항을 입력해주세요");
                         $("#require").focus();
                         return rv =false;
+                    } else if ($("#agree_policy").is(":checked") == false){
+                        alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+                        return rv =false;
+                    }else if ($("#disagree_policy").is(":checked") == true) {
+                        alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+                        return rv =false;
                     }else{
                         return true;
                     }
                 }) // submit() end
     ); // ready() end
-/*
-$(document).ready(
-    budget_check = $(function(){
-        $("form").submit(
-            function () {
-                const budget = $('input[type=number][name=budget_defined]').val();
-                if ($("input:checked[Name='budget_undefined']").is(":checked")){
-                    $("#budget").val(1);
-                    document.getElementById(budget).value = 1;
-                    alert("예산 미정 박스 클릭" + budget);
-                }else{
-                    $("#budget").val(budget);
-                    document.getElementById(budget).value = budget;
-
-                    alert("예산 미정 박스 미클릭"+budget);
-                }
-            })})
-);
-
-
-$(document).ready(
-    endDate_check = $(function(){
-        $("form").submit(
-            function () {
-                if ($("input:checked[Name='undefined_end']").is(":checked")){
-                    $("#endDate").val("2002-01-01");
-                    alert("시공마감일 미정 체크");
-                }else{
-                    alert("시공마감일 미정 미체크");
-                }
-            })})
-)
-
-$(document).ready(
-    startDate_check = $(function(){
-        $("form").submit(
-            function () {
-                if ($("input:checked[Name='undefined_start']").is(":checked")){
-                    $("#startDate").val("0001-01-01");
-                    alert("시공 시작일 체크");
-                }else{
-                    alert("시공 시작일 미체크");
-                }
-            })})
-)
-*/
