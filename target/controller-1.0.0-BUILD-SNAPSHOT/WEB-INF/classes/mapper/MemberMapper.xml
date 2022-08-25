@@ -1,12 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.MemberMapper">
 
-    <select id="login" resultType="domain.MemberVO">
-        select memno, nickname, id, phonenum, email, pw, name, address, companyno, birth, rank
-        from member where id = #{id} and pw = #{pw}
-    </select>
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
+		있습니다. -->
+	<insert id="create">
+		INSERT INTO MEMBER(memno, nickname, id, pw , phonenum, email,
+		address, companyNo, birth, rank, name, auth, fullname) values(memNo_seq.nextval, #{nickname}, #{id}, #{pw}, #{phonenum},
+		#{email}, #{address}, #{companyNo}, #{birth}, #{rank}, #{name}, 0, #{fullname})
+	</insert>
+
+	<update id="update">
+		update member set nickname = #{nickname}, pw = #{pw}, phonenum = #{phonenum}, email = #{email}, address = #{address}, companyNo =  #{companyNo ,jdbcType=NUMERIC}
+		where memno = #{memno}
+	</update>
+
+	<delete id="delete">
+		delete from member where memno = #{memno}
+	</delete>
+
+	<select id ="login" resultType="domain.MemberVO">
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{id}
+		AND PW = #{pw}
+		AND AUTH = 1
+	</select>
+
+	<!-- <update id="keepLogin"> -->
+	<update id ="keepLogin" >
+		UPDATE MEMBER SET SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next}
+		WHERE ID = #{id}
+	</update>
+
+	<select id ="checkMemberWithSessionKey" resultType="domain.MemberVO">
+		SELECT* FROM MEMBER
+		WHERE SESSIONKEY = #{value} AND SESSIONLIMIT > SYSDATE</select>
+
+	<select id="idCheck" resultType="int">
+		select count(*) from member
+		where id = #{id}
+	</select>
+
+	<select id="nicknameCheck" resultType="int">
+		select count(*) from member
+		where nickname = #{nickname}
+	</select>
+
+	<insert id="createAuth">
+		insert into authEmail(email, authKey) values(#{0}, #{1})
+	</insert>
+
+	<update id="memberAuth">
+		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{0} and authKey = #{1}) > 0 and EMAIL = #{0}]]>
+	</update>
+
+	<insert id="attachImg">
+		insert into member_Img (fullName, memno) values(#{fullName}, memNo_seq.currval)
+	</insert>
+
+	<select id="getAttachImg" resultType="string" >
+		select fullName from member_Img where memno = #{memno} order by regdate
+	</select>
+
+
+	<delete id="deleteImg">
+		delete from member_Img where memno = #{memno}
+	</delete>
+
+	<insert id="replaceImg" >
+		INSERT INTO member_Img(fullName, memno) VALUES (#{fullName}, #{memno})
+	</insert>
+
+	<select id="findById">
+		select pw from member where id = #{id}
+	</select>
 
 </mapper>

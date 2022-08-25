@@ -34,8 +34,8 @@
 	</sql>
 
 	<insert id="writeCboard" >
-		INSERT INTO CBOARD (CBNO, ctitle, space, cnstType, area, cost, period, content)
-		VALUES(cbno_seq.nextval, #{ctitle}, #{space}, #{cnstType}, #{area}, #{cost}, #{period}, #{content})
+		INSERT INTO CBOARD (CBNO, ctitle, space, cnstType, area, cost, period, content, memNo)
+		VALUES(cbno_seq.nextval, #{ctitle}, #{space}, #{cnstType}, #{area}, #{cost}, #{period}, #{content}, #{memNo})
 	</insert>
 
 
@@ -49,6 +49,7 @@
 		, PERIOD
 		, CONTENT
 		, REGDATE
+		, MEMNO
 		FROM CBOARD
 		WHERE CBNO = #{cbno}
 	</select>
