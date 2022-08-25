@@ -127,7 +127,7 @@ public class MemberController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerPOST(MemberVO member, @RequestParam("email2") String email2, @RequestParam(value = "email3", defaultValue = "", required = false) String email3
-            , RedirectAttributes rttr, @RequestParam("yy") String yy, @RequestParam("mm") String mm, @RequestParam("dd") String dd) throws Exception {
+            , RedirectAttributes rttr, @RequestParam("yy") String yy, @RequestParam("mm") String mm, @RequestParam("dd") String dd, HttpServletRequest req) throws Exception {
         // String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         // member.setPw(cryptPW);
         member.setEmail(member.getEmail() + "@" + email2 + email3);
@@ -135,11 +135,15 @@ public class MemberController {
         int ddd = Integer.parseInt(dd);
         String dddd = String.format("%02d", ddd);
         member.setBirth(yy + "." + mm + "." + dddd);
+
+        StringBuffer url = req.getRequestURL();
+        String local = url.toString();
+
         logger.info("regist post..........");
         logger.info(member.toString());
 
         try {
-            service.regist(member);
+            service.regist(member, local.substring(0, 21));
             rttr.addFlashAttribute("msg", "SUCCESS");
             return "redirect:/";
         } catch (Exception e) {
@@ -188,10 +192,17 @@ public class MemberController {
     }
 
     @RequestMapping(value = "confirmEmail", method = RequestMethod.GET)
-    public String emailConfirm(@Param("email") String email, @Param("authKey") String authKey, Model model) throws Exception {
+    public String emailConfirm(@Param("email") String email, @Param("authKey") String authKey, Model model, HttpServletRequest req) throws Exception {
 
         service.memberAuth(email, authKey);
         model.addAttribute("memberEmail", email);
+
+        HttpSession session =  req.getSession();
+        MemberVO vo = (MemberVO)session.getAttribute("login");
+        if(vo != null){
+            vo.setAuth(1);
+            session.setAttribute("login", vo);
+        }
 
         return "redirect:/";
     }

@@ -34,11 +34,19 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 
+	@Transactional
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
+
 		return boardMapper.read(bno);
 	}
 
+
+	@Transactional
+	@Override
+	public void viewCount(Integer bno) throws Exception {
+		boardMapper.viewCount(bno);
+	}
 	@Transactional
 	@Override
 	public void update(BoardVO board) throws Exception {

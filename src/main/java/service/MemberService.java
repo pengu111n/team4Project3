@@ -12,7 +12,7 @@ import java.util.List;
 public interface MemberService {
 
 
-	public void regist(MemberVO vo) throws Exception;
+	public void regist(MemberVO vo, String local) throws Exception;
 
 	public void modify(MemberVO vo) throws  Exception;
 

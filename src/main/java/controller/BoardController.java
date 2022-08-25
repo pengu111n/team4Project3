@@ -56,6 +56,7 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, Model model) throws Exception {
+		System.out.println("read 진입");
 
 		model.addAttribute(boardService.read(boardNo));
 	}
@@ -115,7 +116,10 @@ public class BoardController {
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("boardNo") int boardNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+	boardService.viewCount(boardNo);
 		model.addAttribute(boardService.read(boardNo));
+
+		System.out.println("readpage 진입");
 	}
 
 	@RequestMapping(value = "/deletePage", method = RequestMethod.POST)

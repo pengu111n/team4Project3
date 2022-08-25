@@ -11,6 +11,7 @@ public interface BoardMapper {
 	public void create(BoardVO vo) throws Exception;
 
 	public BoardVO read(Integer bno) throws Exception;
+	public void viewCount(Integer bno) throws Exception;
 
 	public void update(BoardVO vo) throws Exception;
 
