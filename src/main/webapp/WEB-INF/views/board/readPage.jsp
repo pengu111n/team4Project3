@@ -96,7 +96,7 @@
     <div class="container">
         <div class="row">
             <div class="page-head-content">
-                <h1 class="page-title">인테리어 견적</h1>
+                <h1 class="page-title">인테리어 견적 <c:out value="${memberVO.id}"/></h1>
             </div>
         </div>
     </div>
@@ -237,7 +237,7 @@
 
                     <div class="section additional-details">
 
-                        <h4 class="s-property-title">견적 상세정보</h4>
+                        <h4 class="s-property-title">견적 상세정보 </h4>
 
                         <ul class="additional-details-list clearfix">
                             <li>
@@ -338,89 +338,81 @@
                     </div>
                     <!-- End video area  -->
 
-                    <section id="comment-form" class="add-comments" style="padding-left: 0px; list-style: none; ">
-                        <h4 class="s-property-title">댓글 </h4>
-                        <h4 class="text-uppercase wow fadeInLeft animated">Leave comment</h4>
-                        <form>
-                            <div class="row wow fadeInLeft animated">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="comment">Comment <span class="required">*</span>
-                                        </label>
-                                        <textarea class="form-control" id="comment" rows="4"></textarea>
+                    <c:if test="${not empty login}">
+                        <section id="comment-form" class="add-comments" style="padding-left: 0px; list-style: none; ">
+                            <h4 class="s-property-title">댓글 </h4>
+                            <h4 class="text-uppercase wow fadeInLeft animated">Leave comment</h4>
+                            <form>
+                                <div class="row wow fadeInLeft animated">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="comment">Comment <span class="required">*</span>
+                                            </label>
+                                            <textarea class="form-control" id="comment" rows="4"></textarea>
+                                            <input class="form-control" type="text" placeholder="USER ID"
+                                                   id="newReplyWriter" value="${login.nickName}" style= "display: none;">
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row wow fadeInLeft animated">
-                                <div class="col-sm-12 text-right">
-                                    <button type="button" class="btn" id="replyAddBtn"
-                                            style=" color: #FFF; background-color: #FDC600; border-color: #FDC600;
+                                <div class="row wow fadeInLeft animated">
+                                    <div class="col-sm-12 text-right">
+                                        <button type="button" class="btn" id="replyAddBtn"
+                                                style=" color: #FFF; background-color: #FDC600; border-color: #FDC600;
                                              border-radius: 1px; padding: 10px 20px; font-weight: 600;">
-                                        <i class="fa fa-comment-o"></i> Post comment
-                                    </button>
+                                            <i class="fa fa-comment-o"></i> Post comment
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </section>
-
-
-                    <ul style="padding-left: 0px; list-style: none;">
-                        <li class="time-label" id="repliesDiv">
-                            <h4 class="text-uppercase wow fadeInLeft animated">Comments</h4>
-                        </li>
-                    </ul>
-
-
-                    <div class="section property-share">
-                        <h4 class="s-property-title">공유 </h4>
-                        <div class="roperty-social">
-                            <ul>
-                                <li><a title="Share this on dribbble " href="#"><img
-                                        src="../../../resources/assets/img/social_big/dribbble_grey.png"></a></li>
-                                <li><a title="Share this on facebok " href="#"><img
-                                        src="../../../resources/assets/img/social_big/facebook_grey.png"></a></li>
-                                <li><a title="Share this on delicious " href="#"><img
-                                        src="../../../resources/assets/img/social_big/delicious_grey.png"></a></li>
-                                <li><a title="Share this on tumblr " href="#"><img
-                                        src="../../../resources/assets/img/social_big/tumblr_grey.png"></a></li>
-                                <li><a title="Share this on digg " href="#"><img
-                                        src="../../../resources/assets/img/social_big/digg_grey.png"></a></li>
-                                <li><a title="Share this on twitter " href="#"><img
-                                        src="../../../resources/assets/img/social_big/twitter_grey.png"></a></li>
-                                <li><a title="Share this on linkedin " href="#"><img
-                                        src="../../../resources/assets/img/social_big/linkedin_grey.png"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="box-footer">
-
-                    <c:if test="${login.nickName == boardVO.nickName}">
-                            <button type="submit" class="btn btn-warning">Modify</button>
-                            <button type="submit" class="btn btn-danger">REMOVE</button>
+                            </form>
+                        </section>
                     </c:if>
-                    <button type="submit" class="btn btn-primary">LIST ALL</button>
+                    <c:if test="${empty login}">
+                    <section id="comment-form" class="add-comments" style="padding-left: 0px; list-style: none; ">
+                        <h4 class="s-property-title">댓글 </h4>
+                        <h4 class="text-uppercase wow fadeInLeft animated" style="padding-bottom: 50px;">로그인 후 댓글을 작성하실
+                            수 있습니다.</h4>
+                        </c:if>
+
+                        <ul style="padding-left: 0px; list-style: none;">
+                            <li class="time-label" id="repliesDiv">
+                                <h4 class="text-uppercase wow fadeInLeft animated">Comments</h4>
+                            </li>
+                        </ul>
+
+
+                        <div class="section property-share">
+                            <h4 class="s-property-title">공유 </h4>
+                            <div class="roperty-social">
+                                <ul>
+                                    <li><a title="Share this on dribbble " href="#"><img
+                                            src="../../../resources/assets/img/social_big/dribbble_grey.png"></a></li>
+                                    <li><a title="Share this on facebok " href="#"><img
+                                            src="../../../resources/assets/img/social_big/facebook_grey.png"></a></li>
+                                    <li><a title="Share this on delicious " href="#"><img
+                                            src="../../../resources/assets/img/social_big/delicious_grey.png"></a></li>
+                                    <li><a title="Share this on tumblr " href="#"><img
+                                            src="../../../resources/assets/img/social_big/tumblr_grey.png"></a></li>
+                                    <li><a title="Share this on digg " href="#"><img
+                                            src="../../../resources/assets/img/social_big/digg_grey.png"></a></li>
+                                    <li><a title="Share this on twitter " href="#"><img
+                                            src="../../../resources/assets/img/social_big/twitter_grey.png"></a></li>
+                                    <li><a title="Share this on linkedin " href="#"><img
+                                            src="../../../resources/assets/img/social_big/linkedin_grey.png"></a></li>
+                                </ul>
+                            </div>
                         </div>
 
+                        <div class="box-footer">
 
-                    <%-- <c:choose>
-                            <c:when test="${nickName eq '${login.nickName}'}">
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-warning">Modify</button>
-                                    <button type="submit" class="btn btn-danger">REMOVE</button>
-                                    <button type="submit" class="btn btn-primary">LIST ALL</button>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">LIST ALL</button>
-                                </div>
-                            </c:otherwise>
-                        </c:choose>--%>
+                            <c:if test="${login.nickName == boardVO.nickName}">
+                                <button type="submit" class="btn btn-warning">Modify</button>
+                                <button type="submit" class="btn btn-danger">REMOVE</button>
+                            </c:if>
+                            <button type="submit" class="btn btn-primary">LIST ALL</button>
+                        </div>
 
-
-                    <!-- End video area  -->
                 </div>
             </div>
 
@@ -828,7 +820,6 @@
         var replytextObj = $("#comment");
         var nickName = replyerObj.val();
         var replyContent = replytextObj.val();
-
         $.ajax({
             type: 'post',
             url: '/replies/',

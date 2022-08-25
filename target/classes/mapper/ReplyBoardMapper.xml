@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="create">
 		insert into board_reply (boardNo, replyNo,replyContent, nickname,regDate,updateDate)
-		values (#{boardNo},replyNo_seq.nextval,#{replyContent},#{nickname},sysdate,sysdate)
+		values (#{boardNo},replyNo_seq.nextval,#{replyContent},#{nickName},sysdate,sysdate)
 	</insert>
 
 	<update id="update">

@@ -8,7 +8,7 @@ public class ReplyVO {
   private String replyContent;
   private String regDate;
   private String updateDate;
-  private String nickname;
+  private String nickName;
 
 
 
@@ -58,12 +58,12 @@ public class ReplyVO {
   }
 
 
-  public String getNickname() {
-    return nickname;
+  public String getNickName() {
+    return nickName;
   }
 
-  public ReplyVO setNickname(String nickname) {
-    this.nickname = nickname;
+  public ReplyVO setNickName(String nickName) {
+    this.nickName = nickName;
     return this;
   }
 }

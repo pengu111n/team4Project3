@@ -4,10 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.MyPageBoardMapper">
 
-<!--    <select id="getList" resultType="domain.BoardVO">-->
-<!--        select * from board where memNo = #{memNo} order by boardNo desc, regDate desc-->
-<!--    </select>-->
-
     <select id="getGeneralList" resultType="domain.BoardVO">
         select * from board where memNo = #{memNo} order by boardNo desc, regDate desc
     </select>
