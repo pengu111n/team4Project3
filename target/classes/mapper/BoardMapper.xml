@@ -13,11 +13,16 @@
 
 	<select id="read" resultType="domain.BoardVO">
 		select
-			boardNo,title,memNo,id,nickName,part,category,address,area,startDate,endDate,budget,require
+			boardNo,title,memNo,id,nickName,part,category,address,area,startDate,endDate,budget,require,view_Count
 		from
 			board
 		where boardNo = #{boardNo}
 	</select>
+
+	<update id="viewCount">
+		update board set view_Count = view_Count+1
+		where boardNo = #{boardNo}
+	</update>
 
 	<update id="update">
 		update board set title = #{title},

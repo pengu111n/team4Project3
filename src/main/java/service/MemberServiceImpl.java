@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Transactional
 	@Override
-	public void regist(MemberVO vo) throws Exception {
+	public void regist(MemberVO vo, String local) throws Exception {
 		mapper.create(vo);
 		String key = new TempKey().getKey(20);
 		mapper.createAuth(vo.getEmail(), key);
@@ -43,10 +43,10 @@ public class MemberServiceImpl implements MemberService {
 				"<br/>"+vo.getNickName()+"님 "+
 				"<br/>인테리어 프렌드 인프에 회원가입해주셔서 감사합니다."+
 				"<br/>아래 [이메일 인증 확인]을 눌러주세요."+
-				"<a href='http://localhost:8080/member/confirmEmail?email=" + vo.getEmail() +
+				"<a href='" + local + "/member/confirmEmail?email=" + vo.getEmail() +
 				"&authKey=" + key +
 				"' target='_blank'>이메일 인증 확인</a>");
-		mailUtils.setFrom("xogus8206@gmail.com", "인프");
+		mailUtils.setFrom("admin@inf.com", "인프");
 		mailUtils.setTo(vo.getEmail());
 		mailUtils.send();
 
