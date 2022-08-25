@@ -56,9 +56,7 @@
 		<![CDATA[update member set AUTH = 1 where (select count(*) from authEmail where EMAIL = #{0} and authKey = #{1}) > 0 and EMAIL = #{0}]]>
 	</update>
 
-	<insert id="attachImg">
-		insert into member_Img (fullName, memno) values(#{fullName}, memNo_seq.currval)
-	</insert>
+
 
 	<select id="getAttachImg" resultType="string" >
 		select fullName from member_Img where memno = #{memNo} order by regdate

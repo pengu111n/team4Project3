@@ -24,13 +24,12 @@ public interface MemberMapper {
 	public void createAuth(String email, String authKey) throws Exception;
 	public void memberAuth(String email, String authKey) throws Exception;
 
-	public void attachImg(String fullName)throws Exception;
 
 	public List<String> getAttachImg(Integer memNo)throws Exception;
 
 	public void deleteImg(Integer memNo)throws Exception;
 
-	public void replaceImg(@Param("fullName")String fullName, @Param("memNo")Integer memno)throws Exception;
+	public void replaceImg(@Param("fullName")String fullName, @Param("memNo")Integer memNo)throws Exception;
 
 	public void replaceImg(Map<String, Object> paramMap);
   
