@@ -107,31 +107,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="com.poratu.idea.plugins.tomcat">
-      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
-      <predefined_log_file enabled="true" id="Tomcat Access Log" />
-      <predefined_log_file id="Tomcat Catalina Log" />
-      <predefined_log_file id="Tomcat Manager Log" />
-      <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="adminPort" value="8005" />
-      <option name="contextPath" value="/" />
-      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
-      <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8080" />
-      <option name="tomcatInfo">
-        <TomcatInfo>
-          <option name="name" value="Apache Tomcat/9.0.41" />
-          <option name="number" value="0" />
-          <option name="path" value="D:\dev\apache-tomcat-9.0.41" />
-          <option name="version" value="9.0.41.0" />
-        </TomcatInfo>
-      </option>
-      <option name="vmOptions" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -229,6 +204,31 @@
         <option name="BuildArtifacts" enabled="true">
           <artifact name="team4Project3:war exploded" />
         </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.41" />
+          <option name="number" value="0" />
+          <option name="path" value="D:\dev\apache-tomcat-9.0.41" />
+          <option name="version" value="9.0.41.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>

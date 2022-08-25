@@ -46,10 +46,10 @@
                             <input type="hidden" id="idCheck_YN" name="idCheck_YN" value="N" />
                         </div>
                         <div class="form-group">
-                            <label for="nickname">닉네임</label>
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" onblur="nicknameCheck()">
-                            <span class="nicknameCK">중복된 닉네임 입니다.</span>
-                            <span class="empty emptyNickname">필수 정보입니다.</span>
+                            <label for="nickName">닉네임</label>
+                            <input type="text" class="form-control" id="nickName" name="nickName" placeholder="닉네임" onblur="nicknameCheck()">
+                            <span class="nickNameCK">중복된 닉네임 입니다.</span>
+                            <span class="empty emptyNickName">필수 정보입니다.</span>
                         </div>
                         <div class="form-group">
                             <label for="pw">비밀번호</label>
@@ -72,9 +72,9 @@
                             <label for="birth">생년월일</label>
                             <!-- <input type="text" class="form-control" id="birth" name="birth" onkeydown="return checkNumber(event);" placeholder="생년월일"> -->
                             <span id="birth">
-                            <input type="number" class="form-control" name="yy" id="yy" placeholder="생년월일" onblur="emptyBirth()" maxlength="4">
+                            <input type="number" class="form-control" name="yy" id="yy" placeholder="생년월일" maxlength="4" onblur="emptyBirth()">
                             <select name="mm" id="mm" class="month form-control"></select>
-                            <input type="number" name="dd" id="dd" class="form-control" maxlength="2" onblur="emptyDay()">
+                            <input type="number" maxlength="2" name="dd" id="dd" class="form-control" onblur="emptyDay()">
                             </span>
                             <span class="empty emptyBirth">필수 정보입니다.</span>
                             <span class="lengthCK">태어난 년도 4자리를 정확하게 입력하세요.</span>
@@ -93,9 +93,9 @@
                             <input type="text" id="sample4_extraAddress" class="form-control address_40%" placeholder="참고항목" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="phonenum">전화번호</label>
-                            <!-- <input type="text" class="form-control" id="phonenum" name="phonenum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
-                            <input type="text" class="form-control" id="phonenum" name="phonenum" placeholder="전화번호" onblur="regexPhone()" maxlength="11">
+                            <label for="phoneNum">전화번호</label>
+                            <!-- <input type="text" class="form-control" id="phoneNum" name="phoneNum" onkeydown="return checkNumber(event);" placeholder="전화번호"> -->
+                            <input type="text" class="form-control" id="phoneNum" name="phoneNum" placeholder="전화번호" onblur="regexPhone()" maxlength="11">
                             <span class="regPhone">형식에 맞지 않는 번호입니다</span>
                             <span class="empty emptyPhone">필수 정보입니다.</span>
                         </div>
