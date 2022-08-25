@@ -7,8 +7,8 @@
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어
 		있습니다. -->
 	<select id="listCboard" parameterType="domain.CbSearchCriteria" resultType="domain.CboardVO">
-		SELECT  CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate
-		FROM (SELECT CBNO,memNo,id, nickname, companyName, ctitle, content, cnstType, space, area, cost, period, thumbsUp, regDate, modDate,
+		SELECT  CBNO,memNo, companyName, ctitle, content, cnstType, space, area, cost, period, regDate, modDate
+		FROM (SELECT CBNO,memNo, companyName, ctitle, content, cnstType, space, area, cost, period, regDate, modDate,
 			ROW_NUMBER() OVER(ORDER BY CBNO DESC) AS RNUM FROM CBOARD
 			WHERE 1=1
 				<include refid="search"></include>
@@ -28,8 +28,8 @@
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString()">AND CTITLE LIKE '%' || #{keyword} || '%'</if>
 			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
-			<!-- <if test="searchType == 'w'.toString()">AND WRITER LIKE '%' || #{keyword} || '%'</if> -->
-			<!-- <if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if> -->
+			<if test="searchType == 'n'.toString()">AND COMPANYNAME LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (CTITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
 		</if>
 	</sql>
 

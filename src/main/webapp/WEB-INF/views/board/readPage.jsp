@@ -30,8 +30,6 @@
 <link rel="stylesheet" href="../../../resources/assets/css/responsive.css">
 
 
-
-
 <%
     // 줄바꿈
     pageContext.setAttribute("br", "<br/>");
@@ -333,13 +331,12 @@
                                 style=" list-style: none; padding-left: 0px;"></ul>
                             <div class='popup back' style="display:none; width: 600px; height: 480px;"></div>
                             <%--                                <div id="popup_front" class='popup front' style="display:none;">--%>
-                            <div id="popup_front" class='popup front' >
+                            <div id="popup_front" class='popup front'>
                                 <img id="popup_img">
                             </div>
                         </div>
                     </div>
                     <!-- End video area  -->
-
 
                     <section id="comment-form" class="add-comments" style="padding-left: 0px; list-style: none; ">
                         <h4 class="s-property-title">댓글 </h4>
@@ -398,10 +395,31 @@
                     </div>
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-warning">Modify</button>
-                        <button type="submit" class="btn btn-danger">REMOVE</button>
-                        <button type="submit" class="btn btn-primary">LIST ALL</button>
-                    </div>
+
+                    <c:if test="${login.nickName == boardVO.nickName}">
+                            <button type="submit" class="btn btn-warning">Modify</button>
+                            <button type="submit" class="btn btn-danger">REMOVE</button>
+                    </c:if>
+                    <button type="submit" class="btn btn-primary">LIST ALL</button>
+                        </div>
+
+
+                    <%-- <c:choose>
+                            <c:when test="${nickName eq '${login.nickName}'}">
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-warning">Modify</button>
+                                    <button type="submit" class="btn btn-danger">REMOVE</button>
+                                    <button type="submit" class="btn btn-primary">LIST ALL</button>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">LIST ALL</button>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>--%>
+
+
                     <!-- End video area  -->
                 </div>
             </div>
@@ -422,8 +440,7 @@
                                     </div>
                                     <div class="col-xs-8 col-sm-8 ">
                                         <h3 class="dealer-name">
-                                            <a href="">Nathan James</a>
-                                            <span>Real Estate Agent</span>
+                                            <span>${boardVO.nickName}</span>
                                         </h3>
                                         <div class="dealer-social-media">
                                             <a class="twitter" target="_blank" href="">
@@ -448,12 +465,11 @@
 
                                 <div class="clear">
                                     <ul class="dealer-contacts">
-                                        <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                        <li><i class="pe-7s-mail strong"> </i> interiorfriend@gmail.com</li>
+                                        <li><i class="pe-7s-map-marker strong"> </i> 서울특별시 강남구 테헤란로14길</li>
+                                        <li><i class="pe-7s-mail strong"> </i>interiorfriend@gmail.com</li>
                                         <li><i class="pe-7s-call strong"> </i> 1577 - 1010</li>
                                     </ul>
-                                    <p>Duis mollis blandit tempus porttitor curabiturDuis mollis blandit tempus
-                                        porttitor curabitur , est non…</p>
+                                    <p>안녕하세요 항상 최고의 서비스를 제공하겠습니다.</p>
                                 </div>
 
                             </div>
@@ -712,7 +728,7 @@
     <li class="replyLi" data-replyNo={{replyNo}}>
         <div class="row comment">
             <div class="col-sm-9 col-md-10">
-                <h5 class="text-uppercase"> - {{nickname}}</h5>
+                <h5 class="text-uppercase"> - {{nickName}}</h5>
                 <p class="posted"><i class="fa fa-clock-o"></i> {{prettifyDate regDate}}</p>
                 <p>{{replyContent}}</p>
             </div>
@@ -810,7 +826,7 @@
 
         var replyerObj = $("#newReplyWriter");
         var replytextObj = $("#comment");
-        var nickname = replyerObj.val();
+        var nickName = replyerObj.val();
         var replyContent = replytextObj.val();
 
         $.ajax({
@@ -821,7 +837,7 @@
                 "X-HTTP-Method-Override": "POST"
             },
             dataType: 'text',
-            data: JSON.stringify({boardNo: boardNo, nickname: nickname, replyContent: replyContent}),
+            data: JSON.stringify({boardNo: boardNo, nickName: nickName, replyContent: replyContent}),
             success: function (result) {
                 console.log("result: " + result);
                 if (result == 'SUCCESS') {
@@ -866,10 +882,10 @@
 </script>
 
 
-
 <script id="templateAttach" type="text/x-handlebars-template">
     <li data-src='{{fullName}}'>
-        <span class="mailbox-attachment-icon has-img"><img src="{{getLink}}" onerror="this.onerror=null; this.src='../../../resources/assets/img/icon/document.png';"></span>
+        <span class="mailbox-attachment-icon has-img"><img src="{{getLink}}"
+                                                           onerror="this.onerror=null; this.src='../../../resources/assets/img/icon/document.png';"></span>
         <div class="mailbox-attachment-info">
             <a href="{{getLink}}" class="mailbox-attachment-name" download>{{fileName}}</a>
             </span>

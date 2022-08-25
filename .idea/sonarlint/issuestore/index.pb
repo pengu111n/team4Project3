@@ -7,8 +7,6 @@
 .src/main/java/controller/NoticeController.java,5\3\53450b1e06f4357ce191909f7aea89a44da53d4e
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-a
-1src/main/webapp/WEB-INF/views/include/header.jspf,c\a\ca1a8b397b55ba43ff3ccd8f558a5ca50a1e8d1c
 \
 ,src/main/java/service/MemberServiceImpl.java,8\a\8abacb0cdeb4db0cb93d44a131a4094ec3a540d5
 Q
@@ -17,8 +15,6 @@ Q
 0src/main/webapp/WEB-INF/views/board/listPage.jsp,e\3\e34d16bd9816cf31eb8b8fab70bbcc2e2eed40e2
 _
 /src/main/webapp/WEB-INF/views/board/success.jsp,f\1\f123e7e9aea084d42588f0637f3155db0a3cecc9
-b
-2src/main/webapp/WEB-INF/views/board/modifyPage.jsp,3\d\3de8f44be5dce6be14cdd77309124da20deac5ae
 w
 G.idea/sonarlint/issuestore/6/c/6cbf821c781ea3afd61094eab69e98a2919b6ff6,e\0\e06b14f14e632de3f93303db7a288ff90cd5fc09
 w
