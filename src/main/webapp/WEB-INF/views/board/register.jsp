@@ -288,8 +288,8 @@
 
 <script id="template" type="text/x-handlebars-template">
     <li>
-        <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
         <div class="mailbox-attachment-info">
+            <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
             <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
             <a href="{{fullName}}"
                class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
@@ -360,21 +360,20 @@
 
     });
 
-    $(".uploadedList").on("click", "small", function (event) {
-        event.preventDefault();
-
+    $(".uploadedList").on("click", ".delbtn", function (event) {
         var that = $(this);
         $.ajax({
             url: "/deleteFile",
             type: "post",
-            data: {fileName: $(this).attr("data-src")},
-            dataType: "text",
+            data: {fileName: $(this).attr("href") },
+            dataType:"text",
             success: function (result) {
                 if (result == 'deleted') {
                     that.parent("div").remove();
                 }
             }
         });
+        return false;
     });
 
 

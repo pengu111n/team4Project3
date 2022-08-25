@@ -13,7 +13,7 @@
 
 	<select id="read" resultType="domain.BoardVO">
 		select
-			boardNo,title,nickname,part,category,address,area,startDate,endDate,budget,require
+			boardNo,title,memNo,id,nickName,part,category,address,area,startDate,endDate,budget,require
 		from
 			board
 		where boardNo = #{boardNo}
@@ -38,7 +38,7 @@
 
 
 	<select id="listAll" resultType="domain.BoardVO">
-		select boardNo, nickname, part, title, budget,category, address, area, regDate, modifiedDate, view_count,require,image
+		select boardNo, memNo,id,nickName, part, title, budget,category, address, area, regDate, modifiedDate, view_count,require,image
 		from board
 		order by boardNo desc, regDate desc
 	</select>
@@ -46,7 +46,7 @@
 <select id="listPage" resultType="domain.BoardVO">
 <![CDATA[
 SELECT
-	boardNo, nickname, part, title, address, area,budget,category, regDate, modifiedDate, view_count,require,image
+	boardNo, memNo,id,nickName, part, title, address, area,budget,category, regDate, modifiedDate, view_count,require,image
 FROM board
 WHERE boardNo
 BETWEEN ((#{page}-1)*12+1) AND (#{page}*12)
