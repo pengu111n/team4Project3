@@ -136,8 +136,15 @@
                 <c:if test="${login != null}">
                 <li class="nav-item">
                     <a href="/blog/user?cmd=profileUpload">
-                    <img style = "border-radius:50%;" alt="" src="/displayFile?fileName=${login.fullName}"  width="40px" height="40px" />
+                    <c:if test="${login.fullName == null}">
+                        <img style = "border-radius:50%;" alt=""
+                        src="${pageContext.request.contextPath}/resources/assets/img/defaultProfile.jpeg"  width="40px" height="40px" />
+                    </c:if>
+                    <c:if test="${login.fullName != null}">
+                    <img style = "border-radius:50%;" alt=""
+                    src="/displayFile?fileName=${login.fullName}"  width="40px" height="40px" />
                     </a>
+                    </c:if>
                     </li>
                     <button class="navbar-btn nav-button wow fadeInRight"
                             onclick=" window.open('#', '_self')"
