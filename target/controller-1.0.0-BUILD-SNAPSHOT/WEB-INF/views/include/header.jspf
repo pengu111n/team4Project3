@@ -143,7 +143,7 @@
                             onclick=" window.open('#', '_self')"
                             data-wow-delay="0.48s">${login.nickName}</button>
                     <button class="navbar-btn nav-button wow bounceInRight login"
-                            onclick=" window.open('${pageContext.request.contextPath}/member/logout', '_self')"
+                            onclick=" window.open('${pageContext.request.contextPath}/logout', '_self')"
                             data-wow-delay="0.45s">로그아웃</button>
                 </c:if>
             </div>

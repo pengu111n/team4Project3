@@ -171,7 +171,9 @@
                     <b class="caret"></b>
                 </a>
                     <ul class="dropdown-menu navbar-nav">
+                    <c:if test="${login.rank == 2 || login.rank == 3}">
                         <li><a href="${pageContext.request.contextPath}/cboard/write">시공사례 등록</a></li>
+                    </c:if>
                         <li><a href="${pageContext.request.contextPath}/cboard/list">시공사례 목록</a></li>
                     </ul></li>
 
