@@ -40,7 +40,7 @@
 		사용자인지를 체크하는 역할을 처리하기 위해서 작성한다
 		-->
 		<interceptor>
-			<mapping path="/board/list" />
+			<mapping path="/board/register" />
 			<mapping path="/cboard/write" />
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
