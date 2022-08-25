@@ -143,8 +143,8 @@
                     <c:if test="${login.fullName != null}">
                     <img style = "border-radius:50%;" alt=""
                     src="/displayFile?fileName=${login.fullName}"  width="40px" height="40px" />
-                    </a>
                     </c:if>
+                    </a>
                     </li>
                     <button class="navbar-btn nav-button wow fadeInRight"
                             onclick=" window.open('#', '_self')"

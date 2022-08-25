@@ -192,10 +192,17 @@ public class MemberController {
     }
 
     @RequestMapping(value = "confirmEmail", method = RequestMethod.GET)
-    public String emailConfirm(@Param("email") String email, @Param("authKey") String authKey, Model model) throws Exception {
+    public String emailConfirm(@Param("email") String email, @Param("authKey") String authKey, Model model, HttpServletRequest req) throws Exception {
 
         service.memberAuth(email, authKey);
         model.addAttribute("memberEmail", email);
+
+        HttpSession session =  req.getSession();
+        MemberVO vo = (MemberVO)session.getAttribute("login");
+        if(vo != null){
+            vo.setAuth(1);
+            session.setAttribute("login", vo);
+        }
 
         return "redirect:/";
     }

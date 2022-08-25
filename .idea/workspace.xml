@@ -11,6 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/member.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
