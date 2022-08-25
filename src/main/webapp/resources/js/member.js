@@ -60,7 +60,7 @@ function changeRank(){
 
   if (innerR == 2) {
     document.getElementById("compInput").innerHTML =
-      '<label for="companyno">사업자번호</label><input type="text" class="form-control" id="companyno" name="companyno" placeholder="사업자번호">';
+      '<label for="companyNo">사업자번호</label><input type="text" class="form-control" id="companyNo" name="companyNo" placeholder="사업자번호">';
 
     document.getElementById("label_name").innerHTML = "기업명";
     $("#name").attr("placeholder", "기업명");
