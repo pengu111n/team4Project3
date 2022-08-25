@@ -54,15 +54,22 @@ $(".uploadedList").on("click", ".delbtn", function (event) {
   });
 });
 
-function changeRank() {
+function changeRank(){
   var r = document.getElementById("rank");
   var innerR = r.options[r.selectedIndex].value;
 
   if (innerR == 2) {
     document.getElementById("compInput").innerHTML =
-      '<label for="companyno">사업자번호</label><input type="text" class="form-control" id="companyno" name="companyno" placeholder="사업자번호">';
+      '<label for="companyNo">사업자번호</label><input type="text" class="form-control" id="companyNo" name="companyNo" placeholder="사업자번호" onblur="emptyCompanyNo()"><span class="empty emptyCN">필수 정보입니다.</span>';
+
+    document.getElementById("label_name").innerHTML = "기업명";
+    $("#name").attr("placeholder", "기업명");
+
   } else {
     document.getElementById("compInput").innerHTML = "";
+
+    document.getElementById("label_name").innerHTML = "이름"
+    $("#name").attr("placeholder", "이름");
   }
 }
 
@@ -323,6 +330,17 @@ function emptyMail() {
     $(".emptyMail").hide();
   }
 }
+
+function emptyCompanyNo() {
+  let companyNo = $("#companyNo").val();
+
+  if (companyNo == "") {
+    $(".emptyCN").show();
+  } else {
+    $(".emptyCN").hide();
+  }
+}
+
 
 for (var i = 1; i <= 12; i++) {
   var mm = i > 9 ? i : "0" + i;

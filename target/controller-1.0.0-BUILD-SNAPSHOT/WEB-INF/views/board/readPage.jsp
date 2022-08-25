@@ -96,7 +96,7 @@
     <div class="container">
         <div class="row">
             <div class="page-head-content">
-                <h1 class="page-title">인테리어 견적 <c:out value="${memberVO.id}"/></h1>
+                <h1 class="page-title">인테리어 견적 </h1>
             </div>
         </div>
     </div>
@@ -296,7 +296,10 @@
                                     </c:otherwise>
                                 </c:choose>
                             </li>
-
+                            <li>
+                                <span class="col-xs-6 col-sm-4 col-md-4 add-d-title">조회수</span>
+                                <span class="col-xs-6 col-sm-8 col-md-8 add-d-entry">${boardVO.view_count}</span>
+                            </li>
                         </ul>
                     </div>
 

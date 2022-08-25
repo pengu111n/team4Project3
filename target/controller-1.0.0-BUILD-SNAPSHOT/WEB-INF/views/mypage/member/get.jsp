@@ -75,6 +75,13 @@
                         <input type="text" class="form-control" id="email" name="email"
                                value="${login.email}" readonly="readonly">
                     </div>
+                    <div class="form-group">
+                        <label for="fullName">회원이미지</label>
+                        <%--<input type="image" class="form-control" id="fullName" name="fullName"
+                                value="${login.fullName}">--%>
+                        <input type="image" id="fullName" name="fullName" alt="이미지를 불러올 수 없습니다."
+                               src="/displayFile?fileName=${login.fullName}"  width="200" height="200" readonly="readonly">
+                    </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-warning" style="float: left;">회원정보 수정</button>
                         <button type="submit" class="btn btn-danger" style="float: right;">회원 탈퇴</button>

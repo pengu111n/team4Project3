@@ -251,10 +251,10 @@
                                             </p>
 
                                             <div class="checkbox">
-                                                <input type="checkbox"/> <strong> 동의함</strong>
+                                                <input type="checkbox" id="agree_policy" name="agree_policy"/> <strong> 동의함</strong>
                                             </div>
                                             <div class="checkbox">
-                                                <input type="checkbox" style="margin-left: 50px;"/> <strong> 동의하지 않음           </strong>
+                                                <input type="checkbox" id="disagree_policy"  name="disagree_policy" style="margin-left: 50px;"/> <strong> 동의하지 않음           </strong>
                                             </div>
 
                                         </div>
