@@ -18,11 +18,6 @@ public class MyPageBoardServiceImpl implements MyPageBoardService {
     @Setter(onMethod_ = @Autowired)
     private MyPageBoardMapper mapper;
 
-//    @Override
-//    public List<BoardVO> getList(int memNo) {
-//        return mapper.getList(memNo);
-//    }
-
     @Override
     public List<BoardVO> getGeneralList(int memNo) {
         return mapper.getGeneralList(memNo);

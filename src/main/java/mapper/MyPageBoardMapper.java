@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface MyPageBoardMapper {
 
-    //public List<BoardVO> getList(int memNO);
-
     public List<BoardVO> getGeneralList(int memNo);
 
     public List<CboardVO> getBusinessList(int memNo);

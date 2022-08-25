@@ -157,8 +157,4 @@ public class BoardVO {
 		this.view_count = view_count;
 	}
 
-
-
-
-
 }
