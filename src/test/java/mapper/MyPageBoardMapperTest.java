@@ -17,10 +17,10 @@ public class MyPageBoardMapperTest extends TestCase {
     @Setter(onMethod_ = @Autowired)
     private MyPageBoardMapper mapper;
 
-    @Test
-    public void testGetList() {
-
-        mapper.getList(1).forEach(board -> log.info(board));
-
-    }
+//    @Test
+//    public void testGetList() {
+//
+//        mapper.getList(1).forEach(board -> log.info(board));
+//
+//    }
 }

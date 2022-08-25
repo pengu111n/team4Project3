@@ -115,35 +115,35 @@
         <div class="clearfix padding-top-40">
 
             <div class="col-md-8 single-property-content prp-style-1 ">
-<%--                <div class="row">--%>
-<%--                    <div class="light-slide-item">--%>
-<%--                        <div class="clearfix">--%>
-<%--                            <div class="favorite-and-print">--%>
-<%--                                <a class="add-to-fav" href="#login-modal" data-toggle="modal">--%>
-<%--                                    <i class="fa fa-star-o"></i>--%>
-<%--                                </a>--%>
-<%--                                <a class="printer-icon " href="javascript:window.print()">--%>
-<%--                                    <i class="fa fa-print"></i>--%>
-<%--                                </a>--%>
-<%--                            </div>--%>
+                <%--                <div class="row">--%>
+                <%--                    <div class="light-slide-item">--%>
+                <%--                        <div class="clearfix">--%>
+                <%--                            <div class="favorite-and-print">--%>
+                <%--                                <a class="add-to-fav" href="#login-modal" data-toggle="modal">--%>
+                <%--                                    <i class="fa fa-star-o"></i>--%>
+                <%--                                </a>--%>
+                <%--                                <a class="printer-icon " href="javascript:window.print()">--%>
+                <%--                                    <i class="fa fa-print"></i>--%>
+                <%--                                </a>--%>
+                <%--                            </div>--%>
 
-<%--                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">--%>
-<%--                                <li data-thumb="../../../resources/assets/img/property-1/property1.jpg">--%>
-<%--                                    <img src="../../../resources/assets/img/property-1/property1.jpg" alt="property1"/>--%>
-<%--                                </li>--%>
-<%--                                <li data-thumb="../../../resources/assets/img/property-1/property2.jpg">--%>
-<%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property2"/>--%>
-<%--                                </li>--%>
-<%--                                <li data-thumb="../../../resources/assets/img/property-1/property3.jpg">--%>
-<%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property1"/>--%>
-<%--                                </li>--%>
-<%--                                <li data-thumb="../../../resources/assets/img/property-1/property4.jpg">--%>
-<%--                                    <img src="../../../resources/assets/img/property-1/property4.jpg"/>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">--%>
+                <%--                                <li data-thumb="../../../resources/assets/img/property-1/property1.jpg">--%>
+                <%--                                    <img src="../../../resources/assets/img/property-1/property1.jpg" alt="property1"/>--%>
+                <%--                                </li>--%>
+                <%--                                <li data-thumb="../../../resources/assets/img/property-1/property2.jpg">--%>
+                <%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property2"/>--%>
+                <%--                                </li>--%>
+                <%--                                <li data-thumb="../../../resources/assets/img/property-1/property3.jpg">--%>
+                <%--                                    <img src="../../../resources/assets/img/property-1/property3.jpg" alt="property1"/>--%>
+                <%--                                </li>--%>
+                <%--                                <li data-thumb="../../../resources/assets/img/property-1/property4.jpg">--%>
+                <%--                                    <img src="../../../resources/assets/img/property-1/property4.jpg"/>--%>
+                <%--                                </li>--%>
+                <%--                            </ul>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
 
                 <div class="single-property-wrapper">
                     <div class="single-property-header">
@@ -334,7 +334,7 @@
                             <div class='popup back' style="display:none; width: 600px; height: 480px;"></div>
                             <%--                                <div id="popup_front" class='popup front' style="display:none;">--%>
                             <div id="popup_front" class='popup front' >
-                                <img id="popup_img">ㅁㄴㅇㄹ
+                                <img id="popup_img">
                             </div>
                         </div>
                     </div>
@@ -866,7 +866,6 @@
 </script>
 
 
-<!--////////////////////////////Image///////////////////////////////-->
 
 <script id="templateAttach" type="text/x-handlebars-template">
     <li data-src='{{fullName}}'>
@@ -941,25 +940,7 @@
             });
         });
 
-        /*
-                $(".uploadedList").on("click", ".mailbox-attachment-info a", function (event) {
 
-                    var fileLink = $(this).attr("href");
-
-                    if (checkImageType(fileLink)) {
-
-                        event.preventDefault();
-
-                        var imgTag = $("#popup_img");
-                        imgTag.attr("src", fileLink);
-
-                        console.log(imgTag.attr("src"));
-
-                        $(".popup").show('slow');
-                        imgTag.addClass("show");
-                    }
-        });
-*/
         $("#popup_img").on("click", function () {
 
             $(".popup").hide('slow');

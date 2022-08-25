@@ -4,8 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.MyPageBoardMapper">
 
-    <select id="getList" resultType="domain.BoardVO">
+<!--    <select id="getList" resultType="domain.BoardVO">-->
+<!--        select * from board where memNo = #{memNo} order by boardNo desc, regDate desc-->
+<!--    </select>-->
+
+    <select id="getGeneralList" resultType="domain.BoardVO">
         select * from board where memNo = #{memNo} order by boardNo desc, regDate desc
+    </select>
+
+    <select id="getBusinessList" resultType="domain.CboardVO">
+        select * from cboard where memNo = #{memNo} order by cbno desc, regDate desc
+    </select>
+
+    <select id="findByMemNo" resultType="domain.MemberVO">
+        select * from member where memNo = #{memNo}
     </select>
 
 </mapper>
