@@ -51,5 +51,6 @@ public class HomeController {
 		return "/notice/faq";
 
 	}
-	
+
+
 }

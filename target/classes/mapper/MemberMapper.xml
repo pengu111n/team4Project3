@@ -26,7 +26,6 @@
 		FROM MEMBER
 		WHERE ID = #{id}
 		AND PW = #{pw}
-		AND AUTH = 1
 	</select>
 
 	<!-- <update id="keepLogin"> -->
@@ -46,7 +45,7 @@
 
 	<select id="nicknameCheck" resultType="int">
 		select count(*) from member
-		where nickname = #{nickname}
+		where nickname = #{nickName}
 	</select>
 
 	<insert id="createAuth">

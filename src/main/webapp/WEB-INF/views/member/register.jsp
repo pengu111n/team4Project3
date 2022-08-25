@@ -63,8 +63,8 @@
                             <span class="samePW">비밀번호가 일치하지 않습니다.</span>
                             <span class="empty emptyPW1">필수 정보입니다.</span>
                         </div>
-                        <div class="form-group">
-                            <label for="name">이름</label>
+                        <div class="form-group form-name">
+                            <label for="name" id="label_name">이름</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="이름" onblur="emptyName()">
                             <span class="empty emptyName">필수 정보입니다.</span>
                         </div>

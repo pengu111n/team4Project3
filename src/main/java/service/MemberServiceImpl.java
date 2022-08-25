@@ -103,8 +103,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void remove(Integer memno) throws Exception {
-		mapper.delete(memno);
+	public void remove(Integer memNo) throws Exception {
+		mapper.delete(memNo);
 	}
 
 	
@@ -117,8 +117,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int nicknameCheck(String nickname) throws Exception{
-		int cnt = mapper.nicknameCheck(nickname);
+	public int nicknameCheck(String nickName) throws Exception{
+		int cnt = mapper.nicknameCheck(nickName);
 		return cnt;
 	}
 
@@ -133,21 +133,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<String> getAttachImg(Integer memno) throws Exception {
-		return mapper.getAttachImg(memno);
+	public List<String> getAttachImg(Integer memNo) throws Exception {
+		return mapper.getAttachImg(memNo);
 	}
 
 	@Override
-	public void deleteImg(Integer memno) throws Exception {
-		mapper.deleteImg(memno);
+	public void deleteImg(Integer memNo) throws Exception {
+		mapper.deleteImg(memNo);
 	}
 
 	@Override
-	public void replaceImg(String fullName, Integer memno) throws Exception {
+	public void replaceImg(String fullName, Integer memNo) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 
 		paramMap.put("fullName", fullName);
-		paramMap.put("memno", memno);
+		paramMap.put("memNo", memNo);
 
 		mapper.replaceImg(paramMap);
 	}

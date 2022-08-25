@@ -306,5 +306,11 @@ public class MemberController {
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/authPlease")
+    public String authPlease(){
+
+        return "/member/auth";
+    }
+
 }
 

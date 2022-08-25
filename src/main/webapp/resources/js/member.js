@@ -54,15 +54,22 @@ $(".uploadedList").on("click", ".delbtn", function (event) {
   });
 });
 
-function changeRank() {
+function changeRank(){
   var r = document.getElementById("rank");
   var innerR = r.options[r.selectedIndex].value;
 
   if (innerR == 2) {
     document.getElementById("compInput").innerHTML =
       '<label for="companyno">사업자번호</label><input type="text" class="form-control" id="companyno" name="companyno" placeholder="사업자번호">';
+
+    document.getElementById("label_name").innerHTML = "기업명";
+    $("#name").attr("placeholder", "기업명");
+
   } else {
     document.getElementById("compInput").innerHTML = "";
+
+    document.getElementById("label_name").innerHTML = "이름"
+    $("#name").attr("placeholder", "이름");
   }
 }
 
