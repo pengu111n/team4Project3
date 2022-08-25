@@ -17,10 +17,10 @@
         <ul class="main-nav nav navbar-nav" style="text-align: center;">
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
-                <a href="../member/get?memno=${login.memno}">회원정보 관리</a></li>
+                <a href="../member/get?memNo=${login.memNo}">회원정보 관리</a></li>
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
-                <a  href="../board/list?memNo=${login.memno}">작성글 관리</a></li>
+                <a  href="../board/list?memNo=${login.memNo}">작성글 관리</a></li>
             <%--
             <li class="wow fadeInDown animated" data-wow-delay="0.2s"
                 style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown; display: inline-block;">
