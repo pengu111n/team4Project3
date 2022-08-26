@@ -20,7 +20,9 @@ $('document').ready(function() {
     $.each(area0,function(){
         $("#address_1").append("<option value='"+this+"'>"+this+"</option>");
     });
+
     $("#address_2").append("<option value=''>구/군 선택</option>");
+
     $("#address_1").change(function(){
         var idx = $('option:selected',$(this)).index();
         $("option",$("#address_2")).remove();
