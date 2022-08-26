@@ -1107,8 +1107,8 @@ label small {
 }
 
 .navbar-nav>li>a {
-	padding-right: 18px;
-	padding-left: 18px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .navbar-default .navbar-nav>li>a.active:after {
