@@ -34,9 +34,9 @@ public class MyPageMemberController {
     }
 
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
-    public String remove(@RequestParam("memno") int memno, RedirectAttributes rttr) throws Exception {
+    public String remove(@RequestParam("memNo") int memNo, RedirectAttributes rttr) throws Exception {
 
-        service.remove(memno);
+        service.remove(memNo);
 
         rttr.addFlashAttribute("result", "success");
 
