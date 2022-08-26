@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="중간저장">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/responsive.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
