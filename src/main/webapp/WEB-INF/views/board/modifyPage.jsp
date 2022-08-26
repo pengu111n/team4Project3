@@ -26,7 +26,39 @@
     }
 
 </style>
+<script>
+    $(document).ready(function() {
+        $('#category').val('${boardVO.category}').prop("selected", true);
+        $('#part').val('${boardVO.part}').prop("selected", true);
 
+        if ('${boardVO.budget}' == '-1') {
+            $("input:checkbox[id='budget_undefined']").prop("checked", true);
+            $('#budget_defined').val(" ");
+        } else {
+            $('#budget_defined').val("${boardVO.budget}");
+        }
+
+        if ('${boardVO.startDate}' == "0001-01-01 00:00:00.0") {
+            $("input:checkbox[id='undefined_start']").prop("checked", true);
+            $('#startDate').val(" ");
+        } else {
+            var str = "${boardVO.startDate}";
+            var tmp = str.substring(0, 10);
+            $('#startDate').val(tmp);
+
+        }
+        if ('${boardVO.endDate}' == "0001-01-01 00:00:00.0") {
+            $("input:checkbox[id='undefined_end']").prop("checked", true);
+            $('#endDate').val(" ");
+        } else {
+            var str = "${boardVO.endDate}";
+            var tmp = str.substring(0, 10);
+            $('#endDate').val(tmp);
+
+        }
+
+    });
+</script>
 <div class="page-head">
     <div class="container">
         <div class="row">
@@ -65,7 +97,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>제목 :</label>
-                                            <input type="text" class="form-control" name="title" id="title"
+                                            <input type="text" class="form-control" name="title" id="title" value='<c:out value="${boardVO.title}"/>'
                                                    placeholder="시공내용을 간략하게 적어주세요 (20자이내)">
                                         </div>
                                     </div>
@@ -125,7 +157,7 @@
                                                 <div class="input-group"
                                                      style="width: 320px; margin: 0px;">
                                                     <div class="input-group-addon">평수</div>
-                                                    <input type="number" class="form-control" name="area"/>
+                                                    <input type="number" class="form-control" name="area" value='<c:out value="${boardVO.area}"/>'/>
                                                     <div class="input-group-addon">평</div>
                                                 </div>
                                             </div>
@@ -142,7 +174,7 @@
                                                          style="width: 320px; margin-top: 0px; margin-bottom: 0px;">
                                                         <div class="input-group-addon">예산</div>
                                                         <input type="number" class="form-control"
-                                                               name="budget_defined"/>
+                                                               name="budget_defined" id="budget_defined" />
                                                         <div class="input-group-addon">만원</div>
                                                     </div>
                                                     업체 협의
@@ -160,7 +192,7 @@
                                         <div class="col-sm-3" style="width : 250px;">
                                             <div class="form-group">
                                                 <label>주거유형</label> <select class="selectpicker show-tick form-control"
-                                                                            name="category" id="category">
+                                                                            name="category" id="category" value='<c:out value="${boardVO.category}"/>'>
                                                 <option value="" disabled selected>주거유형</option>
                                                 <option value="아파트">아파트</option>
                                                 <option value="빌라">빌라</option>
@@ -177,7 +209,7 @@
                                             <div class="form-group">
                                                 <label>인테리어 분야</label>
                                                 <select class="selectpicker show-tick form-control" name="part"
-                                                        id="part">
+                                                        id="part" value='<c:out value="${boardVO.part}"/>'>
                                                     <option value="" disabled selected>인테리어 분야</option>
                                                     <option value="종합">종합</option>
                                                     <option value="도배">도배</option>
@@ -196,10 +228,15 @@
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>상세 요청 사항 :</label>
+                                                <label>상세 요청 사항 :</label><span style="text-align:left;  vertical-align: text-top;">
                                                 <textarea class="form-control" name="require"
-                                                          id="exampleFormControlTextarea1" rows="10" placeholder=" <프로젝트의 현재 상황>&#13;&#10;      예시) 디자인 준비 상황, 진행 계획 등&#13;&#10;&#13;&#10; <상세한 업무 내용>&#13;&#10;     예시) 시공내용, 일정 &#13;&#10;&#13;&#10; <참고자료 / 유의사항>&#13;&#10;     예시) 참고사이트, 기타 유의사항 등
-                                                            "></textarea>
+                                                          id="exampleFormControlTextarea1" rows="10"
+                                                 <%--         placeholder=" <프로젝트의 현재 상황>&#13;&#10;      예시) 디자인 준비 상황, 진행 계획 등&#13;&#10;&#13;&#10; <상세한 업무 내용>&#13;&#10;     예시) 시공내용, 일정 &#13;&#10;&#13;&#10; <참고자료 / 유의사항>&#13;&#10;     예시) 참고사이트, 기타 유의사항 등
+                                                            "--%>
+                                                >
+
+                                                        <c:out value="${boardVO.require}"/>
+                                                </textarea> </span>
                                             </div>
                                         </div>
                                     </div>

@@ -268,7 +268,7 @@
                         <div class="wizard-footer">
                             <div class="pull-right">
                                 <input type='button' class='btn btn-next btn-primary' name='next' value='Next'/>
-                                <input type='submit' class='btn btn-finish btn-primary ' name='finish' value='Finish'/>
+                                <input type='submit' class='btn btn-finish btn-primary ' name='finish' id='finish' value='Finish'/>
                             </div>
 
                             <div class="pull-left">
@@ -338,7 +338,7 @@
     });
 
 
-    $("#registerForm").submit(function (event) {
+  /*  $("#registerForm").submit(function (event) {
         event.preventDefault();
 
         var that = $(this);
@@ -358,7 +358,7 @@
             that.get(0).submit();
         }
 
-    });
+    });*/
 
     $(".uploadedList").on("click", ".delbtn", function (event) {
         var that = $(this);
@@ -376,8 +376,91 @@
         return false;
     });
 
+    $(document).ready(
+        function() {
+            $("form")
+                .submit(
+                    function () {
+                        var rv = true;
+                        if ($("#title").val() == "") {
+                            alert("시공내용을 간략히 입력해주세요");
+                            $("#title").focus();
+                            return rv = false;
+                        } else if ($("#category").val() == null) {
+                            alert("주거유형을 선택해주세요");
+                            $("#category").focus();
+                            return rv = false;
+                        } else if ($("#sido1").val() == "") {
+                            alert("주소를 선택해주세요");
+                            $("#title").focus();
+                            return rv = false;
+                        } else if ($("#gugun1").val() == "") {
+                            alert("주소를 선택해주세요");
+                            $("#gugun1").focus();
+                            return rv = false;
+                        } else if (!$.isNumeric($(
+                            'input[type=number][name=area]')
+                            .val())) {
+                            alert("면적을 입력해주세요(면적은 숫자만 입력 가능합니다)");
+                            $("#area").focus();
+                            return rv = false;
+                        } else if ($("#startDate").val() == ""
+                            && $("#undefined_start").is(
+                                ":checked") == false) {
+                            alert("시공 시작일을 입력해주세요");
+                            $("#startDate").focus();
+                            return rv = false;
+                        } else if ($("#endDate").val() == ""
+                            && $("#undefined_end").is(
+                                ":checked") == false) {
+                            alert("시공 종료일을 입력해주세요");
+                            $("#endDate").focus();
+                            return rv = false;
+                        } else if (!$.isNumeric($(
+                                'input[type=number][name=budget_defined]').val())
+                            && $("#budget_undefined").is(
+                                ":checked") == false) {
+                            alert("예산을 입력해주세요");
+                            $("#budget").focus();
+                            return rv = false;
+                        } else if ($("#part").val() == null) {
+                            alert("인테리어 분야를 선택해주세요");
+                            $("#part").focus();
+                            return rv = false;
+                        } else if ($("#require").val() == "undefined") {
+                            alert("상세 요청사항을 입력해주세요");
+                            $("#require").focus();
+                            return rv = false;
+                        } else if ($("#agree_policy").is(":checked") == false) {
+                            alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+                            return rv = false;
+                        } else if ($("#disagree_policy").is(":checked") == true) {
+                            alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+                            return rv = false;
+                        }
+                        event.preventDefault();
+
+                        var that = $(this);
+
+                        var str = "";
+                        $(".uploadedList .delbtn").each(function (index) {
+                            str += "<input type='hidden' name='image[" + index + "]' value='" + $(this).attr("href") + "'> ";
+                        });
+
+                        that.append(str);
+
+                        budget_check();
+                        startDate_check();
+                        endDate_check();
+
+                        that.get(0).submit();
+
+
+                    }) // submit() end
+        }); // ready() end
 
 </script>
+
 
 <%@ include file="../include/footer.jspf" %>
 <%--<%@ include file="../include/footer1.jspf" %>--%>

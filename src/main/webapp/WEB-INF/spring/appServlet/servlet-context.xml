@@ -50,6 +50,7 @@
 			<mapping path="/board/register" />
 			<mapping path="/cboard/write" />
 			<mapping path="/mypage/member/get"/>
+			<mapping path="/qna/list"/>
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>
