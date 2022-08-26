@@ -72,6 +72,23 @@
                             <input type="text" class="form-control" id="email" name="email"
                                    value="${login.email}">
                         </div>
+                        <%--<div class="form-group">
+                            <label for="fullName">회원이미지</label>
+                            <input type="image" id="fullName" name="fullName" alt="이미지를 불러올 수 없습니다."
+                                   src="/displayFile?fileName=${login.fullName}"  width="200" height="200" readonly="readonly">
+                        </div>--%>
+                        <div class="form-group">
+                            <label>회원이미지</label>
+                            <div class="fileDrop">
+                                <br/>
+                                <br/>
+                                <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
+                                <br/>
+                                <br/>
+                            </div>
+                            <ul class="mailbox-attachments clearfix uploadedList">
+                            </ul>
+                        </div>
                     </form>
                     <div class="text-center">
                         <button type="submit" class="btn btn-warning" style="float: left;">저장</button>
@@ -82,6 +99,24 @@
         </div>
     </div>
 </div>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/resources/js/address.js"></script>
+
+<script type="text/javascript" src="/resources/js/memberUpload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+<script id="template" type="text/x-handlebars-template">
+    <li>
+        <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+        <div class="mailbox-attachment-info">
+            <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+            <a href="{{fullName}}"
+               class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+            </span>
+        </div>
+    </li>
+</script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>

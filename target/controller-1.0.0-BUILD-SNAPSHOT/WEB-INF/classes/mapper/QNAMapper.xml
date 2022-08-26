@@ -73,8 +73,9 @@
                      qnaDate,
                      status,
                      ROW_NUMBER() OVER(ORDER BY qnaNo DESC) AS RNUM
-              FROM qna)
-        WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+              FROM qna) mb
+        WHERE RNUM
+                  BETWEEN ((#{pageStart} - 1) * #{perPageNum} + 1) AND (#{pageStart} * #{perPageNum})
         ORDER BY qnaNo DESC
     </select>
 
