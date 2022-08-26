@@ -32,38 +32,36 @@ UPDATE MEMBER SET sessionkey ='Y';
 
 
 -- 공지 create table
-/*
 CREATE TABLE Notice (
                         noticeNo NUMBER,
-                        memNo NUMBER,
                         noticeTitle VARCHAR2(255),
                         noticeContent VARCHAR2(255),
                         regdate date,
-
+                        MEMNO NUMBER ,
+                        constraint fk_noticememno foreign key (memno) references member(memno),
                         CONSTRAINT notice_pk PRIMARY KEY(noticeNo)
 );
 
+
 CREATE SEQUENCE notice_num INCREMENT BY 1;
+
 
 
 -- 1:1문의
 create table QNA (
                      qnaNo Number,
-                     memNo Number,
-                     nickname varchar2(20),
+                     MEMNO Number,
+                     nickname varchar2(20 BYTE),
+                     category  varchar2(30),
                      qnaTitle VARCHAR2(255),
                      qnaContent VARCHAR2(300),
                      qnaDate date,
-                     answerDate date,
-                     status VARCHAR2(10),
-
-                     CONSTRAINT QNA_pk PRIMARY KEY(qnaNo),
+                     status NUMBER,
+                     answerContent VARCHAR2(300),
+                     CONSTRAINT qna_pk PRIMARY KEY(qnaNo),
+                     CONSTRAINT memno_fk foreign KEY(MEMNO) references member,
                      constraint status_ck check (status = 1 or status = 0)
 );
-
-CREATE SEQUENCE qna_ID INCREMENT BY 1;
-
-  */
 
 
 --기업 게시판

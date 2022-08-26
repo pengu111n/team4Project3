@@ -77,8 +77,6 @@
                     </div>
                     <div class="form-group">
                         <label for="fullName">회원이미지</label>
-                        <%--<input type="image" class="form-control" id="fullName" name="fullName"
-                                value="${login.fullName}">--%>
                         <input type="image" id="fullName" name="fullName" alt="이미지를 불러올 수 없습니다."
                                src="/displayFile?fileName=${login.fullName}"  width="200" height="200" readonly="readonly">
                     </div>
