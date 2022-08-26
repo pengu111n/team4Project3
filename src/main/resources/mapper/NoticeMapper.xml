@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.NoticeMapper">
+
+    <!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어
+        있습니다. -->
+    <insert id="create">
+        INSERT INTO notice(noticeNo, noticeTitle,
+        noticeContent, regDate
+        ) values(notice_num.nextval, #{noticeTitle},
+        #{noticeContent}, sysdate )
+        <!-- 닉네임 ? -->
+    </insert>
+
+    <update id="update">
+        update notice
+        set noticeTitle   = #{noticeTitle},
+            noticeContent = #{noticeContent}
+        where noticeNo = #{noticeNo}
+    </update>
+
+    <delete id="delete">
+        delete
+        from notice
+        where noticeNo = #{noticeNo}
+    </delete>
+
+    <select id="read" resultType="domain.NoticeVO">
+        select noticeNo,
+               noticeTitle,
+               noticeContent,
+               regDate
+        from notice
+        where noticeNo = #{noticeNo}
+    </select>
+
+    <select id="listAll" resultType="domain.NoticeVO">
+<![CDATA[
+        select noticeNo,
+               noticeTitle,
+               regDate
+        from notice
+        order by noticeNo desc
+        ]]>
+	</select>
+
+
+    <select id="idCheck" resultType="int">
+        select count(*)
+        from member
+        where id = #{id}
+    </select>
+    <!--
+        <select id="listPage" resultType="domain.NoticeVO">
+    <![CDATA[
+            select noticeNo,
+                   noticeTitle,
+                   regDate
+            from notice
+            where noticeNo
+                      BETWEEN ((#{page} - 1) * 10 + 1) AND (#{page} * 10)
+            order by noticeNo desc, regDate desc
+            ]]>
+        </select>
+
+        <select id="listCriteria" resultType="domain.NoticeVO">
+    <![CDATA[
+            select noticeNo,
+                   noticeTitle,
+                   regDate
+            FROM (SELECT noticeNo,
+                         noticeTitle,
+                         regDate,
+                         row_number() over(order by noticeNo desc) as rNum
+                  from notice) mb
+            WHERE rNum
+                      BETWEEN ((#{pageStart} - 1) * #{perPageNum} + 1) AND (#{pageStart} * #{perPageNum})
+            order by noticeNo desc, regDate desc
+            ]]>
+        </select>-->
+
+    <select id="countPaging" resultType="int">
+<![CDATA[
+        select count(noticeNo)
+        from notice
+        where noticeNo > 0
+        ]]>
+	</select>
+
+    <select id="listCount" resultType="int">
+		<![CDATA[
+        select count(noticeNo)
+        from notice
+        where noticeNo > 0
+        ]]>
+	</select>
+
+    <select id="listNotice" parameterType="domain.Criteria" resultType="domain.NoticeVO">
+        SELECT noticeNo,
+               noticeTitle,
+               regDate
+        FROM (SELECT noticeNo,
+                     noticeTitle,
+                     regDate,
+                     row_number() over(order by noticeNo desc) as rNum
+              from notice) mb
+
+        WHERE RNUM BETWEEN ((#{pageStart} - 1) * #{perPageNum} + 1) AND (#{pageStart} * #{perPageNum})
+        ORDER BY noticeNo DESC
+    </select>
+
+
+</mapper>
