@@ -144,10 +144,10 @@
                                                     <label>희망 예산 :</label><br/>
                                                     <div class="input-group"
                                                          style="width: 320px; margin-top: 0px; margin-bottom: 0px;">
-                                                        <div class="input-group-addon">평수</div>
+                                                        <div class="input-group-addon">예산</div>
                                                         <input type="number" class="form-control"
                                                                name="budget_defined"/>
-                                                        <div class="input-group-addon">평</div>
+                                                        <div class="input-group-addon">만원</div>
                                                     </div>
                                                     업체 협의
                                                     <input type="checkbox" id="budget_undefined"
