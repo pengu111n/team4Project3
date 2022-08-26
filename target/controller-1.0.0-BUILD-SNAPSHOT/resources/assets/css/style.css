@@ -1107,8 +1107,8 @@ label small {
 }
 
 .navbar-nav>li>a {
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .navbar-default .navbar-nav>li>a.active:after {
@@ -1138,7 +1138,7 @@ label small {
 }
 
 .navbar-nav.navbar-right:last-child {
-	margin-right: 20px;
+	margin-right: 10px;
 }
 
 .navbar-brand {
@@ -4112,5 +4112,5 @@ ul.footer-blog li {
 }
 
 .profile a{
-    padding : 0px;
+    padding-right : 0px;
 }

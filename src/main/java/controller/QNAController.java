@@ -32,6 +32,7 @@ public class QNAController {
         logger.info("register get ...........");
 
         qna.setStatus(0);
+
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -45,7 +46,6 @@ public class QNAController {
         if (vo.getRank() == null) {
             return "redirect:/users/notLogin";
         } else {
-
 
             service.create(qna);
 
@@ -80,12 +80,32 @@ public class QNAController {
 
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
-    public void read(@RequestParam("qnaNo") int qnaNo, QNAVO qna, MemberVO member, Model model, HttpServletRequest request) throws Exception {
+    public void read(int qnaNo, Model model, HttpServletRequest request) throws Exception {
 
 
         model.addAttribute(service.read(qnaNo));
 
+        /*  model.addAttribute("qnaAtt", qnavo); 이걸로 못담는다 ?
+            영산이 형한테 물어볼까?
+
+        */
     }
+
+
+    /*QNAVO qnavo = service.read(qnaNo);
+
+        model.addAttribute("qnaAtt", qnavo);
+
+        System.out.println();
+
+    HttpSession session = request.getSession();
+    MemberVO vo = (MemberVO) session.getAttribute("login");
+    QNAVO qnaread = (QNAVO) session.getAttribute("qnaAtt");
+        if (vo.getRank() != 3 || qnaread.getNickName() != vo.getNickName() ) {
+        return "redirect:/users/notAdmin";
+    }
+        return null;*/
+
 
 
        /* @RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -157,9 +177,10 @@ public class QNAController {
 
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
-    public void modifyGET(QNAVO qna, MemberVO member, Model model, HttpServletRequest request) throws Exception {
+    public void modifyGET(@RequestParam("qnaNo") int qnaNo, Model model, HttpServletRequest request) throws Exception {
 
-        model.addAttribute(service);
+
+        model.addAttribute("qna", service.read(qnaNo));
     }
 
 
@@ -208,9 +229,9 @@ public class QNAController {
 
 
     @RequestMapping(value = "/answer", method = RequestMethod.GET)
-    public void answerGET(QNAVO qna, MemberVO member, Model model, HttpServletRequest request) throws Exception {
+    public void answerGET(QNAVO qna, int qnaNo, Model model, HttpServletRequest request) throws Exception {
 
-        model.addAttribute(service);
+        model.addAttribute("qna", service.read(qnaNo));
 
     }
 

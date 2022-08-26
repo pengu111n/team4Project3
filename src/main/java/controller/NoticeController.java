@@ -1,9 +1,6 @@
 package controller;
 
-import domain.Criteria;
-import domain.MemberVO;
-import domain.NoticeVO;
-import domain.PageMaker;
+import domain.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +31,7 @@ public class NoticeController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerPOST(NoticeVO notice, MemberVO member, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
+    public String registerPOST(NoticeVO notice, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
 
         HttpSession session = request.getSession();
         MemberVO vo = (MemberVO) session.getAttribute("login");
@@ -84,8 +81,8 @@ public class NoticeController {
 
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
-    public void read(@RequestParam("noticeNo") int noticeNo, Model model) throws Exception {
-        model.addAttribute(service.read(noticeNo));
+    public void read(NoticeVO notice, int noticeNo, Model model) throws Exception {
+        model.addAttribute("notice", service.read(noticeNo));
     }
 
 
@@ -126,9 +123,9 @@ public class NoticeController {
 
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
-    public void modifyGET(NoticeVO notice, MemberVO member, Model model) throws Exception {
+    public void modifyGET(@RequestParam("noticeNo") int noticeNo, NoticeVO notice, MemberVO member, Model model) throws Exception {
 
-        model.addAttribute(service);
+        model.addAttribute("notice", service.read(noticeNo));
 
     }
 

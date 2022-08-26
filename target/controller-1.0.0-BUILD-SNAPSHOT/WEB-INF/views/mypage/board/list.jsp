@@ -59,7 +59,7 @@
                                 <td>${item.cbno}</td>
                                 <td>${item.cnstType}</td>
                                 <td>
-                                    <a href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&boardNo=${item.cbno}'>${item.ctitle}
+                                    <a href="/cboard/read?cbno=${item.cbno}">${item.ctitle}
                                 </td>
                                 <td>${item.address}</td>
                                 <td><fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm"

@@ -19,7 +19,8 @@
             email = #{email},
             pw = #{pw},
             address = #{address},
-            companyNo = #{companyNo,jdbcType=VARCHAR}
+            companyNo = #{companyNo,jdbcType=VARCHAR},
+            fullName = #{fullName}
         where memNo = #{memNo}
     </update>
 

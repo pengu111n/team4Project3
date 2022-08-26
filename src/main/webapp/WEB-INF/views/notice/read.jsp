@@ -22,7 +22,7 @@
         <div class="header">
             <div class="header__title">
 
-                <span><h2><c:out value="${noticeVO.noticeTitle}"/></h2></span>
+                <span><h2><c:out value="${notice.noticeTitle}"/></h2></span>
             </div>
             <%--
                         공지사항은 닉네임 필요 없는듯 ?
@@ -31,7 +31,7 @@
                         </div>
                         --%>
             <div class="header__date">
-                <%--	<span><h6><fmt:formatDate pattern = "yyyy-MM-dd hh:mm" value="${noticeVO.regdate}"/></h6></span>--%>
+                <span><h6><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${notice.regDate}" /></h6></span>
                 <span>
           	<%--        <c:if test="${noticeData.notice.writer.memNo == authUser.memno || authUser.rank == 3}">     --%>
 
@@ -46,11 +46,11 @@
 
     -->
 
-    <a href="/notice/remove?noticeNo=${noticeVO.noticeNo}"
+    <a href="/notice/remove?noticeNo=${notice.noticeNo}"
        onclick="confirm('삭제하시겠습니까?')">삭제</a>
 
 
-    <a href="/notice/modify?noticeNo=${noticeVO.noticeNo}">수정</a>
+    <a href="/notice/modify?noticeNo=${notice.noticeNo}">수정</a>
 
 </c:if>
 
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="content">
-            ${noticeVO.noticeContent}
+            ${notice.noticeContent}
         </div>
     </div>
 </div>

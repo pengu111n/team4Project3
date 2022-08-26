@@ -100,10 +100,10 @@
                             </c:if>
 
                             <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
-                                <%-- <c:if test="${memberVO.rank != 3}">--%>
-                            답변대기
+                            <c:if test="${login.rank != 3}">
+                                답변대기
 
-                                <%--  </c:if>--%>
+                            </c:if>
 
                         </td>
                     </c:if>
