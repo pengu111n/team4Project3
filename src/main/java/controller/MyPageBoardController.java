@@ -1,8 +1,6 @@
 package controller;
 
-import domain.Criteria;
-import domain.MemberVO;
-import domain.PageMaker;
+import domain.*;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,16 +25,18 @@ public class MyPageBoardController {
     private BoardService boardService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public void list(@RequestParam("memNo") int memNo, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+    public void list(
+            @RequestParam("memNo") int memNo,
+            @ModelAttribute("cri") Criteria cri,
+            @ModelAttribute("scri") CbSearchCriteria scri,
+            Model model
+    ) throws Exception {
 
-        // 상세 페이지 출력
-        model.addAttribute("list", boardService.listCriteria(cri));
-
+        // 일반회원 상세 페이지 출력에 추가적으로 필요한 코드
         PageMaker pageMaker = new PageMaker();
         pageMaker.setCri(cri);
         pageMaker.setTotalCount(boardService.listCountCriteria(cri));
         model.addAttribute("pageMaker", pageMaker);
-
 
         // 리스트 출력
         MemberVO loginMem = myPageBoardService.findByMemNo(memNo);
@@ -49,21 +49,5 @@ public class MyPageBoardController {
         }
 
     }
-
-//    @RequestMapping(value = "/listPage", method = RequestMethod.GET)
-//    public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-//
-//        logger.info(cri.toString());
-//
-//        model.addAttribute("list", boardService.listCriteria(cri));
-//
-//
-//        PageMaker pageMaker = new PageMaker();
-//        pageMaker.setCri(cri);
-//
-//        pageMaker.setTotalCount(boardService.listCountCriteria(cri));
-//
-//        model.addAttribute("pageMaker", pageMaker);
-//    }
 
 }
