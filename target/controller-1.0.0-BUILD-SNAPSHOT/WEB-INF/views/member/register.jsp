@@ -160,6 +160,7 @@
 	<a href="{{fullName}}"
      class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
 	</span>
+	<input type=hidden name="fullName" id="fullName" value="{{fullName}}"/>
   </div>
 </li>
 </script>

@@ -176,15 +176,15 @@
                     <a href="infoBoard.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">고객센터 <b class="caret"></b></a>
                     <ul class="dropdown-menu navbar-nav">
                         <li>
-                            <a href="/notice/list">공지사항</a>
+                            <a href="${pageContext.request.contextPath}/notice/list">공지사항</a>
                         </li>
                         <li>
-                            <a href="/notice/faq">FAQ</a>
+                            <a href="${pageContext.request.contextPath}/notice/faq">FAQ</a>
                         </li>
                         <li>
-                            <a href="/qna/list">1:1 문의</a>
+                            <a href="${pageContext.request.contextPath}/qna/list">1:1 문의</a>
                         </li>
-                        <c:if test="${authUser.rank == 3}">
+                        <c:if test="${login.rank == 3}">
                             <li>
                                 <a href="index-4.html">신고 목록</a>
                                 <!-- 신고목록은 관리자만 나오게 만들 수 있을까? -->
@@ -202,7 +202,7 @@
                         </li>
                     </ul>
                     <c:if test="${login != null}">
-                    <li class="nav-item profile">
+                    <li class="profile">
                         <a href="/blog/user?cmd=profileUpload">
                             <c:if test="${login.fullName == null}">
                                 <img style = "border-radius:50%;" alt=""
