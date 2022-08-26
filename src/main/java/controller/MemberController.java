@@ -52,9 +52,7 @@ public class MemberController {
 
     private UploadFileUtils uploadFileUtils;
 
-    @Setter
-    @Getter
-    private String fullname;
+
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -131,7 +129,6 @@ public class MemberController {
         // String cryptPW = BCrypt.hashpw(member.getPw(), BCrypt.gensalt());
         // member.setPw(cryptPW);
         member.setEmail(member.getEmail() + "@" + email2 + email3);
-        member.setFullName(getFullname());
         int ddd = Integer.parseInt(dd);
         String dddd = String.format("%02d", ddd);
         member.setBirth(yy + "." + mm + "." + dddd);
@@ -215,7 +212,7 @@ public class MemberController {
         logger.info("contentType : " + file.getContentType());
 
         String uploadFile = uploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
-        setFullname(uploadFile);
+
         if (uploadFile != null) {
             ResponseEntity<String> result = new ResponseEntity<String>(uploadFile, HttpStatus.OK);
             return result;

@@ -4106,3 +4106,11 @@ ul.footer-blog li {
 .half input:first-child{
     margin-right : 10px;
 }
+
+.nav-item {
+    list-style-type: none;
+}
+
+.profile a{
+    padding : 0px;
+}

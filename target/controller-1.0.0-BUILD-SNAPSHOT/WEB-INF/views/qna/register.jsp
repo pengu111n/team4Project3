@@ -25,6 +25,7 @@
 						<span class="left">				
 								분류		
 						</span>
+							<input type="hidden" id="nickName" name="nickName" value="${login.nickName}">
 						<span class="right">
 							<select id="category" name="category">
 								<option value="전체">전체</option>

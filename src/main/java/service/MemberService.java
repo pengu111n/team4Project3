@@ -25,7 +25,6 @@ public interface MemberService {
 
 	public void memberAuth(String email, String authKey) throws Exception;
 
-	public void attachImg(String fullName)throws Exception;
 	public List<String> getAttachImg(Integer memNo)throws Exception;
 
 	public void deleteImg(Integer memNo)throws Exception;

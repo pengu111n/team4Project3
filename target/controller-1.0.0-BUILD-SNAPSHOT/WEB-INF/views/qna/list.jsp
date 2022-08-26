@@ -31,9 +31,13 @@
                     <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
                     <button type="submit" class="btn btn-dark">검색</button>
                 </div>--%>
-            <button type="button" class="btn btn-dark writeform"
-                    onclick="location.href = '/qna/register'">1:1 문의 하기
-            </button>
+
+            <c:if test="${login.rank != null}">
+                <button type="button" class="btn btn-dark writeform"
+                        onclick="location.href = '/qna/register'">1:1 문의 하기
+                </button>
+            </c:if>
+
             </form>
         </div>
     </div>
@@ -77,7 +81,7 @@
                         <a href='/qna/read?qnaNo=${item.qnaNo}'>${item.qnaTitle}
                     </th>
                     <td class="nickname">
-                            <c:out value="${item.nickname}"/>
+                        <c:out value="${item.nickName}"/>
                     </td>
                     <td class="date td-100">
                         <fmt:formatDate pattern="yy-MM-dd" value="${item.qnaDate}"/>
@@ -85,24 +89,24 @@
 
                     <!-- 스테이터스가 문의글이 등록 될 때 0으로 등록되고, 답변 후에 1로 변경되어야 함. -->
 
-                       <c:if test="${item.status == 0}">
+                    <c:if test="${item.status == 0}">
 
-                    <td class="wating td-100">
-                           <%--<c:if test="${memberVO.rank == 3}">--%>
-                        <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
+                        <td class="wating td-100">
+                            <c:if test="${login.rank == 3}">
+                                <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
 
                                 <!-- 링크에 qnaNo=까지만 나오고 숫자가 안들어가네 ? -->
 
-                            <%--</c:if>--%>
+                            </c:if>
 
-                        <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
-                       <%-- <c:if test="${memberVO.rank != 3}">--%>
+                            <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
+                                <%-- <c:if test="${memberVO.rank != 3}">--%>
                             답변대기
 
-                      <%--  </c:if>--%>
+                                <%--  </c:if>--%>
 
-                    </td>
-                         </c:if>
+                        </td>
+                    </c:if>
                     <c:if test="${item.status == 1}">
                         <td class="complete td-100">답변완료</td>
                     </c:if>
@@ -110,39 +114,34 @@
             </c:forEach>
 
 
-            <div class="text-center">
-                <div class="pagination">
-                    <ul>
-
-                        <c:if test="${pageMaker.prev}">
-                            <li><a href="list${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-                        </c:if>
-
-                        <c:forEach begin="${pageMaker.startPage }"
-                                   end="${pageMaker.endPage }" var="idx">
-                            <li
-                                    <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-                                <a href="list${pageMaker.makeQuery(idx)}">${idx}</a>
-                            </li>
-                        </c:forEach>
-
-                        <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                            <li><a href="list${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-                        </c:if>
-
-                    </ul>
-                </div>
-
-            </div>
-
-
             </tbody>
         </table>
+        <div class="text-center">
+            <div class="pagination">
+                <ul>
+
+                    <c:if test="${pageMaker.prev}">
+                        <li><a href="list${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+                    </c:if>
+
+                    <c:forEach begin="${pageMaker.startPage }"
+                               end="${pageMaker.endPage }" var="idx">
+                        <li
+                                <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+                            <a href="list${pageMaker.makeQuery(idx)}">${idx}</a>
+                        </li>
+                    </c:forEach>
+
+                    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                        <li><a href="list${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+                    </c:if>
+
+                </ul>
+            </div>
+
+        </div>
     </div>
 </div>
-
-
-
 
 
 <%@ include file="../include/footer.jspf" %>

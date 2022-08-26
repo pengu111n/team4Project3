@@ -8,8 +8,8 @@
         있습니다. -->
     <insert id="create">
         INSERT INTO qna(qnaNo, qnaTitle, qnaContent,
-                        nickname, category, qnaDate, status)
-        values (qna_ID.nextval, #{qnaTitle}, #{qnaContent}, #{nickname},
+                        nickName, category, qnaDate, status)
+        values (qna_ID.nextval, #{qnaTitle}, #{qnaContent}, #{nickName},
                 #{category}, sysdate, 0)
     </insert>
 
@@ -31,11 +31,12 @@
         select qnaNo,
                qnaTitle,
                qnaContent,
-               nickname,
+               nickName,
                category,
                qnaDate,
                answerContent,
                status
+
         from qna
         where qnaNo = #{qnaNo}
     </select>
@@ -62,13 +63,13 @@
         SELECT qnaNo,
                category,
                qnaTitle,
-               nickname,
+               nickName,
                qnaDate,
                status
         FROM (SELECT qnaNo,
                      category,
                      qnaTitle,
-                     nickname,
+                     nickName,
                      qnaDate,
                      status,
                      ROW_NUMBER() OVER(ORDER BY qnaNo DESC) AS RNUM
@@ -80,8 +81,8 @@
     <update id="answer">
         update qna
         set answerContent = #{answerContent},
-            status = 1
-            where qnaNo = #{qnaNo}
+            status        = 1
+        where qnaNo = #{qnaNo}
     </update>
 
 </mapper>

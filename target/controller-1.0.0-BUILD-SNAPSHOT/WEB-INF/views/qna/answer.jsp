@@ -20,20 +20,20 @@
     <div class="ArticleContentBox">
       <div class="container">
         <div class="header">
-          <div class="header__title">
+          <%--<div class="header__title">
 
-            <span><h2><c:out value="${QNAVO.qnaTitle}" /></h2></span>
+            <span><h2><c:out value="${qna.qnaTitle}" /></h2></span>
           </div>
           <div class="header__nickname"> <!-- 닉네임 필요한가 ? 답변할 때?-->
-          <span><c:out value="${QNAVO.qnaContent}" /></span>
+          <span><c:out value="${qna.qnaContent}" /></span>
           </div>
           <div class="header__date">
-          	<span><h6>${QNAVO.qnaDate}</h6></span>
+          	<span><h6>${qna.qnaDate}</h6></span>
           	<span>
           	<input id="minus" type="button" value="-">
           	<input id="plus" type="button" value="+">
           	</span>
-          </div>
+          </div>--%>
         </div>
 
           <!-- 폼 롤로 바꾸고 -->
@@ -43,7 +43,7 @@
         <div class="content">
           <hr>
           <%--  <span>#${ansQNAReq.category}</span>  --%>
-          <textarea class="answer__Textarea" name="answerContent">안녕하세요 ${qnaVO.nickname}님 당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프! 입니다.</textarea>
+          <textarea class="answer__Textarea" name="answerContent">안녕하세요 당신의 인테리어에 대한 고민을 보다 쉽게! 인테리어 프렌드 인프! 입니다.</textarea>
         </div>
         	<div class="center">
         <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s" type="submit">

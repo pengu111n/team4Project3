@@ -29,11 +29,16 @@
 	<beans:bean id="sampleInterceptor" class="interceptor.SampleInterceptor"></beans:bean>
 	<beans:bean id="authInterceptor" class="interceptor.AuthInterceptor"></beans:bean>
 	<beans:bean id="loginInterceptor" class="interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="emailAuthInterceptor" class="interceptor.EmailAuthInterceptor"></beans:bean>
 
 	<interceptors>
 		<interceptor>
 			<mapping path="/member/login" />
 			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/*"/>
+			<beans:ref bean="emailAuthInterceptor" />
 		</interceptor>
 		<!--
 		AuthInterceptor는 특정 경로에 접근하는 경우 현재 사용자가 로그인한 상태의

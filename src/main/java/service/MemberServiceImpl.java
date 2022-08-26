@@ -51,11 +51,9 @@ public class MemberServiceImpl implements MemberService {
 		mailUtils.send();
 
 		String file = vo.getFullName();
-
 		if(file == null) { return; }
 
 
-//		mapper.attachImg(file);
 
 	}
   
@@ -125,11 +123,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void memberAuth(String email, String authKey) throws Exception {
 		mapper.memberAuth(email, authKey);
-	}
-
-	@Override
-	public void attachImg(String fullName) throws Exception {
-		mapper.attachImg(fullName);
 	}
 
 	@Override

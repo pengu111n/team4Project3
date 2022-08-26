@@ -143,7 +143,13 @@ $(document).ready(
             alert("상세 요청사항을 입력해주세요");
             $("#require").focus();
             return rv =false;
-        }else{
+        } else if ($("#agree_policy").is(":checked") == false){
+            alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+            return rv =false;
+        }else if ($("#disagree_policy").is(":checked") == true) {
+            alert("이용약관에 동의하지 않으면 본 서비스를 이용하실 수 없습니다.");
+            return rv =false;
+        } else{
             return true;
         }
     }) // submit() end
