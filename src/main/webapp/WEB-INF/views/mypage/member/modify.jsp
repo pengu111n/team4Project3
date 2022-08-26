@@ -17,6 +17,7 @@
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 register-blocks">
                     <form role="form" method="post">
+                        <input type=hidden name="auth" id="auth" value="${login.auth}"/>
                         <h2>회원정보 수정 :</h2>
                         <div class="form-group">
                             <label for="rank">회원분류</label>
@@ -72,18 +73,13 @@
                             <input type="text" class="form-control" id="email" name="email"
                                    value="${login.email}">
                         </div>
-                        <%--<div class="form-group">
-                            <label for="fullName">회원이미지</label>
-                            <input type="image" id="fullName" name="fullName" alt="이미지를 불러올 수 없습니다."
-                                   src="/displayFile?fileName=${login.fullName}"  width="200" height="200" readonly="readonly">
-                        </div>--%>
                         <div class="form-group">
                             <label>회원이미지</label>
                             <div class="fileDrop">
                                 <br/>
                                 <br/>
-                                <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
                                 <br/>
+                                <p class="text-center"><i class="fa fa-paperclip"></i> 첨부파일을 드래그해주세요.</p>
                                 <br/>
                             </div>
                             <ul class="mailbox-attachments clearfix uploadedList">
@@ -100,10 +96,18 @@
     </div>
 </div>
 
+<style>
+    .fileDrop {
+        width: 100%;
+        height: 200px;
+        border: 2px dotted #0b58a2;
+    }
+</style>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/address.js"></script>
 
-<script type="text/javascript" src="/resources/js/memberUpload.js"></script>
+<script type="text/javascript" src="/resources/js/mpMemberUpload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
@@ -113,12 +117,13 @@
             <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
             <a href="{{fullName}}"
                class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-            </span>
+            <input type=hidden name="fullName" id="fullName" value="{{fullName}}"/>
         </div>
     </li>
 </script>
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="/resources/js/mpMember.js"></script>
 <script>
     $(document).ready(function () {
         var formObj = $("form[role='form']");
