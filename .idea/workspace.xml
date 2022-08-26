@@ -11,9 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3c44dd-6726-448d-a51f-a7a621118ae4" name="Changes" comment="중간저장">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/MemberImgVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jspf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/domain/MemberImgVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +79,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/82108/Desktop/team4Project3/src/main/java/controller",
+    "last_opened_file_path": "C:/Users/82108/Desktop/team4Project3/src/main/webapp/WEB-INF/views",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
@@ -93,18 +91,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\82108\Desktop\team4Project3\src\main\webapp\WEB-INF\views" />
+      <recent name="C:\Users\82108\Desktop\team4Project3\src\main\java\service" />
+      <recent name="C:\Users\82108\Desktop\team4Project3\src\main\java\mapper" />
       <recent name="C:\Users\82108\Desktop\team4Project3\src\main\java\controller" />
       <recent name="C:\Users\82108\Desktop\team4Project3\src\main\java\domain" />
-      <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\webapp\WEB-INF\views\qna" />
-      <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\webapp\WEB-INF\views\notice" />
-      <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\resources\mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\82108\Desktop\team4Project3\src\main\resources\mapper" />
       <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\java\controller" />
       <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\webapp\WEB-INF\views\qna" />
       <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\webapp\WEB-INF\views\notice" />
       <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\java\service" />
-      <recent name="C:\Users\wiseb\IdeaProjects\team4Project3\src\main\java\mapper" />
     </key>
   </component>
   <component name="RunManager" selected="Smart Tomcat.Unnamed">
