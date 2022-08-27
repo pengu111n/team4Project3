@@ -454,7 +454,7 @@
                         endDate_check();
 
                         that.get(0).submit();
-
+                        alert("게시글이 성공적으로 등록되었습니다")
 
                     }) // submit() end
         }); // ready() end

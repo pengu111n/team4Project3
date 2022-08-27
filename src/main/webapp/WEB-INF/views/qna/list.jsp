@@ -74,6 +74,8 @@
 
 
             <c:forEach items="${list}" var="item">
+                <c:if test="${login.nickName == item.nickName || login.rank == 3}">
+
                 <tr>
                     <td>${item.qnaNo}</td>
                     <td>${item.category}</td>
@@ -111,6 +113,7 @@
                         <td class="complete td-100">답변완료</td>
                     </c:if>
                 </tr>
+                </c:if>
             </c:forEach>
 
 

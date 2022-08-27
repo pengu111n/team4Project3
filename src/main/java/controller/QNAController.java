@@ -87,14 +87,9 @@ public class QNAController {
         HttpSession session = request.getSession();
         MemberVO membervo = (MemberVO) session.getAttribute("login");
 
-        System.out.println(qnavo);
+        System.out.println("QNAVO 객체 값 :"+qnavo);
 
-        if (membervo.getRank() != 3 || qnavo.getNickName() != membervo.getNickName()) {
-
-        } else if (membervo.getRank() == 3 || qnavo.getNickName() == membervo.getNickName()) {
-            model.addAttribute(service.read(qnaNo));
-        }
-
+        model.addAttribute(service.read(qnaNo));
     }
 /*
 
