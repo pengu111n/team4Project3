@@ -72,7 +72,7 @@
             <c:if test="${QNAVO.answerContent != null}">
                 <hr>
                 <div class="answerContent">
-                    <span class="answerContent__title">답변</span>
+                    <span class="answerContent__title">${QNAVO.category}</span>
                     <span class="answerContent__Content"><br><pre>${QNAVO.answerContent}</pre></span>
                 </div>
             </c:if>
