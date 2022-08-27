@@ -27,7 +27,7 @@
     <div class="container read__container">
         <div class="header">
             <div class="header__title">
-
+                <%--<td>${QNAVO.qnaNo}</td>--%>
                 <td>${QNAVO.qnaNo}</td>
                 <span>처리상태
             <c:if test="${QNAVO.status == 0}">

@@ -87,11 +87,41 @@ public class QNAController {
         HttpSession session = request.getSession();
         MemberVO membervo = (MemberVO) session.getAttribute("login");
 
-        System.out.println("QNAVO 객체 값 :"+qnavo);
+        System.out.println("QNAVO 객체 값 :" + qnavo);
 
         model.addAttribute(service.read(qnaNo));
+
     }
 /*
+
+
+
+
+
+
+   @RequestMapping(value = "/read", method = RequestMethod.GET)
+    public void read(int qnaNo, Model model, HttpServletRequest request) throws Exception {
+
+
+/*        QNAVO qnavo = service.read(qnaNo);
+        HttpSession session = request.getSession();
+        MemberVO membervo = (MemberVO) session.getAttribute("login");
+
+        System.out.println(qnavo);*/
+
+    /*    model.addAttribute(service.read(qnaNo));*/
+
+/*
+        if (membervo.getRank() != 3 || qnavo.getNickName() != membervo.getNickName()) {
+
+        } else if (membervo.getRank() == 3 || qnavo.getNickName() == membervo.getNickName()) {
+            model.addAttribute("QNAread",service.read(qnaNo));
+        }*/
+
+    /*}*/
+
+/*
+
 
     @RequestMapping(value = "/read", method = RequestMethod.GET)
     public void read(int qnaNo, Model model, HttpServletRequest request) throws Exception {

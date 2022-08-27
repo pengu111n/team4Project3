@@ -74,43 +74,46 @@
 
 
             <c:forEach items="${list}" var="item">
-                <tr>
-                    <td>${item.qnaNo}</td>
-                    <td>${item.category}</td>
-                    <th class="title">
-                        <a href='/qna/read?qnaNo=${item.qnaNo}'>${item.qnaTitle}
-                    </th>
-                    <td class="nickname">
-                        <c:out value="${item.nickName}"/>
-                    </td>
-                    <td class="date td-100">
-                        <fmt:formatDate pattern="yy-MM-dd" value="${item.qnaDate}"/>
-                    </td>
+                <c:if test="${login.nickName == item.nickName || login.rank == 3}">
 
-                    <!-- 스테이터스가 문의글이 등록 될 때 0으로 등록되고, 답변 후에 1로 변경되어야 함. -->
-
-                    <c:if test="${item.status == 0}">
-
-                        <td class="wating td-100">
-                            <c:if test="${login.rank == 3}">
-                                <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
-
-                                <!-- 링크에 qnaNo=까지만 나오고 숫자가 안들어가네 ? -->
-
-                            </c:if>
-
-                            <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
-                            <c:if test="${login.rank != 3}">
-                                답변대기
-
-                            </c:if>
-
+                    <tr>
+                        <td>${item.qnaNo}</td>
+                        <td>${item.category}</td>
+                        <th class="title">
+                            <a href='/qna/read?qnaNo=${item.qnaNo}'>${item.qnaTitle}
+                        </th>
+                        <td class="nickname">
+                            <c:out value="${item.nickName}"/>
                         </td>
-                    </c:if>
-                    <c:if test="${item.status == 1}">
-                        <td class="complete td-100">답변완료</td>
-                    </c:if>
-                </tr>
+                        <td class="date td-100">
+                            <fmt:formatDate pattern="yy-MM-dd" value="${item.qnaDate}"/>
+                        </td>
+
+                        <!-- 스테이터스가 문의글이 등록 될 때 0으로 등록되고, 답변 후에 1로 변경되어야 함. -->
+
+                        <c:if test="${item.status == 0}">
+
+                            <td class="wating td-100">
+                                <c:if test="${login.rank == 3}">
+                                    <a href="answer?qnaNo=${item.qnaNo}<%--&pageNo=${qnaPage.currentPage}--%>">답변대기</a>
+
+                                    <!-- 링크에 qnaNo=까지만 나오고 숫자가 안들어가네 ? -->
+
+                                </c:if>
+
+                                <!-- authUser.rank  => memberVO.rank != 3 같이 변경  -->
+                                <c:if test="${login.rank != 3}">
+                                    답변대기
+
+                                </c:if>
+
+                            </td>
+                        </c:if>
+                        <c:if test="${item.status == 1}">
+                            <td class="complete td-100">답변완료</td>
+                        </c:if>
+                    </tr>
+                </c:if>
             </c:forEach>
 
 
