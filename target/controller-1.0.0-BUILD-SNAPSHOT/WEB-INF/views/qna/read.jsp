@@ -27,17 +27,20 @@
     <div class="container read__container">
         <div class="header">
             <div class="header__title">
-                <%--<td>${QNAVO.qnaNo}</td>--%>
-                <td>${QNAVO.qnaNo}</td>
+
+                <!-- 추가 -->
+                <c:if test="${login.nickName == QNAVO.nickName || login.rank == 3}">
+
+                <td>${QNAVO.qnaTitle}</td>
                 <span>처리상태
-            <c:if test="${QNAVO.status == 0}">
-                <span>답변 대기</span>
-            </c:if>
-            <c:if test="${QNAVO.status == 1}">
-                <span class="status"><strong>답변 완료</strong></span>
-            </c:if>
-            
-            </span>
+    <c:if test="${QNAVO.status == 0}">
+        <span>답변 대기</span>
+    </c:if>
+    <c:if test="${QNAVO.status == 1}">
+        <span class="status"><strong>답변 완료</strong></span>
+    </c:if>
+
+    </span>
             </div>
             <div class="header__nickname">
                 <span>${QNAVO.nickName}</span>
@@ -46,14 +49,14 @@
                 <span><h6><fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${QNAVO.qnaDate}"/></h6></span>
                 <span>
 
-                <c:if test="${login.rank == 3}">
-                    <a href="/qna/remove?qnaNo=${QNAVO.qnaNo}" onclick="confirm('삭제하시겠습니까?')">삭제</a>
-                    <a href="/qna/modify?qnaNo=${QNAVO.qnaNo}">수정</a>
-                </c:if>
+    <c:if test="${login.rank == 3}">
+        <a href="/qna/remove?qnaNo=${QNAVO.qnaNo}" onclick="confirm('삭제하시겠습니까?')">삭제</a>
+        <a href="/qna/modify?qnaNo=${QNAVO.qnaNo}">수정</a>
+    </c:if>
 
-          	<input id="minus" type="button" value="-">
-          	<input id="plus" type="button" value="+">          	
-          	</span>
+    <input id="minus" type="button" value="-">
+    <input id="plus" type="button" value="+">
+    </span>
             </div>
         </div>
         <div class="content">
@@ -75,58 +78,17 @@
             </c:if>
 
 
-            <%--
-                    효선이 댓글 부분 가져온건데 동작을 안하네
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <div class="box box-success">
-                                    <div class="box-header">
-                                        <h3 class="box-title">답변</h3>
-                                    </div>
-
-                                    <div class="box-body">
-                                        <label>Writer</label>
-                                        <input class="form-control" type="text" placeholder="USER ID"
-                                               id="newReplyWriter">
-                                        <label>Reply Text</label>
-                                        <input class="form-control" type="text"
-                                               placeholder="REPLY TEXT" id="newreplyContent">
-                                    </div>
-
-                                    <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <button type="button" class="btn btn-primary" id="replyAddBtn">답변 추가</button>
-                                    </div>
-                                </div>
-
-                                <!-- The time line -->
-                                <ul class="timeline">
-                                    <!-- timeline time label -->
-                                    <li class="time-label" id="repliesDiv">
-                                        <span class="bg-green">	Replies List </span>
-                                    </li>
-                                </ul>
-
-                                <div class='text-center'>
-                                    <ul id="pagination" class="pagination pagination-sm no-margin ">
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        --%>
-
-
         </div>
-        <div class=center>
+        <c class=center>
+            </c:if>
+
+
             <button onclick="location.href='/qna/list'" class="navbar-btn nav-button wow fadeInRight"
                     data-wow-delay="0.48s" type="submit">
                 목록으로
             </button>
-        </div>
     </div>
+</div>
 </div>
 
 

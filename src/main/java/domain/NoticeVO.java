@@ -23,17 +23,4 @@ public class NoticeVO {
     private Date regDate;
 
 
-    /*
-     * @Getter
-     *
-     * @Setter private Integer viewcnt;
-     */
-
-//    @Override
-//    public String toString() {
-//        return "NoticeVO [noticeNo=" + noticeNo + ", memno=" + memno + ", nickname=" + nickname + ", noticeTitle=" + noticeTitle
-//                + ", noticeContent=" + noticeContent + ", regDate=" + regDate + "]";
-//    }
-
-
 }

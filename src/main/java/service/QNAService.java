@@ -22,18 +22,8 @@ public interface QNAService {
     public List<QNAVO> listQNA(Criteria cri) throws Exception;
 
     public int listCount() throws Exception;
+
     public void answer(QNAVO vo) throws Exception;
 
-
-    /*
-     * public List<NoticeVO> listCriteria(Criteria cri) throws Exception; public int
-     * listCountCriteria(Criteria cri) throws Exception;
-     */
-
-//    public int countPaging(Criteria cri) throws Exception;
-//
-//    // use for dynamic sql
-//
-//    public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception;
 
 }

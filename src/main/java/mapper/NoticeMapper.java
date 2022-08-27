@@ -19,18 +19,13 @@ public interface NoticeMapper {
 
     public List<NoticeVO> listAll() throws Exception;
 
- /*   public List<NoticeVO> listPage(int page) throws Exception;*/
 
     public List<NoticeVO> listCriteria(Criteria cri) throws Exception;
 
-/*
-    public int countPaging(Criteria cri) throws Exception;
-*/
 
     public List<NoticeVO> listNotice(Criteria cri) throws Exception;
 
     public int listCount() throws Exception;
-
 
 
     // use for dynamic sql

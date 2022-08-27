@@ -24,14 +24,9 @@
 
                 <span><h2><c:out value="${notice.noticeTitle}"/></h2></span>
             </div>
-            <%--
-                        공지사항은 닉네임 필요 없는듯 ?
-               <div class="header__nickname">
-                            <span>${noticeVO.nickname}</span>
-                        </div>
-                        --%>
+
             <div class="header__date">
-                <span><h6><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${notice.regDate}" /></h6></span>
+                <span><h6><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${notice.regDate}"/></h6></span>
                 <span>
           	<%--        <c:if test="${noticeData.notice.writer.memNo == authUser.memno || authUser.rank == 3}">     --%>
 
@@ -40,11 +35,7 @@
 
 
 <c:if test="${login.rank == 3}">
-    <!--
-    http://localhost:8081/notice/read?noticeNo=5
-    http://localhost:8081/remove?noticeNo=5
 
-    -->
 
     <a href="/notice/remove?noticeNo=${notice.noticeNo}"
        onclick="confirm('삭제하시겠습니까?')">삭제</a>

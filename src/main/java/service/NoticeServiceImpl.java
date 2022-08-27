@@ -50,12 +50,6 @@ public class NoticeServiceImpl implements NoticeService {
         return noticeMapper.listCriteria(cri);
     }
 
-/*
-    @Override
-    public int listCountCriteria(Criteria cri) throws Exception {
-        return noticeMapper.countPaging(cri);
-    }
-*/
 
     @Override
     @Transactional
@@ -67,17 +61,6 @@ public class NoticeServiceImpl implements NoticeService {
     public int listCount() throws Exception {
         return noticeMapper.listCount();
     }
-
-//    @Override
-//    public int countPaging(Criteria cri) throws Exception {
-//        return noticeMapper.selectOne(cri);
-//    }
-//
-//    @Override
-//    public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception {
-//        return noticeMapper.selectList(cri);
-//    }
-
 
 
 }

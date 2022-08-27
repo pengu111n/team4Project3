@@ -20,13 +20,10 @@ public interface NoticeService {
 
     public List<NoticeVO> listCriteria(Criteria cri) throws Exception;
 
-/*    public int listCountCriteria(Criteria cri) throws Exception;*/
 
     public List<NoticeVO> listNotice(Criteria cri) throws Exception;
 
     public int listCount() throws Exception;
-//    // use for dynamic sql
-//
-//    public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception;
+
 
 }

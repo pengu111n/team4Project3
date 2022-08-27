@@ -19,30 +19,13 @@ public interface QNAMapper {
 
     public List<QNAVO> listAll() throws Exception;
 
-	public List<QNAVO> listCriteria(Criteria cri) throws Exception;
+    public List<QNAVO> listCriteria(Criteria cri) throws Exception;
 
-	public List<QNAVO> listQNA(Criteria cri) throws Exception;
+    public List<QNAVO> listQNA(Criteria cri) throws Exception;
 
-	public int listCount() throws Exception;
+    public int listCount() throws Exception;
 
-	public void answer(QNAVO vo) throws Exception;
-
-	/*
-	 * public List<QNAVO> listPage(int page) throws Exception;
-	 * 
-	 * public List<QNAVO> listCriteria(Criteria cri) throws Exception;
-	 * 
-	 * public int countPaging(Criteria cri) throws Exception;
-	 */
-
-
-    /*public List<NoticeVO> listCriteria(Criteria cri) throws Exception;*/
-
-    /*public int countPaging(Criteria cri) throws Exception;*/
-
-    // use for dynamic sql
-
-    /*public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception;*/
+    public void answer(QNAVO vo) throws Exception;
 
 
 }

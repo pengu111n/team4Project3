@@ -22,7 +22,7 @@ public class QNAServiceImpl implements QNAService {
 
     @Override
     public void create(QNAVO vo) throws Exception {
-    	qnaMapper.create(vo);
+        qnaMapper.create(vo);
     }
 
     @Override
@@ -32,15 +32,15 @@ public class QNAServiceImpl implements QNAService {
 
     @Override
     public void update(QNAVO vo) throws Exception {
-    	qnaMapper.update(vo);
+        qnaMapper.update(vo);
     }
 
     @Override
     public void delete(Integer qnaNo) throws Exception {
-    	qnaMapper.delete(qnaNo);
+        qnaMapper.delete(qnaNo);
     }
 
-    //???
+
     @Override
     public List<QNAVO> listAll() throws Exception {
         return qnaMapper.listAll();
@@ -61,30 +61,6 @@ public class QNAServiceImpl implements QNAService {
     public void answer(QNAVO vo) throws Exception {
         qnaMapper.answer(vo);
     }
-
-
-
-
-
-
-    /*
-	 * @Override public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
-	 * return noticeMapper.listCriteria(cri); }
-	 * 
-	 * @Override public int listCountCriteria(Criteria cri) throws Exception {
-	 * return noticeMapper.countPaging(cri); }
-	 */
-
-//    @Override
-//    public int countPaging(Criteria cri) throws Exception {
-//        return noticeMapper.selectOne(cri);
-//    }
-//
-//    @Override
-//    public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception {
-//        return noticeMapper.selectList(cri);
-//    }
-
 
 
 }

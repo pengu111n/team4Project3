@@ -24,7 +24,6 @@
 
 <!-- board search area -->
 <%--
-검색은 시간 되면 추후에 추가하는걸로
 <div id="board-search">
     <div class="container">
         <div class="search-window">
@@ -70,7 +69,6 @@
 
             <tbody>
 
-            <!--                여기부터 출력 안나옴. 재 작성    컨트롤러에서 리스트 넘어오는 중에 문제 있는걸로 추측              -->
 
             <c:forEach items="${list}" var="item">
 
