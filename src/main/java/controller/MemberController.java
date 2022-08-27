@@ -72,6 +72,7 @@ public class MemberController {
         System.out.println("vo = " + vo);
 
         if (vo == null) {
+            model.addAttribute("msg","사용자ID와 비밀번호를 확인하세요.");
             logger.info("널");
             return;
         }
