@@ -24,7 +24,7 @@
             <div class="box-for overflow">
                 <div class="col-md-12 col-xs-12 register-blocks">
                     <h2>새 계정 :</h2>
-                    <form name="insForm" action="register" method="post" onsubmit="fnSubmit(); SUMaddress();">
+                    <form name="insForm" action="register" method="post" onsubmit="return fnSubmit(); SUMaddress();">
                         <div class="form-group">
                         	<label for="rank">회원분류</label> 
                         		<select id="rank" name ="rank" class="selectpicker show-tick form-control" onchange="changeRank()">

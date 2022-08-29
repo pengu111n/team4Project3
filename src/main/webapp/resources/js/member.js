@@ -234,6 +234,11 @@ function SUMaddress() {
   var fakeAddress =
     $("#sample4_roadAddress").val() + " " + $("#sample4_detailAddress").val();
   realAddress.setAttribute("value", fakeAddress);
+
+  if(fakeAddress == ""){
+    realAddress.focus();
+    return false
+  }
 }
 
 function regexPW() {
