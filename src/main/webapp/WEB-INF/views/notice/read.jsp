@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<% pageContext.setAttribute("replaceChar", "<br>"); %>
+
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
@@ -54,9 +54,10 @@
           	<input id="plus" type="button" value="+"></span>
             </div>
         </div>
+        <% pageContext.setAttribute("newLine", "\n"); %>
         <div class="content">
-            <!-- 레드라인 생기는거 신경 안써도 됩니다. -->
-            ${fn:replace(notice.noticeContent, replaceChar, "\\n")}
+            ${fn:replace(notice.noticeContent, newLine, "<br/>")}
+
             <%--${notice.noticeContent}--%>
         </div>
     </div>
