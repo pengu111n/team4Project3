@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("replaceChar", "<br>"); %>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/infoBoard.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/FAQ.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/QNAForm.css">
@@ -53,7 +55,8 @@
             </div>
         </div>
         <div class="content">
-            ${notice.noticeContent}
+            ${fn:replace(notice.noticeContent, replaceChar, "\\n")}
+            <%--${notice.noticeContent}--%>
         </div>
     </div>
 </div>
