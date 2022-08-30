@@ -21,7 +21,7 @@ public class EmailAuthInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         HttpSession session = request.getSession();
         MemberVO vo = (MemberVO) session.getAttribute("login");
-        System.out.println("vo =" + vo);
+
         if(vo==null){
 
         }else if(vo.getAuth() == 0){

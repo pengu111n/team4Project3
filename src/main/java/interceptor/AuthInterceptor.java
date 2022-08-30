@@ -27,25 +27,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("login") == null) {
-
 			logger.info("current user is not logined");
-
 			saveDest(request);
-
-			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-
-			if (loginCookie != null) {
-
-				MemberVO memberVO = service.checkLoginBefore(loginCookie.getValue());
-
-				logger.info("MEMBERVO: " + memberVO);
-
-				if (memberVO != null) {
-					session.setAttribute("login", memberVO);
-					return true;
-				}
-
-			}
 
 			response.sendRedirect("/member/login");
 			return false;
@@ -72,6 +55,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			req.getSession().setAttribute("dest", uri + query);
 		}
 	}
+
+
 }
 
 /*

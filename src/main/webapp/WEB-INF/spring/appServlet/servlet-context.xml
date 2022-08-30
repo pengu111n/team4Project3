@@ -30,6 +30,7 @@
 	<beans:bean id="authInterceptor" class="interceptor.AuthInterceptor"></beans:bean>
 	<beans:bean id="loginInterceptor" class="interceptor.LoginInterceptor"></beans:bean>
 	<beans:bean id="emailAuthInterceptor" class="interceptor.EmailAuthInterceptor"></beans:bean>
+	<beans:bean id="rememberAuthInterceptor" class="interceptor.RememberInterceptor"></beans:bean>
 
 	<interceptors>
 		<interceptor>
@@ -51,8 +52,11 @@
 			<mapping path="/cboard/write" />
 			<mapping path="/mypage/member/get"/>
 			<mapping path="/qna/list"/>
-			<mapping path="/"/>
 			<beans:ref bean="authInterceptor" />
+		</interceptor>
+		<interceptor>
+			<mapping path="/**"/>
+			<beans:ref bean="rememberAuthInterceptor" />
 		</interceptor>
 	</interceptors>
 	<!--
